@@ -1,0 +1,620 @@
+<!--{if $_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1}-->
+<!--{eval dheader('Location:forum.php?mod=guide&view=hot');exit;}-->
+<!--{/if}-->
+<!--{template common/header}-->
+<!--{if !$_GET[channel] || $_GET['_tgh']}-->
+<div class="header">
+    <div class="header_cent common-padding">
+        <a class="goback fl" href="{$_G[config][kkd][url]}" ><i><img src="{IMGDIR}/kkdm//goback.png"></i></a>
+        <p>论坛-手机版-快快贷</p>
+        <span class="fr"><img src="{IMGDIR}/kkdm//dian.png"/></span>
+    </div>
+</div>
+<!--{/if}-->
+<!--banner-->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <ul>
+                <li><a href="{$advertise5[link]}"><img src="{$advertise5[url]}" alt="{$advertise5[alt]}"></a></li>
+            </ul>
+        </div>
+        <!--{if $advertise6[available] == 1}-->
+        <div class="swiper-slide">
+            <ul>
+                <li><a href="{$advertise6[link]}"><img src="{$advertise6[url]}" alt="{$advertise6[alt]}"></a></li>
+            </ul>
+        </div>
+        <!--{/if}-->
+        <!--{if $advertise7[available] == 1}-->
+        <div class="swiper-slide">
+            <ul>
+                <li><a href="{$advertise7[link]}"><img src="{$advertise7[url]}" alt="{$advertise7[alt]}"></a></li>
+            </ul>
+        </div>
+        <!--{/if}-->
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<!--<div class="banner">
+
+</div>-->
+<div class="zhibo common-padding fl">
+    <div class="zhibo_cent fl">
+        <p class="zhibo_title common-padding">快快直播间</p>
+
+        <div class="zhibostatue"></div>
+        <div class="zhibo_sp">
+            <div class="zhibo_sp_img">
+                <!--{if !$_GET[channel] && checkmobile()}-->
+                {eval $href = 'href="'.$_G['config']['kkd']['live']['h5'].'"'}
+                <!--{/if}-->
+                <a $href>
+            <img src="{$advertise8[url]}">
+                </a>
+            <div class="zhibo_bt">
+                <p>本期话题</p>
+
+                <p>{$advertise8[alt]}</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="zhibo_cent fr">
+        <p class="zhibo_title common-padding"><a href="forum.php?mod=forumdisplay&fid={eval echo C::app()->config['ext']['blog'];}">快快博客</a></p>
+
+        <div class="zhibo_sp" onclick="window.location.href='{$advertise4[link]}';">
+            <div class="zhibo_sp_img">
+            <img src="{$advertise4[url]}" alt="{$advertise4[alt]}">
+
+            <div class="zhibo_bt" onclick="window.location.href='{$advertise4[link]}';">
+                <p>{$advertise4[alt]}</p>
+
+                <p>{$advertise4[starttime]}</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--板块-->
+<div class="wrapper2 news ">
+    <ul class="news_tab ">
+        <li class="active">社区精华</li>
+        <li>行业资讯</li>
+        <li>最新发帖</li>
+        <li>最新回帖</li>
+    </ul>
+    <div class="swiper-container-1 news_cur_item">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <ul>
+                    <!--{eval $limit = 5;$k=0;}-->
+                    <!--{loop $threadsJinghuaList $thread}-->
+                        <!--{eval
+                            $k++;if($k>$limit)break;
+                        }-->
+                    <li>
+                        <i></i>
+                        <a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra" target=""><p>{$thread[subject]}</p></a>
+                        <span> <!--{eval echo date('Y-m-d',$thread['lastpost']);}--></span>
+                    </li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+            <div class="swiper-slide tab-content-2">
+                <ul>
+                    <!--{eval $k=0;}-->
+                    <!--{loop $threadsHangyeList $thread}-->
+                        <!--{eval
+                           $k++;if($k>$limit)break;
+                       }-->
+                    <li>
+                        <i></i>
+                        <a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra" target=""><p>{$thread[subject]}</p></a>
+                        <span><!--{eval echo date('Y-m-d',$thread['lastpost']);}--></span></li>
+
+                    <!--{/loop}-->
+                </ul>
+            </div>
+            <div class="swiper-slide tab-content-2">
+                <ul>
+                    <!--{eval $k=0;}-->
+                    <!--{loop $grids['newthread'] $k $thread}-->
+                    <!--{eval $k++;$class=$k<4?'pai':'';if($k>$limit)break;}-->
+                    <li>
+                        <i></i>
+                        <a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra" target="">
+                            <p>$thread[subject]</p>
+                        </a><span><!--{eval echo date('Y-m-d',$thread['lastpostt']);}--></span></li>
+                    <!--{/loop}-->
+
+                </ul>
+            </div>
+            <div class="swiper-slide tab-content-2">
+                <ul>
+                    <!--{eval $k=0;}-->
+                    <!--{loop $grids['newreply'] $k $thread}-->
+                    <!--{eval $k++;$class=$k<4?'pai':'';if($k>$limit)break;}-->
+                    <li>
+                        <i></i>
+                        <a href="forum.php?mod=redirect&tid=$thread[tid]&goto=lastpost#lastpost" target="">
+                            <p>$thread[subject]</p>
+                        </a><span><!--{eval echo date('Y-m-d',$thread['lastpostt']);}--></span></li>
+
+                    <!--{/loop}-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--板块-->
+    <style>
+        .dt_fb a{
+            color: inherit;
+        }
+    </style>
+    <!--{loop $catlist $cate}-->
+    <!--{loop $cate['forums'] $fid}-->
+    <!--{eval
+    $forum = $forumlist[$fid];$forum[iconImg] = $forum[iconImg] ? $forum[iconImg] : IMGDIR.'/forum'.($forum['folder']?'_new':'').'.gif';
+    $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];
+    }-->
+<div class="place fl ">
+    <div class="common-padding">
+        <div class="place_top">
+            <a href="{$forumurl}"><div class="fl"><i><img src="$forum[iconImg]"/></i>$forum[name] <!--{eval echo $forum['todayposts'] ? ('('.$forum['todayposts'].')'):'';}--></div></a>
+            <div class="fr"><i class="i1"><img src="{IMGDIR}/kkdm//see.png"/></i><span>$forumViews[$fid]</span>
+                <!--{eval $forum['reply'] = $forum['posts'] - $forum['threads'];}-->
+                <i class="i2"><img src="{IMGDIR}/kkdm//pl.png"></i><span>$forum[reply]</span></div>
+        </div>
+        <p class="dt_nr"><span>最新动态:</span> <a target="" style="color: inherit" href="forum.php?mod=redirect&amp;tid={$forum[lastpost][tid]}&amp;goto=lastpost#lastpost">$forum[lastpost][subject]</a></p>
+
+        <p class="dt_fb">$forum[lastpost][author] 发表于 $forum[lastpost][dateline]</p>
+    </div>
+</div>
+
+    <!--{/loop}-->
+    <!--{/loop}-->
+
+<div id="slideBox" class="slideBox">
+    <div class="bd">
+        <ul>
+            <li>
+                <div class="pbbd fl">
+                    <div class="phbd_title">
+                        <p></p>
+                        <span>快快热榜</span>
+                    </div>
+                    <p class="common-padding sq_title">社区热门人物</p>
+                    <ul class="ph_tab">
+                        <li class="spe1">
+                            <span>排名</span>
+                            <span>用户名 </span>
+                            <span style="text-align: right">热度值</span>
+                        </li>
+                        <!--{loop $userRanking $key $data}-->
+                        <!--{if $key == 0}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num1.png"/></span>
+                            <!--{elseif $key == 1}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num2.png"/></span>
+                            <!--{elseif $key == 2}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num3.png"/></span>
+                            <!--{else}-->
+                        <li class="num4">
+                            <span class="spanleft"><i>{eval echo $key+1;}</i></span>
+                            <!--{/if}-->
+                            <span class="spanleftcenter"><img src="{$data[imageUrl]}"></span>
+                            <span class="spanrightcenter">{$data[username]}</span>
+                            <span class="spanright">{$data[credits]}</span>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="pbbd fl">
+                    <div class="phbd_title">
+                        <p></p>
+                        <span>快快热榜</span>
+                    </div>
+                    <p class="common-padding sq_title">月度理财王</p>
+                    <ul class="ph_tab">
+                        <li class="spe1">
+                            <span >排名</span>
+                            <span>用户名 </span>
+                            <span style="text-align: right">投资金额</span>
+                        </li>
+                        <!--{loop $kkdRankInvestment $key $data}-->
+                        <!--{if $key == 0}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num1.png"/></span>
+                            <!--{elseif $key == 1}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num2.png"/></span>
+                            <!--{elseif $key == 2}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num3.png"/></span>
+                            <!--{else}-->
+                        <li class="num4">
+                            <span class="spanleft"><i>{eval echo $key+1;}</i></span>
+                            <!--{/if}-->
+                            <span class="spanleftcenter"><img src="{$data[imageUrl]}"></span>
+                            <span class="spanrightcenter">{$data[customerName]}</span>
+                            <span class="spanright">{$data[amount]}</span>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="pbbd fl">
+                    <div class="phbd_title">
+                        <p></p>
+                        <span>快快热榜</span>
+                    </div>
+                    <p class="common-padding sq_title">邀请好友投资榜</p>
+                    <ul class="ph_tab">
+                        <li class="spe1">
+                            <span >排名</span>
+                            <span>用户名 </span>
+                            <span style="text-align: right">投资金额</span>
+                        </li>
+                        <!--{loop $kkdRankInvite $key $data}-->
+                        <!--{if $key == 0}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num1.png"/></span>
+                            <!--{elseif $key == 1}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num2.png"/></span>
+                            <!--{elseif $key == 2}-->
+                        <li class="num1">
+                            <span class="spanleft"><img src="{IMGDIR}/kkdm//num3.png"/></span>
+                            <!--{else}-->
+                        <li class="num4">
+                            <span class="spanleft"><i>{eval echo $key+1;}</i></span>
+                            <!--{/if}-->
+                            <span class="spanleftcenter"><img src="{$data[imageUrl]}"></span>
+                            <span class="spanrightcenter">{$data[customerName]}</span>
+                            <span class="spanright">{$data[amount]}</span>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hd">
+        <ul></ul>
+    </div>
+    <!-- 本例主要代码 End ================================ -->
+    <!-- 效果导航 -->
+</div>
+<div class="pic_tg">
+    <a href="{$advertise1[link]}"><img src="{$advertise1[url]}" alt="{$advertise1[alt]}"></a>
+</div>
+<div class="pic_tg">
+    <a href="{$advertise2[link]}"><img src="{$advertise2[url]}" alt="{$advertise2[alt]}"></a>
+</div>
+<div class="pic_tg">
+    <a href="{$advertise3[link]}"><img src="{$advertise3[url]}" alt="{$advertise3[alt]}"></a>
+</div>
+<script type="text/javascript">
+</script>
+<!--侧边栏-->
+<div class="cb_block hiden">
+    <div class="cb_block_fl fl"></div>
+    <div class="cb_block_fr fr">
+        <div class="cb_tx">
+            <!--{if empty($_G[uid])&&empty($_GET[channel])}-->
+            <!--{eval $href = 'href="/member.php?mod=logging&action=login&mobile=2"';}-->
+            <!--{/if}-->
+            <!--{if !empty($_G[member][username])}-->
+            <!--{eval $href = 'href="home.php?mod=space&uid='.$_G['uid'].'&do=profile&mycenter=1&mobile=2"';}-->
+            <a $href><img src="{$_G[member][lyqavatar]}"/></a>
+            <!--{else}-->
+            <a $href><img src="{IMGDIR}/kkdm//tx.png"/></a>
+            <!--{/if}-->
+            <p>
+                <!--{if !empty($_G[kkdname])}-->
+                {$_G[kkdname]}
+                <!--{else}-->
+                {$_G[username]}
+                <!--{/if}-->
+            </p>
+            <script>
+                var log = function(a,b){
+                    if(b){
+                        console.log(a,b);
+                    }else{
+                        console.log(a);
+                    }
+                }
+            </script>
+        </div>
+        <ul class="cb_list">
+            <li><a href="search.php?mod=forum&mobile=2"><i class="i1"><img src="{IMGDIR}/kkdm/djsearch.png"/></i><span>搜索</span></a></li>
+            <!--{eval
+            if(strtolower($_GET[channel])=='ios' && !$_G['uid'])$href = '';
+            if(strtolower($_GET[channel])!='ios' || $_G['uid'])$href = 'href="home.php?mod=space&do=favorite&view=me"';
+            }-->
+            <li><a $href class="shoucang"><i class="i2"><img src="{IMGDIR}/kkdm/djcollect.png"/></i><span>已收藏</span></a></li>
+            <!--<li><i class="i3"><img src="{IMGDIR}/kkdm//icon3.png"/></i><span>分享</span></li>-->
+        </ul>
+    </div>
+</div>
+
+<div class="ft">
+    <!--{if $_GET[channel] && !$_G[uid]}-->
+        <!--{eval $cl = "fatie";$hr = ""}-->
+        <!--{/if}-->
+
+        <!--{if !($_GET[channel] && !$_G[uid])}-->
+    <!--{eval $cl = "fatie";$hr = "href='/forum.php?mod=post&action=newthread&fid=".($_G[config][ext][investFid]?$_G[config][ext][investFid]:array_keys($forumViews)[1])."'";}-->
+            <!--{/if}-->
+    <a class="$cl" $hr target="">
+        <img src="{IMGDIR}/kkdm//ft.png"/>
+    </a>
+</div>
+<script>
+    jQuery(function () {
+        var mylunbo = new Swiper('.swiper-container', {
+        <!--{if $advertiseCount([$advertise5, $advertise6, $advertise7]) > 1}-->
+            loop: true,
+            autoplay: 3000,
+            pagination: '.swiper-pagination',
+            <!--{/if}-->
+            paginationClickable: true
+        });
+        var mylunbo2 = new Swiper('.swiper-container2', {
+            loop: true,
+            autoplay: 3000,
+            pagination: '.swiper-pagination',
+            paginationClickable: true
+        });
+        var mytab = new Swiper('.swiper-container-1', {
+            onSlideChangeEnd: function (swiper) {
+                var j = mytab.activeIndex;
+                jQuery('.news_tab li, .maple-tab2 li').removeClass('active').eq(j).addClass('active');
+            }
+        })
+        jQuery('.news_tab li, .maple-tab2 li').on('click', function (e) {
+            e.preventDefault();
+            //得到当前索引
+            var i = jQuery(this).index();
+            jQuery('.news_tab li, .maple-tab2 li').removeClass('active').eq(i).addClass('active');
+            mytab.slideTo(i, 1000, false);
+        });
+        var count = 0;
+        var ww = setTimeout(function () {
+            TouchSlide({
+                slideCell: "#slideBox",
+                titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell: ".bd ul",
+                effect: "leftLoop",
+                autoPage: true, //自动分页
+                // autoPlay: true //自动播放
+            });
+            count++;
+        }, 400);
+    });
+    <!--{if $_G[uid]}-->
+    var isLogin = 1;
+
+<!--{/if}-->
+<!--{if !$_G[uid]}-->
+
+    var isLogin = 0;
+
+<!--{/if}-->
+
+    //ios 调用 js代码
+    var IsShow=false;
+    var debug = 0;
+    document.addEventListener('WebViewJavascriptBridgeReady', onBridgeReady, false)
+    function onBridgeReady(event) {
+        if(debug == 0)$('.log').hide();
+        $('.log').append('ios event start<br>');
+        var bridge = event.bridge
+        bridge.init(function(message, responseCallback) {
+            var data = { 'Javascript Responds':'Wee!' }
+            log('JS responding with', data)
+            responseCallback(data)
+        })
+        bridge.registerHandler('KKDbutton',KKDbutton);
+        bridge.registerHandler('KKDheaderhide',KKDheaderhide);
+
+        <!--{if strtolower($_GET[channel])=='ios'}-->
+        <!--{eval var_log('load ios js...');}-->
+        <!--这里是ios js-->
+        $('.log').append('login btn listen...<br>');
+        jQuery('.cb_tx img')[0].onclick = function(e) {
+            if(isLogin==1)return;
+            //js 发送消息给ios
+            //调用登录方法
+            var loginData = {
+                data : 'gologin'
+            }
+            bridge.send(loginData, function(responseData) {
+                log('JS got response', responseData)
+            })
+        }
+        $('.log').append('goback btn listen...<br>');
+        if(jQuery('.goback')[0])jQuery('.goback')[0].onclick = function(e) {
+            //js 发送消息给ios
+            //调用登录方法
+            var data = {};
+            var loginData = {
+                type : 'goBack',
+                data : data
+            }
+            bridge.send(loginData, function(responseData) {
+                log('JS got response', responseData)
+            })
+        }
+        $('.log').append('fatie btn listen...<br>');
+        jQuery('.fatie img')[0].onclick = function(e) {
+            if(isLogin==1)return;
+            //js 发送消息给ios
+            //调用登录方法
+            var loginData = {
+                data : 'gologin'
+            }
+            bridge.send(loginData, function(responseData) {
+                log('JS got response', responseData)
+            });
+        }
+        $('.log').append('zhibo btn listen...<br>');
+        jQuery('.zhibo_sp_img')[0].onclick = function(e) {
+            $('.log').append('zhibo btn click...<br>');
+            //if(isLogin==1)return;
+            //js 发送消息给ios
+            //调用登录方法
+            bridge.callHandler('kkdGoAnyPage', {'page': 'LiveViewController'}, function(response) {
+
+            })
+        }
+        jQuery('.shoucang')[0].onclick = function(e) {
+            if(isLogin==1)return;
+            $('.log').append('shoucang btn click...<br>');
+            if(isLogin==1)return;
+            //js 发送消息给ios
+            //调用登录方法
+            var loginData = {
+                data : 'gologin'
+            }
+            bridge.send(loginData, function(responseData) {
+                log('JS got response', responseData)
+            });
+        }
+        <!--{/if}-->
+    }
+
+    function KKDheaderhide(data,responseCallback){
+        $('.header').hide();
+        var responseData = { 'Javascript Says':'title hide' }
+        responseCallback(responseData);
+    }
+
+    function KKDbutton(data,responseCallback){
+        if (!IsShow){
+            IsShow=true;
+            console.log(IsShow);
+            $('.cb_block').fadeIn(500);
+            $(".cb_block_fr").animate({ right : 0},{duration:'fast'});
+            var responseData = { 'Javascript Says':'siderbar show' }
+            responseCallback(responseData)
+
+        }else{
+            IsShow=false;
+            console.log(IsShow);
+            $('.cb_block').fadeOut(500);
+            var d='-'+screenWidths+'px';
+            $(".cb_block_fr").animate({ right : d},{duration:'fast'});
+            var responseData = { 'Javascript Says':'siderbar hide' }
+            responseCallback(responseData)
+        }
+    }
+
+    //侧边栏隐藏和显示
+
+    $('.header .fr').click(function(){
+        IsShow=true;
+        console.log(IsShow);
+        $('.cb_block').fadeIn(500);
+        $(".cb_block_fr").animate({ right : 0},{duration:'fast'});
+    })
+
+    $('.cb_block').click(function(){
+        IsShow=false;
+        console.log(IsShow);
+        $('.cb_block').fadeOut(500);
+        var d='-'+screenWidths+'px';
+        $(".cb_block_fr").animate({ right : d},{duration:'fast'});
+
+    })
+
+
+    var screenWidths = $(window).width()/2
+
+
+    $('.cb_block_fr').css("right",'-'+screenWidths+'px');
+
+    var url1 = "{$_G[config][kkd][live][status]}";
+    var url2 = "?pageNo=1&pageSize=10";
+    url1 = encodeURIComponent(url1);
+    url2 = encodeURIComponent(url2);
+    var vidoUrl = url1+url2;
+    //console.log(vidoUrl);
+    $.ajax({
+        type: 'GET',
+        url: '/api.php?mod=getDataFromUrl&url='+vidoUrl,//
+        dataType:"json",
+        success: function(data) {
+            console.log(data.code);
+            if (data.code == 0) {
+                if (data.data.currentVideo!=null){
+                    $('.zhibostatue').html('直播中');
+                }
+
+            } else {
+                console.log('直播状态无法请求');
+
+            }
+        },
+        error: function() {
+            console.log('网络问题');
+
+        }
+    });
+
+</script>
+
+<script type="text/javascript" src="{$_G[setting][jspath]}kkdm/TouchSlide.1.1.js"></script>
+<!--{if $isForumIndex}-->
+<script type="text/javascript" src="{$_G[setting][jspath]}kkdm/activity_register-2.js"></script>
+<!--{/if}-->
+<script type="text/javascript" src="{$_G[setting][jspath]}kkdm/swiper-3.3.1.min.js"></script>
+
+<!--app 联动js-->
+<!--{if strtolower($_GET[channel])=='android'}-->
+<!--这里是安卓js-->
+<script>
+    jQuery('.cb_tx img').click(function(){
+        if(isLogin==1)return;
+        log('android gotoLogin event start...');
+        window.KKD_Control.gotoLogin();
+    });
+    jQuery('.fatie').click(function(){
+        if(isLogin==1)return;
+        log('android gotoLogin event start...');
+        window.KKD_Control.gotoLogin();
+    });
+    jQuery('.zhibo_sp_img:first').click(function(){
+        //if(isLogin==1)return;
+        log('android zhibo event start...');
+        window.KKD_Control.jumpto("com.kkd.kkdapp","com.kkd.kkdapp.activity.LiveHomeActivity");//跳app直播的方法
+    });
+    if(jQuery('.goback')[0])jQuery('.goback').click(function(){
+        log('android goBack event start...');
+        window.KKD_Control.goBack();
+    });
+</script>
+<!--{/if}-->
+<div class="log" style="position: fixed;bottom: 0;font-size: 10px;color: gainsboro"></div>
+</body>
+
+
+    <!--{if  $_G['errorMsg']}-->
+    <script>
+        var error = '$_G[errorMsg]';
+        setTimeout(function(){
+            alert(error);
+        },500);
+    </script>
+        <!--{/if}-->
+
+</html>

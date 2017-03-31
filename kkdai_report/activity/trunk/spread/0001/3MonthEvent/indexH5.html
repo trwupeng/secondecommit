@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>3.8女人节</title>
+		<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+	    <!-- 苹果手机顶部为黑色 -->
+	    <meta name="apple-mobile-web-status-bar-style" content="block" />
+	    <!-- 屏蔽浏览器自动识别数字为电话号码 -->
+	    <meta content="telephone=no" name="format-detection">
+		<link rel="stylesheet" href="css/base.css" />
+	</head>
+	<body>
+		<div id="banner">
+			<img src="http://image.kuaikuaidai.com/activity/4MonthEvent/44a3b7f208c34f91922b2e5c1cb03801.jpg">
+		</div>
+		<section id="con">
+			<div class="shujuZong">
+				<img src="http://image.kuaikuaidai.com/activity/4MonthEvent/45fb6de8876e4cdda74101a2dccfd210.jpg">
+			</div>
+			<div class="uerShouyi">
+				
+					<img src="http://image.kuaikuaidai.com/activity/4MonthEvent/290c96808666449c8e00c08e3d4f7c9d.jpg">
+				
+				
+			</div>
+			<div class="uerShouyi" style="background:#fff;">
+				
+					<img src="http://image.kuaikuaidai.com/activity/4MonthEvent/ada5b0be1bf84a15a9ab86d952aa21d7.jpg">
+				
+				
+			</div>
+			
+		</section>
+	</body>
+	<script src="js/activity_register-1.js"></script>
+	<script>
+		/* ios返回处理 */
+		document.addEventListener('WebViewJavascriptBridgeReady', onBridgeReady, false)
+			function onBridgeReady(event) {
+				bridge = event.bridge;
+				bridge.init(function(message, responseCallback) {
+					
+				})
+				bridge.registerHandler('goBack', function(data, responseCallback) {		
+					goBack();
+					responseCallback(2);
+				})
+			}
+			
+		function goBack(){
+			window.location.href="http://www.kuaikuaidai.com/h5/busiInfo.html#jumpyw";
+		}
+
+	</script>
+</html>

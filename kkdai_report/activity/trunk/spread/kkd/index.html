@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="keywords" content=""/>
+	    <title>快快贷</title>
+	    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!-- 删除默认的苹果工具栏和菜单栏 -->
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <!-- 苹果手机顶部为黑色 -->
+	    <meta name="apple-mobile-web-status-bar-style" content="block" />
+	    <!-- 屏蔽浏览器自动识别数字为电话号码 -->
+	    <meta content="telephone=no" name="format-detection">
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+	</head>
+	<body>
+		<div class="_head">
+			<h2 class="kkl"><img src="img/logo.png"></h2>
+			<em></em>
+			<h2 class="ping"><img src="img/logo2.png"></h2>
+		</div>
+		<div id="banner">
+		<!--banner-->
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			    <div class="swiper-slide">
+				    <ul>
+			            <li>
+						<a href="#"><img src="img/banner01.png"/></a></li>
+			        </ul>
+				</div>
+			    <div class="swiper-slide">
+				    <ul>
+			            <li><img src="img/banner01.png"/></li>
+			        </ul>
+				</div>
+			    
+			    </div>
+				
+				<!-- Add Pagination -->
+			        <div class="swiper-pagination"></div>
+			</div>
+
+		</div>
+		<section id="con">
+			<div class="design">				
+				<div><input type="tel" class="tel" placeholder="请输入手机号"></div>
+				<p class="tishi">必填</p>
+				<div><input type="text" class="tel" placeholder="请设置6-16位数字，字母组成的登录密码"></div>
+				<p class="tishi">必填</p>
+				<div class="div">
+					<input type="password" class="pwd " placeholder="输入密码">
+					<span class="btnSum">获取验证码</span>
+				</div>
+				<p class="tishi">必填</p>
+				<p id="ag">阅读并同意<a>《快快金融平台注册及用户服务协议》</a></p>
+				<img src="img/zhuceBtn.png">
+				<span class="_span">已有账号直接登陆</span>
+				<div class="tk" style="display:none;"></div>
+			</div>
+			<div class="youshi">
+				<img src="img/youTitle.png">
+					<div class="youCon">
+						<img src="img/youCon.png">
+					</div>
+			</div>
+			<div class="youshi" style="margin-top:-1.8rem;">
+				<img src="img/yuTitle.png">
+					<div class="youCon" style="margin-top:-0.25rem;">
+						<img src="img/yuCon.png" style="width: 99%;">
+					</div>
+			</div>
+		</section>
+		<footer>
+			<p class="p1">中国领先的房产融资类互联网金融平台</p>
+			<img src="img/logo.png" class="logo2">
+			<p class="p2">快快金融信息服务（上海）有限公司</p>
+			<p class="p2">沪ICP备14019247</p>
+			<p class="p1" style="font-size: 0.32rem; margin: 0.2rem auto;">客服热线：<span>400-137-000</span>（9:00-21:00）</p>
+			<p class="p2" style="color:#ccc; font-size: 0.3rem;">风险提示：投资有风险，理财需谨慎</p>
+		</footer>
+		<div id="floatCeng">
+			<div class="_back">
+				<span></span>
+			</div>
+			<div class="kkdC">
+				<p class="kklogo">
+					<img src="img/kkdlogo.png">
+					<span>真实房产抵押 年化利率高达9%-10.5%</span>
+				</p>
+				<img src="img/xiazai.png" class="xiazai">
+			</div>
+		</div>
+	</body>
+	<script src="js/zepto_min.js"></script>
+	<script src="js/swiper-3.3.1.min.js"></script>
+	
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+    
+    function getFont(){
+        var html1=document.documentElement; 
+        var agreeP = document.getElementById('ag');
+        var screen=html1.clientWidth;
+        var lg = 0;
+        if(screen <= 320){
+            html1.style.fontSize = '46.3768px'; 
+            lg = 0
+           
+        }else if(screen >= 640){
+            html1.style.fontSize = '92.7536px'; 
+            lg = 0.77+'rem';
+            
+        }else{
+            html1.style.fontSize=0.145*screen+'px';
+           	lg = (0.145*screen)/200+'rem';
+            
+        }
+        agreeP.style.marginLeft = lg;
+                
+    }
+    getFont();   
+    window.onresize=function(){
+        getFont();
+       
+    }
+})
+	
+	
+var mylunbo = new Swiper('.swiper-container',{
+    loop: true,
+	autoplay: 3000,
+	pagination: '.swiper-pagination',
+        paginationClickable: true
+  }); 
+    
+ 
+
+
+var mytab = new Swiper('.swiper-container-1', {
+    onSlideChangeEnd: function (swiper) {
+        var j=mytab.activeIndex;
+		console.log(j);
+        $('.news_tab li, .maple-tab2 li').removeClass('active').eq(j).addClass('active');
+    }
+})
+        
+$('.news_tab li, .maple-tab2 li').on('click', function (e) {
+    e.preventDefault();
+    //得到当前索引
+    var i=$(this).index();
+    $('.news_tab li, .maple-tab2 li').removeClass('active').eq(i).addClass('active');
+    mytab.slideTo(i,1000,false);
+});  
+    
+	
+	
+ 
+
+   
+</script>
+	
+</html>

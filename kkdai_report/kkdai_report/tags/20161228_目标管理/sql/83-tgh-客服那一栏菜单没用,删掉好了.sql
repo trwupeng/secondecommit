@@ -1,0 +1,1 @@
+﻿DELETE FROM `tb_menu` WHERE (`id`='1')

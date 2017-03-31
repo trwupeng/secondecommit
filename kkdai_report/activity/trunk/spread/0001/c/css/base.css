@@ -1,0 +1,488 @@
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '微软雅黑';
+	color: #3B3B3B;
+	background-color: #fff;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '微软雅黑';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'微软雅黑';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+#logo{
+	height: 1.1rem;
+	width: 100%;
+	padding-left:0.13rem;
+	padding-right:0.13rem;
+}
+#logo h2{
+	float: left;
+	width: 50%;
+	height: 94%;
+	margin-top:0.1rem;
+}
+#logo img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+#logo input{
+	float:right;
+	width: 20%;
+	height:0.7rem;
+	background:#9879cd;
+	color:#fff;
+	font-size: 0.32rem;
+	border:1px solid #9879cd;
+	border-radius: 5px;
+	margin-top:0.24rem;
+}
+#backg{
+	width: 100%;
+	height: auto;
+	
+}
+#backg img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+#con{
+	width: 100%;
+	height: auto;
+	background:#1076d6;
+	overflow: hidden;
+	margin-top: -0.08rem;
+}
+.tishi{ 
+	width:100%; 
+	margin:0 auto; 
+	font-size:0.26rem; 
+	color:red; 
+	margin-bottom:10px; 
+	line-height:15px; 
+	display:none; 
+	text-align:left; 
+	padding-left:8px;
+}
+.tk{  
+	width:250px; 
+	height:40px; 
+	line-height:40px; 
+	text-align:center; 
+	background:rgba(0,0,0,0.85); 
+	color:#fff; 
+	border-radius:5px; 
+	position:absolute; 
+	top:60%; 
+	/*margin-top:-60px; */
+	left:50%; 
+	margin-left:-125px; 
+	z-index:6; 
+	font-size:14px;
+}
+.libaoBtn{
+	width: 85%;
+	height: 0.7rem;
+	margin: 0 auto;
+	margin-top: 0.3rem;
+	margin-bottom: 0.2rem;
+}
+.libaoBtn input{
+	width: 40%;
+	float: left;
+	height: 0.7rem;
+	font-size: 0.32rem;
+	font-weight: bold;
+	color:#bf6700;
+	background:#ffc000;
+	border:1px solid #ffc000;
+	border-radius: 4px;
+	margin-left: 0.3rem;
+}
+.libaoBtn .baba{
+	float: right;
+	margin-right: 0.3rem;
+}
+
+.design{
+	width: 100%;
+	height: auto;
+	padding:0.2rem 0.6rem;	
+}
+.design>div{
+	width: 100%;
+	height: 0.78rem;
+	margin-bottom: 0.3rem;
+}
+.design input{
+	width:100%;
+	height:100%;
+	border: transparent;
+	display: block;
+	padding:0 0.2rem;
+	font-size: 0.29rem;
+}
+.codeDiv{
+	position: relative;
+}
+.code{
+	width:1.7rem;
+	height: 0.6rem;
+	background:#ff9c00;
+	border-radius: 6%;
+	position: absolute;
+	right: 0.1rem;
+	top: 0.1rem;
+	border:1px solid #ff9c00;
+	display: block;
+	color:#fff;
+	font-size: 0.25rem;
+}
+.agree{
+	width: 85%;
+	height: 0.4rem;
+	font-size: 0.25rem;
+	text-align: center;
+	line-height: 0.42rem;
+	margin: 0 auto;
+	padding-left:0.32rem;
+	background:url(http://image.kuaikuaidai.com/activity/2016102002/68cecb3a63164d689a3ece5bdd9c80af.jpg) left center no-repeat;
+	background-size:5.6%;
+	margin-top:0.3rem;
+}
+.agree a{
+	color:#22c3ff;	
+}
+.sub{
+	display: block;
+	width: 70%;
+	height: 0.78rem;
+	line-height: 0.8rem;
+	background:#fe4e4e;
+	color:#fff;
+	border:1px solid #FE4E4E;
+	margin: 0.3rem auto;
+	font-size: 0.3rem;
+	border-radius: 7px;
+}
+.design .sub{
+	display: block;
+	width: 80%;
+	height: 0.78rem;
+	line-height: 0.78rem;
+	background:#ff5f67;
+	color:#fff;
+	border:1px solid #ff5f67;
+	margin: 0.3rem auto;
+	font-size: 0.3rem;
+	border-radius: 7px;
+}
+.tupian1,.new{
+	position: relative;
+}
+.tupian1 .sub{
+	width: 50%;
+    background: #ff5f67;
+    position: absolute;
+    bottom: 0.7rem;
+    left: 1.5rem;
+    line-height: 0.72rem;
+    height: 0.72rem;
+    font-size: 0.3rem;
+}
+.new .yaoyao{
+	width: 38%;
+    background: #ff5f67;
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0.6rem;
+    line-height: 0.7rem;
+    height: 0.7rem;
+    font-size: 0.3rem;
+    border-radius: 5px;
+}
+.tupian1,.new{
+	width: 85%;
+	height: auto;
+	margin: 0 auto;
+	background:#2395ee;
+
+}
+
+.tupian1 img,.new img{
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+.tip{
+	color:#128cff;
+	font-size: 0.28rem;
+	width: 60%;
+	text-align: center;
+	margin: 0.1rem auto;
+	background: #1076d6;
+	height: 0.5rem;
+	line-height: 0.5rem;
+}
+
+.bigBtn{
+	width: 70%;
+	height: 0.75rem;	
+	margin: 0 auto;
+	margin-bottom: 0.3rem;
+	margin-top:0.2rem;
+}
+.bigBtn button{
+	line-height: 0.75rem;
+	width: 100%;
+	height: 100%;
+	display: block;
+	background:#ffa14e ;
+	border:1px solid #ffa14e;
+	border-radius: 5px;
+	color: #fff;
+	font-size:0.3rem;
+	
+}
+.bigBtn .telp{
+	border:1px solid #4ebaff;
+	background:#4ebaff url(http://image.kuaikuaidai.com/activity/2016102003/c5805af5c00444678d7b3d667607eda6.jpg) 1.1rem center no-repeat;
+	background-size: 8%;
+}
+.codeDiv .yzm_gray{ 	
+	text-align:center; 
+	background:#bfbfbf; 
+	background-size: cover;
+	color:#fff; 
+	cursor:pointer;
+	border:1px solid #BFBFBF;
+}
+.foot{
+	width: 100%;
+	height: 0.7rem;
+	line-height: 0.7rem;
+	text-align: center;
+	font-size: 0.24rem;
+	color: #838ca5;
+	font-weight: bold;
+}
+
+#btnZu{	
+	width: 85%;
+    height: 1.1rem;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    margin: auto;
+    margin-bottom: 0.2rem;
+}
+
+#btnZu input {
+    width: 40%;
+    float: left;
+    height: 0.7rem;
+    font-size: 0.32rem;
+    font-weight: bold;
+    color: #bf6700;
+    background: #ffc000;
+    border: 1px solid #ffc000;
+    border-radius: 4px;
+    margin-left: 0.3rem;
+    margin-top:0.3rem;
+}
+
+#btnZus{	
+	width: 100%;
+	height: 1.1rem;
+	//position: fixed;
+	top: 0;
+	left: 0;
+	z-index:100;
+	
+	//display: none;
+}
+#btnZus>div{
+	width: 85%;
+    margin: 0 auto;
+}
+
+#btnZu .baba {
+    float: right;
+    margin-right: 0.3rem;
+    /*color:#f81700;*/
+}
+
+#btnZus input {
+    width: 40%;
+    float: left;
+    height: 0.7rem;
+    font-size: 0.32rem;
+    font-weight: bold;
+    color: #bf6700;
+    background: #ffc000;
+    border: 1px solid #ffc000;
+    border-radius: 4px;
+    margin-left: 0.3rem;
+    margin-top:0.2rem;
+}
+
+#btnZus .baba {
+    float: right;
+    margin-right: 0.3rem;
+    /*color:#f81700;*/
+}
+
+#APP{
+	width: 100%;
+	height: 1.1rem;
+	//position: fixed;
+	bottom: 0;
+	left: 0;
+	//background:rgba(255,255,255,0.6);
+	//display: none;
+	z-index:100;
+}
+
+#APP button {
+    line-height: 0.8rem;
+    width: 70%;
+    height: 0.8rem;
+    display: block;
+    background: #ffa14e;
+    border: 1px solid #ffa14e;
+    border-radius: 5px;
+    color: #fff;
+    margin: auto;
+    margin-top:0.15rem;
+    font-size:0.3rem;
+}
+
+#APP a,.bigBtn a{
+	display:block;
+	height: auto;
+}
+
+#APPs{
+	width: 100%;
+	height: 1.1rem;
+	/*position: fixed;*/
+	bottom: 0;
+	left: 0;
+	/*background:rgba(255,255,255,0.6);
+	//display: none;*/
+	z-index:100;
+}
+#APPs a{
+	display: block;
+	height: auto;
+}
+#APPs button {
+    line-height: 0.8rem;
+    width:70%;
+    height: 0.8rem;
+    display: block;
+    background: #ffa14e;
+    border: 1px solid #ffa14e;
+    border-radius: 5px;
+    color: #fff;
+    margin: auto;
+    margin-top:0.15rem;
+    font-size: 0.3rem;
+}
+
+#paopao{
+	display:none;
+	min-width: 100px;
+	max-width: 100%;
+	height:40px; 
+	line-height:40px; 
+	text-align:center; 
+	background:rgba(0,0,0,0.5); 
+	color:#fff; 
+	border-radius:15px; 
+	position:fixed; 
+	top:50%; 
+	margin-top:-60px; 
+	left:36%; 
+	/*margin-right:20px;*/ 
+	z-index:6; 
+	font-size:14px;
+	padding-left:0.2rem;
+	padding-right: 0.2rem;
+}
+
+

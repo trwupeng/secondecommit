@@ -1,0 +1,105 @@
+<style>
+    #usersBox>div{
+        margin: 10px;
+        font-size: 14px;
+    }
+</style>
+    <div class="bjui-pageHeader">
+        <input name="search"><button id="search" class="btn btn-default">搜索</button>
+    </div>
+    <div class="bjui-pageContent">
+        <?php
+        $height = $this->ext == 'comment' ? '80%' : '100%';
+        ?>
+        <div style="height: <?php echo $height; ?>;">
+            <div style="float: left;height: 100%;width:45%;margin-right: 10px;border: 1px solid #DDDDDD;">
+                <center><h5 style="color: blue">组织架构</h5></center>
+                <div style="width: 300px;overflow: auto;height: 93%">
+                    <ul id="userTree"
+                        class="ztree"
+                        data-toggle="ztree"
+                        data-nodes='<?php echo $this->tree; ?>'
+                        data-options='<?php echo $this->options; ?>'
+                    >
+                    </ul>
+                </div>
+            </div>
+
+            <div style="width:45%;height: 100%;overflow: auto;border: 1px solid #DDDDDD;float: left">
+                <center><h5 style="color: blue">已选用户</h5></center>
+                <div id="usersBox"></div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <?php if($this->ext == 'comment'){ ?>
+        <div class="mb_ext" style="margin-top: 10px;">
+            评论:<textarea name="mb_ext" style="width: 80%"></textarea>
+        </div>
+        <?php } ?>
+    </div>
+    <div class="bjui-pageFooter">
+        <ul>
+            <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+            <li><button onclick="mb_users_ok()" type="submit" class="btn-green" data-icon="save">确定</button></li>
+        </ul>
+    </div>
+
+<script>
+    $(function () {
+        var set = setInterval(function () {
+            tree = $.fn.zTree.getZTreeObj('userTree');
+            if(tree){
+                nodes = tree.getNodes()
+                //tree.expandAll(true)
+                clearInterval(set)
+                console.log('tree load ok...')
+            }
+        } , 300)
+    })
+
+    var doSearch = function (name) {
+        var node = tree.getNodeByParam('nickname',name)
+        if(!node){
+            $(document).alertmsg('error', '未查询到结果')
+            return;
+        }
+        tree.selectNode(node)
+        openParrentNodes(node)
+    }
+    
+    var mb_users_ok = function () {
+        var box = $('#usersBox')
+        var inputs = box.find('input')
+        var id = '<?php echo $this->id; ?>';
+        mb_dept.selectUsers = {}
+        inputs.each(function(){
+            var that = this;
+            mb_dept.selectUsers[$(that).val()] = $(that).attr('data-name')
+        })
+        try {
+            $(document).dialog('closeCurrent')
+        }catch ($e){
+
+        }
+        console.log(mb_dept.selectUsers , $('[name="mb_ext"]').val())
+        if(!id){
+            mb_dept.callback(mb_dept.selectUsers , $('[name="mb_ext"]').val())
+        }else{
+            mb_dept.callbackById[id](mb_dept.selectUsers , $('[name="mb_ext"]').val())
+        }
+    }
+
+    var openParrentNodes = function (node) {
+        var ret = tree.expandNode(node , true , false, true)
+        var subNode = tree.getNodeByParam('id',node.pid)
+        if(subNode){
+            openParrentNodes(subNode)
+        }
+    }
+
+    $('#search').click(function () {
+        doSearch($('[name="search"]').val());
+    })
+</script>
+
+

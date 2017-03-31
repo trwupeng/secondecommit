@@ -1,0 +1,236 @@
+﻿/*------------------全局样式-----------------*/
+@charset "utf-8";
+/*取消默认的margin和padding*/
+body, div, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*html {
+    font-size : 20px;
+}
+@media only screen and (min-width: 401px){
+    html {
+        font-size: 25px !important;
+    }
+}
+@media only screen and (min-width: 428px){
+    html {
+        font-size: 26.75px !important;
+    }
+}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 30px !important; 
+    }
+}
+@media only screen and (min-width: 569px){
+    html {
+        font-size: 35px !important; 
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 40px !important; 
+    }
+}*/
+/**
+html {margin: 0;width: 100%;font-family: 'Heiti SC', 'Microsoft YaHei';outline: 0;-webkit-text-size-adjust:none;}
+body {margin: 0;-webkit-user-select: none;position: relative;}**/
+html ,body{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #999999;
+    font-size: 1.4rem;
+    color: #888;
+}
+
+/* links */
+a {
+    color: #666666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*图片自适应*/
+img {
+    height: auto;
+    width: auto \9;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+a img {
+    border: 0;
+}
+ol,ul,li,dl,dt,dd{ list-style:none}
+i,em{ font-style:normal}
+/*header,footer {width: 100%;line-height:0.733rem;height: 0.733rem;font-size: 0.25rem;color: #000;text-align: center;background-color: black;overflow: hidden;}
+.goback {width: 0.1833rem;position: absolute;top: 0.121rem;left:-0.26665rem}
+.goback img{	 max-width:100%;height:auto; }
+.header_in {width: 90%;margin: 0 auto;color: #fff;}
+*/
+.bd {margin-top: 0.1rem;/*margin-bottom: .5rem;margin-right: -.5rem;*/font-size: 0;}
+.box {
+    width: 49%;
+    height: 5rem;
+    display: inline-block;
+}
+.marginsleft{
+    margin-left:1%;
+}
+.marginsright{
+    margin-right:1%;
+}
+.blue-box {
+    background-color: #06c;
+}
+.org-box {
+    background-color: #1fc195;
+}
+.div2{
+    font-size:0.14rem;
+}
+.div3{
+    width:3rem;
+    height:3rem;
+
+    border:1px solid #000;
+    box-sizing:border-box;
+}
+.div4{
+    margin-top:0.1rem;
+    width:2rem;
+    height:2rem;
+
+    border:1px solid #000;
+    box-sizing:border-box;
+}
+.img1{
+    width:3.2rem;
+}
+
+.blue-slide {
+    background: #4390EE;
+}
+.red-slide {
+    background: #CA4040;
+}
+.orange-slide {
+    background: #FF8604;
+}
+.swiper-container .swiper-wrapper .swiper-slide {
+//height: 300px;
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper2 {
+    overflow: hidden;
+
+
+}
+
+/*清除浮动*/
+.clear {
+    clear: both;
+    float: none;
+    overflow: hidden;
+    height: 0;
+}
+
+.clearFix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* for IE6/7 */
+.clearFix {
+    *zoom: 1;
+}
+
+/*解决屏幕点击元素出现底色*/
+a, button, input, div {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+/*-----------------------content-------------------------------*/
+.wrapper {
+    width: 640px;
+    margin: 0 auto;
+}
+
+
+/*列表切换*/
+.maple-tab {
+    background-color: #fff;
+    width: 100%;
+}
+.maple-tab ul {
+    width: 100%;
+    overflow: hidden;
+}
+
+.maple-tab ul li {
+    list-style-type: none;
+    float: left;
+    width: 50%;
+    text-align: center;
+    color: #333;
+    font-size: 1.6rem;
+    padding: 4% 0;
+    border-bottom: 2px solid #dedede;
+    cursor: pointer;
+}
+
+
+
+
+/* the box animation */
+.box{
+    width:100px ;
+    height:100px;
+    background:black ;
+}
+.play .myAnimation{
+    animation:move 1s ease 1 both ;
+    -webkit-animation: move 1s ease 1 both ;
+}
+@-webkit-keyframes move{
+    100%{
+        -webkit-transform:translate3d(150px,0,0);
+        transform:translate3d(150px,0,0);
+        -ms-transform: translate3d(150px,0,0);
+    }
+}
+
+
+/**首页自适应触屏焦点图*/
+.slideBox{ position:relative;/* overflow:hidden;*/ margin:0 auto ;  padding-top:0; float:left; width:100%;margin-bottom:0.8rem }
+.slideBox .hd{ position:absolute; height:28px; line-height:28px; bottom:0; /*right:40%;*/ z-index:1; width:100%; text-align:center; }
+.slideBox .hd li{ display:inline-block; width:0.15rem; height:0.15rem; -webkit-border-radius:100%; -moz-border-radius:100%; border-radius:100%; background:#bfbfbf; text-indent:-9999px; overflow:hidden; margin:0 3px;   }
+.slideBox .hd li.on{ background:#b080d8;  }
+.slideBox .bd{ position:relative; z-index:0; height:7rem; overflow:hidden; }
+.slideBox .bd ul{ float:left}
+.slideBox .bd li{ position:relative; /* text-align:center; */ }
+.slideBox .bd li img{   vertical-align:top; width:100%;/* 图片宽度100%，达到自适应效果 */}
+.slideBox .bd li a{ -webkit-tap-highlight-color:rgba(0,0,0,0);  }  /* 去掉链接触摸高亮 */
+
+
+

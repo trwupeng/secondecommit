@@ -1,0 +1,136 @@
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd,section, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '微软雅黑';
+	color: #3B3B3B;
+	background-color: #fff;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '微软雅黑';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'微软雅黑';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+
+#banner{
+	width: 100%;
+	height: auto;
+}
+
+#banner img{
+	width: 100%;
+	height: auto;
+}
+#con{
+	width: 100%;
+	height: auto;
+}
+
+.shujuZong,.uerShouyi{
+	width: 100%;
+	height: auto;
+}
+.shujuZong img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.uerShouyi{
+	background:#f4f4f4;
+	padding:0.8rem 0;
+	padding-bottom: 0.43rem;
+}
+.uerShouyi div{
+	width: 90%;
+	margin: auto;
+}
+.pingTai{
+	width: 100%;
+	height: auto;
+	padding: 0.6rem 0;
+	background: #5a94dc;
+}
+.pingCon{
+	width: 90%;
+	height: auto;
+	margin: auto;
+	color: #fff;
+}
+.p,.p1{
+	font-size: 0.28rem;
+	line-height: 0.58rem;
+	text-align: center;
+}
+.p1{
+	text-align: left;
+	margin-top:0.4rem;
+}

@@ -1,0 +1,173 @@
+<?php
+$this->htmlHeadPart('<!-- head part --><link rel="stylesheet" href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css">');
+echo $this->renderInc('head');
+$uriBase = \Sooh\Base\Ini::getInstance()->get('uriBase')['oauth'];
+echo "<script>var uriBase = \"$uriBase\";</script>";
+?>
+<div class="container">
+	<form id="step1" class="form-horizontal" role="form">
+		<div class="form-group">
+			<label for="phone" class="col-sm-2 control-label">手机号：</label>
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="请输入手机号">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password" class="col-sm-2 control-label">密码：</label>
+
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="invitationCode" class="col-sm-2 control-label">邀请码：</label>
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="invitationCode" name="invitationCode"
+				       placeholder="没有可以不填">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="contractId" class="col-sm-2 control-label">渠道ID：</label>
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="contractId" name="contractId" placeholder="没有可以不填">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="clientType" class="col-sm-2 control-label">ClientType：</label>
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="clientType" name="clientType" placeholder="没有可以不填">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="button" class="btn btn-default" id="registerbtn">提交</button>
+			</div>
+		</div>
+	</form>
+	<form id="step2" class="form-horizontal" role="form" style="display: none">
+		<div class="form-group">
+			<label for="username" class="col-sm-2 control-label">验证码：</label>
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="invalidCode" name="invalidCode" placeholder="请输入验证码">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="button" class="btn btn-default" id="checkInvalidCode">注册</button>
+			</div>
+		</div>
+	</form>
+	<div class="msg"></div>
+</div>
+<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var url, phone, invitationCode, contractId, clientType;
+	var clientId = '1104878344';
+	var clientSecret = 's20vH9emKJ6BmT1Q';
+	var redirectUri = 'https://www.baidu.com/';
+	var contractId = '123456';
+	var loginUrl = uriBase + '/index.php?__=dev/login';
+	var msg = $('.msg');
+	$(function () {
+		//注册第一步
+		$('#registerbtn').click(function () {
+			msg.empty();
+			url = uriBase + '/index.php?__=oauth/appreg&__VIEW__=json';
+			phone = $('#phone').val();
+			var password = $('#password').val();
+			invitationCode = $('#invitationCode').val();
+			contractId = $('#contractId').val();
+			clientType = $('#clientType').val();
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: {
+					phone: phone,
+					password: password,
+					invitationCode: invitationCode,
+					contractId: contractId,
+					clientType: clientType,
+					clientId: clientId,
+					clientSecret: clientSecret,
+					redirectUri: redirectUri
+				},
+				beforeSend: function () {
+					msg.html('正在注册中...');
+				},
+				success: function (data) {
+					if (data.code == 200) {
+						msg.empty();
+						$('#step1').hide();
+						$('#step2').show();
+					} else {
+						msg.html(data.msg);
+					}
+				}
+			});
+		});
+		//注册第二步
+		$('#checkInvalidCode').click(function () {
+			msg.empty();
+			var invalidCode = $('#invalidCode').val();
+			url = uriBase + '/index.php?__=oauth/appreg&__VIEW__=json';
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: {phone: phone, invalidCode: invalidCode},
+				beforeSend: function () {
+					msg.html('正在注册中...');
+				},
+				success: function (data) {
+					if (data.code == 200) {
+						msg.empty();
+						passportLogin(
+							data.info.code,
+							function (info) {
+								msg.html(JSON.stringify(info));
+							},
+							function () {
+								msg.html('error');
+							}
+						);
+					} else {
+						msg.html(data.msg);
+					}
+				}
+			});
+		});
+	});
+
+	/**
+	 * passport register
+	 * @param code 临时码
+	 */
+	function passportLogin(code, onSuccess, onError) {
+		alert(phone);
+		url = uriBase + '/index.php?__=passport/login&__VIEW__=json';
+		$.ajax({
+			type: 'GET',
+			url: url,
+			data: {
+				code: code,
+				redirectUri: redirectUri,
+			},
+			beforeSend: function () {
+				console.log('passport login after oauth reg!');
+			},
+			success: function (data) {
+				if (data.code == 200) {
+					onSuccess(data);
+				} else {
+					onError();
+				}
+			}
+		});
+	}
+</script>
+</body>
+</html>

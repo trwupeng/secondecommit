@@ -1,0 +1,200 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+<!--        <input type="hidden" name="__formguid__" value="default" />-->
+<!--        <input type="hidden" name="pageSize" value="--><?php //echo $this->pagesize; ?><!--">-->
+<!--        <input type="hidden" name="pageCurrent" value="--><?php //echo $this->pageid; ?><!--">-->
+<!--        <input type="hidden" name="orderField" value="${param.orderField}">-->
+<!--        <input type="hidden" name="orderDirection" value="${param.orderDirection}">-->
+       <!--<label>时间从：</label>
+        <input type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo ($this->ymdFrom?$this->ymdFrom:date('Y-m-d',time()-7*84600)); ?>" size="18" />-->
+        <label>时间截止至：</label>
+        <input type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo ($this->ymdTo?$this->ymdTo:date('Y-m-d',time()-84600)); ?>" size="18" />
+        <label>环比：</label>
+        <select name="huanbi" value="huanbishuju" id="ids">
+        <?php 
+        $huanbi=$this->huanbi;
+        $choosehuanbi=$this->choosehuanbi;
+        foreach ($huanbi as $k=>$v){
+        ?>
+        <option value="<?php echo $v;?>" <?php if($v==$choosehuanbi) {echo "selected=\"selected\"";}?>><?php echo $v;?></option>
+        <?php 
+        }
+        ?>
+       </select>
+        <label>渠道选择：</label>
+        <select name='select' value="channel" id="ids" >
+  
+         <?php 
+          $channel= $this->rem;
+          $channels=$this->channels;
+//var_log($channel,'66666>>>>>>>');
+//var_log($channels,'chanel##########>>>>>>>');
+
+           foreach ($channel as $k=>$v){
+               
+          ?>
+             <option value="<?php echo $v;?>" <?php if($v==$channels) {echo "selected=\"selected\"";}?>><?php echo $v;?></option>
+        <?php }?>
+        </select>
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+       <button type="submit" class="btn btn-default">查询</button>
+       &nbsp;
+       <label style="color:red;">1.环比自然周查询只能查询输入周日日期 </label>
+        &nbsp;
+       <label style="color:red;">2.环比自然月查询日期只能一月的最后一日</label>
+        &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form> 
+  </div>
+     
+<div class="bjui-pageContent">
+   
+     
+   
+   <!--<div id="newfinancial" style="height:330px"></div>-->
+    
+    <div id="compoundrate" style="height: 430px " width="100%"></div>
+ 
+     <style type="text/css"> 
+
+     </style>
+    <script type="text/javascript">
+
+        require.config({
+            paths:{
+                echarts: '/echarts/dist'
+        }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line', // 使用折线图就加载line模块，按需加载
+                //'echarts/chart/stack', // 使用柱状图就加载bar模块，按需加载
+                //'echarts/chart/tiled', // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+
+             
+                // 基于准备好的dom，初始化echarts图表
+             
+                var mynewChart = ec.init(document.getElementById('compoundrate'));
+
+                var record = <?=$this->record?>;
+               // console.log(record);
+                var record1 = <?=$this->record1?>;
+               // console.log(record1);
+                var futoulv='复投率';
+                var futoulv1='三投率';
+                var futoulv2='四投率';
+                var futoulv3='五投率';
+                
+                for(var tp in record){
+
+                 cp=tp;
+
+                 rate1=record[tp].n1;
+                 rate2=record[tp].n2;
+                 rate3=record[tp].n3;
+                 rate4=record[tp].n4;
+         
+                }
+                console.log(rate1);
+                for(var tp1 in record1){
+
+                 cp1=tp1;
+
+                 rate11=record1[tp1].n1;
+                 rate22=record1[tp1].n2;
+                 rate33=record1[tp1].n3;
+                 rate44=record1[tp1].n4;
+   
+                }
+                console.log(rate11);
+                
+                option = {
+                	    title : {
+                	        text: '复投率',
+                	        //subtext: '纯属虚构'
+                	    },
+                	    tooltip : {
+                	        trigger: 'axis'
+                	    },
+                	    legend: {
+               	    	 x: 'center',
+                         y: 'bottom',
+                	        data:[cp,cp1]//['08-26--08-27','08-27--08-28']
+                	    },
+                	    toolbox: {
+                	        show : true,
+                	        feature : {
+                	            mark : {show: true},
+                	            dataView : {show: true, readOnly: false},
+                	            magicType : {show: true, type: ['bar']},
+                	            restore : {show: true},
+                	            saveAsImage : {show: true}
+                	        }
+                	    },
+                	    calculable : true,
+                	    xAxis : [
+                	        {
+                	            type : 'category',
+                	            data :[futoulv,futoulv1,futoulv2,futoulv3],
+                	            //['首投人数','复投人数','三投人数','四投人数','五投人数']
+                                axisLabel : {
+                                    interval : 0,
+                                    rotate : 45
+                                }
+                	           
+                	        }
+                	    ],
+                        grid: {
+                            y2: '100',
+                            containLabel: true
+                        },
+                	    yAxis : [
+                	        {
+               	        	 type : 'value',
+            	             axisLabel: {
+            	                   show: true,
+            	                   interval: 0,
+            	                   formatter: '{value} %',
+//                                   rotate : 45,
+            	                 }
+                	        }
+                	    ],
+                	    series : [
+                	        {
+                	            name:cp,//'08-26--08-27',
+                	            type:'bar',
+                	            itemStyle: {normal: {
+                	                label : {show:true,position:'top',formatter:'{c} %'}
+                	            }},
+                	            data:[rate1,rate2,rate3,rate4]
+                    	            //[20,10,30,90,20],
+                	           
+                	        },
+                	        {
+                	            name:cp1,//'08-27--08-28',
+                	            type:'bar',
+                	            itemStyle: {normal: {
+                	                label : {show:true,position:'top',formatter:'{c} %'}
+                	            }},
+                	            data:[rate11,rate22,rate33,rate44],
+                	          
+                	        }
+                	    ]
+                	};
+            	
+                
+                // 为echarts对象加载数据
+                mynewChart.setOption(option);
+            }
+        );
+
+    </script>
+   
+</div>
+
+

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="论坛" />
+    <meta name="description" content="论坛 ,KuaiKuaiDai" />
+    <title>论坛 -  手机版</title>
+    <link rel="stylesheet" href="static/image/mobile/style.css" type="text/css" media="all">
+    <script src="static/js/mobile/jquery-1.8.3.min.js?Zdp" type="text/javascript"></script>
+
+    <script type="text/javascript">var STYLEID = '2', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'Zdp', charset = 'utf-8', discuz_uid = '0', cookiepre = 'pJuh_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|金钱|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2xvY2FsaG9zdC9iYnMvZm9ydW0ucGhwP1hERUJVR19TRVNTSU9OX1NUQVJUPTE3MjA5', SITEURL = 'http://localhost/bbs/', JSPATH = 'static/js/';</script>
+
+    <script src="static/js/mobile/common.js?Zdp" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="bg">
+<script type="text/javascript">
+    function getvisitclienthref() {
+        var visitclienthref = '';
+        if(ios) {
+            visitclienthref = 'https://itunes.apple.com/cn/app/zhang-shang-lun-tan/id489399408?mt=8';
+        } else if(andriod) {
+            visitclienthref = 'http://www.discuz.net/mobile.php?platform=android';
+        }
+        return visitclienthref;
+    }
+</script>
+
+
+<!-- header start -->
+
+<header class="header">
+    <div class="hdc cl">
+        <h2><a title="KuaiKuaiDai" href="forum.php?mobile=2"><img src="http://image.kuaikuaidai.com/h5/static/images/indexlogo.png" style="width:90px; height:30px;" /></a></h2>
+        <a style="margin-left:3px;" href="http://www.kuaikuaidai.com//h5/index.html">理财</a>&nbsp;&nbsp;<a style="margin-left:3px;" href="http://www.kuaikuaidai.com//h5/lendpage.html">借款</a>&nbsp;&nbsp;<a style="margin-left:3px;" href="http://www.kuaikuaidai.com//h5/login.html">登录</a>
+        <ul class="user_fun">
+            <li style="padding:0;"><a href="search.php?mod=forum&amp;mobile=2" class="icon_search">搜索</a></li>
+            <li class="on" style="padding:0;"><a href="forum.php?forumlist=1&amp;mobile=2" class="icon_threadlist">版块列表</a></li>
+            <li id="usermsg" style="padding:0;"><a href="member.php?mod=logging&action=login&amp;mobile=2" class="icon_userinfo">用户信息</a></li>
+        </ul>
+    </div>
+</header>
+<!-- header end -->
+<!-- main forumlist start -->
+<div class="wp wm" id="wp">
+<center>
+    <div class="bm bmw fl" style="text-align:left;width:300px;">
+        <form id="login" action="" method="post" class="registerform" onsubmit="return false;" >
+            <div style="text-align:center;">
+                <h2 style="font-size:18px;">尊敬的理财精英</h2>
+				<h2 style="font-size:18px;">欢迎加入快快金融社区！</h2>
+                <span style="font-size:12px;">为了您的帐号安全，请您设置论坛昵称。</span>
+            </div><br />
+            <div style="margin-bottom:10px;padding-left:5px;" >
+                <span style="font-size:18px;">编辑昵称：</span>
+                <span style="font-size:12px;">（昵称确认后将不能修改）</span>
+            </div>
+            <input type="hidden" name="url" id="retUrl" value="">
+
+			
+			<center>
+			<div class="form_tips" style="position:static;padding-left:5px;color:red"></div>
+			<div class="form_tipss" style="position:static;padding-left:5px;color:red"></div>
+            <div class="user">
+                <input style="width:280px;" id="login_user" placeholder="请输入您的昵称" name="nickname" type="text" datatype="s4-18" sucmsg="昵称验证通过！" nullmsg="请输入昵称！" errormsg="请输入正确的昵称：4到18位非特殊字符">
+
+            </div>
+		<div style="height:6px;"></div>
+            <button type="submit" class="login_button" tabindex="5" id="J_SubmitStatic" onclick="webLogin_new()" style="width:283px">登录</button>
+			</center>
+        </form>
+    </div>
+	</center>
+</div>
+<!-- main forumlist end -->
+
+<div id="mask" style="display:none;"></div>
+<div class="footer">
+    <div>
+        <a href="javascript:;" style="color:#D7D7D7;">触屏版</a> |
+        <a href="http://localhost/bbs/forum.php?XDEBUG_SESSION_START=17209&mobile=no">电脑版</a> |
+    </div>
+    <p>快快贷金融理财平台</p>
+    <p>www.kuaikuaidai.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：4000-137-000</p>
+    <p></p>
+</div>
+
+<script src="//www.kuaikuaidai.com/static/js/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".registerform").Validform({
+            btnSubmit:"#J_SubmitStatic",
+            tiptype:function(msg,o,cssctl){
+                $('.form_tips').html('');
+                if(o.type==3){
+				$('.form_tips').html(msg);
+                }else if(o.type==2){
+                    console.log('...');
+                }
+            },
+            ajaxPost:false
+        });
+    });
+
+    function webLogin_new(){
+        var validMsg = $('.form_tips').text();
+        if (validMsg.length > 1) {
+            return false;
+        }
+        var loginuser = $("#login_user").val();
+        var login_user = document.getElementById("login_user").value;
+        var retUrl = document.getElementById("retUrl").value;
+        if(login_user==""){
+            return false;
+        }
+        var url = "changenickname.php";
+        var data={};
+        data.nickname = login_user;
+        data.url = retUrl;
+        $.ajax({
+            type:'POST',
+            url: url,
+            data:data,
+            async: false,
+            timeout: 3000,
+            dataType:'json',
+            success: function(data){
+                if(data.code == 400){
+                    console.log(data.info);
+                    $('.form_tipss').html(data.info);
+                } else if(data.code == 200){
+                    alert(data.info);
+                    window.location.href='http://www.kuaikuaidai.com/h5/login.html';
+                } else{
+//                    alert('修改成功');
+                    window.location.href='forum.php';
+                }
+            },
+            error: function(){
+                $('.form_tipss').html('网络错误，请稍后再试');
+            }
+        });
+    }
+</script>
+</body>
+</html>

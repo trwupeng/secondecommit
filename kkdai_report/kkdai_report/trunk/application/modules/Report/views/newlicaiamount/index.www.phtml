@@ -1,0 +1,140 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+        <label>时间从：</label>
+        <input id="inputYmdFrom" type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo ($this->ymdFrom?$this->ymdFrom:date('Y-m-d', time()-7*86400)); ?>" size="18" />
+        <label>时间到：</label>
+        <input id="inputYmdTo" type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo ($this->ymdTo?$this->ymdTo:date('Y-m-d', time()-86400)); ?>" size="18" />
+        <label>渠道选择:</label>
+        <select name="selectedContractId">
+            <?php
+                $contractIds = $this->contractIds;
+                if($this->selectedContractId===NULL) {
+                    $this->selectedContractId='ALLCONTRACTS';
+                }
+                foreach($contractIds as $cid => $remark){
+                    echo "<option value=\"$cid\" ".($this->selectedContractId==$cid?'selected="selected"':'').">".$remark."</option>";
+                }
+            ?>
+        </select>
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+        <button type="submit" class="btn btn-default">查询</button>
+        &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form>
+</div>
+
+<div class="bjui-pageContent">
+    <div id="newlicaiAmountEcharts2" style="height:400px;"></div>
+    <div id="newlicaiAmountEcharts" style="height:400px;"> </div>
+<?php //var_log($this->rs1, 'rs1###');?>
+<?php //var_log($this->rs2, 'rs2###');?>
+<?php //var_log($this->productTypeWithName, 'productTypeWithName###');?>
+
+
+        <script type="text/javascript">
+            require.config({
+                paths:{
+                    echarts: '/echarts/dist'
+                }
+            });
+
+            require(
+                [
+                    'echarts',
+                    'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                    'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                ],
+                function (ec) {
+
+                    var rs1Title = {subtext:"<?=$this->rs1TitleText;?>",text:'新增理财金额（首次投资）'};
+                    var rs2Title = {subtext:"<?=$this->rs2TitleText;?>",text:'新增理财金额（首次投资）'};
+                    var rs1 = <?=$this->rs1;?>;
+                    var rs2 = <?=$this->rs2;?>;
+                    dataTrans(ec, 'newlicaiAmountEcharts2', rs2Title, rs2);
+                    dataTrans(ec, 'newlicaiAmountEcharts', rs1Title, rs1);
+                }
+            );
+
+
+            /** 数据结果处理 */
+            function dataTrans (objEc, divId, title, records) {
+                var columnMap= <?=$this->columnNames;?>;
+                var arrColumnNames =[];
+                for(var dataName in columnMap){
+                    if(typeof(dataName)!=='function'){
+                        arrColumnNames.push(columnMap[dataName]);
+                    }
+                }
+                var legend = { x: 'center', y: 'bottom',data:arrColumnNames};
+
+                var productTypeWithName = <?=$this->productTypeWithName;?>;
+
+                var xAxis = {type:'category', data:[]};
+                for (var productType in records) {
+                    if(typeof(records[productType]) != 'function') {
+                        if(productTypeWithName.hasOwnProperty(productType)){
+                            xAxis.data.push(productTypeWithName[productType]);
+                        }else {
+                            xAxis.data.push(productType);
+                        }
+
+                    }
+                }
+                if (xAxis.data.length == 0){
+                    xAxis.data.push('暂无数据');
+                }
+                var series = [];
+                var i=0;
+                for(var dataName in columnMap){
+                    if(typeof(columnMap[dataName])!== 'function'){
+                        var obj = {
+                            name:columnMap[dataName],
+                            type:'bar',
+                            barWidth: 50,
+                            stack:'test',
+                            data: []
+                        };
+                        for (var productType in records) {
+                            if(typeof(records[productType]) !== 'function') {
+
+                                obj.data.push(Math.round(records[productType][dataName]));
+                            }
+                        }
+                        i+=1;
+                        series.push(obj);
+                    }
+                }
+                var yAxis = [{type : 'value',axisLabel:{formatter: function(value, inddx) {return value / 1000 + '千';}}}];
+                render (objEc, divId, title, legend, xAxis, yAxis, series);
+            }
+
+            /** 绘图 */
+            function render (objEc, divId, title, legend, xAxis, yAxis, series) {
+                var myChart = objEc.init(document.getElementById(divId));
+                option = {
+                    title : title,
+                    tooltip : {
+                        trigger: 'axis',
+                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: legend,
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    grid: {
+                        x: '10%',
+                        x2: '15',
+                        y2: '80',
+                        containLabel: true
+                    },
+                    series: series
+                };
+                myChart.setOption(option);
+            }
+        </script>
+
+
+
+</div>
+

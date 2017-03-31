@@ -1,0 +1,21 @@
+<?php
+$formEdit = \Sooh\Base\Form\Broker::getCopy('default');
+$formEdit->setRenderer(new \Lib\Misc\DWZ());
+?>
+<div class="pageContent">
+	<?php echo $formEdit->renderFormTag('class="pageForm" onsubmit="return validateCallback(this, navTabAjaxDone)"');?>
+		<div class="pageFormContent" layoutH="58">
+			<table border="0" width="100%"><tr><td width="360" style="text-align:left"  valign="top">
+			<?php echo $formEdit->renderDefault('<div class="unit"><label>{capt}</label>{input}</div>'); ?>
+			</td><td valign="top" style="text-align:left">
+			<?php echo $this->inputRights; ?>
+			</td></tr></table>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"><?php echo $this->FormOp;?></button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

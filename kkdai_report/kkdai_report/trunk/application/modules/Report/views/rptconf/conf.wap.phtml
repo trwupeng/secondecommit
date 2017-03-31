@@ -1,0 +1,34 @@
+<?php 
+use \Rpt\EvtDaily\Base as prjlib_evtdaily;
+ $this->htmlHeadPart('<title>报表权限设置</title>');
+ echo $this->renderInc('head');
+ echo $this->renderInc('wapmenu');
+
+ function tmpfun_btn_disable($nickname,$capt,$loginName,$id)
+ {
+	 return "<a href=\"#\" onclick=\"if(confirm('确定禁止{$nickname}访问{$capt}数据吗？'))tmp_send_req('".\Sooh\Base\Tools::uri(['loginName'=>$loginName,'id'=>$id,'enable'=>0])."');\">更改</a>";
+ }
+ function tmpfun_btn_enable($nickname,$capt,$loginName,$id)
+ {
+	 return "<a href=\"#\" onclick=\"if(confirm('确定允许{$nickname}访问{$capt}数据吗？'))tmp_send_req('".\Sooh\Base\Tools::uri(['loginName'=>$loginName,'id'=>$id,'enable'=>1])."');\">更改</a>";
+ }
+$rs = $this->records;
+echo '<div class="container">';
+?>
+<script>
+	function tmp_send_req($url)
+	{
+		$.getJSON($url+'&__VIEW__=jsonp&jsonp=?',
+                function (json) {
+                    //alert(json.code);
+					top.location.href='<?php echo \Sooh\Base\Tools::uri(['__VIEW__'=>'wap']);?>';
+                }
+        );
+	}
+</script>
+<?php 
+include __DIR__.'/conflist.phtml';
+echo '</div>';
+echo $this->renderInc('foot');
+
+

@@ -1,0 +1,313 @@
+<!--{template common/header}-->
+    <!--广告-->
+    <div id="laba">
+        <div class="laba_l">
+            <ul>
+                <!--{loop $lyqAnnouncements $data}-->
+                <li><a href="{$data[message]}" alt="$data[subject]">$data[subject]</a></li>
+                <!--{/loop}-->
+            </ul>
+        </div>
+        <!--{if !empty($_G[member][username])}-->
+        <a href="<!--{eval echo C::app()->config['kkd']['url'];}-->/mycenterlive.html" target="" title="{lang visit_my_space}"><p class="laba_r">欢迎您！
+                <!--{if !empty($_G[kkdname])}-->
+                {$_G[kkdname]}
+                <!--{else}-->
+                {$_G[username]}
+                <!--{/if}--></p></a>
+        <!--{/if}-->
+    </div>
+
+    <div id="con">
+        <div class="diyiban">
+            <div class="banner">
+                <ul id="banner_img">
+                    <li><a href="{$advertise5[link]}"><img src="{$advertise5[url]}" alt="{$advertise5[alt]}"></a></li>
+                    <!--{if $advertise6[available] == 1}-->
+                    <li><a href="{$advertise6[link]}"><img src="{$advertise6[url]}" alt="{$advertise6[alt]}"></a></li>
+                    <!--{/if}-->
+                    <!--{if $advertise7[available] == 1}-->
+                    <li><a href="{$advertise7[link]}"><img src="{$advertise7[url]}" alt="{$advertise7[alt]}"></a></li>
+                    <!--{/if}-->
+                </ul>
+                <ol class="index">
+                    <li class="show"></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+            <div class="shequ">
+                <div class="title">社区精华</div>
+                <!--{loop $threadsJinghuaList $thread}-->
+                <a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra" target=""><p>{$thread[subject]}</p></a>
+                <!--{/loop}-->
+            </div>
+            <div class="shequ" style="margin-left:20px;">
+                <div class="title">行业资讯</div>
+                <!--{loop $threadsHangyeList $thread}-->
+                <a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra" target=""><p>{$thread[subject]}</p></a>
+                <!--{/loop}-->
+            </div>
+        </div>
+
+        <div class="tupian">
+            <p><a href="{$advertise1[link]}"><img src="{$advertise1[url]}" alt="{$advertise1[alt]}" width="100%" height="100%"></a></p>
+
+            <p class="bianju"><a href="{$advertise2[link]}"><img src="{$advertise2[url]}" alt="{$advertise2[alt]}" width="100%" height="100%"></a></p>
+
+            <p><a href="{$advertise3[link]}"><img src="{$advertise3[url]}" alt="{$advertise3[alt]}" width="100%" height="100%"></a></p>
+        </div>
+
+        <div class="dierban">
+            <div class="luntan">
+                <div class="tiezi">
+                    <div class="top">
+                        <h2>快快论坛</h2>
+
+                        <p class="top_r">
+                            <span>今日: <font>$todayposts</font></span>
+                            <span>昨日: <font>$postdata['0']</font></span>
+                            <span>帖子: <font>$threads</font></span>
+                            <span style="margin-right: 0;">回帖: <font>$replys</font></span>
+                        </p>
+                    </div>
+                    <div class="sou_tie">
+                        <p class="serach">
+                            <input type="text" name="srchtxt" placeholder="搜索内容文字" data-url="/search.php?mod=forum&searchsubmit=yes&srchtxt=">
+                            <span></span>
+                        </p>
+                        <script>
+                            jQuery(function () {
+                                jQuery(document).on('click', '.serach span', function () {
+                                    window.open(jQuery('.serach input').attr('data-url') + jQuery('.serach input').val());
+                                });
+
+                                var url1 = "{$_G[config][kkd][live][status]}";
+                                var url2 = "?pageNo=1&pageSize=10";
+                                url1 = encodeURIComponent(url1);
+                                url2 = encodeURIComponent(url2);
+                                var vidoUrl = url1+url2;
+                                //console.log(vidoUrl);
+                                jQuery.ajax({
+                                    type: 'GET',
+                                    url: '/api.php?mod=getDataFromUrl&url='+vidoUrl,//
+                                    dataType:"json",
+                                    success: function(data) {
+                                        console.log(data.code);
+                                        if (data.code == 0) {
+                                            if (data.data.currentVideo!=null){
+                                                jQuery('.zhibostatue').html('直播中');
+                                            }
+
+                                        } else {
+                                            console.log('直播状态无法请求');
+
+                                        }
+                                    },
+                                    error: function() {
+                                        console.log('网络问题');
+
+                                    }
+                                });
+                            });
+                        </script>
+                        <p class="fatie">
+                            <a href="<!--{eval echo C::app()->config['kkd']['url'];}-->/mycenterlive.html" target=""><span>我的帖子</span></a>
+                            <a href="/forum.php?mod=post&action=newthread&fid=<!--{eval echo $_G[config][ext][investFid]?$_G[config][ext][investFid]:array_keys($forumViews)[1];}-->" target=""><input type="button" value="我要发帖"/></a>
+                        </p>
+                    </div>
+                    <div class="list">
+                        <ul class="tie_detail">
+                            <li class="biaoti">最新发帖</li>
+                            <!--{loop $grids['newthread'] $k $thread}-->
+                            <!--{eval $k++;$class=$k<4?'pai':'';if($k>8)break;}-->
+
+                                <li>
+                                    <a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra" target=""><span class="$class">$k</span>$thread[oldsubject]  </a>
+                                </li>
+
+                            <!--{/loop}-->
+                            <!--
+                            <li><span class="pai">1</span>全新改版快快贷上线啦，快来体验吧体验体验题</li>
+                            <li><span>8</span>全新改版快快贷上线啦，快来体验吧体验体验题</li>
+                            -->
+                        </ul>
+                        <ul class="tie_detail" style="float: right; margin-left: 15px;">
+                            <li class="biaoti">最新回帖</li>
+                            <!--{loop $grids['newreply'] $k $thread}-->
+                            <!--{eval $k++;$class=$k<4?'pai':'';if($k>8)break;}-->
+                                <li>
+                                    <a href="forum.php?mod=redirect&tid=$thread[tid]&goto=lastpost#lastpost" target="">
+                                    <span class="$class">$k</span>$thread[oldsubject]
+                                    </a>
+                                </li>
+
+                            <!--{/loop}-->
+                            <!--
+                            <li><span class="pai">1</span>全新改版快快贷上线啦，快来体验吧体验体验题</li>
+                            <li><span>8</span>全新改版快快贷上线啦，快来体验吧体验体验题验体验体</li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="zhuanqu">
+                    <style>
+                        .dongtai_d a {
+                            color: #4376c3;
+                            font-weight: 600;
+                        }
+                    </style>
+                    <!--{loop $catlist $cate}-->
+                    <!--{loop $cate['forums'] $fid}-->
+                    <!--{eval
+                    $forum = $forumlist[$fid];$forum[iconImg] = $forum[iconImg] ? $forum[iconImg] : IMGDIR.'/forum'.($forum['folder']?'_new':'').'.gif';
+                    $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];
+                    }-->
+                    <div class="zhaunqu_list">
+                        <div class="zhuanqu_top">
+                            <p class="zhuanqu_top_l">
+                                <a href="{$forumurl}" target=""><img class="zhan_icon" src="$forum[iconImg]"><span class="icon" >$forum[name] <!--{eval echo $forum['todayposts'] ? ('('.$forum['todayposts'].')'):'';}--></span></a>
+                                <span>$forum[description]&nbsp</span>
+                            </p>
+
+                            <p class="zhuanqu_top_r">
+                                <span>主题: <font>$forum[threads]</font></span>
+                                <!--{eval $forum['reply'] = $forum['posts'] - $forum['threads'];}-->
+                                <span>回复: <font>$forum[reply]</font></span>
+                                <span style="margin-right: 0;">浏览: <font>$forumViews[$fid]</font></span>
+                            </p>
+                        </div>
+                        <div class="zhuanqu_bot">
+                            <p class="bot_l">
+                                <span class="dongtai">最新动态:</span>
+                                <span class="dongtai_d" style="">
+                                    <font style="color:#4376c3;">$forum[lastpost][author]</font>
+                                    <a class="dong_info" target="" style="color: inherit" href="forum.php?mod=redirect&amp;tid={$forum[lastpost][tid]}&amp;goto=lastpost#lastpost">$forum[lastpost][subject]</a>
+                                </span>
+                            </p>
+
+                            <p class="bot_r">
+                                发表于 $forum[lastpost][dateline]
+                            </p>
+                        </div>
+                    </div>
+                    <!--{/loop}-->
+                    <!--{/loop}-->
+                </div>
+            </div>
+            <div class="zhibo">
+                <div class="zhibojian">
+                    <p class="zhibo_title">
+                        <a href="{$advertise8[link]}"><span class="zhibo_title_l">快快直播间</span></a>
+                    </p>
+                    <dl class="zhibo_img" onclick="window.location.href='{$advertise8[link]}';">
+                        <dt><img src="{$advertise8[url]}"></dt>
+                        <dd class="float_word">
+                            <p class="float_word_l">
+                                <span>本期话题</span><br>
+                                <span>{$advertise8[alt]}</span>
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="weibo">
+                    <p class="zhibo_title">
+                        <a href="forum.php?mod=forumdisplay&fid={eval echo C::app()->config['ext']['blog'];}"><span class="zhibo_title_l">快快博客</span></a>
+                        <span class="zhibo_title_r"></span>
+                    </p>
+                    <dl class="zhibo_img" onclick="window.location.href='{$advertise4[link]}';">
+                        <dt><img src="{$advertise4[url]}" alt="{$advertise4[alt]}"></dt>
+                        <dd class="float_word">
+                            <p class="weibo_w">{$advertise4[alt]}</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="disanban">
+            <div class="bangdan">
+                <p class="bangdan_title">邀请好友投资榜</p>
+                <ul class="bang_list">
+                    <li class="bang_list_head">
+                        <span class="bang_num">排名</span>
+                        <span class="bang_user">用户名</span>
+                        <span class="bang_jin">投资金额</span>
+                    </li>
+                    <!--{loop $kkdRankInvite $key $data}-->
+                    <li>
+                        <!--{if $key == 0}-->
+                        <span class="bang_num diyi">1</span>
+                        <!--{elseif $key == 1}-->
+                        <span class="bang_num dier">2</span>
+                        <!--{elseif $key == 2}-->
+                        <span class="bang_num disan">3</span>
+                        <!--{else}-->
+                        <span class="bang_num qita">{eval echo $key+1;}</span>
+                        <!--{/if}-->
+                        <span class="bang_user">
+                            <img src="{$data[imageUrl]}" width="30" height="30">{$data[customerName]}</span>
+                        <span class="bang_jin">{$data[amount]}</span>
+                    </li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+
+            <div class="bangdan" style="margin: 0 32px;">
+                <p class="bangdan_title">月度理财王</p>
+                <ul class="bang_list">
+                    <li class="bang_list_head">
+                        <span class="bang_num">排名</span>
+                        <span class="bang_user">用户名</span>
+                        <span class="bang_jin">投资金额</span>
+                    </li>
+                    <!--{loop $kkdRankInvestment $key $data}-->
+                    <li>
+                        <!--{if $key == 0}-->
+                        <span class="bang_num diyi">1</span>
+                        <!--{elseif $key == 1}-->
+                        <span class="bang_num dier">2</span>
+                        <!--{elseif $key == 2}-->
+                        <span class="bang_num disan">3</span>
+                        <!--{else}-->
+                        <span class="bang_num qita">{eval echo $key+1;}</span>
+                        <!--{/if}-->
+                        <span class="bang_user">
+                            <img src="{$data[imageUrl]}" width="30" height="30">{$data[customerName]}</span>
+                        <span class="bang_jin">{$data[amount]}</span>
+                    </li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+
+            <div class="bangdan">
+                <p class="bangdan_title">社区热门人物</p>
+                <ul class="bang_list">
+                    <li class="bang_list_head">
+                        <span class="bang_num">排名</span>
+                        <span class="bang_user">用户名</span>
+                        <span class="bang_jin">热度值</span>
+                    </li>
+                    <!--{loop $userRanking $key $data}-->
+                    <li>
+                        <!--{if $key == 0}-->
+                        <span class="bang_num diyi">1</span>
+                        <!--{elseif $key == 1}-->
+                        <span class="bang_num dier">2</span>
+                        <!--{elseif $key == 2}-->
+                        <span class="bang_num disan">3</span>
+                        <!--{else}-->
+                        <span class="bang_num qita">{eval echo $key+1;}</span>
+                        <!--{/if}-->
+                        <span class="bang_user">
+                            <img src="{$data[imageUrl]}" width="30" height="30">{$data[username]}</span>
+                        <span class="bang_jin">{$data[credits]}</span>
+                    </li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--end替换内容-->
+<!--{template common/footer}-->

@@ -1,0 +1,205 @@
+<?php
+	
+	$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+	$chart = new \Rpt\Misc\Chart1;
+	$chart->ymd=$args['ymd'];
+	$m_d = date('m月d日',  strtotime($args['ymd']));
+	
+	//没有二级统计情况的一周走势图
+	$chart->titleMain='线下业务存量走势图';
+	//$chart->grpBy();
+	$chart->where=['act'=>['FinanceXX'],'flgext01'=>['103','104','105','106','107','108','109','110','111','112','113','114','115']];
+	$chart->showStd('linesSimple','week')->reset();
+	
+	//有二级统计情况的一周走势图
+	$chart->titleMain='线下业务增量量走势图';
+	$chart->where=['act'=>['NewFinanceXX'],'flgext01'=>'0'];
+	$chart->showStd('linesSimple','week')->reset();
+
+
+    $chart->titleMain='线下业务收支走势图';
+    $chart->where=['act'=>['FinanceXX'],'flgext01'=>['100','101']];
+    $chart->grpBy = 'flgext01';
+    $chart->showStd('linesSimple','week')->reset();
+
+
+
+	//没有二级统计情况的当日占比饼图
+// 	$chart->titleMain='成功绑卡情况汇总';
+// 	$chart->titleSub=$m_d;
+// 	$chart->where=['act'=>['BindOk']];
+// 	$chart->showStd('pieSimple','oneday')->reset();
+	
+
+	
+	
+	
+//	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//	$args['forGrp']='';
+//	$args['useActAsGrp']='Register,RegAndBindOk,RegAndBought';
+//	$args['grpNameFix']='新注册用户,新绑卡用户,新购买用户';
+//	$args['title']='7日总购买走势';
+//	$args['subtitle']='（总额）';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'barsSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp'],$args['grpNameFix']);
+//	
+//	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+//	$args['forAct']='BoughtEachTotal';
+//	$args['title']='购买各类产品人数分布';
+//	$args['subtitle']=$md.' ';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp'],$args['grpNameFix'],$args['extFlgNames']);
+//	
+//	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+//	$args['forAct']='LaterBoughtEach,RegAndBoughtEach';
+//	$args['grpNameFix']='老用户购买{}人数,新用户购买{}人数';
+//	$args['title']='购买各类产品人数分布';
+//	$args['subtitle']=$md.'（区分新注册和老用户）';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp'],$args['grpNameFix'],$args['extFlgNames']);
+
+$this->ym = date('Ym');
+?>
+
+<style>
+    .show_color1{
+        background-color: #00B050;
+    }
+    .show_color2{
+        background-color: #92D050;
+    }
+    .show_color3{
+        background-color: #EAF1F6;
+    }
+    .show_color4{
+        background-color: white;
+    }
+    .bus_show_table td{
+        border: 1px solid;
+        padding: 5px;
+    }
+    .show_b{
+        font-weight: bold;
+    }
+    .show_center{
+        text-align: center;
+    }
+    .tb_size1{
+        width: 170px;
+    }
+    .tb_size2{
+        width: 340px;
+    }
+    .tr_size1{
+        height: 25px;
+    }
+    .tr_size2{
+        height: 50px;
+    }
+    .img_show{
+        height: 50px;
+        background: url("/images/bus_show_table.png") no-repeat center;
+    }
+</style>
+<div class="" style="width: 1190px">
+    <h2 class="show_center" >上海融资业务周报(<?php echo date('Y年m月份',strtotime($this->ym.'01')) ?>)</h2>
+    <table class="bus_show_table show_color3">
+        <tr class="tr_size2 show_b show_color1">
+            <td colspan="2" class="tb_size2"><div class="img_show"><span style="float: left;margin-top: 20px;">核算项目</span><span style="float: right;margin-top: 20px;">核算周期</span></div></td>
+            <td class="tb_size1 show_center">第一周合计</td>
+            <td class="tb_size1 show_center">第二周合计</td>
+            <td class="tb_size1 show_center">第三周合计</td>
+            <td class="tb_size1 show_center">第四周合计</td>
+            <td class="tb_size1 show_center">本月累计</td>
+        </tr>
+        <?php
+        $itemName = ['业务调查情况','业务放款情况','展期业务情况','业务结清情况'];
+        $pager  = new \Sooh\DB\Pager(10, [10,50,100], false);
+        $rs = \Prj\Data\Business::paged($pager ,['date'=>$this->ym],'rsort date rsort week');
+        $moneyArr = ['surveyAmount','loanAmount','businessAmount','settleAmount','remainAmount'];
+        foreach ($rs as $k => $v) {
+            //todo 数据格式化
+            $tempArr = $v;
+            $tempArr['remainNum']+=\Prj\Data\BusinessNum::getNum($tempArr['date']);
+            $tempArr['remainAmount']+=\Prj\Data\Config::get('businessAmount');
+            foreach($moneyArr as $v){
+                if(array_key_exists($v,$tempArr)){
+                    $tempArr[$v]/=1000000;
+                    $tempArr[$v] = sprintf('%.2f',$tempArr[$v]);
+                }
+            }
+            $tempArr['date'] = date('Y-m',strtotime($tempArr['date'].'01'));
+            $tempArr['updateTime'] = date('Y-m-d H:i:s',strtotime($tempArr['updateTime']));
+
+            $tempArr[1]['num'] = $tempArr['surveyNum'];
+            $tempArr[1]['amout'] = $tempArr['surveyAmount'];
+
+            $tempArr[2]['num'] = $tempArr['loanNum'];
+            $tempArr[2]['amout'] = $tempArr['loanAmount'];
+
+            $tempArr[3]['num'] = $tempArr['businessNum'];
+            $tempArr[3]['amout'] = $tempArr['businessAmount'];
+
+            $tempArr[4]['num'] = $tempArr['settleNum'];
+            $tempArr[4]['amout'] = $tempArr['settleAmount'];
+            //===
+            $newArr[$tempArr['week']] = $tempArr;
+        }
+        $rs = $newArr;
+        ?>
+        <?php for($i=1;$i<=4;$i++){ ?>
+            <tr class="tr_size1">
+                <td rowspan="2" class="show_center show_b show_color2"><?php echo $itemName[$i-1];  ?></td><td class="show_center show_color2">户数</td>
+                <?php
+                $total[$i]['num'] = 0;
+                for($j=1;$j<=4;$j++){
+                    echo "<td class='show_color4'>".$rs[$j][$i]['num']."</td>";
+                    $total[$i]['num']+=$rs[$j][$i]['num'];
+                }
+                echo "<td class='show_color4'>".$total[$i]['num']."</td>";
+                ?>
+            </tr>
+            <tr class="tr_size1">
+                <td class="show_center show_color2">额度(万元)</td>
+                <?php
+                $total[$i]['amout'] = 0;
+                for($j=1;$j<=4;$j++){
+                    echo "<td>".$rs[$j][$i]['amout']."</td>";
+                    $total[$i]['amout']+=$rs[$j][$i]['amout'];
+                }
+                echo "<td>".$total[$i]['amout']."</td>";
+                ?>
+            </tr>
+        <?php
+        }
+        $nums = \Prj\Data\BusinessNum::getNums($this->ym);
+
+        $remainNumBefore = $nums['num'];
+        $remainAmountBefore = ($this->remains['remainAmount']+\Prj\Data\Config::get('businessAmount'))/1000000;
+
+        $remainNumAfter = $nums['numAfter'];
+        $remainAmountAfter = \Prj\Data\Business::getRemainAfter($this->ym)['remainAmount']/1000000;
+        var_log( $remainAmountAfter,'>>>>>>>>>>>>');
+
+        $week = $nums['week'];
+
+        $remainAmountAfter+=\Prj\Data\Config::get('businessAmount')/1000000;
+        ?>
+
+        <tr class="tr_size1 show_color1">
+            <td rowspan="2" colspan="2" class="show_center show_b">业务总存量</td><td class="show_center show_b">月初户数</td><td><?php echo $remainNumBefore ; ?></td><td class="show_center show_b">当前户数(确认至第<?php echo $week ?>周)</td><td colspan="2"> <?php echo $remainNumAfter; ?> </td>
+        </tr>
+        <tr class="tr_size1 show_color1">
+            <td class="show_center show_b">月初存量（万元）</td><td><?php echo $remainAmountBefore; ?></td><td class="show_center show_b">当前存量（万元）</td><td colspan="2"> <?php echo $remainAmountAfter; ?> </td>
+        </tr>
+    </table>
+</div>
+	
+	
+	
+	

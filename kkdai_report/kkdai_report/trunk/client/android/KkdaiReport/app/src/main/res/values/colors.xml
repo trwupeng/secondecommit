@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <color name="txt_color1">#3B3B3B</color>
+    <color name="txt_color2">#949494</color>
+    <color name="view_color1">#FFA584</color>
+    <color name="view_color2">#87CEFA</color>
+    <color name="view_color3">#DA70D6</color>
+    <color name="view_color4">#32CD32</color>
+    <color name="view_color5">#6495ED</color>
+    <color name="hint_color">#A8A8A8</color>
+    <color name="divider_color">#3C3C3C</color>
+    <color name="login_normal">#6C54B6</color>
+    <color name="login_press">#543C9F</color>
+    <color name="gray_transparent">#44E5E5E5</color>
+    <color name="clear">#FF6600</color>
+    <color name="group">#00FF00</color>
+
+</resources>

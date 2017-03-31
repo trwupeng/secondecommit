@@ -1,0 +1,50 @@
+<!DOCTYPE html><!--STATUS OK--><html><head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta content="always" name="referrer">
+<?php
+$errMsg = $this->msg;
+if(!empty($errMsg)){
+	echo $errMsg;
+}else{
+	$rs = $this->records;
+	echo "<table border=1 cellspacing=0><th>姓名<th>注册日期<th>是否认证<th>手机号<th>首投类型<th>首次购买时间<th>首次购买金额<th>累计购买活期金额<th>累计购买定期金额</th><th>协议描述";
+	foreach($rs as $r){
+		unset($r['userId']);
+		if($r['flg']>0){
+			$r['flg']="已认证";
+		}else{
+			$r['flg']="未认证";
+		}
+
+		if(empty($r['firstType'])) {
+			$r['firstType'] = '&nbsp';
+		}
+
+		if(empty($r['ymdBuy'])){
+			$r['ymdBuy']='&nbsp;';
+			$r['amount']='&nbsp;';
+		}else{
+			$r['amount']=  sprintf('%.2f',$r['amount']/100);
+		}
+
+
+
+		if (empty($r['ttz'])) {
+		    $r['ttz'] = '&nbsp';
+		}else{
+		    $r['ttz'] = sprintf('%.2f',$r['ttz']/100);
+		}
+
+		if(empty($r['diya'])) {
+			$r['diya'] = '&nbsp';
+		}else{
+			$r['diya'] = sprintf('%.2f', $r['diya']/100);
+		}
+
+		// 走后一列加上协议的描述信息
+		$r['remarks'] = $this->contractid_reamrk[$r['contractId']];
+		unset ($r['contractId']);
+		echo '<tr><td>'.implode('</td><td>', $r).'</td></tr>';
+	}
+}
+

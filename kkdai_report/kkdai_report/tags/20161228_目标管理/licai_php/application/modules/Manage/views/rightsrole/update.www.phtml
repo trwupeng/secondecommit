@@ -1,0 +1,154 @@
+<style>
+    .rightsTable td,.rightsTable th{
+        padding: 8px;
+    }
+    #tableHeadCopy{
+        margin-left: 6px;
+        border: 1px solid #DDDDDD;
+        border-right: none;
+        border-left: none;
+        background-color: white;
+    }
+    #tableHeadCopy th{
+        border-right: 1px solid #DDDDDD;
+    }
+</style>
+<div class="bjui-pageHeader">
+</div>
+<div class="bjui-pageContent rightsTable">
+    <div  style="position: fixed;z-index: 9999;display: none" class="par">
+        <center>
+            <div id="tableHeadCopy" style="">
+
+            </div>
+        </center>
+    </div>
+    <form data-callback="thiscallback" method="post" id="editForm" onsubmit="return false"
+          data-toggle="validate" data-alertmsg="false" data-reload-navtab="true"
+          action="<?php echo \Sooh\Base\Tools::uri([],'update'); ?>" class="nice-validator n-red" novalidate="novalidate">
+    <center>
+        <div style="position: relative">
+            <div>
+                <h3>用户组管理</h3>
+            </div>
+            <div style="position: absolute;top: 0;right: 0">
+                <button type="submit" class="btn-default btn-green" data-icon="save">保存</button>
+                &nbsp;
+                <button class="btn-default btn-close" data-icon="close">取消</button>
+            </div>
+        </div>
+
+        <div>
+            <input type="hidden" name="roleId" value="<?php echo $this->role['roleId']; ?>">
+            用户组名称：<input type="text" name="roleName" value="<?php echo $this->role['roleName']; ?>">
+        </div>
+        <div style="margin-top: 10px;">
+            当前管理员密码：<input name="pwd" type="password">
+        </div>
+        <div style="margin-top: 10px;">
+            <table class="table-bordered table-hover table-striped mainTable">
+                <thead>
+                    <tr>
+                            <th style="width: 170px;"></th>
+                        <?php
+                        $aliasMap = \Prj\Data\Menu::$aliasMap;
+                        foreach ($aliasMap as $k => $v){
+                            echo "<th style='width: 45px;'>$v</th>";
+                        }
+                        ?>
+                        <th style='width: 45px;'>全部</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $menuRights = $this->menuRights;
+                    $roleRights = $this->role['rightsIds'];
+                    foreach ((array)$menuRights as $k => $v){
+                        $rand = mt_rand(1000,9999);
+                        echo "<tr class='subMenu'>";
+                        echo "<td style='font-weight: bold'>$k</td>";
+                        foreach ($aliasMap as $ak => $av){
+                            echo "<td class='$ak'><input type='checkbox' data-class='{$ak}_{$rand}'></td>";
+                        }
+                        echo "<td><input class='allCheck' data-class='allCheck-$rand' type='checkbox'></td>";
+                        echo "</tr>";
+                        foreach ($v as $kk => $vv){
+                            //var_log($vv,'vv>>>');
+                            echo "<tr>";
+                            echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;$kk</td>";
+                            foreach ($aliasMap as $ak => $av){
+                                $checked = in_array($vv[$ak]['rightName'] , $roleRights) ? 'checked="checked"' : '';
+                                $indexCb = array_key_exists($ak,$vv) ? ("<input class='$ak' $checked data-class='{$ak}_{$rand}' type='checkbox' name='rightsIds[]' value='".$vv[$ak]['rightName']."'>") : "";
+                                echo "<td>$indexCb</td>";
+                            }
+                            echo "<td><input class='allCheck' data-class='allCheck-$rand' type='checkbox'></td>";
+                            echo "</tr>";
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </center>
+    </form>
+    <script>
+        $(function () {
+            var doChecked = function (input , checked) {
+                input.attr('checked',checked)
+                if(input.hasClass('allCheck')){
+                    var curInput = input.closest('tr').find('input')
+                    curInput.each(function () {
+                        $(this).attr('checked',checked)
+                        if(!checked){
+                            var dataClass = $(this).attr('data-class')
+                            $('.subMenu input[data-class="'+dataClass+'"]').attr('checked',checked)
+                        }
+                    })
+                }
+            }
+            var map = function (dataClass , checked) {
+                var that = $('[data-class="'+dataClass+'"]');
+                that.each(function () {
+                    doChecked($(this),checked)
+                })
+            }
+            $('.subMenu input').change(function () {
+                console.log('click...')
+                var dataClass = $(this).attr('data-class')
+                var checked = $(this).attr('checked') ? true : false;
+                map(dataClass , checked)
+                //doChecked($(this),checked)
+            });
+
+            $('input.allCheck').change(function () {
+                var checked = $(this).attr('checked') ? true : false;
+                doChecked($(this),checked)
+            })
+
+            $('input').change(function () {
+                var dataClass = $(this).attr('data-class')
+                var checked = $(this).attr('checked') ? true : false;
+                if(!checked){
+                    $('.subMenu input[data-class="'+dataClass+'"]').attr('checked',checked)
+                }
+            })
+
+            $('.bjui-pageContent').scroll(function (e) {
+                var top = $('.mainTable')[0].offsetTop;
+                var scroll = $('.rightsTable').scrollTop();
+                if(top <= scroll){
+                    $('#tableHeadCopy').html($('.rightsTable').find('thead').html())
+                    $('#tableHeadCopy').closest('div.par').width($('.rightsTable').width() - 20)
+                    $('#tableHeadCopy').width($('.mainTable').width())
+                    $('.par').css('top' , $('.rightsTable').offset().top)
+                    $('.par').fadeIn('fast')
+                }else{
+                    $('.par').fadeOut('fast')
+                }
+            })
+        })
+    </script>
+</div>
+<div class="bjui-pageFooter"></div>
+
+

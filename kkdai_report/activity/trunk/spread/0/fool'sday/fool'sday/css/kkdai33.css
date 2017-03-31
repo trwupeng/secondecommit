@@ -1,0 +1,6734 @@
+@charset "utf-8";
+/* CSS Document */
+body, html {
+	width: 100%;
+	height:100%;
+	font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background: #efefef;
+}
+input, button, textarea, select {
+	font-family: "Microsoft yahei";
+}
+input::-webkit-cancel-button {
+ display: none;
+}
+input::-ms-clear {
+ display: none;
+}
+input[type=text]:focus {
+	box-shadow: none;
+}
+* {
+	outline: none;
+	-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+#wrap {
+	width: 100%;
+}
+.inner {
+	position: relative;
+	width: 1000px;
+	margin: 0 auto;
+}
+/*公用头部*/
+.header {
+	position: relative;
+	width: 100%;
+	height: 34px;
+	line-height: 34px;
+	border-bottom: solid 1px #d7d7d7;
+	z-index: 20;
+	background: #4a464a;
+}
+.header .head_left {
+	position: relative;
+	float: left;
+	_padding-top: 4px;
+}
+.header .head_left .head_call {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-right: 36px;
+	font-size: 12px;
+	color: #b5b5b5;
+}
+.header .head_left .head_call em {
+	display: inline-block;
+	width: 19px;
+	height: 22px;
+	margin-right: 12px;
+	background: url("http://image.kuaikuaidai.com/static/images/icon_1.png") no-repeat;
+	vertical-align: middle;
+}
+.header .head_left .head_web {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	font-size: 12px;
+	color: #b5b5b5;
+	cursor: pointer;
+	padding: 0 12px;
+}
+.header .head_left .head_web a {
+	display: inline-block;
+	width: 17px;
+	height: 21px;
+	margin-right: 6px;
+	background: url("http://image.kuaikuaidai.com/static/images/icon_2.png") no-repeat;
+	vertical-align: middle;
+}
+.header .head_rigth {
+	float: right;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+}
+.header .head_rigth a {
+	display: inline-block;
+}
+.header .head_rigth .head_btn {
+	margin-left: 8px;
+	font-size: 12px;
+	color: #fff;
+}
+.header .head_rigth .head_curr {
+	width: 52px;
+	height: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 20px;
+	background: url("http://image.kuaikuaidai.com/static/images/login_btn.png") no-repeat;
+}
+.header .head_login .enter {
+	height: 25px;
+	color: #fff;
+	text-align: center;
+	line-height: 25px;
+	margin-right: 20px;
+}
+.header .head_login .enter:hover {
+	color: #C172E6;
+}
+.header .head_login {
+	float: right;
+}
+.header .head_login p {
+	display: inline-block;
+	font-size: 14px;
+	color: #fff;
+}
+.header .head_login a:hover p {
+	color: #C172E6;
+}
+.header .head_login a {
+	display: inline-block;
+	padding-left: 15px;
+	font-size: 14px;
+	color: #fff;
+}
+.head_app {
+	display: none;
+	position: absolute;
+	right: -65px;
+	top: 34px;
+	width: 147px;
+	height: 128px;
+	padding: 13px 0;
+	z-index: 99;
+	text-align: center;
+	cursor: pointer;
+	background: #f3f3f3;
+	border: 1px solid #dfdfdf;
+	color: #904ecb;
+	border-top: none;
+}
+/*公用导航*/
+.nav {
+	position: relative;
+	width: 100%;
+	height: 70px;
+	background: #fff;
+	z-index: 10;
+	border-bottom: solid 1px #dfdfdf;
+}
+.nav .nav_logo {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	top:9px;
+	_top: 8px;
+ *top: 8px;
+}
+.nav ul {
+	position: absolute;
+	top:0;
+	right:0;
+	height: 70px;
+	line-height:70px;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+}
+.nav ul li {
+	position: relative;
+	float: left;
+	padding-left: 40px;
+	z-index: 30;
+}
+.nav ul li a {
+	display: inline-block;
+	font-size: 16px;
+	color: #333333;
+}
+.nav ul li a:hover {
+	color: #904ecb;
+}
+.nav ul li.nav_curr a {
+	color: #904ecb;
+}
+.nav ul li.nav_arrow {
+	_padding-top: 27px;
+	_height: 40px;
+}
+.nav ul li.nav_arrow em {
+	display: inline-block;
+	width: 9px;
+	height: 5px;
+	margin-left: 6px;
+	background: url("http://image.kuaikuaidai.com/static/images/arrow_1.png") no-repeat;
+	vertical-align: middle;
+}
+.nav ul li.nav_arrow .nav_box {
+	display: none;
+	position: absolute;
+	top: 60px;
+	left: 34px;
+	width: 94px;
+	padding: 6px 0px;
+	border: solid 1px #dadada;
+	background: #fff;
+	z-index: 20;
+}
+.nav ul li.nav_arrow .nav_box a {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	text-align: left;
+	padding-left: 15px;
+	font-size: 14px;
+	color: #333333;
+}
+.nav ul li.nav_arrow .nav_box span {
+	position: absolute;
+	top: -8px;
+	left: 40px;
+ *top: -10px;
+	display: inline-block;
+	width: 12px;
+	height: 6px;
+	line-height: 6px;
+}
+.djd #nav_box_top {
+	top: -6px;
+}
+@-moz-document url-prefix() {
+ #nav_box_top {
+ top:-7px;
+}
+}
+.nav ul li.nav_arrow .nav_box a:hover {
+	color: #904ecb;
+}
+.nav_border {
+	border-bottom: 0px;
+}
+/*公用底部*/
+.footer {
+	background: #4e5152;
+	width: 100%;
+}
+.footer .foot_box {
+	padding: 18px 0px;
+}
+.footer .foot_box .foot_call {
+	float: left;
+	display: inline-block;
+	width: 340px;
+	padding-top: 14px;
+}
+.footer .foot_box .foot_call .foot_img {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding: 0px 16px;
+	vertical-align: top;
+}
+.footer .foot_box .foot_call .foot_txt {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+}
+.footer .foot_box .foot_call .foot_txt p {
+	font-size: 14px;
+	color: #bdc0c1;
+}
+.footer .foot_box .foot_call .foot_txt h1 {
+	padding: 2px 0px;
+	font-size: 22px;
+	color: #fff;
+}
+.footer .foot_box .foot_left {
+	float: right;
+	display: inline-block;
+	vertical-align: top;
+}
+.footer .foot_box .foot_left ul {
+	padding-bottom: 30px;
+}
+.footer .foot_box .foot_left ul li {
+	float: left;
+	width: 110px;
+	text-align: center;
+}
+.footer .foot_box .foot_left ul li a {
+	display: inline-block;
+	width: 110px;
+	font-size: 14px;
+	color: #fff;
+}
+.footer .foot_box .foot_left .foot_phone {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 27px;
+}
+.footer .foot_box .foot_left .foot_phone span {
+	display: inline-block;
+	padding-right: 38px;
+	font-size: 14px;
+	color: #fff;
+}
+.footer .foot_box .foot_left .foot_phone a {
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+	vertical-align: middle;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover1 {
+	margin-right: 24px;
+	background: url("http://image.kuaikuaidai.com/static/images/number_4.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover2 {
+	background: url("http://image.kuaikuaidai.com/static/images/number_3.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover3 {
+	margin-right: 24px;
+	background: url("http://image.kuaikuaidai.com/static/images/number_1.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover4 {
+	background: url("http://image.kuaikuaidai.com/static/images/number_2.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover1:hover {
+	background: url("http://image.kuaikuaidai.com/static/images/num_hover3.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover2:hover {
+	background: url("http://image.kuaikuaidai.com/static/images/num_hover4.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover3:hover {
+	background: url("http://image.kuaikuaidai.com/static/images/num_hover1.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_phone .foot_hover4:hover {
+	background: url("http://image.kuaikuaidai.com/static/images/num_hover2.png") no-repeat;
+}
+.footer .foot_box .foot_left .foot_wid {
+	padding-right: 80px;
+}
+.footer .foot_bom {
+	padding: 20px 0px;
+	text-align: center;
+	border-top: solid 1px #51575a;
+}
+.footer .foot_bom ul {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	margin: 0 auto;
+}
+.footer .foot_bom ul li {
+	float: left;
+	padding-left: 10px;
+}
+.footer .foot_bom ul li a {
+	display: inline-block;
+	font-size: 14px;
+	color: #adb0b2;
+}
+.footer .foot_bom p {
+	padding-top: 10px;
+	font-size: 12px;
+	color: #7f8587;
+}
+.footer .foot_bom .foot_icon {
+	padding-bottom: 12px;
+}
+.footer .foot_bom .foot_icon a {
+	display: inline-block;
+	margin-right: 8px;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+.footer .foot_bom .foot_icon a:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+/*返回顶部*/
+/*暂时注释*/
+.return_top {
+	position: fixed;
+	_position:absolute;
+_top: expression(documentElement.scrollTop + 500 + "px");
+	top: 280px;
+	right: 0px;
+	z-index: 100;
+}
+.return_top a {
+	display: block;
+	margin-bottom: 10px;
+}
+.online-service {
+	width: 36px;
+	height: 100px;
+	background: #d7d7d7;
+	border-radius: 4px;
+	font-size: 14px;
+	color: #494949;
+	padding-top: 12px;
+}
+.online-service:hover {
+	background: #954ed9;
+	color: #fff;
+}
+.online-service .online-service_qq {
+	width: 16px;
+	height:16px;
+	background: url(http://image.kuaikuaidai.com/static/images/icon_qq.png) no-repeat;
+	margin-left: 10px;
+	transition: all 0.3s ease-in-out 0s;
+	overflow: hidden;
+	background-position: 0 0;
+}
+.online-service:hover .online-service_qq {
+	background-position: 0 -20px;
+}
+.online-service p {
+	line-height: 17px;
+	padding: 8px 0 0 12px;
+}
+.content {
+	padding: 40px 0px;
+}
+.content_pa1 {
+	padding-top:0;
+}
+/*-------------------------------------------首页------------------------------------------------*/
+.banner_warp {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+}
+.banner_warp .banner {
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+.banner_warp .banner .owl-wrapper {
+	display: none;
+	position: relative;
+	width: 100%;
+}
+.banner_warp .banner .owl-wrapper-outer {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.banner_warp .banner .owl-item {
+	float: left;
+}
+.banner_warp .banner .owl-page, .banner .owl-buttons div {
+	cursor: pointer;
+}
+.banner_warp .banner .item {
+	position: relative;
+	display: block;
+}
+.banner_warp .banner img {
+	display: block;
+	width: 100%;
+	height: 300px;
+}
+.banner_warp .banner .owl-pagination {
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	width: 100%;
+	height: 22px;
+	text-align: center;
+}
+.banner_warp .banner .owl-page {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin: 0 5px;
+	background: #a6b6a9;
+ *display: inline;
+ *zoom: 1;
+	border-radius: 50%;
+	background: url(http://image.kuaikuaidai.com/static/images/road.png) no-repeat;
+	background-position:0 0;
+	width:17px;
+	height:18px;
+}
+.banner_warp .banner .owl-pagination .active {
+	background-position:0 -19px;
+	width:17px;
+	height:18px;
+}
+.banner_warp .banner .owl-buttons {
+	display: none;
+}
+.banner_warp .banner .owl-buttons div {
+	position: absolute;
+	top: 50%;
+	width: 33px;
+	height: 57px;
+	margin-top: -28px;
+	text-indent: -9999px;
+}
+.banner_warp .banner .owl-prev {
+	left: 56px;
+	background-image: url("http://image.kuaikuaidai.com/static/images/prve.png");
+}
+.banner_warp .banner .owl-next {
+	right: 56px;
+	background-image: url("http://image.kuaikuaidai.com/static/images/next.png");
+}
+.banner_left {
+	position: absolute;
+	top: -300px;
+	left: 50%;
+	margin-left: 204px;
+	width: 310px;
+	height: 233px;
+	overflow: hidden;
+}
+.banner_left .banner_box {
+	width: 330px;
+	height: 233px;
+	background: url("http://image.kuaikuaidai.com/static/images/nav_bg.png") no-repeat;
+	color: #fff;
+}
+.banner_box1 {
+	padding:25px 0 0 20px;
+	font-size: 14px;
+}
+.banner_box1 img {
+	margin-left: 50px;
+	;
+	margin-top: 25px;
+	;
+}
+.banner_btn {
+	width: 268px;
+	height: 45px;
+	line-height: 45px;
+	background: url("http://image.kuaikuaidai.com/static/images/nav_btn.png") no-repeat;
+	margin-top:25px;
+	font-size:18px;
+}
+.banner_btn a {
+	display: block;
+	width: 268px;
+	height: 45px;
+	text-align: center;
+	color: #fff;
+}
+.banner_box1 p {
+	margin-left:125px;
+	margin-top:10px;
+	color:#b7b7b7;
+}
+.banner_box1 p a {
+	color: #fff;
+	margin-left:10px;
+}
+.banner_box2 {
+	padding:40px 0 0 20px;
+	font-size: 14px;
+}
+.banner_box2 h3 {
+	width:268px;
+	text-align: center;
+	font-size:24px;
+}
+.banner_box2 p {
+	width:268px;
+	text-align: center;
+	margin-top: 25px;
+}
+.home_right ul li .home_box .home_title.wqx {
+	width: 65px;
+}
+.home_right ul li .home_rate.jd {
+	padding-left: 50px;
+}
+.saft {
+	width: 100%;
+	border-bottom: solid 1px #d7d7d7;
+	background: #f1f1f1;
+}
+.saft ul li {
+	float: left;
+	width: 300px;
+	margin: 0px 0px 0px 32px;
+	position: relative;
+	border-right: solid 1px #dfdfdf;
+}
+.saft .inner ul {
+	padding: 24px 0px 24px 0px;
+}
+.saft ul li h2 {
+	padding-bottom: 12px;
+	font-size: 20px;
+	color: #333;
+	font-family: "黑体";
+}
+.saft ul li p {
+	line-height: 22px;
+	font-size: 14px;
+	color: #666666;
+}
+.saft ul li a {
+	display: inline-block;
+	width: 69px;
+	height: 69px;
+	position: absolute;
+	top: 40px;
+	right: 42px;
+	cursor: default;
+}
+.saft ul li span {
+	display: inline-block;
+	width: 69px;
+	height: 69px;
+	position: absolute;
+	top: 15px;
+	right: 42px;
+	cursor: default;
+}
+.saft ul li.saft_li {
+	border-right: 0px;
+}
+.saft ul li .saft_hover1 {
+	background: url("http://image.kuaikuaidai.com/static/images/safe_1.png") no-repeat;
+}
+.saft ul li .saft_hover2 {
+	background: url("http://image.kuaikuaidai.com/static/images/safe_2.png") no-repeat;
+}
+.saft ul li .saft_hover3 {
+	background: url("http://image.kuaikuaidai.com/static/images/safe_3.png") no-repeat;
+}
+.day {
+	width: 100%;
+	padding-bottom: 28px;
+}
+.day .day_left {
+	float: left;
+	position: relative;
+	width: 140px;
+	height: 228px;
+	text-align: center;
+	background: #ffb033;
+}
+.day .day_left .day_img {
+	padding-top: 36px;
+	text-align: center;
+}
+.day .day_left .day_img a {
+	display: inline-block;
+}
+.day .day_left p {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 20px;
+}
+.day .day_left p a {
+	display: inline-block;
+	color: #fff;
+}
+.day .day_left .day_detail {
+	display: inline-block;
+	padding-top: 50px;
+	font-size: 14px;
+	color: #fff;
+}
+.day .day_left .day_detail em {
+	display: inline-block;
+	width: 6px;
+	height: 13px;
+	margin-left: 4px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/arrow_3.png") no-repeat;
+}
+.day .day_left span {
+	position: absolute;
+	top: 50%;
+	right: -8px;
+	margin-top: -10px;
+	display: inline-block;
+}
+.day .day_right {
+	float: right;
+	position: relative;
+	width: 843px;
+	height: 228px;
+	border: solid 1px #dfdfdf;
+	background: #fff;
+}
+.day .day_right .day_list {
+	padding-top: 18px;
+}
+.day .day_right .day_list .day_box {
+	position: relative;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	border-right: solid 1px #dfdfdf;
+	overflow: hidden;
+}
+.day .day_right .day_list .day_box h2 {
+	font-size: 14px;
+	color: #333333;
+}
+.day .day_right .day_list .day_box p {
+	font-size: 36px;
+	color: #333;
+}
+.day .day_right .day_list .day_box .day_color {
+	color: #fe3b3b;
+}
+.day .day_right .day_list .day_box .day_icon1 {
+	position: absolute;
+	top: 16px;
+	left: 48px;
+	display: inline-block;
+}
+.day .day_right .day_list .day_box .day_icon2 {
+	position: absolute;
+	top: 16px;
+	left: 20px;
+	display: inline-block;
+}
+.day .day_right .day_list .day_box .day_icon3 {
+	position: absolute;
+	top: 16px;
+	left: 20px;
+	display: inline-block;
+}
+.day .day_right .day_list .diverge1 {
+	width: 270px;
+}
+.day .day_right .day_list .diverge2 {
+	width: 292px;
+}
+.day .day_right .day_list .diverge3 {
+	width: 270px;
+	border-right: 0px;
+}
+.day .day_right .day_list .diverge1 .day_wid {
+	width: 150px;
+	margin-left: 110px;
+}
+.day .day_right .day_list .diverge2 .day_wid {
+	width: 214px;
+	margin-left: 70px;
+}
+.day .day_right .day_list .diverge3 .day_wid {
+	width: 184px;
+	margin-left: 82px;
+}
+.day .day_right .shallow_box {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	position: relative;
+	width: 536px;
+	padding: 50px 0px 0px 30px;
+}
+.day .day_right .shallow_box .shallow {
+	width: 536px;
+	height: 4px;
+	background: #dcdff5;
+}
+.day .day_right .shallow_box .shallow #line {
+	width: 0;
+	height: 4px;
+	background: #954ed9;
+}
+.day .day_right .shallow_box #percent {
+	position: absolute;
+	top: 16px;
+	left: 0px;
+	width: 12%;
+	height: 27px;
+	text-align: center;
+	line-height: 24px;
+	font-size: 14px;
+	color: #fff;
+	background: url("http://image.kuaikuaidai.com/static/images/index_btn5.png") no-repeat;
+}
+.day_right .day_btn {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 85px;
+}
+.day_right .day_btn a {
+	display: inline-block;
+	background:#fec158;
+	width:164px;
+	height:36px;
+	color:#7a2e00;
+	font-size:14px;
+	text-align:center;
+	line-height:36px;
+	border-radius:4px;
+}
+.day_right .day_btn.over a {
+	display: inline-block;
+	background: #e5e5e5;
+	width:164px;
+	height:36px;
+	color: #7e7e7e;
+	font-size:14px;
+	text-align:center;
+	line-height:36px;
+	border-radius:4px;
+}
+.day_right .day_btn a:hover {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.con_head {
+	height: 46px;
+	line-height: 46px;
+	padding: 0px 16px;
+	background: #f5f5f5;
+	border-bottom: solid 1px #e5e5e5;
+}
+.con_head h2 {
+	float: left;
+	font-size: 16px;
+	color: #1b1b1b;
+}
+.con_head a {
+	float: right;
+	display: inline-block;
+	font-size: 16px;
+	color: #1b1b1b;
+}
+.con_head a em {
+	display: inline-block;
+	height: 16px;
+	margin-right: 10px;
+	vertical-align: -1px;
+}
+.home {
+	padding-bottom: 25px;
+}
+.home .home_left {
+	position: relative;
+	float: left;
+	width: 140px;
+	height: 423px;
+	text-align: center;
+	background: #3fb7e3;
+}
+.home .home_left h2 {
+	padding: 90px 0px 30px;
+	text-align: center;
+}
+.home .home_left p {
+	text-align: center;
+	font-size: 20px;
+}
+.home .home_left p a {
+	display: inline-block;
+	color: #fff;
+}
+.home .home_left .day_detail {
+	display: inline-block;
+	padding-top: 120px;
+	font-size: 14px;
+	color: #fff;
+}
+.home .home_left .day_detail em {
+	display: inline-block;
+	width: 6px;
+	height: 13px;
+	margin-left: 4px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/arrow_3.png") no-repeat;
+}
+.home .home_left span {
+	position: absolute;
+	top: 50%;
+	right: -8px;
+	margin-top: -10px;
+	display: inline-block;
+}
+.home_right {
+	float: right;
+	width: 843px;
+	height: 423px;
+	border: solid 1px #dfdfdf;
+	background: #fff;
+	overflow: hidden;
+}
+.home_right ul li {
+	position: relative;
+	padding: 21px 26px;
+	border-bottom: solid 1px #eaeaea;
+	height:51px;
+}
+.home_right ul li:last-child {
+	border-bottom:0;
+}
+.home_right ul li h2 {
+	width: 130px;
+	vertical-align: middle;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	font-size: 16px;
+	color: #333;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.home_right ul li .home_box {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 20px;
+	vertical-align: middle;
+}
+.home_right ul li .home_pwi {
+	padding-left:10px;
+}
+.home_right ul li .home_box .home_title {
+	width: 90px;
+	padding-bottom: 6px;
+	font-size: 20px;
+	color: #333;
+}
+.home_right ul li .home_pwi .home_title {
+	width:100px;
+}
+.home_right ul li .home_box .home_color {
+	color: #ff3c00;
+}
+.home_right ul li .home_box .home_con {
+	font-size: 14px;
+	color: #7f7f7f;
+}
+.home_right ul li .home_rate {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 50px;
+	vertical-align: bottom;
+}
+.home_right ul li .home_rate .home_bg {
+	width: 115px;
+	height: 4px;
+	background: #dcdff5;
+}
+.home_right ul li .home_rate .home_wid {
+	width: 80%;
+	height: 4px;
+	background: #904ecb;
+}
+.home_right ul li .home_rate p {
+	padding-top: 8px;
+	font-size: 14px;
+	color: #7f7f7f;
+}
+.home_right ul li .home_icon {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-right: 12px;
+}
+.home_right ul li .home_btn {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 44px;
+}
+.home_right ul li .home_btn a {
+	display: inline-block;
+	width: 84px;
+	height: 36px;
+	text-align: center;
+	line-height: 36px;
+	font-size: 14px;
+}
+.home_right ul li .home_btn1 a {
+	color: #fff;
+	background: url("http://image.kuaikuaidai.com/static/images/index_btn3.png") no-repeat;
+}
+.home_right ul li .home_btn2 a {
+	color: #fff;
+	background: url("http://image.kuaikuaidai.com/static/images/index_btn4.png") no-repeat;
+}
+.home_right ul li .home_btn a:hover {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.home_right ul li.home_none {
+	border-bottom: 0;
+}
+.home_right ul li.home_bg {
+	background: #f5f5f5;
+}
+.baby_box {
+	height: 423px;
+	padding-bottom:28px;
+}
+.baby_box .baby_left {
+	position: relative;
+	float: left;
+	width: 140px;
+	height: 423px;
+	text-align: center;
+	background: #fe6161;
+}
+.baby_box .baby_left h2 {
+	padding: 90px 0px 30px;
+	text-align: center;
+}
+.baby_box .baby_left p {
+	text-align: center;
+	font-size: 20px;
+}
+.baby_box .baby_left p a {
+	display: inline-block;
+	color: #fff;
+}
+.baby_box .baby_left .day_detail {
+	display: inline-block;
+	padding-top: 120px;
+	font-size: 14px;
+	color: #fff;
+}
+.baby_box .baby_left .day_detail em {
+	display: inline-block;
+	width: 6px;
+	height: 13px;
+	margin-left: 4px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/arrow_3.png") no-repeat;
+}
+.baby_box .baby_left span {
+	position: absolute;
+	top: 50%;
+	right: -8px;
+	margin-top: -10px;
+	display: inline-block;
+}
+.baby_box .home_right {
+	height: 423px;
+}
+.baby_box .home_right ul li {
+	padding: 21px 26px;
+	position:relative;
+}
+.baby_box .home_right ul li .jiaxi {
+	position:absolute;
+	left:0;
+	top:0;
+}
+.home_right ul li .home_icon .new {
+	position:absolute;
+	left:80px;
+	top:0;
+}
+/*公告*/
+.affiche {
+	padding: 0px 0px 28px;
+}
+.affiche .aff_box {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 482px;
+	vertical-align: top;
+}
+.affiche .aff_box .aff_title {
+	padding: 0px 10px 10px 8px;
+}
+.affiche .aff_box .aff_title h2 {
+	float: left;
+	font-size: 18px;
+	color: #333;
+}
+.affiche .aff_box .aff_title a {
+	float: right;
+	display: inline-block;
+	padding-top: 2px;
+}
+.affiche .aff_box .aff_title .aff_first {
+	display: inline-block;
+	width: 26px;
+	height: 18px;
+	margin-right: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/index_icon1.png") no-repeat;
+}
+.affiche .aff_box .aff_title .aff_last {
+	display: inline-block;
+	width: 25px;
+	height: 21px;
+	margin-right: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/index_icon2.png") no-repeat;
+}
+.affiche .aff_box ul {
+	width: 443px;
+	height: 137px;
+	overflow: hidden;
+	padding: 22px 26px 6px;
+	border: solid 1px #dfdfdf;
+	background: #fff;
+}
+.affiche .aff_box ul li {
+	position: relative;
+	padding-bottom: 16px;
+}
+.affiche .aff_box ul li .aff_name {
+	float: left;
+	margin-left: 10px;
+	font-size: 14px;
+	color: #343434;
+}
+.affiche .aff_box ul li .aff_name em {
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	margin-right: 14px;
+	background: #999999;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.affiche .aff_box ul li .aff_name:hover {
+	color: #8600ff;
+}
+.affiche .aff_box ul li .aff_name:hover em {
+	background: #8600ff;
+}
+.affiche .aff_box ul li .aff_date {
+	float: right;
+	font-size: 14px;
+	color: #666666;
+}
+.affiche .aff_right {
+	margin-top: -1px;
+	margin-left: 18px;
+	_margin-left: 2px;
+}
+/*合作机构*/
+.perate h2 {
+	padding-bottom: 12px;
+	font-size: 18px;
+	color: #333;
+}
+.perate h2 em {
+	display: inline-block;
+	width: 22px;
+	height: 21px;
+	margin: 0px 15px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/index_icon4.png") no-repeat;
+}
+.perate ul {
+	padding: 30px 0px 32px 20px;
+	text-align: center;
+	background: #fff;
+	border: solid 1px #dfdfdf;
+}
+.perate ul li {
+	float: left;
+	padding-right: 14px;
+}
+.perate ul li a {
+	display: inline-block;
+}
+/*-------------------------------------------标的详情页------------------------------------------------*/
+.house {
+	width: 100%;
+}
+.house .house_box {
+	float: left;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 668px;
+	height: 370px;
+	background: #fff;
+}
+.house .house_add {
+	height:420px;
+}
+.house_head {
+	height: 56px;
+	line-height: 56px;
+	background: #59afff;
+}
+.house_hred {
+	background: #fe6161;
+}
+.house_head h2 {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 23px;
+	font-size: 20px;
+	color: #fff;
+}
+.house_head a {
+	float: right;
+	display: inline-block;
+	_padding-top: 15px;
+	margin-right: 14px;
+	font-size: 16px;
+	color: #fff;
+}
+.house_add .house_head a {
+	margin-right:20px;
+	color:#b8d9ff;
+}
+.house_add .house_hred a {
+	color:#ffc6c6;
+}
+.house_add .house_head h2 {
+	padding-left:40px;
+	font-size:18px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width:400px;
+}
+.house_head a em {
+	display: inline-block;
+	width: 7px;
+	height: 16px;
+	margin-left: 6px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/arrow_3.png") no-repeat;
+}
+.house_con {
+	padding: 23px 30px;
+}
+.house_add .house_con {
+	padding-top:40px;
+}
+.house_con h2 {
+	font-size: 18px;
+	color: #333;
+}
+.house_con h2 em, .house_head h2 em {
+	display: inline-block;
+	width: 20px;
+	height: 17px;
+	margin-right: 22px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/home.png") no-repeat;
+}
+.house_head.house_hred h2 em {
+	display: inline-block;
+	width: 20px;
+	height: 17px;
+	margin-right: 22px;
+	vertical-align: -2px;
+	background: url("http://image.kuaikuaidai.com/static/images/baobao.png") no-repeat;
+}
+.house_head h2 em {
+	display: inline-block;
+	width: 20px;
+	height: 17px;
+	margin-right: 22px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/home.png") no-repeat;
+}
+.house_con .house_mony {
+	padding: 40px 0px;
+	font-size: 14px;
+	color: #979797;
+}
+.house_con .house_mony p {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+}
+.house_con .house_mony p span {
+	display: block;
+}
+.house_con .house_mony p .mony_num {
+	font-size: 40px;
+	color: #333;
+}
+.house_con .house_mony .mony_wid1 {
+	width: 222px;
+}
+.house_con .house_mony .mony_wid2 {
+	width: 254px;
+}
+.house_con .house_mony .mony_wid1 .mony_num {
+	color: #ef4c40;
+}
+.house_con .house_row {
+	padding-bottom: 16px;
+}
+.house_con .house_row p {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-right: 40px;
+	font-size: 14px;
+	color: #7f7f7f;
+}
+.house_con .house_row p span {
+	padding-left: 10px;
+	color: #333;
+}
+.hou_pay {
+	float: right;
+	width: 256px;
+	height: 322px;
+	margin-left: 10px;
+	padding: 24px 32px;
+	background: #fff;
+	vertical-align: top;
+}
+.hou_add {
+	height:361px;
+	padding-top:35px;
+}
+.hou_pay p {
+	padding-bottom: 27px;
+}
+.hou_add p {
+	padding-bottom: 25px;
+}
+.hou_add .clearfix {
+	line-height:37px;
+	padding-bottom:12px;
+}
+#away {
+	padding-bottom:30px;
+}
+.hou_pay p span {
+	font-size: 14px;
+	color: #7f7f7f;
+}
+.hou_add p span {
+	color:#a3a3a3;
+}
+.hou_pay p label {
+	display: inline-block;
+	vertical-align: middle;
+}
+.hou_pay p label input {
+	width: 100px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 20px;
+	color: #904ecb;
+	background: #f7f7f8;
+	border: 0px;
+}
+.hou_pay p .hou_money {
+	color: #333;
+}
+.hou_pay p .hou_btn {
+	float: right;
+	display: inline-block;
+}
+.hou_pay p .hou_btn:hover {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.hou_pay .bank {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 14px;
+	color: #7f7f7f;
+}
+.hou_pay .bank em {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/detail_icon1.png") no-repeat;
+}
+.hou_pay .pay_btn a {
+	display: inline-block;
+	position: relative;
+}
+.paybtn {
+	width: 256px;
+	height: 48px;
+	border: none;
+	background: #904ecb;
+	color: #fff;
+	line-height: 48px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+.hou_pay .pay_btn a:hover {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.hou_pay .hou_hide {
+	display: none;
+	padding-bottom: 14px;
+	text-align: center;
+	font-size: 12px;
+	color: red;
+}
+.payload {
+	position: absolute;
+	left: 70px;
+	top: 18px;
+	display: none;
+}
+.chargebtn {
+	background: none;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	width: 190px;
+	height: 40px;
+	font-size:14px;
+}
+.project {
+	margin-top: 20px;
+	background: #fff;
+}
+.pro_title {
+	padding: 0px 40px;
+	border-bottom: solid 1px #e5e5e5;
+}
+.pro_title li {
+	float: left;
+	margin-right: 52px;
+}
+.pro_title li a {
+	display: inline-block;
+	padding: 14px 0px;
+	font-size: 16px;
+	color: #333;
+	width:98px;
+	text-align: center;
+}
+.pro_title li.pro_curr {
+	background:url("http://image.kuaikuaidai.com/static/images/linebottom.png") no-repeat center bottom;
+	color:#904ecb;
+	width:98px;
+	text-align: center;
+}
+.pro_title li.pro_curr a {
+	color: #904ecb;
+}
+.pro_warp .pro_tab {
+	min-height: 200px;
+	padding: 10px 20px;
+}
+.pro_warp .pro_tab .pro_describe {
+	line-height: 28px;
+	font-size: 16px;
+	color: #333;
+}
+/*项目描述*/
+.pro_warp .pro_tab .pro_m {
+	width: 878px;
+	border: 1px solid #dfdfdf;
+	margin: 30px 45px;
+}
+.pro_warp .pro_tab .pro_m thead th, .pro_warp .pro_tab .pro_pum thead th {
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+	background: #f2efff;
+	border-bottom: 1px solid #dfdfdf;
+}
+.pro_warp .pro_tab .pro_m tbody td {
+	width: 292px;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+	padding: 20px 0;
+	font-size:14px;
+}
+.pro_warp .pro_tab .pro_m tbody td span {
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+	color: #999;
+}
+.pro_warp .pro_tab .pro_m tbody td em {
+	display: inline-block;
+	width: 185px;
+	color: #333;
+}
+.pro_warp .pro_tab .pro_m tbody td .ver {
+	vertical-align: middle;
+}
+.pro_warp .pro_tab .pro_d {
+	width: 878px;
+	border: 1px solid #dfdfdf;
+	margin: 30px 45px;
+}
+.pro_warp .pro_tab .pro_d thead th {
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+	background: #f2efff;
+	border-bottom: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+}
+.pro_warp .pro_tab .pro_d tbody td {
+	padding: 30px;
+	width: 439px;
+	border-right: 1px solid #dfdfdf;
+}
+.pro_warp .pro_tab .pro_d tbody td p {
+	line-height: 25px;
+	font-size:14px;
+	color:#333;
+}
+.pro_warp .pro_tab .pro_d tbody td img {
+	max-width: 300px;
+	height: auto;
+	margin-top: 8px;
+}
+/*购买记录*/
+.pro_warp .pro_tab .pro_j, .pro_warp .pro_tab .pro_pum {
+	width: 878px;
+	border: 1px solid #dfdfdf;
+	margin: 30px 45px;
+}
+.pro_warp .pro_tab .pro_j th {
+	height: 72px;
+	line-height: 72px;
+	font-size: 16px;
+	color: #333;
+}
+.pro_warp .pro_tab .pro_j td {
+	height: 44px;
+	font-size: 14px;
+	color: #333;
+}
+.pro_warp .pro_tab .pro_j .pdl10 {
+	padding-left: 10px;
+}
+.protab {
+	width: 880px;
+	margin: 0px 40px;
+	border: 0;
+	font-size: 12px;
+	color: #333;
+}
+.protab ol {
+	border: 1px solid #dfdfdf;
+	border-bottom: none;
+}
+#poi_list_record, #pro_re_pay {
+	margin-top:30px;
+}
+#pro_re_pay {
+	margin-bottom:80px;
+}
+.protab ol li {
+	border-bottom: 1px solid #dfdfdf;
+}
+.protab ol li.record_title {
+	font-size: 14px;
+	background-color: #f2efff;
+}
+.protab ol li b {
+	display: inline-block;
+	text-indent: 38px;
+	height: 50px;
+	line-height: 50px;
+	font-weight: normal;
+}
+.protab ol li .title_lf {
+	width: 289px;
+	border-right: 1px solid #dfdfdf;
+}
+.protab ol li .title_cen {
+	width: 417px;
+	border-right: 1px solid #dfdfdf;
+}
+/*风险措施*/
+.pro_warp .pro_tab .pro_risk thead th {
+	border-right: 1px solid #dfdfdf;
+}
+.pro_warp .pro_tab .pro_pum .pum div {
+	height: 150px;
+	margin-bottom: 0px;
+}
+.pum {
+	padding:40px;
+}
+.pro_warp .pro_tab .pro_pum .pum p {
+	text-align: center;
+	font-size: 14px;
+	height: 20px;
+	margin-bottom: 15px;
+}
+.spinner .decrease {
+	width: 36px;
+	height: 36px;
+	border: 0px;
+	background: url("http://image.kuaikuaidai.com/static/images/minus.jpg") no-repeat;
+	vertical-align: middle;
+}
+.spinner .increase {
+	width: 36px;
+	height: 36px;
+	border: 0px;
+	background: url("http://image.kuaikuaidai.com/static/images/add.png") no-repeat;
+	vertical-align: middle;
+}
+.paypro ol li b {
+	width:217.2px;
+	border-right:1px solid #dfdfdf;
+	text-align:center;
+	text-indent:0;
+	display:inline-block
+}
+.paypro .paypbot {
+	border:0;
+}
+.pro_cuo {
+	margin:80px auto 90px;
+	overflow:hidden; /*background: url("http://image.kuaikuaidai.com/static/images/prosta0.png") no-repeat 47px 0px;*/
+}
+.pro_cuo img {
+	padding-left:47px;
+}
+/*.prosta1{background: url("http://image.kuaikuaidai.com/static/images/prosta1.png") no-repeat 47px 0px;}
+.prosta2{background: url("http://image.kuaikuaidai.com/static/images/prosta2.png") no-repeat 47px 0px;}
+.prosta3{background: url("http://image.kuaikuaidai.com/static/images/prosta3.png") no-repeat 47px 0px;}
+.prosta4{background: url("http://image.kuaikuaidai.com/static/images/prosta4.png") no-repeat 47px 0px;}*/
+.pro_cuo div {
+	display:inline-block;
+	position:relative;
+	width:160px;
+	float:left; /*padding-top:55px;*/
+}
+.pro_cuo p {
+	text-align:center;
+	font-size:14px;
+	color:#999;
+	line-height:32px;
+}
+.pro_cuo .propmar {
+	margin-top:15px;
+}
+.pro2 .propmar{
+	padding-left:42px;
+	text-align:left;
+}
+.pro_cuo .cuo_fir {
+	margin-top:35px;
+	font-size:16px;
+	color:#333;
+}
+.pro_line {
+	position:absolute;
+	display:inline-block;
+	width:165px;
+	left:131px;
+	top:8px;
+	border-top:1px solid #d0d0d0;
+}
+.pro_warp .prosta {
+	padding:10px 0;
+	width:920px;
+}
+.pro_cuo .pro1 {
+	width:165px;
+}
+.pro_cuo .pro2 {
+	width:280px;
+	padding-left:30px;
+}
+.pro_cuo .pro3 {
+	width:232px;
+}
+.pro_cuo .pro4 {
+	padding-left:52px;
+}
+/*-------------------------------------------活动中心------------------------------------------------*/
+.activity {
+	width: 968px;
+	padding: 12px 16px;
+	border: solid 1px #dfdfdf;
+	border-radius: 3px;
+}
+.activity h2 {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 12px;
+	font-size: 20px;
+	color: #333333;
+	border-left: solid 4px #904ecb;
+}
+.activity .acti_moy {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 32px;
+	font-size: 14px;
+	color: #904ecb;
+}
+.activity .acti_moy a {
+	color: #904ecb;
+}
+.activity .acti_select {
+	position: relative;
+	float: right;
+	height: 32px;
+	font-size: 14px;
+	z-index: 20;
+}
+.activity .acti_select .acti_left {
+	display: inline-block;
+	width: 90px;
+	padding-left: 8px;
+	color: #333333;
+}
+.activity .acti_select em {
+	display: inline-block;
+	width: 8px;
+	height: 4px;
+	margin-left: 6px;
+	background: url("http://image.kuaikuaidai.com/static/images/arrow_4.png") no-repeat;
+	vertical-align: middle;
+	_margin-bottom: -18px;
+}
+.activity .acti_select ul {
+	display: none;
+	position: absolute;
+	top: 24px;
+	right: 6px;
+	width: 76px;
+	padding: 4px 0px 4px 16px;
+	margin-top: 6px;
+	background: #fff;
+	border: solid 1px #dfdfdf;
+	z-index: 10;
+	_position: absolute;
+}
+.activity .acti_select ul li {
+	line-height: 30px;
+}
+.activity .acti_select ul li a {
+	display: inline-block;
+	color: #333333;
+}
+.activity .acti_select ul li a:hover {
+	color: #904ecb;
+}
+.activity .acti_select ul .acti_arrow {
+	position: absolute;
+	top: -14px;
+	left: 39px;
+ *top: -10px;
+}
+.acti_box {
+	position: relative;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 314px;
+	height: 416px;
+	margin-top: 22px;
+	border: solid 1px #dfdfdf;
+	vertical-align: top;
+	background: #fff;
+	border-radius: 3px;
+}
+.acti_box h2 {
+	width: 216px;
+	margin: 0 auto;
+	padding: 26px 0px;
+	font-size: 18px;
+	color: #333333;
+	text-align:center;
+}
+.acti_box p {
+	padding: 0px 18px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #333333;
+}
+.acti_box .acti_btn1 {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+}
+.acti_box .acti_btn1 a {
+	display: block;
+	height: 52px;
+	line-height: 52px;
+	font-size: 18px;
+	color: #fff;
+	background: #ff7200;
+}
+.acti_box .acti_btn2 a {
+	color: #fff;
+	background: #c4c4c4;
+}
+.acti_box .acti_img {
+	width: 100%;
+}
+.acti_box .acti_img img {
+	width: 100%;
+}
+.acti_none {
+	margin-right: 22px;
+	margin-left: 22px;
+}
+/*-------------------------------------------注册------------------------------------------------*/
+.register {
+	margin: 0 auto;
+}
+.register_head {
+	position: relative;
+	width: 100%;
+	height: 58px;
+	text-align: center;
+	line-height: 58px;
+	background: #4cbaee;
+}
+.register_head h2 {
+	font-size: 18px;
+	color: #fff;
+}
+.register_head a {
+	position: absolute;
+	top: 0px;
+	left: 40px;
+	display: inline-block;
+	font-size: 20px;
+	color: #fff;
+}
+.register_box {
+	position: relative;
+	padding: 30px 0px;
+	border: solid 1px #dfdfdf;
+	background: #fff;
+}
+.register_box .accout {
+	position: absolute;
+	bottom: 69px;
+	right: 200px;
+	font-size: 16px;
+	color: #666666;
+}
+.register_box .accout a {
+	display: inline-block;
+	color: #904ecb;
+}
+.register_list {
+	position: relative;
+	display: block;
+	width: 358px;
+	margin: 0 auto;
+	padding-bottom: 8px;
+}
+#registerform .register_list input {
+	color:rgb(136, 136, 136);
+	font-size:14px;
+}
+#registerform .register_list input#getPhoneCode {
+	color:#fff;
+	cursor: pointer;
+}
+#registerform .register_list .hide_pass {
+	color:rgb(136, 136, 136);
+}
+#registerform .register_list .hide_affirm {
+	color:rgb(136, 136, 136);
+}
+.register_list .reister_input {
+	position: relative;
+	width: 304px;
+	height: 20px;
+	padding:14px;
+	line-height:20px;
+	border: solid 1px #dfdfdf;
+	font-size: 16px;
+	color: #666666;
+	/*  z-index: 2; */
+  background: transparent;
+}
+.register_list .reister_input.register_curr {
+	border: solid 1px #904ecb;
+}
+.register_list em {
+	position: absolute;
+	top: 16px;
+	left: -30px;
+	display: inline-block;
+	color: #ff0000;
+	font-size: 20px;
+}
+.register_list .hide_affirm {
+	position: absolute;
+	top: 16px;
+	left: 14px;
+	font-size: 14px;
+	color: #666666;/* z-index: 1; */
+}
+.register_list .hide_pass {
+	position: absolute;
+	top: 16px;
+	left: 14px;
+	font-size: 14px;
+	color: #666666;/* z-index: 1; */
+}
+.register_list .hide_phone {
+	position: absolute;
+	top: 16px;
+	left: 14px;
+	font-size: 14px;
+	color: #666666;
+	z-index: 1;
+}
+.register_list .form_tips, .register_list .gayphone {
+	position: absolute;
+	top: 14px;
+	right: -305px;
+	display: inline-block;
+	width: 291px;
+	font-size: 14px;
+	color: #fe0000;
+}
+.register_list .form_code {
+	position: absolute;
+	top: 16px;
+	right: -114px;
+	font-size: 14px;
+	color: #fe0000;
+}
+.loginBox .register_list .form_code {
+	position: absolute;
+	top: 50px;
+	right: 213px;
+	font-size: 14px;
+	color: #fe0000;
+}
+.register_list .form_how {
+	position: absolute;
+	top: 12px;
+	right: -118px;
+	font-size: 14px;
+	color: #fe0000;
+}
+.register_list .prov_phone {
+	position: absolute;
+	top: 14px;
+	right: -170px;
+	display: none;
+	width: 150px;
+	font-size: 14px;
+	color: #fe0000;
+}
+.register_img img {
+	width: 129px;
+	height: 53px;
+}
+.proving_box {
+	position:relative;
+}
+.proving_box .loadimg {
+	position:absolute;
+	top:17px;
+	right:145px;
+	display:none;
+}
+.proving_box .reister_input {
+	float: left;
+	width: 115px;
+	background: transparent;
+}
+.proving_box .proving {
+	float: right;
+	width: 140px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	font-size: 12px;
+	color: #fff;
+	background:  #75C1FC;
+	border: 0px;
+	vertical-align: middle;
+	border-radius: 3px;
+	margin-right:24px;
+}
+.proving_box .register_img {
+	float: right;
+	display: inline-block;
+	width: 129px;
+	height: 53px;
+	margin-right:24px;
+}
+.proving_box .register_look {
+	position: absolute;
+	top: 18px;
+	right: -110px;
+	display: inline-block;
+	font-size: 12px;
+	color: #046fb9;
+}
+.register_box #register_btn {
+	position:relative;
+	width: 333px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	margin: 0 auto;
+	font-size: 14px;
+}
+.register_box #register_btn a {
+	display: block;
+	background: url("http://image.kuaikuaidai.com/static/images/register_btn.png") no-repeat;
+	color: #ffffff;
+}
+#subbt {
+	margin-left:-12px;
+}
+.register_box #register_btn input {
+	width: 333px;
+	height: 48px;
+	background: none;
+	border: 0;
+	color: #fff;
+	cursor:pointer;
+}
+.register_box #register_btn .loadimg {
+	position:absolute;
+	top:18px;
+	left:92px;
+	display:none;
+}
+.register_box #register_btn .loadimgs {
+	left:112px;
+}
+.register_box .protocol {
+	padding-top: 6px;
+	text-align: center;
+}
+.register_box .protocol a {
+	display: inline-block;
+	font-size: 14px;
+	color: #666666;
+}
+.register_box .protocol em {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	background: url("http://image.kuaikuaidai.com/static/images/detail_icon1.png") no-repeat;
+}
+.register_box .form_tips img {
+	margin-right: 10px;
+}
+#realName_lable, #cardNo_lable {
+	position: absolute;
+	left: 349px;
+	display: inline-block;
+	top: 16px;
+	width: 209px;
+}
+/*-------------------------------------------实名认证------------------------------------------------*/
+.real_label {
+	padding-bottom: 20px;
+}
+.real_label .register_list {
+	padding-bottom: 20px;
+}
+.register_box h2 {
+	padding-bottom: 28px;
+	text-align: center;
+	font-size: 24px;
+	color: #333333;
+}
+.register_box .real_title {
+	padding-bottom: 50px;
+	text-align: center;
+	font-size: 14px;
+	color: #ff4800;
+}
+/*-------------------------------------------个人账户视觉------------------------------------------------*/
+.person {
+	width: 1000px;
+	margin: 20px auto;
+	background: #fff;
+}
+.person_left {
+	float: left;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 192px;
+}
+.person_left .ation {
+	padding: 20px 0px 0px 22px;
+}
+.person_left .ation h2 {
+	padding-bottom: 18px;
+	font-size: 16px;
+	color: #333;
+}
+.person_left .ation .action_box .action_img, .action_become {
+	display: inline-block;
+	width: 40px;
+	height: 50px;
+	padding-right: 12px;
+}
+.person_left .ation .action_box .action_all {
+	position: relative;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+}
+.person_left .ation .action_box .action_all .action_hide {
+	display: none;
+	position: absolute;
+	bottom: -68px;
+	left: -70px;
+	width: 132px;
+	padding: 12px 24px;
+	background: #fff;
+	border: solid 1px #c9c9c9;
+	_bottom: -62px;
+}
+.person_left .ation .action_box .action_all .action_hide p {
+	padding-bottom: 5px;
+	font-size: 14px;
+	color: #666666;
+}
+.person_left .ation .action_box .action_all .action_hide a {
+	display: inline-block;
+	font-size: 14px;
+	color: #904ecb;
+	text-decoration: underline;
+}
+.person_left .ation .action_box .action_all .action_hide span {
+	position: absolute;
+	top: -14px;
+	left: 86px;
+	_top: -12px;
+}
+.person_left .ation .action_box .action_list1 .action_img {
+	background: url("http://image.kuaikuaidai.com/static/images/user_1.png") no-repeat;
+}
+.person_left .ation .action_box .action_list2 .action_img {
+	background: url("http://image.kuaikuaidai.com/static/images/user_5.png") no-repeat;
+}
+.person_left .ation .action_box .action_list3 .action_img {
+	background: url("http://image.kuaikuaidai.com/static/images/user_3.png") no-repeat;
+}
+.person_left .ation .action_box .action_list1 .action_become {
+	background: url("http://image.kuaikuaidai.com/static/images/user_4.png") no-repeat;
+}
+.person_left .ation .action_box .action_list2 .action_become {
+	background: url("http://image.kuaikuaidai.com/static/images/user_2.png") no-repeat;
+}
+.person_left .ation .action_box .action_list3 .action_become {
+	background: url("http://image.kuaikuaidai.com/static/images/user_6.png") no-repeat;
+}
+.person_left .person_saft {
+	padding: 16px 0px;
+	text-align: center;
+}
+.person_left .person_saft .person_bg {
+	width: 144px;
+	height: 6px;
+	margin: 0 auto;
+	background: #d7f0df;
+	text-align: left;
+}
+.person_left .person_saft .person_bg .person_line {
+	width: 48px;
+	height: 6px;
+	background: #36b460;
+}
+.person_left .person_saft p {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-top: 8px;
+	font-size: 14px;
+	color: #333333;
+}
+.person_left .person_saft p span {
+	color: #ff3333;
+}
+.person_left .person_saft a {
+	display: inline-block;
+	padding-left: 12px;
+	font-size: 14px;
+	color: #006dc4;
+}
+.person_left .person_ul li a {
+	display: inline-block;
+	font-size: 14px;
+	color: #333;
+	width: 145px;
+	height: 42px;
+	line-height: 42px;
+	padding-left: 39px;
+}
+.person_left .person_ul li a em {
+	display: inline-block;
+	width: 28px;
+	text-align: left;
+	vertical-align: middle;
+	margin-right:13px;
+}
+.person_left .person_ul li.person_mr1 em {
+	height: 19px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon11.png") no-repeat;
+}
+.person_left .person_ul li.person_mr7 em {
+	height: 19px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon31.png") no-repeat;
+}
+.person_left .person_ul li.person_mr8 em {
+	height: 19px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon88.png") no-repeat;
+}
+.person_left .person_ul li.person_mr2 em {
+	height: 18px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon2.png") no-repeat;
+}
+.person_left .person_ul li.person_mr9 em {
+	height: 15px;
+	background: url("http://image.kuaikuaidai.com/static/images/couponout.png") no-repeat;
+}
+.person_left .person_ul li.person_in9 em {
+	height: 15px;
+	background: url("http://image.kuaikuaidai.com/static/images/couponin.png") no-repeat;
+}
+.person_left .person_ul li.person_mr3 em {
+	height: 14px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon3.png") no-repeat;
+}
+.person_left .person_ul li.person_mr4 em {
+	height: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon4.png") no-repeat;
+}
+.person_left .person_ul li.person_mr10 em{
+	height: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/lend.png") no-repeat;
+}
+.person_left .person_ul li.person_in1 em{
+	background: url("http://image.kuaikuaidai.com/static/images/lendin.png") no-repeat;
+}
+.person_left .person_ul li.person_mr5 em {
+	height: 22px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon5.png") no-repeat;
+}
+.person_left .person_ul li.person_mr6 em {
+	height: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon6.png") no-repeat;
+}
+.person_left .person_ul li.person_ok1, li.person_ok2, li.person_ok3, li.person_ok7 {
+	background: #dcdff5;
+}
+.person_left .person_ul li.person_ok4, li.person_ok5, li.person_ok6 {
+	background: #dcdff5;
+}
+.person_left .person_ul li.person_ok1 em {
+	height: 19px;
+}
+.person_left .person_ul li.person_ok2 em {
+	height: 18px;
+}
+.person_left .person_ul li.person_ok3 em {
+	height: 14px;
+}
+.person_left .person_ul li.person_ok4 em {
+	height: 16px;
+}
+.person_left .person_ul li.person_ok5 em {
+	height: 22px;
+}
+.person_left .person_ul li.person_ok6 em {
+	height: 16px;
+}
+.person_left .person_ul li.person_in1, li.person_in2, li.person_in3 {
+/*background: #6c7ad5;*/
+}
+.person_left .person_ul li.person_in4, li.person_in5, li.person_in6, li.person_in7 {
+/* background: #6c7ad5;*/
+}
+.person_ul {
+	padding-top:23px;
+}
+.person_left .person_ul li.person_in1 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in7 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in2 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in3 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in4 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in5 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in6 a {
+	color: #9556cd;
+}
+.person_left .person_ul li.person_in1 em {
+	height: 19px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon1.png") no-repeat;
+}
+.person_left .person_ul li.person_in7 em {
+	height: 19px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon32.png") no-repeat;
+}
+.person_left .person_ul li.person_in2 em {
+	height: 18px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon7.png") no-repeat;
+}
+.person_left .person_ul li.person_in3 em {
+	height: 14px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon8.png") no-repeat;
+}
+.person_left .person_ul li.person_in4 em {
+	height: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon9.png") no-repeat;
+}
+.person_left .person_ul li.person_in5 em {
+	height: 22px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon10.png") no-repeat;
+}
+.person_left .person_ul li.person_in6 em {
+	height: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon12.png") no-repeat;
+}
+.person_left .person_ul li.person_in8 em {
+	height: 16px;
+	background: url("http://image.kuaikuaidai.com/static/images/per_icon888.png") no-repeat;
+}
+.person_left .person_ul li.person_active {
+	background: #dcdff5;
+}
+.person_left .person_ul li.person_active a {
+	color: #9556cd;
+}
+.person_right {
+	width:755px;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding: 30px 20px;
+	vertical-align: top;
+	border-left: solid 1px #d9d9d9;
+	min-height:570px;
+}
+.invifri{padding: 30px 17px;}
+.person_right .person_top {
+	padding-bottom: 32px;
+}
+.person_left .person_ul .person_in8 a {
+	color:#9556cd
+}
+.person_right .person_toppad {
+	padding-top: 55px;
+}
+.person_right .person_top h2 {
+	position: absolute;
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	font-size: 18px;
+	color: #904ecb;
+	background: #fff;
+}
+.person_right .person_top .person_line {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 755px;
+	height: 1px;
+	background: #EADFF5;
+	vertical-align: middle;
+}
+.person_right .person_top .signin {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-left: 10px;
+}
+.person_right .person_top .signin a {
+	display: inline-block;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 14px;
+	color: #fff;
+}
+.person_right .person_top .signin .sign_btn1 {
+	width: 44px;
+	background: #75c1fc;
+	border-radius:2px;
+}
+.person_right .person_top .signin .sign_btn2 {
+	width: 68px;
+	background: #2593ea;
+	border-radius:2px;
+}
+.person_right .person_box {
+	width: 688px;
+	margin: 0 auto;
+	padding: 24px 36px;
+	border: solid 1px #e5e5e5;
+	position: relative;
+}
+.person_right .person_box .balance {
+	padding-bottom: 28px;
+}
+.person_right .person_box .balance .balance_num {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 265px;
+}
+.person_right .person_box .balance .balance_num h2 {
+	font-size: 16px;
+	color: #7f7f7f;
+}
+.person_right .person_box .balance .balance_num p {
+	font-size: 40px;
+	color: #333;
+}
+.person_right .person_box .person_mony {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-right: 157px;
+	font-size: 14px;
+	color: #7f7f7f;
+}
+.person_right .person_box .person_mony span {
+	color: #333;
+}
+.person_right .person_box .person_btn {
+	display: inline-block;
+	padding-right: 12px;
+	position: absolute;
+	bottom: 16px;
+}
+.person_right .person_box .person_btn:hover {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.person_right .person_box .person_btn.right1 {
+	right: 40px;
+}
+.person_right .person_box .person_btn.right2 {
+	right: 130px;
+}
+.person_right .fund {
+	position: relative;
+	width: 760px;
+	margin: 20px auto 0px;
+	padding: 24px 0px 24px 0;
+	border: solid 1px #e5e5e5;
+}
+.person_right .fund .fund_box {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 230px;
+	text-align: center;
+	position: relative;
+}
+.person_right .fund .fund_box .fund_txt1 {
+	padding: 8px 0px;
+	font-size: 14px;
+	color: #333333;
+}
+.person_right .fund .fund_box .fund_txt2 {
+	font-size: 20px;
+	color: #666666;
+}
+.person_right .fund .fund_arrow {
+	position: absolute;
+	bottom: -19px;
+	left: 318px;
+	display: inline-block;
+}
+.person_right .fund_add {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	padding-top: 20px;
+	vertical-align: top;
+}
+.person_right .fund_con {
+	padding: 46px 30px 46px 0px;
+	text-align: center;
+}
+.person_right .fund_con .fund_txt3 {
+	padding: 8px 0px;
+	font-size: 14px;
+	color: #333333;
+}
+.person_right .fund_con .fund_txt4 {
+	font-size: 20px;
+	color: #666666;
+}
+.person_right .corpus {
+	position: relative;
+	width: 760px;
+	margin: 0px auto 30px;
+	padding: 24px 0px;
+	border: solid 1px #e5e5e5;
+}
+.person_right .corpus .corpus_box {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 133px;
+	text-align: center;
+}
+.person_right .corpus .corpus_box .corpus_txt1 {
+	padding: 8px 0px;
+	font-size: 14px;
+	color: #333333;
+}
+.person_right .corpus .corpus_box .corpus_txt2 {
+	font-size: 20px;
+	color: #666666;
+}
+.person_right .corpus .corpus_arrow {
+	position: absolute;
+	top: -20px;
+	left: 318px;
+	display: inline-block;
+}
+.person_right .person_top .signs {
+	padding-top: 12px;
+	color: #999;
+	padding-left: 1px;
+}
+.person_left .person_ul li.person_in1 a {
+	color:#9556cd
+}
+/*-------------------------------------------个人账户视觉 充值与提现------------------------------------------------*/
+.bank .person_top .person_line {
+	width: 664px;
+	margin-top: 12px;
+}
+.bank .bank_box {
+	width: 700px;
+	margin: 0 auto 40px;
+	padding: 30px 30px 16px;
+	_padding: 30px 0px 16px;
+	_width: 760px;
+	border: solid 1px #d9d9d9;
+}
+.bank .bank_box li {
+	float: left;
+	margin-left: 40px;
+	padding-bottom: 16px;
+}
+.bank .bank_box li a {
+	position: relative;
+	display: inline-block;
+	width: 128px;
+	height: 36px;
+	border: solid 1px #e9e9e9;
+}
+.bank .bank_box .lis a {
+	position: relative;
+	display: initial;
+	border: none;
+}
+.bank .bank_box li .bank_mr {
+	position: absolute;
+	top: 10px;
+	left: -30px;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url("http://image.kuaikuaidai.com/static/images/user_ok.png") no-repeat;
+}
+.bank .bank_box li .bank_check {
+	background: url("http://image.kuaikuaidai.com/static/images/user_ok2.png") no-repeat;
+}
+.bank .bank_pay {
+	width: 700px;
+	margin: 0 auto 40px;
+	padding: 30px 30px 16px;
+	border: solid 1px #d9d9d9;
+}
+.bank .bank_pay .bank_txt1 {
+	padding-bottom: 24px;
+	font-size: 16px;
+	color: #7f7f7f;
+}
+.bank .bank_pay .bank_txt1 span {
+	display: inline-block;
+	padding-left: 20px;
+	color: #333;
+}
+.bank .bank_pay .bank_txt2 {
+	padding: 18px 0px;
+	font-size: 12px;
+	color: #7f7f7f;
+}
+.txj {
+	color:red;
+	padding-left:130px;
+	margin-top:-8px;
+}
+.bank .bank_pay .txje {
+	margin-top:12px
+}
+.bank .bank_pay .bank_txt3 {
+	display: none;
+	padding-bottom: 14px;
+	font-size: 14px;
+	color: red;
+}
+.bank .bank_pay .bank_txt4 {
+	display: none;
+	padding-top: 20px;
+	font-size: 14px;
+	color: red;
+}
+.bank .bank_pay label {
+	display: block;
+}
+.bank .bank_pay label .bank_name {
+	font-size: 16px;
+	color: #7f7f7f;
+}
+.bank .bank_pay label input {
+	width: 168px;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+	margin-left: 20px;
+	border: solid 1px #dfdfdf;
+	background: #fff;
+	font-size: 16px;
+	color: #333;
+	border-radius:4px;
+}
+.bank .bank_pay label input:focus {
+	border:solid 1px #904ecb;
+}
+.bank .bank_pay label .bank_right {
+	display: none;
+	padding-left: 20px;
+	font-size: 14px;
+	color: red;
+}
+.bank .bank_pay .dis .bank_right {
+	display: inline-block;
+}
+.bank .bank_pay .bank_btn, .loading {
+	position: relative;
+	display: inline-block;
+	width: 190px;
+	height: 40px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	background: #904ecb;
+	border-radius: 3px;
+	margin-left: 14px;
+	margin-top: 10px;
+}
+.bank_card li .load, .load {
+	width: 190px;
+	height: 40px;
+	line-height: inherit;
+	border: none;
+	background: none;
+	color: #fff;
+	cursor: pointer;
+}
+.bank .bank_pay .bank_btn img, .loading img {
+	position: absolute;
+	left: 40px;
+	top: 14px;
+	display: none;
+}
+.bank .bank_pay .bank_btn a {
+	display: inline-block;
+	width: 188px;
+	height: 40px;
+	line-height: 37px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	background: #904ecb;
+	border-radius: 3px;
+}
+.bank .bank_bom h2 {
+	font-size: 12px;
+	color: #8213e6;
+}
+.bank .bank_bom p {
+	line-height: 22px;
+	font-size: 12px;
+	color: #333333;
+}
+.bank .bank_pay .bank_btn_pop {
+	margin-top: 30px;
+}
+.bank .colorwarn {
+	margin-top: 30px;
+}
+.bank .colorwarn p {
+	color: #e70000;
+}
+.banknum {
+	text-align: center;
+	margin-top: 12px;
+	color: #333;
+}
+.bank .bank_box .lis .bank_mr {
+	top: 2px;
+	left: -1px;
+}
+.lis a {
+	color: #333;
+}
+.bank .bank_box .lis {
+	margin-left: 0;
+}
+.lis .kkdradio {
+	display: none;
+}
+/*-------------------------------------------个人账户视觉 个人信息------------------------------------------------*/
+.info_edit {
+	display: inline-block;
+	padding-left: 10px;
+	font-size: 16px;
+	color: #333;
+}
+.info_box {
+	width: 700px;
+	margin: 0 auto 40px;
+	padding: 32px 0px 0px 60px;
+	border: solid 1px #d9d9d9;
+}
+.info_box p {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 348px;
+	padding-bottom: 32px;
+	font-size: 14px;
+}
+.info_box p em {
+	display: inline-block;
+	font-size: 16px;
+	color: red;
+}
+.info_box p span {
+	display: inline-block;
+	color: #333;
+}
+.info_box p .info_name {
+	width: 80px;
+	text-align: right;
+	color: #666666;
+}
+.info_box p .info_txt {
+	color: #333333;
+}
+.info_box p .info_left {
+	margin-left: 12px;
+}
+.secure {
+	width: 680px;
+	margin: 0 auto 40px;
+	padding: 48px 40px 0px;
+	border: solid 1px #d9d9d9;
+}
+.secure_box {
+	padding-bottom: 26px;
+}
+.secure_box a {
+	display: inline-block;
+}
+.secure_box .secure_img {
+	width: 17px;
+	height: 17px;
+	margin-right: 54px;
+	background: url("http://image.kuaikuaidai.com/static/images/check_ok.png") no-repeat;
+	vertical-align: middle;
+}
+.secure_box .secure_excl {
+	background: url("http://image.kuaikuaidai.com/static/images/check_ok2.png") no-repeat;
+}
+.secure_box .secure_txt {
+	display: inline-block;
+ *display: inline;
+ *zoom: 1;
+	width: 204px;
+	font-size: 14px;
+	color: #333333;
+}
+.secure_box .secure_btn {
+	float: right;
+	font-size: 14px;
+	color: #333333;
+}
+.secure_hide {
+	display: none;
+}
+.secure_hide h2 {
+	padding: 30px 0px 20px;
+	text-align: center;
+	font-size: 14px;
+	color: #333333;
+}
+.secure_label {
+	padding-left: 48px;
+	padding-bottom: 12px;
+}
+.secure_label em {
+	display: inline-block;
+	padding-right: 18px;
+	font-size: 18px;
+	color: #dc0000;
+	vertical-align: middle;
+}
+.secure_label span {
+	display: inline-block;
+	width: 98px;
+	font-size: 14px;
+	color: #333333;
+}
+.secure_label input {
+	width: 238px;
+	height: 36px;
+	padding: 0px 8px;
+	line-height: 36px;
+	border: solid 1px #dfdfdf;
+	font-size: 14px;
+	color: #333333;
+}
+.secure_box .secure_submit {
+	display: inline-block;
+	width: 81px;
+	height: 38px;
+	margin-left: 79px;
+	margin-top:20px;
+	text-align: center;
+	line-height: 38px;
+	font-size: 14px;
+	color: #fff;
+	background: url("http://image.kuaikuaidai.com/static/images/info_btn.png") no-repeat;
+}
+.secure_box .secure_sub {
+	margin-top:8px;
+}
+.secure_new span {
+	width: 98px;
+}
+.secure_new .error {
+	width: 180px;
+	padding-left:8px;
+	font-size:14px;
+}
+.secure_old {
+	padding-top: 22px;
+}
+.secure_old .secure_submit {
+	margin-left: 210px;
+}
+.secure_old .secure_sub {
+	margin-left: 177px;
+}
+.secure_bin {
+	display: none;
+	padding-top: 26px;
+}
+.secure_bin .bin_txt input {
+	width: 128px;
+}
+.secure_bin .bin_txt .bing_btn {
+	display: inline-block;
+	width: 112px;
+	height: 38px;
+	margin-left: 10px;
+	text-align: center;
+	line-height: 38px;
+	font-size: 14px;
+	color: #fff;
+	background: url("http://image.kuaikuaidai.com/static/images/info_btn2.png") no-repeat;
+}
+.secure_bin .secure_submit {
+	margin-top: 8px;
+	margin-left: 125px;
+}
+#span_email {
+	background: #277ce5;
+	font-size: 12px;
+	color: #fff;
+	padding: 10px;
+	border-radius: 4px;
+}
+/*-------------------------------------------个人账户视觉 交易记录------------------------------------------------*/
+.record {
+	width: 760px;
+	margin-bottom: 30px;
+	border: solid 1px #d9d9d9;
+}
+.record .tab_time {
+	width: 100%;
+}
+.record .tab_time a {
+	color:#8d48cc;
+}
+ .record .tab_time tr:nth-child(odd) {
+ background: #F2F2F2;
+}
+.record .tab_time tr th {
+	width: 253.2px;
+	height: 50px;
+	font-size: 14px;
+	color: #333;
+	background: #f9f9f9;
+}
+.record .tab_time tr td {
+	width: 253.2px;
+	height: 50px;
+	font-size: 14px;
+	color: #333;
+}
+.record .record_none {
+	padding: 58px 0px;
+	text-align: center;
+}
+.record .record_none a {
+	display: inline-block;
+}
+.record .record_none p {
+	padding-top: 16px;
+	font-size: 16px;
+	color: #7f7f7f;
+}
+.searchDate {
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+.tradeType {
+	margin-right: 20px;
+}
+.accInput {
+	background: #904ECB;
+	border: none;
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	border-radius: 4px;
+	margin-left: 20px;
+}
+/*-------------------------------------------关于我们------------------------------------------------*/
+.about {
+	width: 1000px;
+	margin: 20px auto;
+	border: solid 1px #d9d9d9;
+	background: #fff;
+	overflow: hidden;
+}
+.about_left {
+	float: left;
+	display: inline-block;
+	width: 193px;
+	margin-top: 30px;
+}
+.about_left li {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.about_left li a {
+	color: #333;
+	display: inline-block;
+	height: 40px;
+	width: 193px;
+}
+.us_current {
+	background: #6c7ad5;
+}
+.about_left .us_current a {
+	color: #fff;
+}
+.about_brief {
+	width: 760px;
+}
+.about_brief p {
+	font-size: 14px;
+	margin-bottom: 20px;
+	line-height: 23px;
+}
+.about_img p {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.about_brief .mart {
+	margin-bottom: 30px;
+}
+.about_right {
+	float: right;
+	padding: 30px 23px;
+	min-height: 520px;
+}
+.notice li {
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	color: #999;
+	padding-left: 25px;
+	background: url("http://image.kuaikuaidai.com/static/images/about_dian.png") 8px center no-repeat;
+}
+.notice li span {
+	float: right;
+}
+.notice li a {
+	color: #666;
+}
+.notice li a:hover {
+	color: #904ecb;
+}
+.bank .person_top .line_min {
+	width: 530px;
+}
+.bank .person_top .line_min1 {
+	width: 395px;
+}
+.resume {
+	height: 40px;
+	line-height: 40px;
+	background: #e8e8e8;
+	font-size: 16px;
+	color: #333;
+	padding-left: 15px;
+	margin-bottom: 25px;
+}
+.resume a {
+	float: right;
+	width: 170px;
+	background: #24be86;
+	text-align: center;
+	color: #fff;
+}
+.resume a:hover {
+	background: #1cb47d;
+}
+.min_font p {
+	font-size: 13px;
+}
+.min_font a {
+	color: #0075c1;
+}
+.min_font a:hover {
+	color: #904ecb;
+}
+.about_right b {
+	color: #999;
+	font-weight: normal;
+}
+/*-------------------------------------------个人账户视觉 投资记录------------------------------------------------*/
+.invest {
+	width: 756px;
+	border: solid 1px #e5e5e5;
+}
+.invest .invest_title {
+	width: 100%;
+	height: 56px;
+	line-height: 52px;
+	background: #f9f9f9;
+}
+.invest .invest_title li {
+	float: left;
+	margin-left: 52px;
+	width: 74px;
+	text-align: center;
+}
+.invest .invest_title li a {
+	display: inline-block;
+	font-size: 16px;
+	color: #333;
+}
+.invest .invest_title li.invert_curr {
+	border-bottom: solid 2px #904ecb;
+}
+.inver_ul {
+	padding: 28px 0px;
+}
+.inver_ul li {
+	float: left;
+	width: 108px;
+	text-align: center;
+	font-size: 14px;
+	color: #8c8c8c;
+}
+.inver_not {
+	padding: 36px 0px;
+	text-align: center;
+	display:none;
+}
+.inver_not a {
+	display: inline-block;
+}
+.inver_not p {
+	padding-top: 20px;
+	font-size: 16px;
+	color: #8c8c8c;
+}
+/*微信二维码弹框*/
+/*暂时注释*/
+.win_warp {
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+.win_warp .win_fn {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	z-index: 9998;
+	_height: 0px;
+	_width: 0px;
+	_background: #fff;
+	_position:absolute;
+_top: expression(documentElement.scrollTop + 400 + "px");
+}
+.win_warp .win_box {
+	position: fixed;
+	top: 32%;
+	left: 50%;
+	width: 360px;
+	height: 340px;
+	margin-left: -140px;
+	background: #fff;
+	z-index: 9999;
+	_position:absolute;
+_top: expression(documentElement.scrollTop + 200 + "px");
+}
+.win_warp .win_box .code {
+	padding-top: 25px;
+	text-align: center;
+}
+.win_warp .win_box .code_head {
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 14px;
+	border-bottom: solid 1px #dfdfdf;
+}
+.win_warp .win_box .code_head h2 {
+	font-size: 16px;
+	color: #666666;
+}
+.win_warp .win_box .code_head .close {
+	position: absolute;
+	top: -2px;
+	right: 12px;
+*top: 15px;
+}
+/*-------------------------------------------我要理财-项目列表------------------------------------------------*/
+.proj_title {
+	background: #efefef;
+}
+.proj_type {
+	width: 998px;
+	margin: 0px auto;
+	height: 45px;
+}
+.proj_type li {
+	float: left;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	width: 129px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.barstyle {
+	border-bottom: 1px solid #e4e4e4;
+	background: #f6f6f6;
+	margin-bottom: 22px
+}
+.proj_type .proj_d {
+	width: 110px;
+	color: #904ecb;
+	margin: 0;
+	/* background: url("http://image.kuaikuaidai.com/static/images/fina_2.png") 20px 17px no-repeat;*/
+  padding-left: 10px;
+	text-align: left;
+}
+.proj_type .lip {
+	width: 550px;
+}
+.daystyle em {
+	background:url("http://image.kuaikuaidai.com/static/images/fang.png") 0 0 no-repeat;
+	display: inline-block;
+	width: 21px;
+	height: 23px;
+	margin-right: 22px;
+	vertical-align: middle;
+}
+.daygain h2 { 
+	padding-left: 40px;
+	font-size: 18px;
+}
+.lip a {
+	height: 57px;
+	width: 129px;
+	display: inline-block;
+	color: #7f7f7f;
+}
+.proje a {
+	color: #fff;
+	background: url("http://image.kuaikuaidai.com/static/images/fina_3.png") 0 0 no-repeat;
+}
+.proj_choice {
+	background: #efefef;
+	height: 125px;
+}
+.proj_c {
+	border: 1px solid #e4e4e4;
+	width: 998px;
+	margin: 0 auto;
+	padding: 10px 0;
+	position: relative;
+	background: #fff;
+	height: 106px;
+}
+.proj_t {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #fff;
+	display: none;
+}
+.proj_c .dis {
+	display: block;
+}
+.proj_content {
+	width: 998px;
+	padding: 15px 0 5px;
+	height: 25px;
+	line-height: 25px;
+}
+.proj_content div {
+	width: 950px;
+	height: 25px;
+	margin-bottom: 10px;
+	padding-left: 50px;
+}
+.proj_content div b, .proj_content div p {
+	display: inline-block;
+	float: left;
+	font-weight: normal;
+	font-size: 14px;
+	color: #a3a3a3;
+	margin-right: 30px;
+}
+.proj_content div p {
+	color: #333;
+	padding: 0 10px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.proj_content div .current {
+	background: #59afff;
+	color: #fff;
+}
+.proj_content div span {
+	float: right;
+	padding-right: 40px;
+	cursor: pointer;
+	color: #555;
+	font-size: 12px;
+	display:none;
+}
+.list_wrap {
+	background: #efefef;
+	overflow: hidden;
+	margin-top: 25px;
+}
+.list_c {
+	width: 1000px;
+	margin: 0 auto;
+	display: none;
+	background:#f6f6f6;
+	border: 1px solid #e4e4e4;
+}
+.list_block {
+	display: block;
+}
+.list_c ol {
+	margin-top: 10px;
+	height: 42px;
+	color: #82898f;
+	font-size: 14px;
+	padding-left:13px;
+}
+.list_c ol li {
+	float: left;
+	height: 40px;
+	line-height: 32px;
+	text-align: center;
+}
+.list_c ul {
+	height: 88px;
+	border-top: 1px solid #eaeaea;
+}
+.list_c .bg_h {
+	background: #fff;
+	padding-left:13px;
+	position:relative;
+}
+.list_c ul li {
+	float: left;
+	height: 88px;
+	line-height: 88px;
+	text-align: center;
+	color: #333;
+	font-size: 16px;
+}
+.list_c ul .list_c0 {
+	float:none;
+	height:auto;
+	line-height:25px;
+	position:absolute;
+	left:143px;
+	top:0px;
+}
+.list_cimg {
+	position:absolute;
+	left:246px;
+	top:0;
+}
+.home_right .list_cimg {
+	position:absolute;
+	left:150px;
+	top:23px;
+}
+.list_c1 {
+	width: 36px;
+	padding-left: 24px;
+}
+.list_c2 {
+	width: 240px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.list_c3 {
+	width: 140px;
+}
+.list_c6 {
+	width: 118px;
+}
+.list_c4 {
+	width: 190px;
+}
+.list_c5 {
+	width: 88px;
+}
+.list_c5 a p {
+	background: #954ed9;
+	color: #fff;
+}
+.list_c4 .c4 {
+	width: 104px;
+	margin: 0 auto;
+}
+.list_c4 .c4 p {
+	text-align: right;
+	font-size: 14px;
+	color: #d4d4d4;
+	height: 45px;
+	line-height: 65px;
+}
+.list_c4 .c4 div {
+	width: 104px;
+	height: 6px;
+	background: #e1d4ed;
+	border-radius: 5px;
+}
+.list_c4 .c4 div p {
+	width: 80%;
+	height: 6px;
+	background: #af73e5;
+	border-radius: 5px;
+}
+.list_c5 p {
+	width: 83px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 4px;
+	background: #e5e5e5;
+	margin: 28px 0 28px -6px;
+	color: #7e7e7e;
+}
+.list_c5 .list_siz {
+	font-size:14px;
+}
+.list_c .list_red {
+	color: red;
+	font-size: 20px;
+}
+.list_c .list_20 {
+	font-size: 20px;
+}
+.flip {
+	width: 1000px;
+	height: 45px;
+	padding: 30px 0 60px;
+	margin: 0 auto;
+	background: #efefef;
+}
+.flip ul {
+	/* padding-left: 775px; */
+  float:right;
+}
+.flip ul li {
+	float: left;
+	text-align: center;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	margin-right: 8px;
+	font-size: 16px;
+	color: #333;
+	background: #e6e6e6;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.flip ul .current {
+	background: #a570d4;
+	color: #fff;
+}
+.flip ul li img {
+	margin: -1px 0 0;
+}
+.list_img {
+	width: 1000px;
+	margin: 0 auto;
+	padding-bottom: 60px;
+	background: #fafafa;
+}
+/*忘记密码   start*/
+.reset_pwd {
+	font-size: 20px;
+}
+.resetpwd_tab {
+	height: 55px;
+	margin-top: 19px;
+}
+.resetpwd_tab div {
+	width: 326px;
+	height: 55px;
+	background: #e0e0e0;
+	line-height: 55px;
+	text-align: center;
+	font-size: 18px;
+	border-radius: 6px 6px 0 0;
+}
+.resetpwd_phone, .resetpwd_revise {
+	float: left;
+	margin-right: 10px;
+}
+.resetpwd_success {
+	float: right;
+}
+.resetpwd_phone span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("http://image.kuaikuaidai.com/static/images/r_phone.png") no-repeat;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+.resetpwd_revise span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("http://image.kuaikuaidai.com/static/images/r_revise.png") no-repeat;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+.resetpwd_success span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("http://image.kuaikuaidai.com/static/images/r_success.png") no-repeat;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+.resetpwd_phone.reset_cur span {
+	background: url("http://image.kuaikuaidai.com/static/images/r_phone1.png") no-repeat;
+}
+.resetpwd_revise.reset_cur span {
+	background: url("http://image.kuaikuaidai.com/static/images/r_revise1.png") no-repeat;
+}
+.resetpwd_success.reset_cur span {
+	background: url("http://image.kuaikuaidai.com/static/images/r_success1.png") no-repeat;
+}
+.resetpwd_tab div.reset_cur {
+	background: #fff;
+	color: #904ecb;
+}
+.reset_box {
+	height: 516px;
+	background: #fff;
+}
+.reset_phonebox, .reset_revisebox {
+	padding: 125px 0 0 50px;
+	color: #b8b8b8;
+	font-size: 16px;
+}
+.reset_phonebox div, .reset_revisebox div {
+	margin-bottom: 10px;
+}
+.reset_phonebox div label, .reset_revisebox div label {
+	margin-right: 19px;
+}
+.reset_phonebox div label span, .reset_revisebox div label span {
+	color: #ff8989;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.reset_phonebox div em, .reset_revisebox div em {
+	display: none;
+	font-size: 14px;
+	color: #f00;
+	margin-left: 20px;
+}
+.reset_phonebox div input, .reset_revisebox div input {
+	height: 48px;
+	padding: 0 14px;
+	border: 1px solid #d6d6d6;
+}
+.reset_phonebox div input:focus, .reset_revisebox div input:focus {
+	border: 1px solid #904ECB;
+}
+.reset_phonebox div .phone_input, .reset_revisebox div .login_input, .reset_revisebox div .relogin_input {
+	width: 288px;
+}
+.yz_box {
+	position:relative;
+}
+.yz_box .loadimg {
+	position:absolute;
+	left:270px;
+	top:17px;
+	display:none;
+}
+.reset_phonebox div .yz_input {
+	width: 140px;
+}
+.reset_phonebox div input.getyz {
+	display: inline-block;
+	width: 138px;
+	background: #3fcdb1;
+	color: #fff;
+	vertical-align: middle;
+	margin-left: 10px;
+	font-size: 12px;
+	border: none;
+	cursor: pointer;
+}
+.phone_submit, .revise_submit {
+	width: 320px;
+	height: 48px;
+	background: #904ecb;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 48px;
+	border-radius: 3px;
+	margin: 20px 0 0 85px;
+	cursor: pointer;
+	border: none;
+}
+.revise_submit {
+	margin-left: 100px;
+}
+.reset_phonebox p, .reset_revisebox p {
+	margin: 20px 0 0 85px;
+}
+.reset-successbox {
+	padding-top: 66px;
+	text-align: center;
+	font-size: 16px;
+}
+.reset-successbox img {
+	margin-bottom: 47px;
+}
+.reset-successbox p {
+	margin-bottom: 25px;
+}
+.reset-successbox p.success_tip {
+	color: #b8b8b8;
+}
+.reset-successbox a {
+	display: inline-block;
+	padding: 15px 125px;
+	border: 1px solid #d6d6d6;
+	color: #904ecb;
+}
+.warns {
+	color: red;
+	font-size: 14px;
+}
+/*忘记密码   end*/
+/*文章页  start*/
+.news {
+	background: #fff;
+	padding: 20px;
+}
+.news_title {
+	text-align: center;
+}
+.news_title h1 {
+	font-size: 20px;
+	line-height:26px;
+	font-weight: 700;
+	padding-bottom: 22px;
+	border-bottom: 1px solid #dfdfdf;
+}
+.news_title p {
+	margin-top: 15px;
+	color:#999;
+}
+.news_content {
+	font-size: 14px;
+	padding: 20px;
+	line-height: 1.8em;
+}
+/*文章页  end*/
+/*服务协议 start*/
+.wrap {
+	width: 840px;
+	margin: 0 auto;
+	padding: 40px 80px;
+	background: #fff;
+}
+.wrap > div, .wrap .attach > div {
+	margin-top: 30px;
+}
+.wrap h2 {
+	margin-bottom: 20px;
+	font-size: 22px;
+}
+.wrap li {
+	margin-bottom: 10px;
+	line-height: 24px;
+}
+.wrap li span {
+	display: block;
+	width: 40px;
+}
+.wrap li p {
+	width: 710px;
+}
+.wrap li ol li ol {
+	margin-top: 10px;
+	padding-left: 4em;
+}
+.wrap .attach li span {
+	width: 80px;
+}
+.wrap .attach li p {
+	width: 710px;
+}
+.wrap .attach li > ol {
+	margin: 10px 0 0 10px;
+	padding-left: 6.5em;
+}
+.wrap .attach li > ol li {
+	list-style-type: decimal;
+}
+.text-center {
+	text-align: center;
+}
+h1, .h1 {
+	font-size: 35px;
+}
+.fn-clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.fn-clear {
+	zoom: 1;
+}
+body .fn-hide {
+	display: none;
+}
+.fn-left, .fn-right {
+	display: inline;
+}
+.fn-left {
+	float: left;
+}
+.fn-right {
+	float: right;
+}
+/*服务协议 end*/
+.Validform_checktip {
+	position: absolute;
+	top: -56px;
+	right: -172px;
+	margin-left: 8px;
+	line-height: 20px;
+	height: 20px;
+	overflow: hidden;
+	color: #999;
+	font-size: 12px;
+}
+.Validform_right {
+	color: #71b83d;
+	padding-left: 20px;
+	background: url("http://image.kuaikuaidai.com/static/images/right.png") no-repeat left center;
+}
+.Validform_wrong {
+	color: red;
+	padding-left: 20px;
+	white-space: nowrap;
+	background: url("http://image.kuaikuaidai.com/static/images/error.png") no-repeat left center;
+}
+.Validform_loading {
+	padding-left: 20px;
+	background: url("http://image.kuaikuaidai.com/static/images/onLoad.gif") no-repeat left center;
+}
+.Validform_error {
+	background-color: #ffe7e7;
+}
+/*暂时注释*/
+#Validform_msg {
+	color:#7d8289;
+	font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+	width:280px;
+	-webkit-box-shadow:2px 2px 3px #aaa;
+	-moz-box-shadow:2px 2px 3px #aaa;
+	background:#fff;
+	position:absolute;
+	top:0px;
+	right:50px;
+	z-index:99999;
+	display:none;
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+}
+#Validform_msg .iframe {
+	position:absolute;
+	left:0px;
+	top:-1px;
+	z-index:-1;
+}
+#Validform_msg .Validform_title {
+	line-height:25px;
+	height:25px;
+	text-align:left;
+	font-weight:bold;
+	padding:0 8px;
+	color:#fff;
+	position:relative;
+	background-color:#000;
+}
+#Validform_msg a.Validform_close:link, #Validform_msg a.Validform_close:visited {
+	line-height:22px;
+	position:absolute;
+	right:8px;
+	top:0px;
+	color:#fff;
+	text-decoration:none;
+}
+#Validform_msg a.Validform_close:hover {
+	color:#cc0;
+}
+#Validform_msg .Validform_info {
+	padding:8px;
+	border:1px solid #000;
+	border-top:none;
+	text-align:left;
+}
+/*-------------------------------------------绑定银行卡------------------------------------------------*/
+.prompt {
+	margin-bottom: 10px;
+	font-size: 12px;
+	color: #7f7f7f;
+}
+.bank_card {
+	width: 700px;
+	margin: 0 auto;
+	padding: 30px 30px 16px;
+	border: solid 1px #d9d9d9;
+}
+.bank_card li {
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 10px;
+}
+.bank_card li span {
+	width: 135px;
+	height: 40px;
+	float: left;
+	text-align: right;
+	padding-right: 25px;
+}
+.bank_card li input {
+	width: 310px;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 12px;
+	border: 1px solid #dfdfdf;
+	background: #fff;
+	margin-top: -1px;
+}
+.bank_card .min_width {
+	width: 152px;
+}
+.bank_card li #bank_bton {
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background: #4896ff;
+	border: 0;
+	border-radius: 3px;
+	margin-left: 14px;
+	cursor: pointer;
+}
+.bank_mar a {
+	display: inline-block;
+	width: 190px;
+	height: 40px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	background: #904ecb;
+	border-radius: 3px;
+	margin-left: 14px;
+	margin-top: 10px;
+}
+.ts1, .ts2, .ts3 {
+	color: red;
+	font-weight: normal;
+	font-size: 12px;
+	padding-left: 5px;
+	display: none;
+}
+.leftstyle {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 18px;
+	position:relative;
+}
+.leftstyle p {
+	width:128px;
+	height:52px;
+	color:#fff;
+	position:absolute;
+	left:0;
+	bottom:0;
+	display:none;
+	margin-top:36px;
+	cursor: pointer;
+}
+.leftstyle p span {
+	background:#363434;
+	text-align: center;
+	width:128px;
+	position:absolute;
+	left:0;
+	bottom:0;
+}
+.fade p {
+	display:block;
+}
+/*天天赚转出*/
+/*dayout*/
+.dayout {
+	padding: 69px;
+	width: 600px;
+}
+.dayout label {
+	font-size:16px;
+	display: inline-block;
+	width: 160px;
+	text-align: right;
+}
+.dayout span {
+	font-size:16px;
+}
+.dayout p {
+	font-size:14px;
+}
+.mb20 {
+	margin-bottom:20px;
+}
+.inputstyle {
+	position: relative;
+	width: 220px;
+	height: 20px;
+	line-height: 20px;
+	padding:10px 0 10px 14px;
+	border: solid 1px #d6d6d6;
+	font-size: 16px;
+	color:#333;
+	background: transparent;
+	z-index: 5;
+	border-radius:4px;
+}
+.inputstylec {
+	border: solid 1px #904ecb;
+}
+.daybutton {
+	background: url("http://image.kuaikuaidai.com/static/images/daybtns.png") no-repeat;
+	width:79px;
+	height:35px;
+	display: inline-block;
+	margin-top:5px;
+	color:#fff;
+	font-size:16px;
+	line-height:35px;
+	position: absolute;
+	left: 78px;
+}
+.dayout span.daywarn {
+	margin-left: 125px;
+	font-size: 14px;
+	color: red;
+}
+.dayoutload {
+	position: relative;
+}
+.dayoutload img {
+	position: absolute;
+	top: 13px;
+	display:none;
+	left: 150px;
+}
+.floodmark span {
+	background: #D2D0D0;
+	color: #Fff;
+	display: inline-block;
+	width: 256px;
+	height: 45px;
+	text-align: center;
+	line-height: 45px;
+	font-size: 14px;
+	border-radius: 3px;
+	margin-top:10px;
+}
+.goout {
+	background:url(http://image.kuaikuaidai.com/static/images/btnout.png) no-repeat;
+	width:120px;
+	height:40px;
+	color:#fff;
+	border:none;
+	cursor:pointer;
+	font-size:16px;
+}
+.hou_pay .keyup {
+	display: none;
+	padding-bottom: 14px;
+	text-align: center;
+	font-size: 14px;
+	color: red;
+}
+/*邀请好友弹框*/
+.invite_warp, .invite_warps {
+	width: 100%;
+	height: 100%;
+}
+.invite_warp .invite_fn, .invite_warps .invite_fn {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 9998;
+}
+.invite_warp .invite_box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 600px;
+	margin-left: -260px;
+	margin-top: -100px;
+	background: #fff;
+	border-radius: 3px;
+	z-index: 9999;
+}
+.invite_warps .invite_box {
+	position: fixed;
+	top: 35%;
+	left: 50%;
+	width: 550px;
+	margin-left: -260px;
+	margin-top: -100px;
+	background: #fff;
+	border-radius: 3px;
+	z-index: 9999;
+}
+.invite_warp .invite_box h2, .invite_warps .invite_box h2 {
+	height: 42px;
+	padding-left: 10px;
+	line-height: 42px;
+	border-bottom: solid 1px #e7edef;
+	font-size: 14px;
+	color: #465058;
+}
+.invite_warp .invite_box p, .invite_warps .invite_box p {
+	padding: 22px;
+	line-height: 22px;
+	font-size: 14px;
+	color: #465058;
+}
+.invite_warps .invite_box p {
+	padding: 27px 40px;
+	line-height: 22px;
+	font-size: 14px;
+	color: #465058;
+	text-align:left;
+}
+.invite_warp .invite_box .invite_btn, .invite_warps .invite_box .invite_btns {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #e7edef;
+}
+.invite_warp .invite_box .invite_btn a, .invite_warps .invite_box .invite_btns a {
+	display: inline-block;
+	width: 66px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	background: #14446e;
+	border-radius: 3px;
+}
+/*邀请好友 结束*/
+
+/*推荐好友 start*/
+.recommend_banner {
+	width: 100%;
+	height: 258px;
+	overflow: hidden;
+}
+.recommend_banner img {
+	display: block;
+	width:100%;
+}
+.recommend_cont h2 {
+	font-size: 20px;
+	margin:37px 0;
+	padding-left: 14px;
+	border-left: 6px solid #ff9000;
+}
+.recommend_cont p {
+	font-size: 14px;
+	margin-bottom: 11px;
+	line-height: 24px;
+}
+.acta{width: 1000px; margin:0 auto;}
+.acta h4{font-size:16px; color:#ff9458; padding:15px 0 15px 24px;}
+.acta p{margin-bottom:0;}
+.recommend_cont h3 {
+	font-size: 20px;
+	color: #e90000;
+	margin:26px 0 22px 24px;
+}
+.recommend_example .example {
+	float: left;
+	width: 221px;
+	height: 345px;
+	border: 1px solid #dfdfdf;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #f3f3f3;
+	margin:0 24px;
+	overflow: hidden;
+}
+.example_top {
+	width:100%;
+	height:48px;
+	background: #2f86e0;
+	line-height: 48px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+}
+.example_tops {
+	background: #409eff;
+}
+.example_bottom {
+	padding:43px 0 0 23px;
+	font-size: 14px;
+	color: #333;
+}
+.bottom_title {
+	margin-bottom: 20px;
+}
+.example_bottom div {
+	margin-bottom: 22px;
+}
+.example_bottom div.bottom_price {
+	color: #ff7200;
+}
+.example_bottom div i {
+	font-size: 30px;
+}
+.example_bottom div span {
+	margin-right: 22px;
+	font-size: 18px;
+	color: #2f86e0;
+}
+.recommend_img {
+	font-size: 14px;
+	float: left;
+}
+.recommend_img img {
+	margin:14px 0 22px 0;
+}
+.example_bottoms {
+	padding:95px 50px 0 50px;
+	font-size: 14px;
+	color: #333;
+	line-height: 27px;
+}
+.recommend_margin {
+	margin-bottom: 128px;
+}
+.examples {
+	float: left;
+}
+.examples_div {
+	width: 221px;
+	height: 160px;
+	border: 1px solid #dfdfdf;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #f3f3f3;
+	margin:0 0 0 24px;
+	overflow: hidden;
+}
+.examples_divs {
+	margin-top: 22px;
+}
+.examples_bottom {
+	margin:25px 50px 0 50px;
+	font-size: 14px;
+	line-height: 24px;
+}
+.example_topss {
+	background: #70b7ff;
+}
+.recommend_cont h2.recommend_h2 {
+	margin:84px 0 55px 0;
+}
+.recommend_circle {
+	margin-left: 108px;
+	margin-bottom: 20px;
+}
+.recommend_circle span {
+	width: 12px;
+	height: 12px;
+	display: block;
+	float: left;
+	background: url("http://image.kuaikuaidai.com/static/images/recom_circle.png") no-repeat;
+	margin:0 28px;
+}
+.recommend_circle span.cur_circle {
+	width: 24px;
+	height: 24px;
+	display: block;
+	float: left;
+	background: url("http://image.kuaikuaidai.com/static/images/recom_circles.png") no-repeat;
+	margin:-7px 18px;
+}
+.line {
+	float: left;
+	width: 290px;
+	height: 1px;
+	background: #d0d0d0;
+	margin-top: 5px;
+}
+.recommend_tip div {
+	float: left;
+	color: #666;
+	font-size: 14px;
+	margin-bottom: 80px;
+}
+.recommend_tip1 {
+	margin-left: 100px;
+}
+.recommend_tip2 {
+	margin-left: 243px;
+}
+.recommend_tip3 {
+	margin-left: 231px;
+}
+.recommend_tip div.cur_tip {
+	color: #ff5a00;
+}
+.recommend_list {
+	position: relative;
+}
+.recommend_list .owl-wrapper {
+	display: none;
+	position: relative;
+	width: 100%;
+}
+.recommend_list .owl-wrapper-outer {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.recommend_list .owl-item {
+	float: left;
+}
+.recommend_list .owl-item li {
+	text-align: center;
+}
+.recommend_list .owl-buttons div {
+	position:absolute;
+	top: 89px;
+	width:22px;
+	height:77px;
+	text-indent:-9999px;
+	cursor: pointer;
+}
+.recommend_list .owl-prev {
+	left:0px;
+	background-image:url(http://image.kuaikuaidai.com/static/images/recom_left.png);
+}
+.recommend_list .owl-next {
+	right:0px;
+	background-image:url(http://image.kuaikuaidai.com/static/images/recom_right.png);
+}
+.recommend_button a {
+	display: block;
+	width: 180px;
+	height: 54px;
+	background: url("http://image.kuaikuaidai.com/static/images/recom_bg.png");
+	line-height: 54px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	margin: 78px auto 60px auto;
+}
+/*推荐好友 end*/
+/*-------------------------------------------天天赚------------------------------------------------*/
+.daym {
+	position:relative;
+}
+.daym_dian {
+	position:absolute;
+	width:13px;
+	height:13px;
+	right:100px;
+	top:204px;
+}
+.daym .daym_rate {
+	position:absolute;
+	width:49px;
+	text-align:center;
+	height:22px;
+	line-height:18px;
+	background: url(http://image.kuaikuaidai.com/static/images/daym_rate.png) 0 0 no-repeat;
+	right:82px;
+	top:190px;
+	color:#fff;
+	font-size:12px;
+}
+.daym ul {
+	padding:32px 0 55px 55px;
+	height:75px;
+}
+.daym ul li {
+	float:left;
+}
+.daym em {
+	color:#666;
+	font-size:14px;
+}
+.daym span {
+	color:#333;
+	font-size:18px;
+}
+.daym em, .daym span {
+	height:26px;
+	line-height:32px;
+	display:inline-block;
+}
+.daym1 {
+	width:195px;
+}
+.daym1 em, .daym1 span {
+	display:block;
+}
+.daym1 span {
+	font-size:40px;
+	margin-top:5px;
+}
+.daym2 {
+	width:305px;
+}
+.daym2 em {
+	width:125px;
+}
+.daym_mar {
+	margin-bottom:10px;
+}
+.daym3 {
+	width:90px;
+}
+.daym3 a {
+	width:90px;
+	display:block;
+	height:32px;
+	line-height:32px;
+	border-radius:4px;
+	text-align:center;
+	font-size:14px;
+}
+.daym3 .a1 {
+	background:#ffb033;
+	color:#fff;
+	margin-bottom:10px;
+}
+.a1:hover {
+	opacity:0.9;
+}
+.daym3 .a2 {
+	border:1px solid #dfdfdf;
+	width:88px;
+	height:30px;
+	color:#333;
+}
+.a2:hover {
+	border:1px solid #ffb033;
+}
+.daym h3 {
+	font-size:14px;
+	color:#333;
+	padding-left:55px;
+}
+.container {
+	padding:20px 55px 50px;
+}
+.cars {
+	width:125px;
+	height:33px;
+	height:23px\9;
+	border:1px solid #d9d9d9;
+	color:#484848;
+	text-indent:5px;
+	font-size:14px;
+	margin:-10px 0 10px 636px;
+}
+.record .daym_tab tr th, .record .daym_tab tr td {
+	font-size:14px;
+	padding-left:40px;
+	text-align:left;
+	width:180px;
+}
+.record .daym_tab tr td {
+	color:#333;
+}
+.record .daym_tab .profit {
+	color:#8d47cc;
+}
+/*分享好友图标*/
+.person_right .jiathis_style_32x32 .jtico {
+	height: 45px!important;
+	line-height: 45px!important;
+}
+.person_right .jiathis_style_32x32 .jtico_qzone {
+	background:url("http://image.kuaikuaidai.com/static/images/invite_qq.png") no-repeat;
+	width:45px;
+	height:45px;
+}
+.person_right .jiathis_style_32x32 .jtico_tsina {
+	background:url("http://image.kuaikuaidai.com/static/images/invite_wb.png") no-repeat;
+	width:45px;
+	height:45px;
+}
+.person_right .jiathis_style_32x32 .jtico_tqq {
+	background:url("http://image.kuaikuaidai.com/static/images/invite_tx.png") no-repeat;
+	width:45px;
+	height:45px;
+}
+.person_right .jiathis_style_32x32 .jtico_weixin {
+	background:url("http://image.kuaikuaidai.com/static/images/invite_wx.png") no-repeat;
+	width:45px;
+	height:45px;
+}
+.person_right .jiathis_style_32x32 .jtico_renren {
+	background:url("http://image.kuaikuaidai.com/static/images/invite_rr.png") no-repeat;
+	width:45px;
+	height:45px;
+}
+/*注册送红包*/
+.newsd {
+	height:258px;
+	background:#ffc03a;
+}
+.news_banner {
+	width:1268px;
+	margin:0 auto;
+}
+.news_banner img {
+	display:block;
+}
+.news_con {
+	width:955px;
+	margin:0 auto;
+	padding:50px 15px 60px 30px;
+}
+.news_con h3 {
+	font-size:20px;
+	color:#d60606;
+	margin-bottom:25px;
+}
+.news_con li {
+	color:#333;
+	font-size:14px;
+	line-height:35px;
+}
+.news_con a {
+	width:144px;
+	height:37px;
+	line-height:37px;
+	text-align:center;
+	background:#d60606;
+	color:#fff;
+	font-size:20px;
+	border-radius:5px;
+	display:inline-block;
+	margin-left:695px;
+}
+/*ie6天天赚输入框bug*/
+.spinnerstyle .spinner {
+	display: inline-block;
+	width: 173px;
+*width: 170px;
+	display:inline;
+}
+.spinnerstyle #spinner {
+	width: 100px;
+*width: 95px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 16px;
+	color: #904ecb;
+	background: #f7f7f8;
+	border: 0px;
+}
+.spinnerstyle .spinner button {
+	font-size:0
+}
+/*404错误页*/
+.error404, .maintain {
+	width:1000px;
+	height:700px;
+	margin:0 auto;
+}
+.e404 {
+	padding:88px 0 80px 150px;
+}
+.e404 img {
+	margin-right:45px;
+}
+.e404 .ef {
+	padding-bottom:6px;
+}
+.e_wx {
+	padding-left:165px;
+}
+.e_wx img {
+	width:156px;
+	height:156px;
+	border:1px solid #e0e0e0;
+	float:left;
+}
+.ea {
+	float:left;
+	padding:20px 0 0 15px;
+	font-weight:bold;
+}
+.ea a {
+	display:inline-block;
+	height:41px;
+	line-height:41px;
+	width:158px;
+	padding-left:15px;
+	font-size:13px;
+	color:#333;
+	border:1px solid #8d47cc;
+	background:url("http://image.kuaikuaidai.com/static/images/404_14.png") 155px center no-repeat;
+	margin:0 0 38px 25px;
+}
+.ea a:hover {
+	color:#8d47cc;
+}
+.ea p {
+	font-size:14px;
+	color:#654942;
+	padding-left:25px;
+}
+.main404 {
+	padding:100px 0 0 270px;
+}
+.main_text {
+	padding-left:302px;
+	font-size:14px;
+	color:#666;
+}
+.main_text1 {
+	font-size:20px;
+	color:#333;
+	margin-bottom:4px;
+}
+.main_text img {
+	margin-top:-4px;
+}
+/*news导航添加*/
+.content_pad {
+	padding-top:15px;
+}
+.content_con {
+	width:1000px;
+	color:#333;
+	margin:20px auto 0
+}
+.content_con a {
+	color:#8d47cc;
+}
+/*列表页最小高度*/
+.proj_minh {
+	min-height:450px
+}
+/*投资记录链接颜色*/
+#poilist a {
+	color:#8D48CC
+}
+/*首页-公告*/
+.gongbox {
+	border-bottom:solid 1px #d7d7d7
+}
+.gongao {
+	padding:10px;
+	width: 1000px;
+	position: relative;
+	margin: 0 auto;
+	color:#5e5e5e;
+	font-size:14px;
+}
+.seelook {
+	color:#5e5e5e;
+	position: absolute;
+	font-size:12px;
+	right: 15px;
+}
+.gongicon {
+	padding-left: 12px;
+	font-size:12px;
+	padding-top: 1px;
+	color:#fff;
+	background:url("http://image.kuaikuaidai.com/static/images/gg.png") no-repeat;
+	width:52px;
+	height:19px;
+	display: inline-block;
+}
+.myt tr td .mystyle td {
+	font-size:12px;
+}
+.myt tr td .mystyle tr td {
+	color:#888
+}
+.mystyle {
+	padding:10px;
+}
+.myt tr td {
+	color:#333
+}
+.myt tr td .mystyle tr .moremy a {
+	color:#904ecb;
+	padding-right:100px;
+}
+#bisfriend th {
+	height:53px;
+	line-height:53px;
+}
+#bisfriend a {
+	color:#904ecb
+}
+#bisfriend td {
+	border-top:1px solid #eaeaea;
+}
+#bisfriend .mystyle td {
+	border-top:none;
+}
+.rules ol {
+	list-style-type: decimal;
+	width: 700px;
+	padding-left: 25px;
+}
+.rules ol li {
+	list-style:decimal;
+}
+#bidDetail tr th {
+	height:45px;
+	line-height:45px
+}
+.rules ol li {
+	list-style:decimal;
+}
+/*房宝宝/定期宝footer定位*/
+/*.footbottom{min-height:100%; height:auto !important; height:100%; margin:0 auto -259px;}*/
+
+#bidDetail tr th {
+	height: 45px;
+	line-height: 45px;
+}
+.prevpage {
+	border: 1px solid #dfdfdf;
+	background: #fff;
+	color: #333;
+	padding:7px 11px;
+	margin-right:15px;
+	border-radius:3px;
+}
+.nextpage {
+	border: 1px solid #dfdfdf;
+	background: #fff;
+	color: #333;
+	padding:7px 11px;
+	border-radius:3px;
+}
+.news .mr20 {
+	margin-right:20px;
+}
+.nopage {
+	color:#999
+}
+#bidDetail tr td {
+	height:30px
+}
+.pospage {
+	position: relative;
+	text-align: left;
+	margin-right: 20px;
+	height: 90px;
+	top: 13px;
+}
+#bidDetail .mystyle tr td {
+	height:30px
+}
+#fripur a {
+	color:#8D48CC;
+}
+.pospage div {
+	height:45px;
+	margin-left:20px;
+}
+.nextpage {
+	margin-right:15px;
+}
+.bordernone {
+	border:none;
+}
+/*网站地图*/
+.aboutmap {
+	padding-left:25px;
+	width:735px;
+}
+.aboutmap h3 {
+	height:30px;
+	line-height:30px;
+	background:url("http://image.kuaikuaidai.com/static/images/about_dian.png") no-repeat left center;
+}
+.aboutmap h3 a {
+	color:#652fc8;
+	font-size:18px;
+	padding-left:50px;
+}
+.aboutmap div {
+	height:54px;
+	line-height:37px;
+	border-left:1px solid #8c44cc;
+	margin-left:2px;
+}
+.aboutmap div a {
+	color:#666;
+	padding-left:44px;
+	font-size:14px;
+}
+.aboutmap div a:hover {
+	color:#652fc8;
+}
+.aboutmap .absmall {
+	height:26px;
+}
+.aboutmap .amnoh {
+	border:0;
+	height:108px;
+}
+#gridhei th {
+	height:40px;
+	line-height:40px;
+	text-align:center;
+}
+.news_content a {
+	color:#552f8b;
+}
+.about_aaa a {
+	color:#0075c1;
+}
+#lableInvite .gayphone span {
+	color:red
+}
+#lableInvite .gayphone .hui {
+	color:#aaa
+}
+/*首页公告链接颜色*/
+.gongao .aff_name:link {
+	color:#333;
+}
+.gongao .aff_name:visited {
+	color:#333;
+}
+.gongao .aff_name:hover {
+	color:#7b29c4;
+}
+.gongao .aff_name:active {
+	color:#333;
+}
+.bank_safe a {
+	color:#7f7f7f;
+}
+/*改版个人中心*/
+.headPortrait {
+	width: 100px;
+	float: left;
+	position: relative;
+}
+.headFile {
+	height: 130px;
+	left: 8px;
+	opacity: 0;
+	filter: alpha(opacity=00);
+	overflow: hidden;
+	position: absolute;
+	top: 1px;
+	width: 100px;
+	z-index: 3;
+}
+.headFile input {
+	cursor: pointer;
+	font-size: 9px;
+	height: 123px;
+	width: 70px;
+	margin-left: 32px;
+}
+.headPortrait span {
+	position: absolute;
+	z-index: 2;
+	background: url("http://image.kuaikuaidai.com/static/images/personphoto.png") no-repeat scroll;
+	width: 70px;
+	height: 70px;
+	left: 44px;
+	top: 31px;
+	border:none;
+}
+.headPortrait #preview span {
+	position: absolute;
+	z-index: 2;
+	background: url("http://image.kuaikuaidai.com/static/images/personphoto.png") no-repeat scroll;
+	width: 70px;
+	height: 70px;
+	left: 0px;
+	top: 0px;
+	border:none;
+}
+.headPortrait img {
+	position: absolute;
+	z-index: 1;
+	width: 70px;
+	height: 70px;
+}
+.box2 {
+	width:590px;
+}
+.box2 p {
+	font-size:16px;
+	color:#666666
+}
+.box2 .colored {
+	font-size:18px;
+	color:#e50202
+}
+.newmsg {
+	font-size:14px
+}
+.box2 .line2 {
+	font-size:12px;
+	position:relative
+}
+.level {
+	color:#ff3333;
+	margin-right:15px;
+}
+.levelever {
+	color:#904ecb
+}
+.box1 {
+	width: 155px;
+	height: 135px;
+}
+.line1 {
+	margin-top:25px;
+}
+.line2 {
+	margin-top:29px;
+}
+.line3 {
+	margin-top:-4px;
+}
+.linever {
+	height: 8px;
+	background: #d7f0df;
+	width: 140px;
+}
+.linepers {
+	height: 8px;
+	background: #36b460;
+	border-radius: 5px;
+}
+.line1 span {
+	margin-right:25px;
+}
+.line1 span.colored {
+	margin-right:5px;
+}
+.line1 span.personame {
+	margin-right:35px;
+}
+.linever {
+	margin-bottom:10px;
+}
+.mr25 {
+	margin-right:23px;
+}
+.line3 span {
+	font-size:12px;
+}
+.line1 span.iconnew {
+	background:url("http://image.kuaikuaidai.com/static/images/persontime.png") no-repeat scroll;
+	width:17px;
+	height:17px;
+	display:inline-block;
+	margin-right:8px;
+	vertical-align:-2px;
+}
+.action_list1 .action_img {
+	background: url("http://image.kuaikuaidai.com/static/images/person11.png") no-repeat scroll;
+	width: 22px;
+	height: 17px;
+	display: inline-block;
+	position: absolute;
+	top: -6px;
+	left: 194px;
+}
+.action_list1 .action_become {
+	background: url("http://image.kuaikuaidai.com/static/images/person1.png") no-repeat scroll;
+	width: 22px;
+	height: 17px;
+	display: inline-block;
+	position: absolute;
+	top: -6px;
+	left: 194px;
+}
+.action_list2 .action_img {
+	background: url("http://image.kuaikuaidai.com/static/images/person22.png") no-repeat scroll;
+	width: 22px;
+	height: 17px;
+	display: inline-block;
+	position: absolute;
+	top: -6px;
+	left: 272px;
+}
+.action_list2 .action_become {
+	background: url("http://image.kuaikuaidai.com/static/images/person2.png") no-repeat scroll;
+	width: 22px;
+	height: 17px;
+	display: inline-block;
+	position: absolute;
+	top: -6px;
+	left: 272px;
+}
+.action_list3 .action_img {
+	background: url("http://image.kuaikuaidai.com/static/images/person33.png") no-repeat scroll;
+	width: 22px;
+	height: 17px;
+	display: inline-block;
+	position: absolute;
+	top: -6px;
+	left: 338px;
+}
+.action_list3 .action_become {
+	background: url("http://image.kuaikuaidai.com/static/images/person3.png") no-repeat scroll;
+	width: 22px;
+	height: 17px;
+	display: inline-block;
+	position: absolute;
+	top: -6px;
+	left: 338px;
+}
+.iconthreecurrent {
+	background: url("http://image.kuaikuaidai.com/static/images/person33.png") no-repeat scroll;
+}
+.fontone {
+	margin-left:42px;
+}
+.fonttwo {
+	margin-left:30px;
+}
+.fontthree {
+	margin-left:30px;
+}
+.box3 .signin a {
+	color:#fff
+}
+.box3 .signin .sign_btn1 {
+	width: 44px;
+	background: #75c1fc;
+	border-radius: 2px;
+	display: inline-block;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 14px;
+	color: #fff;
+}
+.box3 .signin .sign_btn2 {
+	width: 68px;
+	background: #2593ea;
+	border-radius: 2px;
+	display: inline-block;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 14px;
+	color: #fff;
+}
+.borderleft {
+	margin-top: 9px;
+	border-left: 1px solid #dfdfdf;
+	padding-left: 35px;
+	color:#666666
+}
+.box3 .signin {
+	margin-bottom:13px;
+}
+.person_right .person_box .person_mony span.orangepage {
+	color:#db1b1b
+}
+.person_mony a {
+	color:#6828d1
+}
+.pageswiper {
+	background:url("http://image.kuaikuaidai.com/static/images/sweet.png") no-repeat scroll;
+	width:21px;
+	height:14px;
+	display:inline-block;
+	vertical-align:-2px;
+*vertical-align:2px;
+	margin-right:10px;
+	margin-top:10px;
+}
+.moneyswiper {
+	background:url("http://image.kuaikuaidai.com/static/images/moneyw.png") no-repeat scroll;
+	width:19px;
+	height:19px;
+	display:inline-block;
+	vertical-align:-4px;
+*vertical-align:0px;
+	margin-right:10px;
+	margin-top:10px;
+}
+.person_right .person_box .person_btn {
+	position:relative;
+	top:-15px;
+}
+.action_list1 .action_hide, .action_list2 .action_hide, .action_list3 .action_hide {
+	display:none
+}
+.box2 .action_list1 .action_hide {
+	display: none;
+	position: absolute;
+	bottom: -85px;
+	left: 114px;
+	width: 132px;
+	padding: 12px 24px;
+	background: #fff;
+	border: solid 1px #c9c9c9;
+	_bottom: -62px;
+}
+.box2 .action_hide span {
+	position: absolute;
+	top: -14px;
+	left: 86px;
+	_top: -12px;
+}
+.box2 .action_hide p {
+	padding-bottom: 5px;
+	font-size: 12px;
+	color: #666666;
+}
+.box2 .action_hide a {
+	display: inline-block;
+	font-size: 12px;
+	color: #904ecb;
+	text-decoration: underline;
+}
+.box2 .action_list2 .action_hide {
+	display: none;
+	position: absolute;
+	bottom: -85px;
+	left: 185px;
+	width: 132px;
+	padding: 12px 24px;
+	background: #fff;
+	border: solid 1px #c9c9c9;
+	_bottom: -62px;
+}
+.box2 .action_list3 .action_hide {
+	display: none;
+	position: absolute;
+	bottom: -85px;
+	left: 255px;
+	width: 132px;
+	padding: 12px 24px;
+	background: #fff;
+	border: solid 1px #c9c9c9;
+	_bottom: -62px;
+}
+.upicture {
+	color:#999999;
+	margin-left: 51px;
+}
+.borderleft p {
+	color:#959595
+}
+.personmain {
+	width:1000px;
+	margin:0 auto;
+	background:#fff;
+	margin-top:25px;
+	height:135px;
+	position: relative;
+}
+/*修改交易明细颜色*/
+#searchDate, #searchDatemsg {
+	color:#666;
+}
+#searchDate input, #searchDate select, #searchDatemsg input, #searchDatemsg select {
+	font-size:14px;
+	border:1px solid #dfdfdf;
+	color:#999999;
+}
+#searchDate .accInput, #searchDatemsg .accInput {
+	color:#fff;
+	border:none;
+}
+#searchDatemsg {
+	text-align: right;
+}
+#searchDatemsg input {
+	text-align: center;
+	padding: 5px 0;
+}
+.invite .ways.msgbox {
+	padding:13px 0;
+	width: 754px;
+}
+.msgbox .megall {
+	display:none;
+}
+.msgbox .title {
+	font-size: 16px;
+	margin-bottom: 24px;
+	border-bottom: solid 1px #e5e5e5;
+}
+.msgbox .title a.active {
+	background: url("http://image.kuaikuaidai.com/static/images/linebottom.png") no-repeat center bottom;
+	color: #904ecb;
+	width: 98px;
+	text-align: center;
+}
+.msgbox .title a {
+	display: inline-block;
+	padding-bottom: 12px;
+	color: #333;
+	width: 98px;
+	text-align: center;
+	margin-left: 35px;
+}
+.msgperson, .megall {
+	padding:25px 35px;
+}
+.personarea {
+	position: relative;
+	margin-bottom:35px
+}
+.personmsgbody {
+	background: #dfeefc;
+	padding:35px 30px;
+	width: 79%;
+	font-size:12px;
+	color:#444648
+}
+.personmsgtitle {
+	color:#5a5a5a;
+	font-size:14px;
+}
+.msgbodytitle {
+	margin-bottom:10px;
+}
+.personmsgbody div {
+	line-height: 21px;
+}
+.invite .msgbox {
+	width: 754px;
+}
+.msgbodytitle span {
+	position: absolute;
+	right: 31px;
+	color:#999999
+}
+.msgperson .arrowicon {
+	position: absolute;
+	background: url("http://image.kuaikuaidai.com/static/images/icontip.png") no-repeat;
+	width:18px;
+	height:16px;
+	left:68px;
+}
+.megall .personmsgbody {
+	background:#fbf3c8
+}
+.megall .arrowicon {
+	position: absolute;
+	background: url(http://image.kuaikuaidai.com/static/images/icontipall.png) no-repeat;
+	width:18px;
+	height:16px;
+	left:68px;
+}
+.headPicture {
+	width: 70px;
+	height: 70px;
+	margin-left: 39px;
+	margin-top: 27px;
+	position: absolute;
+	z-index: 9;
+}
+.headPictures {
+	width: 70px;
+	height: 70px;
+	margin-left: 39px;
+	margin-top: 27px;
+	background: url("http://image.kuaikuaidai.com/static/images/toux.png") no-repeat;
+	position: absolute;
+	z-index: 999;
+}
+.headshell {
+	background: url("http://image.kuaikuaidai.com/static/images/photo.png") no-repeat;
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	z-index:100;
+	top: 31px;
+	left: 42px;
+}
+#bidDetail .center img, .imgurl img {
+	width:34px;
+	height:34px;
+	border-radius:34px;
+}
+.intwid {
+	width:59px;
+	text-align:right;
+}
+/*修改提现密码页*/
+.forget {
+	font-size:14px;
+	color:#333;
+	padding-bottom:55px;
+}
+.forget_title {
+	height:48px;
+	margin-bottom:50px;
+}
+.forget_title h3 {
+	height:45px;
+	line-height:45px;
+	text-align:center;
+	border-top:3px solid #dfdfdf;
+	float:left;
+	padding-left:16px;
+	width:364px;
+	background:url(http://image.kuaikuaidai.com/static/images/passicon1.png) no-repeat 140px center;
+}
+.forget_title .for_bor {
+	border-top:3px solid #fff;
+	background:url(http://image.kuaikuaidai.com/static/images/passicon21.png) no-repeat 140px center;
+}
+.forget_in {
+	margin-bottom:30px;
+}
+.forget_in span {
+	display:inline-block;
+	width:260px;
+	text-align:right;
+}
+.forget_in input {
+	width:275px;
+	height:20px;
+	padding:11px 14px;
+	line-height:20px;
+	border:solid 1px #dfdfdf;
+	color:#888;
+	border-radius:2px;
+}
+.forget_in p {
+	display:inline-block;
+	color:#888;
+}
+.forget_in .forget_code {
+	width:160px;
+}
+.forget_in .forget_obcode {
+	width:102px;
+	height:31px;
+	background:url(http://image.kuaikuaidai.com/static/images/passback.png) no-repeat 0 0;
+	color:#fff;
+	line-height:31px;
+	border:0;
+	padding:0;
+	margin-left:7px;
+	cursor:pointer;
+	font-size:12px;
+	padding-left:6px;
+}
+.forget_in .forget_next {
+	width:305px;
+	height:44px;
+	line-height:44px;
+	text-align:center;
+	background:#904ecb;
+	color:#fff;
+	display:inline-block;
+	border-radius:2px;
+	border:0;
+}
+.pass_reset .resetp {
+	display:block;
+	padding:6px 0 0 280px;
+	color:#a9a9a9;
+}
+.pass_reset h3 {
+	background:url(http://image.kuaikuaidai.com/static/images/passicon11.png) no-repeat 140px center;
+	border-top:3px solid #fff;
+}
+.pass_reset .for_bor {
+	background:url(http://image.kuaikuaidai.com/static/images/passicon2.png) no-repeat 140px center;
+	border-top:3px solid #dfdfdf;
+}
+.bank .person_top .pass_line {
+	width:636px;
+}
+.forspan, .forimg, .for_pass {
+	position:relative;
+}
+.forspan .loadimg {
+	position:absolute;
+	left:584px;
+	top:15px;
+	display:none;
+}
+.forimg .loadimg {
+	position:absolute;
+	left:370px;
+	top:14px;
+	display:none;
+}
+#forgetName_lable, #identity_lable, #fcode_lable {
+	position:absolute;
+	bottom:-20px;
+	left:280px;
+	text-align:left;
+	color:red;
+}
+.for_pass .form_tips {
+	position:absolute;
+	width:auto;
+	text-align:left;
+	left:575px;
+	top:13px;
+	color:red;
+}
+/*上传头像*/
+  .imgpop {
+	background:#fff;
+	width:600px;
+	height:400px;
+	position: absolute;
+	z-index: 999;
+	right:165px;
+}
+.intwid {
+	width:59px;
+	text-align:right;
+}
+.invite_warps .mypic {
+	min-height:300px;
+	padding-bottom: 65px;
+}
+#preview_box {
+	display: inline-block;
+	position: relative;
+	width: 300px;
+}
+.inline-labels {
+	display: none;
+}
+#headPortrait {
+	text-align: center;
+}
+#savepic {
+	background: #904ECB;
+	border: none;
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	border-radius: 4px;
+	position: absolute;
+	bottom: 18px;
+	cursor: pointer;
+	left: 40px;
+}
+.filepic {
+	position: fixed;
+}
+.accInput {
+	cursor: pointer;
+	bottom: 40px;
+	cursor: pointer;
+}
+.headPortrait #imghead {
+	display:none;
+	width: 0px;
+	height: 0px;
+}
+.closepic {
+	position: absolute;
+	right: 18px;
+	cursor: pointer;
+}
+.mypic .warntips {
+	color:red;
+	position: absolute;
+	right: 70px;
+}
+.loadingpic {
+	display:none;
+	background: url("http://image.kuaikuaidai.com/static/images/loading.gif") no-repeat;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 128px;
+	z-index: 999;
+	left: 137px;
+}
+#accpic {
+	position: absolute;
+	right: -172px;
+	display:none;
+}
+/*优惠券页面*/
+.coufir {
+	position:relative;
+	height:49px;
+	line-height:49px;
+	border-bottom:1px solid #e5e5e5;
+}
+.coufir em, .cashwrap .record em {
+	display:inline-block;
+	width:66px;
+	height:27px;
+	border-radius:5px;
+	position:absolute;
+	right:0;
+	top:-37px;
+	color:#904ecb;
+	text-align:center;
+	line-height:27px;
+	font-size:14px;
+	cursor:pointer;
+}
+.coufir span {
+	width:148px;
+	text-align:center;
+	display:inline-block;
+	color:#484848;
+	font-size:16px;
+	cursor:pointer;
+}
+.coufir .cou_curr {
+	color:#6828d1;
+	padding-bottom: 2px;
+	background:url(http://image.kuaikuaidai.com/static/images/linebottoms.png) no-repeat center 44px;
+}
+.vou_wrap {
+	padding-top:0px;
+}
+.vou_wrap .cash {
+	text-align:center;
+	font-size:14px;
+	color:#333;
+}
+.vou_wrap em {
+	height:72px;
+	line-height:79px;
+	text-align:center;
+	display:block;
+	font-family:"微软雅黑";
+	font-size:42px;
+	color:#ff782f;
+}
+.notused, .used {
+	width:660px;
+	overflow:hidden;
+	margin:0 auto 25px;
+	background:#ffe9d2;
+}
+.cashleft, .cashright {
+	float:left;
+}
+.cashleft {
+	background:url(http://image.kuaikuaidai.com/static/images/couponsline1.png) no-repeat right center;
+	width:160px;
+	height:115px;
+}
+.cashright {
+	width:435px;
+	background:url(http://image.kuaikuaidai.com/static/images/coupons1.png) no-repeat right top;
+	padding:35px 40px 0 25px;
+	color:#999;
+	height:80px;
+}
+.cashright a {
+	float:right;
+	color:#fe610c;
+}
+.cashright p {
+	line-height:30px;
+}
+.cashright p span {
+	color:#333;
+}
+.used {
+	background:#e1e1e1 url(http://image.kuaikuaidai.com/static/images/couponsback.jpg) no-repeat left center;
+}
+.used em, .used .cash, .used p span {
+	color:#999;
+}
+.used .cashleft {
+	background:url(http://image.kuaikuaidai.com/static/images/couponsline2.png) no-repeat right center;
+}
+.used .cashright {
+	background:url(http://image.kuaikuaidai.com/static/images/coupons2.png) no-repeat right top;
+}
+.overdue {
+	background-image:none;
+}
+.overdue .cashright {
+	background:url(http://image.kuaikuaidai.com/static/images/coupons3.png) no-repeat right top;
+}
+.cashwrap, .cashdis {
+
+	display:none;
+	min-height:500px;
+}
+.coupomar{margin:0;}
+.cashdis {
+	display:inline-block;
+}
+.cashwrap .person_top .pass_line {
+	width:618px;
+}
+.cashwrap .record {
+	padding:40px 45px 60px;
+	width:670px;
+	font-size:14px;
+	color:#333;
+	line-height:24px;
+	position:relative;
+}
+.cashwrap .record em {
+	background:#8b42cc;
+	color:#fff;
+}
+.cashdis .person_top, .cashwrap .person_top {
+	padding-bottom:45px;
+}
+.notips {
+	position: absolute;
+	right: -157px;
+	bottom: 47px;
+	color: red;
+	display:none;
+}
+.mb50s {
+	margin-left:49px;
+	margin-top:2px;
+	position: absolute;
+	top: 100px;
+}
+/*优惠券*/
+  .coupon select {
+	width: 256px;
+	padding: 5px;
+	font-size:12px;
+	color:#333333;
+	border:1px solid #dfdfdf;
+	background-color:#f5f5f5;
+	margin-bottom:10px;
+	padding-right:0;
+	cursor: pointer;
+	height:32px;
+}
+.coupon select option {
+	padding:5px;
+	line-height:30px;
+	font-size:12px;
+}
+.coupontip {
+	color:#333333;
+	font-size:12px;
+	padding-left:5px;
+}
+.hou_add .paybtn {
+	margin-top:13px;
+}
+select {
+	border: solid 1px #000;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	padding-right: 12px;
+	background: url("http://image.kuaikuaidai.com/static/images/cop.png") no-repeat scroll right center transparent;
+}
+.cars {
+	padding-right:0;
+}
+.tradeType {
+	padding:0;
+}
+.couponall {
+	position: relative;
+}
+.moneypic, .moneypicno {
+	position: absolute;
+	top: 2px;
+	font-size: 12px;
+	background:#f5f5f5;
+	width: 224px;
+	height: 26px;
+	line-height: 26px;
+	padding-left: 9px;
+	display:none;
+	margin-left:2px;
+	
+}
+.moneypicno {
+	display:block;
+	border:1px solid #dfdfdf;
+	width:244px;
+}
+.nomoney {
+	position: relative;
+	height:25px;
+	margin-bottom:7px;
+}
+.coupontip {
+	color:#333333;
+	font-size:12px;
+}
+.mystyle img {
+	width:26px;
+	height:26px;
+	border-radius:26px;
+	margin-right:24px;
+}
+.hou_add .paybtn {
+	margin-top:10px;
+}
+.pay_btn {
+	position: relative;
+}
+.pay_btn .payload {
+	top:27px;
+}
+.pload .payload {
+	top:17px;
+}
+.nones {
+	text-align: center;
+	margin-bottom: 30px;
+	color: #333;
+}
+.nocoupon {
+	text-align: center;
+	color: #333;
+	font-size:14px;
+}
+.cashdis #paging {
+	padding-left:15px;
+	margin-bottom:30px;
+}
+.adds {
+	position: relative;
+}
+.secure_label .forgeta {
+	margin-left:15px;
+	color:#999;
+	padding:5px;
+}
+/*活动页*/
+.activitymoon {
+	background:#930c89
+}
+.activitymoon .activitymoonbox {
+	width: 100%;
+	height: 698px;
+	background:url(http://image.kuaikuaidai.com/static/images/activitybd.png) center 0 no-repeat;
+}
+.activitymoon .activitymoonmain {
+	background:url(http://image.kuaikuaidai.com/static/images/activitypic.png) center 0 no-repeat;
+	width:1070px;
+	height:540px;
+	margin:0 auto;
+}
+.activitymoon .activitymoontime {
+	width:1070px;
+	margin:0 auto;
+	position:relative
+}
+.activitymoonbtn {
+	margin-top:10px;
+}
+.activitymoonbtn a {
+	display: block;
+	margin: 0 auto;
+	width: 243px;
+	height: 70px;
+	background: url(http://image.kuaikuaidai.com/static/images/activitymoonbtn.png) center no-repeat;
+}
+.activitymoon .activitymoonclock {
+	text-align:right;
+	background:url(http://image.kuaikuaidai.com/static/images/activityfont.png) no-repeat right;
+	height:26px;
+	margin-top:40px;
+	position:relative
+}
+.activitymoon .activitymoontarget {
+	width:1070px;
+	margin:0 auto;
+}
+.activitymoonone {
+	position:relative;
+	background:url(http://image.kuaikuaidai.com/static/images/activityobject1.png) no-repeat center scroll;
+	width:1064px;
+	height:229px;
+	margin-bottom:36px;
+}
+.activitymoontwo {
+	position:relative;
+	background:url(http://image.kuaikuaidai.com/static/images/activityobject2.png) no-repeat center scroll;
+	width:1064px;
+	height:229px;
+	margin-bottom:36px;
+}
+.activitymoonthree {
+	position:relative;
+	background:url(http://image.kuaikuaidai.com/static/images/activityobject3.png) no-repeat center scroll;
+	width:1064px;
+	height:258px;
+	margin-bottom:36px;
+}
+.activityfooter {
+	margin: 0 auto;
+	background:url(http://image.kuaikuaidai.com/static/images/activityfooter.png) no-repeat center scroll;
+	height:841px;
+	margin-bottom:80px;
+}
+.activitymoon .footermoon {
+	background:#3b3b3b;
+	color:#898989;
+	height:81px;
+	line-height:81px;
+	text-align:center
+}
+.actbtn1 a {
+	background: url(http://image.kuaikuaidai.com/static/images/activityin1.png) no-repeat scroll;
+	width: 213px;
+	height: 67px;
+	display: inline-block;
+	position: absolute;
+	right: 25px;
+	top: 80px;
+	line-height: 67px;
+	text-align: center;
+	font-size:20px;
+	color:#fff;
+}
+.actbtn1 a:hover {
+	background:url(http://image.kuaikuaidai.com/static/images/activityout1.png) no-repeat scroll;
+}
+.actbtn2 a {
+	background: url(http://image.kuaikuaidai.com/static/images/activityin2.png) no-repeat scroll;
+	width: 213px;
+	height: 67px;
+	display: inline-block;
+	position: absolute;
+	right: 25px;
+	top: 80px;
+	line-height: 67px;
+	text-align: center;
+	font-size:20px;
+	color:#fff;
+}
+.actbtn2 a:hover {
+	background:url(http://image.kuaikuaidai.com/static/images/activityout2.png) no-repeat scroll;
+}
+.actbtn3 a {
+	background: url(http://image.kuaikuaidai.com/static/images/activityin3.png) no-repeat scroll;
+	width: 213px;
+	height: 67px;
+	display: inline-block;
+	position: absolute;
+	right: 25px;
+	top: 138px;
+	line-height: 67px;
+	text-align: center;
+	font-size:20px;
+	color:#fff;
+}
+.actbtn3 a:hover {
+	background:url(http://image.kuaikuaidai.com/static/images/activityout3.png) no-repeat scroll;
+}
+.activitymoonbtn a:hover {
+	background: url(http://image.kuaikuaidai.com/static/images/activitymoonbtnout.png) no-repeat scroll;
+}
+.activitybid {
+	background:url(http://image.kuaikuaidai.com/static/images/activitybid.png) center no-repeat;
+	width:100%
+}
+.actbtn1.hui a, .actbtn2.hui a, .actbtn3.hui a {
+	background: url(http://image.kuaikuaidai.com/static/images/activityhui.png) no-repeat scroll;
+}
+.actbtn1 span, .actbtn2 span, .actbtn3 span {
+	background: url(http://image.kuaikuaidai.com/static/images/activityhui.png) no-repeat scroll;
+	width: 213px;
+	height: 67px;
+	display: inline-block;
+	position: absolute;
+	right: 25px;
+	top: 80px;
+	line-height: 67px;
+	text-align: center;
+	font-size:20px;
+	color:#fff;
+	cursor:default
+}
+.actbtn3 span {
+ cursor:default  background: url(http://image.kuaikuaidai.com/static/images/activityhui.png) no-repeat scroll;
+	width: 213px;
+	height: 67px;
+	display: inline-block;
+	position: absolute;
+	right: 25px;
+	top: 138px;
+	line-height: 67px;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+}
+.activitybid .a {
+	font-size: 14px;
+	color: #fff;
+	padding-left: 50px;
+	/* line-height: 40px; */
+    margin-bottom:20px;
+	line-height: 31px;
+}
+.activitybid .a span {
+	display:inline-block;
+	width:30px;
+	height:30px;
+	vertical-align:middle;
+	margin-right:10px;
+}
+.activitybid .aone {
+	background:url(http://image.kuaikuaidai.com/static/images/ao.png) no-repeat scroll;
+}
+.activitybid .atwo {
+	background:url(http://image.kuaikuaidai.com/static/images/at.png) no-repeat scroll;
+}
+.activitybid .athree {
+	background:url(http://image.kuaikuaidai.com/static/images/atr.png) no-repeat scroll;
+}
+.activitybid .afour {
+	background:url(http://image.kuaikuaidai.com/static/images/af.png) no-repeat scroll;
+}
+.activitybid .afive {
+	background:url(http://image.kuaikuaidai.com/static/images/afi.png) no-repeat scroll;
+}
+.activityrule {
+	padding-top:130px;
+	padding-left:65px;
+}
+.athree div {
+	line-height:20px;
+}
+.activitymoonclock input {
+	font-size:38px;
+	border:none;
+	background:none;
+	width:65px;
+	color:#fcff00
+}
+#time_d {
+	position:absolute;
+	right: 272px;
+	top: -11px;
+}
+#time_h {
+	position:absolute;
+	right: 194px;
+	top: -11px;
+}
+#time_m {
+	position:absolute;
+	right:79px;
+	top: -11px;
+}
+#time_s {
+	position: absolute;
+	right: 5px;
+	top: -11px;
+}
+@font-face {
+ font-family: 'SketchRockwell';
+ src: url('DS-DIGI.eot');
+ src: url('DS-DIGI.eot?#iefix') format('embedded-opentype'),  url('DS-DIGI.woff') format('woff'),  url('DS-DIGI.ttf') format('truetype'),  url('DS-DIGI.svg#cambria') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'Helvetica';
+ src: url('Helvetica.eot');
+ src: url('Helvetica.eot?#iefix') format('embedded-opentype'),  url('Helvetica.woff') format('woff'),  url('Helvetica.ttf') format('truetype'),  url('Helvetica.svg#cambria') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+.activitymoonclock input {
+	font-style:oblique;
+	font-family: 'SketchRockwell';
+}
+.lendnumber{
+	font-family: 'Helvetica';
+}
+.activitymoon #warp {
+	background: #930c89;
+}
+.pay_btn a {
+	position: relative;
+}
+.wuy.pay_btn .payload {
+	top:17px;
+}
+/*活动*/
+#ww {
+	position: fixed;
+	top: -645px;
+	z-index: 999999;
+	width: 100%;
+}
+#ww a {
+	width: 100%;
+	height: 645px;
+	background: url(http://image.kuaikuaidai.com/static/images/pop.jpg) no-repeat;
+	background-position: 50% 0;
+	display: inline-block;
+}
+.rules ol {
+	line-height: 22px;
+	margin-bottom:20px;
+}
+.rules p {
+	font-size:16px;
+	color:#821DD1;
+	font-size:14px
+}
+.rules ol li {
+	color:#706d6d;
+	font-size:12px
+}
+.inner .new, .inner .jiaxi {
+	position: absolute;
+	left: 220px;
+	top: 0;
+}
+.beizhu {
+	margin-top: -22px;
+	font-size: 12px;
+	margin-left: 24px;
+}
+.abouteampic img {
+	width:170px;
+	height:190px;
+}
+.abouteamfont h3, .abouteamfont h6, .abouteamfont p {
+	font-size:12px;
+	color:#666666;
+	line-height: 21px;
+}
+.abouteamfont h3 {
+	font-size:20px;
+	color:#333333;
+	margin-top: 10px;
+	margin-bottom: 8px;
+}
+.abouteamfont h6 {
+	font-size:16px;
+	color:#333333;
+	margin-bottom: 20px;
+}
+.abouteamfont {
+	width:542px;
+	font-size:12px;
+	margin-left:30px;
+}
+.abouteamarea {
+	padding-bottom:28px;
+	padding-top:28px;
+	border-bottom:1px solid #dfdfdf
+}
+.person_right .teamtop {
+	padding-bottom:10px;
+	position: relative;
+}
+.teamnone {
+	border:none;
+}
+.fixlineh {
+	line-height:33px;
+}
+.reset_box .reset_fosi {
+	font-size:12px;
+}
+.nopics {
+	text-align: center;
+	line-height: 150px;
+	color: #bbb;
+}
+.footer .linebocs {
+	width: 745px;
+	text-align: left;
+	margin: 0 auto;
+}
+.linebottom {
+	padding-left:160px;
+}
+.bigpic {
+	position: fixed;
+	z-index: 9999999;
+	top: 0px;
+	vertical-align: middle;
+	max-width: 100%;
+	max-height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	width: 1000px;
+	margin: 0 auto;
+}
+.bigpic img {
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+.acti_box .acti_btn1 .myover {
+	background:#ccc
+}
+/*理财顾问*/
+.counselor {
+	height:240px;
+}
+.counselorpic {
+	position: relative;
+}
+.counselorcenter {
+	color: #fff;
+	z-index: 999;
+	height:55px;
+	text-align:center;
+	bottom: 0;
+	font-size:14px;
+	width: 100%;
+	position: absolute;
+}
+.f18 {
+	font-size:18px;
+	margin-top: 5px;
+}
+.counselorpic img {
+	width:198px;
+	height:240px;
+}
+.counselorww {
+	width:20px;
+	height:240px;
+}
+.counselorin {
+	line-height:22px;
+}
+.counselortitle {
+	font-size:16px;
+	margin-bottom:20px;
+}
+.counselormore {
+	text-align:right;
+}
+.counselormore a {
+	color:#6b6b68
+}
+.bjs {
+	background: url(http://image.kuaikuaidai.com/static/images/bjs.png) no-repeat;
+	width: 198px;
+	height: 57px;
+	position: absolute;
+	top: 184px;
+}
+.perate h2 .counseloricon {
+	width: 34px;
+	height: 18px;
+	background: url("http://image.kuaikuaidai.com/static/images/counseloricon.png") no-repeat;
+}
+.overflowhidden {
+	overflow:hidden;
+	float:left;
+	border:1px solid #dedee0
+}
+.counselorfont {
+	display:none;
+	height: 189px;
+	color:#333333;
+	width:308px;
+	font-size:12px;
+	background:#fff;
+	padding:25px;
+}
+#pro_re_pay div {
+	height:130px;
+	line-height:130px;
+	text-align:center;
+	border-bottom:1px solid #dfdfdf;
+}
+/*首页新增透明度*/
+.clarity {
+	background:#f5f5f5;
+	height:95px;
+	border-bottom:1px solid #dfdfdf;
+	width:100%;
+	background:#f5f5f5;
+	border-bottom:1px solid #dfdfdf
+}
+.clarbox .clar {
+	width:25%;
+	height:95px;
+	position: relative;
+}
+.clarbox {
+	width:1000px;
+	margin:0 auto;
+	height:95px;
+	background:#f5f5f5;
+	border-bottom:1px solid #dfdfdf
+}
+.clarbox p {
+	color:#a0a0a0;
+	font-size:14px;
+	padding-left:60px;
+}
+.clarbox .font {
+	font-size:20px;
+	color:#444444;
+	margin-top:25px;
+}
+.clarimg1 {
+	top: 28px;
+	left: 27px;
+	position: absolute;
+	background: url("http://image.kuaikuaidai.com/static/images/icon_10.png") no-repeat;
+	width:24px;
+	height:19px;
+}
+.clarimg2 {
+	top: 28px;
+	left: 27px;
+	position: absolute;
+	background: url("http://image.kuaikuaidai.com/static/images/icon_03.png") no-repeat;
+	width:24px;
+	height:19px;
+}
+.clarimg3 {
+	top: 28px;
+	left: 27px;
+	position: absolute;
+	background: url("http://image.kuaikuaidai.com/static/images/icon_05.png") no-repeat;
+	width:24px;
+	height:19px;
+}
+.clarimg4 {
+	top: 28px;
+	left: 27px;
+	position: absolute;
+	background: url("http://image.kuaikuaidai.com/static/images/icon_07.png") no-repeat;
+	width:24px;
+	height:19px;
+}
+.times {
+	font-size:14px;
+}
+.times span {
+	font-size:18px;
+	margin-left:10px;
+	margin-right:5px;
+}
+.spanem {
+	vertical-align: -3px;
+	padding-right: 10px;
+	background: url("http://image.kuaikuaidai.com/static/images/clock.png") no-repeat;
+	display:inline-block;
+	width:16px;
+	height:16px;
+}
+.moneypicno a {
+	color:#333333
+}
+/*安全保障页*/
+.safebanner {
+	width:100%;
+	height:256px;
+	background:url("http://image.kuaikuaidai.com/static/images/safebanner.jpg") no-repeat;
+	background-position:50% 0;
+}
+.safewrap li {
+	height:450px;
+	border-bottom:1px solid #dfdfdf;
+}
+.safeleft, .saferight {
+	height:450px;
+	width:500px;
+	padding-right:500px;
+	margin:0 auto;
+}
+.saferight {
+	padding:0 0 0 500px;
+}
+.safeimg1 {
+	background:url("http://image.kuaikuaidai.com/static/images/safeimg1.png") no-repeat 553px center;
+}
+.safeimg1 img, .safeimg3 img {
+	margin:118px 0 30px 0;
+}
+.safeimg2 img {
+	margin:109px 0 30px 0;
+}
+.safeimg2 {
+	background:url("http://image.kuaikuaidai.com/static/images/safeimg2.png") no-repeat 71px center;
+}
+.safeimg3 {
+	background:url("http://image.kuaikuaidai.com/static/images/safeimg3.png") no-repeat 606px center;
+}
+.safeimg4 {
+	background:url("http://image.kuaikuaidai.com/static/images/safeimg4.png") no-repeat 84px center;
+}
+.safeimg4 img {
+	margin:32px 0 30px 0;
+}
+.safeimg5 img {
+	margin:40px 0 30px 0;
+}
+.safeimg6 img {
+	margin:75px 0 30px 0;
+}
+.safeimg5 {
+	background:url("http://image.kuaikuaidai.com/static/images/safeimg5.png") no-repeat 566px center;
+}
+.safeimg6 {
+	background:url("http://image.kuaikuaidai.com/static/images/safeimg6.png") no-repeat 20px center;
+}
+.safewrap p {
+	margin-bottom:15px;
+	font-size:18px;
+	font-family:"微软雅黑";
+	line-height:30px;
+	color:#333;
+}
+.safewrap span {
+	font-weight:bold;
+	font-size:24px;
+}
+.safeimg2 span {
+	color:#ff701a;
+}
+.saferight p, .safeimg1 p {
+	padding-left:90px;
+}
+.safeimg3 a {
+	color:#ff701a;
+	text-decoration:none;
+}
+.safeimg3 a:hover {
+	color:#f55c00;
+}
+.safeimg4 span, .safeimg4 em {
+	float:left;
+}
+.safeimg4 em {
+	font-style:normal;
+	width:330px;
+}
+.safeimg4 p, .safeimg5 p {
+	overflow:hidden;
+}
+.safeimg5 b {
+	float:left;
+	width:145px;
+	font-weight:normal;
+}
+.safeimg5 em {
+	float:left;
+	width:355px;
+}
+.safeimg6 a {
+	text-decoration:none;
+	display:inline-block;
+	width:128px;
+	height:40px;
+	background:url("http://image.kuaikuaidai.com/static/images/safebtn.png") no-repeat 0 0;
+	text-align:center;
+	line-height:40px;
+	color:#fff;
+	margin:20px 0 0 90px;
+}
+.safeimg6 a:hover {
+	background:url("http://image.kuaikuaidai.com/static/images/safebtn1.png") no-repeat 0 0;
+}
+.safeimg6 {
+	padding-left:570px;
+	width:430px;
+}
+.personfriend img {
+	margin-top:20px;
+}
+.personfriend {
+	width:760px;
+}
+.person_right .bottomyq {
+	padding-bottom: 20px;
+}
+.firendsearchinput input {
+	font-size:14px;
+	border:none;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 5px;
+	margin-top: 6px;
+	width: 219px;
+	margin-left: 5px;
+}
+.fbutton {
+	width: 36px;
+	height: 39px;
+	background: none;
+	border:none;
+	position: absolute;
+}
+.firendsearchinput {
+	background:url("http://image.kuaikuaidai.com/static/images/seachfriend.jpg") no-repeat;
+	height: 40px;
+	position: absolute;
+	right: 0;
+	width: 300px;
+}
+.firendsearch {
+	height: 40px;
+	position: relative;
+	margin-bottom: 20px;
+}
+.linetop {
+	height:45px;
+	width:100%
+}
+.linetop .idll {
+	  margin-left: 37px;
+  margin-top: 6px;
+  /* height: 45px; */
+  /* line-height: 45px; */
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  color: #666666;
+  margin-top: 16px;
+  padding: 5px 8px;
+
+}
+#couponbox {
+	padding-top:30px;
+}
+
+
+.couponarea {
+	position: relative;
+	width:335px;
+	height:150px;
+	float:left;
+	margin-left:28px;
+	margin-bottom:35px;
+}
+.area1 {
+	background:url("http://image.kuaikuaidai.com/static/images/area1.png") no-repeat;
+	width:335px;
+	height:149px;
+}
+.area2 {
+	background:url("http://image.kuaikuaidai.com/static/images/area2.png") no-repeat;
+	width:335px;
+	height:149px;
+}
+.area3 {
+	background:url("http://image.kuaikuaidai.com/static/images/area3.png") no-repeat;
+	width:335px;
+	height:149px;
+}
+.past {
+	background:url("http://image.kuaikuaidai.com/static/images/area4.png") no-repeat;
+	width:335px;
+	height:149px;
+}
+.area4 {
+	background:url("http://image.kuaikuaidai.com/static/images/area5.png") no-repeat;
+	width:335px;
+	height:149px;
+}
+.couponarea .fontstyle {
+	font-size:24px;
+	text-align:center;
+	padding-top: 36px;
+	text-align:center;
+}
+.couponarea .fontstyle span {
+	font-size:30px;
+}
+.couponarea .fdong p {
+	font-size:18px;
+	color:#fff;
+	width:125px;
+}
+.fdong {
+	position: absolute;
+}
+.couponfont {
+	text-align:center;
+}
+.couponright p {
+	color:#a6a6a6;
+	font-size:12px;
+	line-height:23px;
+}
+.couponright p span {
+	color:#595959
+}
+.couponright {
+	padding-left:145px;
+	padding-top:20px;
+}
+.couponright .mb10 {
+	margin-bottom:5px
+}
+.couponright p.explain {
+	color:#ff5a00;
+	margin-top:13px;
+}
+.explaingq {
+	margin-top:10px;
+}
+.pastmsg,.oldmsg {
+	position: absolute;
+	z-index: 99;
+	top: 83px;
+	background:url("http://image.kuaikuaidai.com/static/images/goout.png") no-repeat;
+	width:67px;
+	height:47px;
+	right:19px;}
+.oldmsg {
+	background:url("http://image.kuaikuaidai.com/static/images/use.png") no-repeat;
+}
+#yuebaolist .tabley{  border: 1px solid #d9d9d9;}
+.cashdis #paging {
+  padding-left: 15px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+    float: right;
+}
+.msgbox #paging,#megalling{ float:right;}
+.record{ padding-bottom:40px;}
+.cur.allcount{ background:#75c1fc; color:#fff;  }
+.idll .allcount{padding: 4px 9px;	border-radius:2px;}
+.amountall,.tixian{  padding-bottom: 24px;  padding-right: 32px;
+  font-size: 16px;
+  color: #7f7f7f;}
+.amountall span{  color: #333;}
+.amountall .font14{ font-size:14px;color: #999;}
+.bank .amountall  label{ display:inline-block}
+.tixianbox #couponti{  border: solid 1px #dfdfdf;  text-indent:5px; padding-right:0; height:41px;
+font-size:14px; color:#999;
+  width: 178px;  border-radius: 4px;}
+  .tixianbox{ margin-top:25px;}
+.couponarea .fdong .cou_xzz{height:30px; text-align:center; display:table-cell; box-sizing:border-box; padding:6px 10px 0 10px; font-size:12px; background:url("http://image.kuaikuaidai.com/static/images/cou_xz.png") no-repeat 0 0; position: absolute; left:1px; bottom:-48px;}
+.spanspan{  color:##999; width: 155px;
+  border: solid 1px #dfdfdf;
+  display: inline-block;
+  padding: 12px;
+  border-radius: 5px;}
+.couponright p.huis{ color:#a6a6a6}
+/*双12宣传页*/
+.actdouth{background:#e5292b;}
+.actdouth #warp{background:#e5292b;}
+.actdoumon1{width:100%; height:1148px; background:url("http://image.kuaikuaidai.com/static/images/actdou_01.png") no-repeat; background-position:50% 0;}
+.actdoumon2{width:100%; height:827px; background:url("http://image.kuaikuaidai.com/static/images/actdou_02.png") no-repeat; background-position:50% 0;}
+.actdoumon3{width:100%; height:692px; background:url("http://image.kuaikuaidai.com/static/images/actdou_03.png") no-repeat; background-position:50% 0;}
+.actdoumon4{width:100%; height:666px; background:url("http://image.kuaikuaidai.com/static/images/actdou_04.jpg") no-repeat; background-position:50% 0;}
+/*天天赚转出修改*/
+.rolout{width:738px; padding:0;}
+.rolout label{width:125px;}
+.rolleft{display:inline-block; width:420px; margin:60px 0 35px 60px; border-right:1px solid #e0e0e0; padding:15px 0;}
+.rolright{display:inline-block; margin:20px 10px 35px 0; width:243px;}
+.rolspeed{display:block; width:75px; height:75px; border-radius:50%; border:10px solid #ffb400; margin:0 auto; margin-bottom:20px;}
+.rolright p{text-align:center; font-size:16px; color:#999;}
+.rolright .rolday{color:#4e4e4e; margin-bottom:10px;}
+.rolright .rolsur{color:#ffb400;}
+.processingbar {
+  text-align: center;
+  margin: 0px 0px 12px 60px;
+  position: relative;
+  width: 106px;
+}
+.processingbar font {
+  color: #dfb14f;
+  display: block;
+  width: 106px;
+  height: 106px;
+  line-height: 106px;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.processingbar .rolbar{background:#fff; font-size:16px; font-family:"微软雅黑"; display: block; position: absolute; left:30px; top:30px; width:47px;}
+
+/*借款端*/
+.personInfotitle{ border-bottom:1px solid #e7e7e7; padding:10px; font-size:14px;}
+.personInfoArea{ margin-bottom:20px; padding-bottom:10px; border:1px solid #e7e7e7; width:353px; float:left; margin-right:20px; display:inline;}
+.personInfobox{ padding:9px; border-bottom:1px solid #eaeaea; margin:0 5px;}
+.personInfobox p{ text-align:center}
+.personInfoFont .left{ float:left; width:30%; text-align:center}
+.infoboxfont{ font-size:16px; color:#6f6f6f;}
+.infoboxnum{ font-size:28px; color:#ff4e00;}
+.personInfoFont .left{ font-size:14px; color:#191919; margin:15px 0}
+.personInfoFont p{ line-height:25px;}
+.center{ text-align:center}
+.areas .center a{ background:#ff9933}
+.areano{  position: relative;}
+.areano a{ background:#e6e6e6}
+.areano .nomoney{   position: absolute; right:20px; top:15px;}
+.areano .personInfotitle,.areano .infoboxnum,.areano .personInfoFont p,.areano p{ color:#c2c2c2}
+.personInfoArea a{ font-size:14px; color:#fff; width:85%; margin:0 auto; border-radius:5px; text-align:center; display:inline-block; padding:10px 15px;}
+.areaing a{ font-size:14px; color:#fff; background:#e6e6e6; width:85%; margin:0 auto; border-radius:5px; text-align:center; display:inline-block; padding:10px 15px;}
+.nolend{ text-align:center;margin-top:50px;}
+.nolend p{ color:#999; margin-top:10px;}
+
+/*借款端底层页*/
+.personPaytop{position:relative; background: #955bcb;padding:20px 15px;color:#fff;font-size: 14px;}
+.personPayicon{position:absolute;left:160px;top:0;}
+.personPaynum{ font-size:52px;}
+.personPaynoline{padding-right:22px;}
+.personPaynoline p{margin-top:5px;}
+.personPayline{padding:0 22px;}
+.personPayline b{font-weight:normal;}
+.personPayline p{line-height:30px;}
+.personPayborder{border-right:1px dotted #fff;}
+.personPayborder p span{display:inline-block;width:100px;}
+.personPayf18{font-size:18px;}
+.personPayf26{font-size:26px;}
+a.personPayxy{display:inline-block;color:#fff;text-decoration:underline;margin:15px 0 0 20px;}
+
+.personPayrecord{padding:0 10px 10px 10px;border:1px solid #e0e0e0;background:#f9f9f9;margin:10px 0;color:#666;}
+.recordTitle{height:40px;line-height:40px;font-size:14px;border-bottom:1px solid #955bcb;}
+.recordTitle h3{padding-right:30px;font-size:16px;}
+.recordTitle ul li{padding:0 26px;height:36px;color:#999;cursor:pointer;}
+.recordTitle ul li.on{border-bottom:4px solid #955bcb;color:#955bcb;}
+.recordTitle p a{color:#35add5;}
+.recordTable table{width:733px;}
+.recordTable thead{width:733px;background:#ebebeb;}
+.recordTable td{text-align:center;font-size:14px;}
+.recordTable thead td{border-right:1px solid #f9f9f9;height:36px;line-height:36px;}
+.recordTable tbody td{height:52px;line-height:52px;}
+.recordTable td p{width:90px;text-align:center;margin:0 auto;}
+.recordTable td p.recordBtn{height:32px;line-height:32px;background:#ff9933;color:#fff;border-radius:6px;cursor:pointer;}
+.recordTable td p.recordnoBtn{height:32px;line-height:32px;background:#e0e0e0;color:#fff;border-radius:6px;}
+.recordnum{background:#f2e5ff;}
+.recordnum b{font-size:16px;color:#ff9933;}
+.recordmes{background:#fff0e1;}
+.recordtip{padding:20px 0;font-size:16px;color:#999;}
+/* 还款弹窗 */
+.dialogbg{position:fixed;left:0;top:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);z-index:999;}
+.persondialog{width:462px;height:442px;background:#fff;position:fixed;left:50%;top:50%;z-index:9999;margin-left:-231px;margin-top:-221px;}
+.dialogTop{height:40px;text-align:center;position:relative;border-bottom:1px solid #e0e0e0;}
+.dialogTop h3{font-size:16px;color:#666;line-height:40px;}
+.dialogTop span{position:absolute;top:12px;right:12px;}
+.dialogclose{cursor:pointer;}
+.dislogmain{padding:10px;font-size:14px;color:#666;}
+.dialogpaynum{background:#955bcb;text-align:center;color:#fff;padding:20px 0 10px 0;}
+.dialogpaynum span{font-size:30px;line-height:45px;}
+.dislogmain h4{height:33px;line-height:33px;color:#ff9934;border-bottom:1px solid #e0e0e0;padding-left:10px;}
+.dialogpaying{height:38px;line-height:38px;padding-left:10px;}
+.dialogpaying b{color:#fd4e00;}
+.dialogpayed{height:38px;line-height:38px;padding-left:15px;color:#c8c8c8;}
+.dialogpaymes{position:relative;}
+.dialogpaymess{background:#ebebeb;padding:10px;border-radius:2px;}
+.dialogmestop{position: absolute;width: 0px;height: 0px;line-height: 0px;border-bottom: 6px solid #ebebeb;border-left: 7px solid #fff;border-right: 7px solid #fff;left: 22px;top: -6px;}
+.dialogamounts{height:48px;line-height:48px;color:#fff;text-align:center;margin-top:128px;}
+.dialogamount{width:282px;height:48px;line-height:48px;background:#ccc;margin-right:3px;}
+.dialogamount span{font-size:25px;margin-left:23px;vertical-align:middle;}
+.dialogpaynoBtn,.dialogpayBtn{width:156px;background:#ff9934;color:#fff;cursor:pointer;}
+/*借款*/
+.lendtip{ background:#fff4be; font-size:14px; color:#ff772d; height:40px; line-height:40px; text-align:center;}
+.bordernone{ border-bottom:none;}
+.w1000{ width:1000px; margin:0 auto; background:#fff;  margin-bottom:60px;}
+.lendtext label{ width:90px; text-algin:left; font-size:14px; color:#666666;display: inline-block;}
+.lendtext input,.lendtext select{ font-size: 14px;padding-left: 25px;width:345px; height:45px; line-height:45px; border:1px solid #dbdbdb; border-radius:5px;}
+.lendtext select{width:370px}
+.lendtitles{ text-align:center; font-size:18px; color:#333333; padding:25px 0; border-bottom:1px solid #efefef; margin:0 60px;}
+.lendform{ margin-left:275px; margin-top:35px;  position: relative;}
+.lendtext{ margin-bottom:25px;}
+.lendnum{ color:#ff772d; font-size:24px;}
+.lendtop{  position: absolute;  top: 50px;
+  left: 373px; color:#b8baba}
+.lendbtn input{ width:467px; height:58px;  cursor: pointer; background:#38bca4; color:#fff; border:none; font-size:18px; border-radius:5px;}
+.lendtips a{ color:#38bca4}
+.lendtips { color:#999999; width:455px; text-align:left; margin-top:10px; padding-bottom:35px;}
+.lendtext .spinnerstyle .spinner{  width: 365px;  text-align: center;}
+.lendtext .spinner .decrease{ border-radius:5px; height: 47px; width:47px; position: absolute;  z-index: 999; 
+background:url("http://image.kuaikuaidai.com/static/images/lendonj.png") no-repeat;}
+.lendtext .spinner .increase{  left: 325px; height: 47px; width:47px; position: absolute;  z-index: 999; 
+background:url("http://image.kuaikuaidai.com/static/images/lendonadd.png") no-repeat;
+border-radius:5px;}
+.lendtext .spinner{  position: relative; padding-left:0;}
+.nomove{ background:#f7f8f8; color:#333333; font-size:14px;   width: 345px; padding-left:25px;  height: 45px;
+  line-height: 45px;  border: 1px solid #dbdbdb;display: inline-block;  border-radius: 5px}
+  .lendtext .spinner .decrease.spinnerstyle{background:url("http://image.kuaikuaidai.com/static/images/lendownj.png") no-repeat;}
+  .lendtext .spinner .increase.increasestyle{background:url("http://image.kuaikuaidai.com/static/images/lendownadd.png") no-repeat;}
+  .lendphonetext,.lendaddresstext,.lendmoneytext{font-size:12px; color:#ff772d; margin-left:10px;}
+  .lendtext select{  background:url("http://image.kuaikuaidai.com/static/images/downup.png") no-repeat scroll right center transparent}
+  .spinnerstyle{  position: relative;}
+  .lendmoneys{  position: absolute;  left: 363px;top: 15px; color:#b3b3b3}
+.lendtext select {
+
+	outline:0;
+	padding-left:10px;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box
+}
+.lendtext select::-ms-expand {
+display:none
+}
+/*我的借款*/
+.lendindex{background:url("http://image.kuaikuaidai.com/static/images/lendindex.png") center no-repeat; height:370px;}
+.lendindexleft{text-align:center; width:140px; float:left}
+.lendindexarea{ padding-top:47px;padding-bottom:40px; }
+.lendindexbox{background:#f7f7f7}
+.lendindexcenter p{ color:#333333; font-size:16px; margin-top:20px;}
+.lendindexcenter p.lendindexf{ color:#999999; font-size:14px; margin-top:10px;}
+.lendlot{ padding-top:35px;}
+.lendindextitle{ border-top:2px solid #38bca4; border-bottom:1px solid #dfdfdf; border-left:1px solid #dfdfdf; border-right:1px solid #dfdfdf;}
+.lendrequest{ position: relative;width:300px; float:left;padding:50px 0;padding-left:30px; }
+.lendrequestitle{margin-bottom:30px;}
+.lendrequestitle span{  vertical-align: middle; background:#ebf8f6; font-size:14px;  font-size: 14px;
+  padding: 9px;
+  border-radius: 5px; color:#333333;display: inline-block;
+  width: 207px;}
+  .lendrequestbody{ color: #666666;
+  font-size: 12px;
+  padding-left: 13px;
+  padding-top: 10px;
+  padding-bottom: 10px;}
+  .lendrequestbody p{ line-height:25px;} 
+  .lendindexa{  position: absolute;   top: 119px;
+  right: 33px;}
+  .lendtitlebd{background:url("http://image.kuaikuaidai.com/static/images/lendtitebar.png") no-repeat;
+  width:159px; height:65px;   position: absolute;
+  top: -21px;
+  left: -16px;  padding-top: 8px;
+  text-align:center;}
+  .lendrequestitle img{ margin-right:5px;}
+  .lendtitlebd span{ color:#fff; font-size:20px;}
+  .lendindexrequest{ position: relative;}
+  .bdwhite{ background:#fff; padding-top:50px; padding-bottom:30px;}
+  .borderboth{border-left:1px solid #dfdfdf; border-right:1px solid #dfdfdf;}
+  .lendrquestt{ font-size:14px; color:#333333; margin-bottom:10px;}
+  .lendrequestbody .lendindexfont{ width:250px; color:#999999; font-size:12px; line-height:20px;}
+  .lenduser{  margin-bottom: 20px; }
+  .lendrequestbodyf{  color: #666666;
+  font-size: 12px;
+  background: #fff3e5;
+  width: 206px;
+  padding-left: 13px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;}
+  .lendjia{  position: absolute;
+  right: 76px;
+  top: 129px;}
+  .lendpop{ width:280px; height:260px; background:#fff; border-radius:5px;padding:25px;}
+  .lendpoptip{ margin-top:13px;}
+  .lendpoptip span{ padding:7px 15px; color:#38bca4; font-size:16px; border:1px solid #e1e1e1; margin-right:10px;}
+  .lendlarge{ font-size:18px; color:#333333; text-align: center;  margin-top:20px;}
+  .lendlarge .lendnumber{ color:#ff4e00; font-size:80px; }
+  .lendwarn{ color:#9b9b9b; font-size:14px; text-align:center; margin-top:15px;}
+    .lendbtnlink {margin-top:12px;}
+    .lenttitle{position: absolute;
+    left: 74px;
+  top: 57px;}
+  .lendmonth{ color:#bdbebd; font-size:12px; margin-left:15px}
+  .lendbtnlink a{background:url("http://image.kuaikuaidai.com/static/images/lendbtnlink.png") no-repeat; text-align:center; font-size:20px; color:#fff; width:276px;height:51px; line-height:51px; display:inline-block}
+  .lendbtnlink a:hover{background:url("http://image.kuaikuaidai.com/static/images/lendbtnlinkpress.png") no-repeat;}
+@charset "utf-8";
+/* CSS Document */
+/*元旦活动*/
+.newyear_banner{ width:100%; height:308px; overflow:hidden;}
+.newyear_banner img{ width:100%; display:block; height:308px;}
+.newyear_content{ width:100%; height:1890px; background:#fff;}
+.newyear_content_in{ width:1000px; height:1890px; margin:0 auto; background:url(http://image.kuaikuaidai.com/static/images/newyear_bg.png) no-repeat; overflow:hidden;}
+.newyear_content_in h3{ margin-top:110px; margin-bottom:65px; font-size:32px; color:#ffe553; text-align:center;}
+.newyear_content_in .product{ padding-left:42px; }
+.newyear_content_in .product p{ font-size:16px; color:#fff; line-height:30px;}
+.newyear_content_in .product ul{ margin-top:57px; margin-bottom:65px; overflow:hidden;}
+.newyear_content_in .product ul li{ float:left; margin-right:40px;}
+.newyear_content_in h4{ width:180px; height:48px; background:url(http://image.kuaikuaidai.com/static/images/details_bg.png) no-repeat; font-size:20px; color:#fff; line-height:48px; text-align:center;}
+.newyear_content_in .details p{ padding-left:42px; font-size:16px; color:#fff; line-height:75px;}
+.newyear_content_in .details p span{ color:#ffe553;}
+.newyear_content_in .details .details_tab{ width:965px; margin:0 auto;}
+.newyear_content_in .details .details_tab img{ text-align:center;}
+.newyear_content_in .details{ margin-bottom:60px;}
+.newyear_content_in .date p{ padding-left:42px; font-size:16px; color:#fff; line-height:64px;}
+.newyear_content_in .date{ margin-bottom:40px;}
+.newyear_content_in .rule .rule_words{ margin-top:14px; padding-left:42px; font-size:16px; color:#fff;}
+.newyear_content_in .rule .rule_words p{ line-height:35px;}
+.newyear_content_in .rule .rule_words p span{ color:#ffe553;}
+
+/*元旦活动*/

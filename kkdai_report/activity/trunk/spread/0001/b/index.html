@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="keywords" content=""/>
+	    <title>快快贷</title>
+	    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!-- 删除默认的苹果工具栏和菜单栏 -->
+	    <meta name="keywords" content=快快贷,网贷,网络贷款,网络理财,债权转让,小额贷款,互联网金融,短期存款,高息存款,汽车贷款,旅游贷款,装修贷款,房产贷款,个人贷款,企业贷款 />
+    	<meta name="description" content=快快贷(www.kuaikuaidai.com)是中国领先的互联网金融网络投资理财、网络贷款平台.1分钟注册,用户即可享受方便、快捷的个性化理财和贷款优质服务,轻松实现财富自由.提供小额贷款,短期贷款,个人贷款,企业贷款等服务.快快贷网络投资理财,超低门槛,超高收益. />
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <!-- 苹果手机顶部为黑色 -->
+	    <meta name="apple-mobile-web-status-bar-style" content="block" />
+	    <!-- 屏蔽浏览器自动识别数字为电话号码 -->
+	    <meta content="telephone=no" name="format-detection">
+		<link rel="stylesheet" href="css/base.css" />
+		 <script src="js/activity_register-2.js"></script>
+		 <script src="../../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.placeholder.min.js"></script>
+	</head>
+	<body>
+		<div id="mk">
+			<div class="tanK">
+				<p>您已注册过快快贷</p>
+				<em id="tanGb"></em>
+				<input type="button" value="打开快快贷" id="openKKD" onclick="jumpto()">
+			</div>
+		</div>
+		<div id="backg">
+			<img src="http://image.kuaikuaidai.com/activity/2016102002/ebce7e8195594dfa83cdfda0ae5a9360.jpg">
+		</div>
+		<section id="con">
+			<form id="reg">
+				<div class="design">
+					<div><input type="tel" class="tel hh validate validateEmpty validatePhone" maxlength="11" placeholder="请输入手机号" name="phone"></div>
+					<p class="tishi">必填</p>
+					<div><input type="password" class="tel hh validate validateEmpty validatePassword" placeholder="请设置6-16位数字,字母组成的登录密码" name="password" maxlength="16"></div>
+					<p class="tishi">必填</p>
+					<div class="codeDiv">
+						<input type="tel" class="tel hh validate validateEmpty validateCode" maxlength="6" placeholder="请输入验证码"   name="code">
+						<button class="code" type="button" onclick="javascript:getIdentCode();" style="border-style: solid; border-width: 0" id="secondSpan">获取验证码					
+					</div>
+					<p class="tishi">必填</p>
+					<p class="agree">已阅读并同意<a href="http://www.kuaikuaidai.com/baseservice.html">《快快贷网站服务协议》</a></p>
+					<input type="button" class="sub" onclick="javascript:submitReg();" value="立即注册">
+				</div>
+				<div class="tk" style="display:none;"></div>
+			</form>
+				
+				
+				
+				<div class="tupian1">
+					<img src="http://image.kuaikuaidai.com/activity/2016102002/e5059eb193044129a7147799cd8b8d8e.jpg">
+					<button type="submit" class="sub xf-top" >立即领取</button>
+				</div>
+				<div class="new">					
+					<img src="http://image.kuaikuaidai.com/activity/2016102002/4bc03f75561047b389dbcefcbf176d00.jpg">	
+					<button type="submit" class="sub xf-top" >立即投资</button>
+				</div>
+				<div class="new" style="padding-top: 0.48rem; padding-bottom: 0;">					
+					<img src="http://image.kuaikuaidai.com/activity/2016102002/b00361a066f441a5a6a96335d78c3244.jpg" style="margin-bottom: 0;">						
+				</div>
+				<p class="tip">理财有风险，投资需谨慎</p>
+			
+		</section>
+		<div class="xuanT">
+			<div>
+				<a href="http://www.kuaikuaidai.com/h5/appDownload.html"><img src="http://image.kuaikuaidai.com/activity/2016102002/c4bd91618d764bd68636bc24872e8976.jpg"></a>
+				<span class="gb"></span>
+			</div>
+			
+		</div>
+		<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2cd07a5ebaa7043e8db6a9cc1a68afce";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+	</body>
+	<script type="text/javascript" src="../../js/conf-1.js"></script>
+<script type="text/javascript" src="../../js/common-1.js"></script>
+<script type="text/javascript" src="../../js/validate-1.js"></script>
+<script type="text/javascript">
+	$('#tanGb').click(function(){
+	
+	$('#mk').hide();
+	
+	})
+	
+	$('.xuanT span').click(function(){
+	
+	$('.xuanT').hide();
+	
+	})
+    var _source ='__SOURCEID__';
+    var _md_lastRegSuc_='0', _md_lastSendCode_='0', _md_lastFormData='0', _md_lastForm='0';
+    var maxcount = 60;
+    var countdown = maxcount;
+    var intervalid;
+	var awid;
+	var ISawardMod=false;
+	if (getParameter('awid')!=null){
+	       ISawardMod=true;
+	       awid=getParameter('awid');
+	}
+	
+	console.log(ISawardMod);
+	console.log(awid);
+	
+	function getParameter(paramName) {
+            var searchString = window.location.search.substring(1),
+                    i, val, params = searchString.split("&");
+            for (i = 0; i < params.length; i++) {
+                val = params[i].split("=");
+                if (val[0] == paramName) {
+                    return decodeURIComponent(val[1]);
+                }
+            }
+            return null;
+        }
+	
+    function disableTime() {
+        $('#secondSpan').attr('disabled', 'disabled');
+        $('#secondSpan').addClass('yzm_gray');
+        countdown--;
+        if (countdown == 0) {
+            countdown = maxcount;
+            $('#secondSpan').text('重发验证码');
+            $('#secondSpan').removeClass('yzm_gray');
+            $('#secondSpan').removeAttr('disabled');
+            window.clearInterval(intervalid);
+        } else {
+            $('#secondSpan').text(countdown + '秒后重发')
+        }
+    }
+	 
+
+    $(function() {
+        $('input').placeholder();
+		$('input[type=text]').val('');
+        addCookie('source', _source, 3, '.kuaikuaidai.com');
+
+        $(reg.phone).focus(function(){_md_lastForm = 'a'});
+        $(reg.password).focus(function(){_md_lastForm = 'b'});
+        $(reg.code).focus(function(){_md_lastForm = 'c'});
+
+        /*客户端移入移出*/
+        $(".head_web").hover(hoverIn,hoverOut);
+        $(".head_app").hover(hoverIn,hoverOut);
+
+        function hoverIn(){
+            $(".head_web").css({"color":"#333","background":"#f3f3f3"});
+            $(".head_web a").css("background","url(http://image.kuaikuaidai.com/static/images/icon_3.png) no-repeat");
+            $(".head_app").show();
+        }
+
+        function hoverOut(){
+            $(".head_web").css({"color":"#b5b5b5","background":"none"});
+            $(".head_web a").css("background","url(http://image.kuaikuaidai.com/static/images/icon_2.png) no-repeat");
+            $(".head_app").hide();
+        }
+        /*导航移入移出*/
+        $('.nav_arrow').hover(function(){
+            $('.nav_box').css('display','block');
+        },function(){
+            $('.nav_box').css('display','none');
+        });
+
+        /*微信弹框*/
+        $('.foot_hover2').click(function(){
+            $('.win_warp').fadeIn('1000');
+        });
+        $('.close').click(function(){
+            $('.win_warp').fadeOut('1000');
+        });
+    });
+
+   $(window).unload(function() {
+        _md_lastFormData = {'a':$(reg.phone).val().length,'b':$(reg.password).val().length,'c':$(reg.code).val().length,'reged':_md_lastRegSuc_,'sendcode':_md_lastSendCode_,'lt':_md_lastForm,'source':_source,'channel':'h5'};
+        jQuery.ajax({
+            type : "GET",
+            url : '/evt_reg.php',
+            data : _md_lastFormData,
+            async : false,
+            timeout : 300,
+            dataType : 'jsonp',
+            jsonp : 'callback',
+            success : function(result) {}
+        });
+    });
+
+    function checkIdentCode() {
+        if($(reg.code).closest('div').next('.tishi').text() == "") {
+            var str = reg.code.value;
+            if (!isEmpty(str)) {
+                if (str.length != 6) {
+                    $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                    $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                } else {
+                    if (!isDigit(str)) {
+                        $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                        $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                        return false;
+                    }
+                }
+            } else {
+                $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkPhone() {
+	console.log($(reg.phone).closest('div').next('.tishi').text());
+        if($(reg.phone).closest('div').next('.tishi').text() == "") {
+		
+            var str = reg.phone.value;
+            if (!isEmpty(str)) {
+                if (isDigit(str)) {
+                    if (!isMobile(str)) {
+                        $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                        $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                        return false;
+                    } else {
+                        $(reg.phone).closest('div').next('.tishi').text('').hide();
+                        $(reg.phone).removeClass("ipt_wrong").addClass("hh");
+                        return true;
+                    }
+                } else {
+                    $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                    $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+            } else {
+                $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkPassWord() {
+        if ($(reg.password).closest('div').next('.tishi').text() == "") {
+            var password = reg.password.value;
+            if (!isEmpty(password)) {
+                if(password.length < 6 || password.length > 16) {
+                    $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                    $(this).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+                var pattern = /^[a-zA-Z0-9]+$/;
+                if(!password.match(pattern)) {
+                    $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                    $(this).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+            } else {
+                $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                $(this).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getIdentCode() {
+        $(reg.phone).trigger("blur");
+        _md_lastSendCode_ = '1';
+        $('#secondSpan').attr('disabled', 'disabled');
+        if($(reg.phone).closest('div').find('.tishi').text() == "" && $(reg.code).closest('div').find('.tishi').text() == ""){
+            var str = reg.phone.value;
+			console.log('获取了值');
+            if (!isEmpty(str)) {console.log('电话非空');
+                if (isDigit(str)) {console.log('是数字');
+                    if (!isMobile(str)) {
+					console.log('电话开头三位有问题');
+                        $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                        $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                        $('#secondSpan').removeAttr('disabled');
+                        return;
+                    }
+                } else {
+                    $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                    $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                    $('#secondSpan').removeAttr('disabled');
+                    return;
+                }
+            } else {
+			console.log(2);
+                $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                $('#secondSpan').removeAttr('disabled');
+                return;
+            }
+
+            var req = {"phone":reg.phone.value};
+			console.log(req);
+            myAjax(__CONF__.sendIdentCodeUrl, req, function (result) {
+			        console.log(result);
+                if (result.code == 0) {
+				
+                    showTk('验证码已发送');
+                    intervalid = setInterval(function(){ disableTime()},1000);
+                } else if (result.code == 209 || result.code == 230 || result.code == 231 || result.code == 247 || result.code == 249){
+                    if (result.code != 209) {
+						showTk(result.desc);
+                        intervalid = setInterval(function(){ disableTime()},1000);
+                    }else{
+					console.log('手机号码已经注册过');
+						$('#mk').show();
+					   $('#secondSpan').removeAttr('disabled');
+					}
+                    
+                } else {
+                    showTk('验证码发送失败，请稍后再试');
+                    intervalid = setInterval(function(){ disableTime()},1000);
+                }
+            });
+        }
+    }
+
+    function submitReg() {
+        var retVal = validateForm(reg.phone);
+        if (retVal['error'] ==0 && checkPhone() && checkPassWord() && checkIdentCode()) {
+		
+		   if (awid == undefined){
+		   var req = {"phone": reg.phone.value, "code": reg.code.value, "password": reg.password.value, "channel":"H5", "source":_source}
+		   }else{
+		   var req = {"awid":awid,"phone": reg.phone.value, "code": reg.code.value, "password": reg.password.value, "channel":"H5", "source":_source}
+		   }
+            
+			console.log(req);
+            myAjax(__CONF__.regUrl, req, function (result) {
+                if (result.code == 0) {
+                    _md_lastRegSuc_ = '1';
+                    var logVal = {"username":reg.phone.value,"password":reg.password.value};
+                    myAjax(__CONF__.loginWebUrl, logVal, function(logRet) {
+                        if(logRet.code == 0) {
+						$('.design').hide();
+						  // $('.succe').show();
+						  if (ISawardMod){
+						  window.location.href=__CONF__.rootUrl + 'onloginok.html?jump=' + encodeURIComponent(__CONF__.regSucJumpUrl);
+						  }else{
+						  window.location.href='00succ.html';
+						  }
+                          
+                        }
+                    }, true);
+                } else if(result.code == 209 || result.code == 227 || result.code == 228) {
+                    showTk(result.desc);
+                } else {
+                    showTk('注册失败，请重新注册');
+                }
+            });
+        }
+    }
+
+    function showTk(msg) {
+        $('.tk').html(msg);
+        $('.tk').show();
+        setTimeout("$('.tk').fadeOut(1000)",1000);
+    }
+
+    function addCookie(objName, objValue, objHours, domain) {
+        var str = objName + "=" + encodeURI(objValue);
+        if (objHours > 0) {
+            var date = new Date();
+            var ms = objHours * 3600 * 1000;
+            date.setTime(date.getTime() + ms);
+            str += "; expires=" + date.toGMTString() + "; domain=" + domain + "; path=/";
+        }
+        document.cookie = str;
+    }
+	// 货币格式化工具
+	function formatCurrency(num) {
+	 	if(num < 1000)return num;
+	 	var digitIdx = num.toString().indexOf(".");
+	 	var intNum = num;//默认无小数
+	 	var digit = "";
+	 	if(digitIdx != -1){
+	 			intNum = num.toString().substr(0,digitIdx);
+	 			digit = num.toString().substr(digitIdx+1);
+	 	}
+		var intNum = (intNum || 0).toString(), result = '';
+		while (intNum.length > 3) {
+			result = ',' + intNum.slice(-3) + result;
+			intNum = intNum.slice(0, intNum.length - 3);
+		}
+		if (intNum) result = intNum + result;
+		if(digit.length>0) result+="."+digit;
+		return result;
+	  }
+	  
+	  
+	 function jumpto(){
+	  window.location.href=__CONF__.rootUrl + 'onloginok.html?jump=' + encodeURIComponent(__CONF__.regSucJumpUrl);
+	 }
+	
+$(function () {
+        $.ajax({
+						type:"GET",
+						url:"../../kkdai1.json",
+						dataType:"json",
+						success:function(data){
+					      var data = eval(data);
+					      var t1 = data["sumInvest"];  
+            		      var t2 = data["sumInterest"]; 
+            		      var t3 =  data["sumUser"];
+        
+		            $("#money").html(formatCurrency(t1));   
+		            $("#profit").html(formatCurrency(t2)); 
+		            <!--$("#t3").html(t3); --> 
+					  },
+						error:function(){}
+			});
+        
+ });
+ 
+ backtotop(".xf-top");//返回顶部
+
+ 
+   function backtotop(classobject) {
+
+			/*返回顶部*/
+			$(window).scroll(function() { //只要窗口滚动,就触发下面代码
+
+				var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+
+				if (scrollt > 200) { //判断滚动后高度超过200px,就显示
+
+					$(classobject).fadeIn(400); //淡出
+				} else {
+					$(classobject).stop().fadeOut(000); //如果返回或者没有超过,就淡入.必须加上stop()停止之前动画,否则会出现闪动
+				}
+			});
+			$(classobject).click(function() { //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部
+				$("html,body").animate({
+					scrollTop: "0px"
+				}, 400);
+			});
+
+		}
+</script>
+	<script>
+	
+      	var screenWidth = $(window).width(), screenHeigth = $(window).height();  
+        //获取屏幕宽高  
+        var scollTop = document.body.scrollTop;//$(document).scrollTop(); 
+
+        console.log(scollTop);		
+        //当前窗口距离页面顶部的距离         
+        ///弹出框距离左侧距离  
+        var objTop = (screenHeigth - $(".tk").height()) / 2 + scollTop;  
+        ///弹出框距离顶部的距离  
+       
+         $(".tk").css('top',objTop + "px"); 
+
+	</script>
+</html>

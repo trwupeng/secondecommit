@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0; list-style:none;}
+ul{list-style:none;}
+body{margin:0 auto; width:100%; font-family:"SimHei"; background:#fdecf4;}
+html{ font-size:60px;}
+.banner{ width:100%;}
+.banner img{ width:100%; display:block;}
+/*.mf_content{ width:100%; background:url(images/content_bg.png) left  center no-repeat; background-size:100% 100%; padding-top:5.1667rem;}*/
+.mf_content{ width:100%; }
+.mf_zhuanpancon{ width:9.1333rem; height:9.2333rem; margin:0 auto; position:relative;}
+.choujiang{ width:9.1667rem; height:9.2rem; margin:0 auto;}
+.choujiang img{ width:9.1667rem; height:9.2rem; display:block; }
+.zhuanpan{ width:2.3rem; height:3.6667rem; position:absolute; left:3.4667rem; top:2.05rem;}
+.zhuanpan img{ width:2.3rem; height:3.6667rem; display:block; }
+.money{ width:3.9667rem; height:3.2333rem; position:absolute; left:5.51667rem; top:6.3333rem;}
+.money img{ width:3.9667rem; height:3.2333rem; display:block;}
+.mf_opportunity{ width:100%; margin:0 auto; font-size:0.4667rem; color:#4c1e00; text-align:center; margin-top:0.4167rem;}
+.mf_opportunity span{ font-size:0.8rem; color:#d72a7c;}
+.mf_gift{ width:9.7rem; height:1.4rem; line-height:1.4rem; margin:0 auto; overflow:hidden; text-align:center; margin-top:0.1667rem;}
+.mf_gift_btn{ width:4.5333rem; height:1.4rem; line-height:1.4rem; text-align:center; float:left; background:url(../images/btn.png) left center no-repeat; background-size:cover; font-size:0.5333rem; color:#fff;}
+.mf_gift_btn01{ margin-right:0.3rem;}
+.mf_winninglist{ width:8.61667rem; height:2rem; background:#fff; border-radius:5px; margin:0 auto; margin-top:0.6rem; position:relative;}
+.mf_winningname{ width:2rem; height:0.8rem; background:#d72a7c; border-radius:0 5px 5px 0; position:absolute; left:-0.1167rem; top:0.2167rem; font-size:0.4333rem; color:#fff; text-align:center; line-height:0.8rem;}
+.mf_winninglist ul{ width:5rem; margin-left:2.6rem; padding-top:0.2667rem;}
+.mf_winninglist ul li{ width:100%; height:0.3333rem; line-height:0.3333rem; color:#1c1203; font-size:0.3rem; margin-bottom: 0.2667rem;}
+.mf_winninglist ul li .mf_user{ float:left;}
+.mf_winninglist ul li .mf_quan{ float:right;}
+.mf_activityrule{ width:8.61667rem; height:6.7rem; background:#fff; margin:0 auto; border-radius:5px; margin-top:0.5667rem; position:relative; overflow:hidden; margin-bottom:0.5rem;}
+.mf_activityrule_con{ width:98%; margin:0 auto; margin-top:1.45rem;}
+.mf_activityrule_con p{ color:#323232; font-size:0.4rem; line-height:200%;}
+.mf_activityrule_con p span{ color:#d72a7c;}
+.clear{clear:both;}

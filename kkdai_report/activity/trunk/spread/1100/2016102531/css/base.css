@@ -1,0 +1,370 @@
+/*公用*/
+
+
+/* 禁用iPhone中Safari的字号自动调整 */
+
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+	width: 100%;
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '黑体';
+	color: #3B3B3B;
+	background-color: #fff;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '黑体';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'黑体';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+
+._head{
+	width: 98.5%;
+	height:0.93rem;		
+	margin:0.1rem;
+	padding-top: 0.1rem;
+}
+
+._head .kkl{
+	float:left;
+	width:43%;
+	height: 100%;
+	text-align: center;
+	margin-left: 4%;
+}
+._head .ping{
+	float:right;
+	width:40%;
+	height: 100%;
+	text-align: center;
+	/*margin-right: 3%;*/
+}
+._head .kkl img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+._head .ping img{
+	width: 80%;
+	height: auto;
+	display: block;
+}
+._head em{
+	height: 107%;
+    float: left;
+    width: 1px;
+    background: #ccc;
+    margin-left: 6%;   
+    padding-top: -2px;
+    margin-top: -0.06rem;
+}
+
+#banner{
+	width: 100%;
+	margin-bottom: 0.15rem;
+}
+#banner img{
+	width: 100%;
+	height: auto;
+	display: block;
+	margin:0 auto;
+}
+
+#con{
+	background: #fbca04;
+	height: auto;
+	width: 100%;
+	padding:5% 3%;
+	box-sizing: border-box;
+}
+
+.design{
+	width:100%;
+	margin: 0 auto;
+	height: auto;
+	background: #fff3db;
+	border-radius: 3%;
+	padding:5% 3.5%;
+	box-sizing: border-box;
+}
+.design input{
+	border:1px solid #909090;
+	font-size:0.27rem;
+	padding: 0 11px;
+	border-radius: 0.1rem;
+}
+.design .tel{
+	width: 100%;
+	height: 0.7rem;
+	display: block;
+	
+	
+	margin-bottom: 5%;
+}
+.design .div{
+	width: 100%;
+	height: 0.7rem;
+	font-size:0.25rem;
+}
+.pwd{
+	width:52%;
+	height: 96%;
+	float:left;
+}
+.tishi{ 
+	width:100%; 
+	margin:0 auto; 
+	font-size:0.23rem; 
+	color:red; 
+	margin-bottom:10px; 
+	line-height:15px; 
+	display:none; 
+	text-align:left; 
+	padding-left:8px;
+}
+.btnSum{
+	width:42%;
+	height: 0.7rem;
+	float:right;
+	background:url(http://image.kuaikuaidai.com/activity/2016102001/dc8584405ab34ab0b36fe5e776f9d2a5.jpg) no-repeat center;
+	background-size: cover;
+	text-align: center;
+	padding-top:2.8%;
+	box-sizing: border-box;
+	color:#b34b0a;
+	font-size: 0.3rem;
+	font-family: "黑体";
+}
+#ag{
+	width: auto;
+	font-size: 0.21rem;
+	font-family: "黑体";
+	padding-left:0.19rem;
+	background-image: url(http://image.kuaikuaidai.com/activity/2016102001/a5e01cb9a12242a18cacf11b915e2bdd.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 5%;
+	margin-top:0.3rem;
+	margin-bottom: 0;
+	line-height: 0.4rem;
+	text-align: center;	
+}
+.tk{  
+	width:250px; 
+	height:40px; 
+	line-height:40px; 
+	text-align:center; 
+	background:rgba(0,0,0,0.85); 
+	color:#fff; 
+	border-radius:5px; 
+	position:absolute; 
+	top:65%; 
+	margin-top:-60px; 
+	left:50%; 
+	margin-left:-125px; 
+	z-index:6; 
+	font-size:14px;
+}
+.design a{
+	color:#b24b0a;
+}
+.design img{
+	width: 100%;
+	height: auto;
+	margin-top:0.3rem;
+	margin-bottom:0;
+}
+._span{
+	width: 80%;	
+	font-size: 0.3rem;
+	display: block;
+	margin: 0 auto;
+	font-family: "黑体";
+	text-align: center;
+	color:#b24b0a;
+	
+}
+
+.youshi{
+	width:100%;
+	height:auto;
+}
+.youshi>img{
+    width: 82%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+.youCon{
+	width: 100%;
+	height: auto;
+}
+
+.youCon img{
+	display: block;
+	width: 102%;
+	height: auto;
+	margin: 0 auto;
+}
+footer{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin-top:0.4rem;
+}
+footer .p1{
+	width: 92%;
+    height: 0.5rem;
+    font-size: 0.3rem;
+    margin: 0 auto;
+    font-weight: bold;
+    line-height: 0.5rem;
+}
+.p2{
+	width: 92%;
+    height: 0.5rem;
+    font-size: 0.28rem;
+    margin: 0 auto;
+}
+.logo2{
+	width: 50%;
+	height: auto;
+	margin-bottom: 0.2rem;
+	margin-top: 0.2rem;	
+}
+.p1 span{
+	color:#5451b1;
+}
+
+#floatCeng{
+	width: 100%;
+	height: 1.2rem;
+	background:#5451b1;	
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+._back{
+	width: 0.6rem;
+	height:0.16rem;
+	position: relative;
+}
+._back span{
+	display: block;
+	width: 0.6rem;
+	height: 0.6rem;
+	background: url(http://image.kuaikuaidai.com/activity/2016102001/3832f75978b14671ad552b0fedc7fd7f.jpg) left center no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 0.12rem;
+	top: -0.3rem;
+}
+
+.kkdC{
+	width: 100%;
+	height: 1.0rem;
+	padding:0.08rem 0.2rem;
+}
+.kklogo {
+	float: left;
+	width: 71%;	
+	font-size: 0.25rem;
+	color:#fff;
+}
+.kklogo img{
+	width: auto;
+	height: 0.56rem;
+	display: block;
+	margin-left: 0.25rem;
+	margin-bottom: 0.08rem;
+}
+.kklogo span{
+	margin-left: 0.2rem;
+	font-size: 0.2rem;
+}
+.xiazai{
+	float: right;
+	width: 29%;
+	height: auto;
+	margin-top: 0.12rem;
+}
+.div .yzm_gray{ 	
+	text-align:center; 
+	background:url(http://image.kuaikuaidai.com/activity/2016102001/cc4f4ab60a7740e8bab22d3382c02bb1.jpg) left center no-repeat; 
+	background-size: cover;
+	color:#fff; 
+	cursor:pointer;
+}
+

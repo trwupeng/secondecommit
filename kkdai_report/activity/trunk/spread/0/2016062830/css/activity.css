@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+html{ font-size:60px;}
+body{ background:#e3f4fe;}
+.ovfHiden{overflow: hidden;height: 100%;}
+.banner,.part01,.product01,product02,.safe01,.safe02{ width:100%;}
+.banner img,.part01 img,.product01 img,.product02 img,.safe01 img,.safe02 img{ width:100%; display:block;}
+
+.fuli{ width:6.4667rem; height:4.1111rem; margin:0 auto; padding-top:1.2444rem; background:url(http://image.kuaikuaidai.com/activity/0/ea010c32bcfa43aba353dd3b4c45ce96.jpg) no-repeat; background-size:100% 100%; margin-bottom:0.55rem;}
+.fuli ul li{ width:6.0111rem; height:0.9555rem;  background:#ffffff; border-radius:7px; margin:0 auto; padding:0.0806rem 0; margin-bottom:0.2222rem;}
+.fuli ul li .left{ width:1.5667rem; height:0.9555rem; line-height:0.9555rem; text-align:center; float:left; margin:0 auto;}
+.fuli ul li .left .img01{ width:0.9rem; height:0.9rem; margin-top:0.02778rem;}
+.fuli ul li .center{ width:0.0667rem; height:0.9555rem; line-height:0.9555rem; display:block; float:left;}
+.fuli ul li .right{ float:left; margin-left:0.3389rem; color:#373655;}
+.fuli ul li .right .up{ font-size:0.2333rem; margin-top:0.1rem;}
+.fuli ul li .right .down{ font-size:0.3167rem;}
+.fuli ul li .right .down span{ color:#fe8917;}
+.fuli ul li .left .img02{ width:0.9278rem; height:0.9rem; margin-top:0.02778rem;}
+.fuli ul li .left .img03{ width:0.9333rem; height:0.9111rem; margin-top:0.0222rem;}
+
+.hongbao{ width:6.4555rem;  margin:0 auto;  margin-bottom:0.55rem;}
+.hongbao_title{ width:100%;}
+.hongbao_title img{ width:100%; display:block;}
+.activity_register{ width:100%; background:#cdeafe; margin:0 auto; border-radius:0 0 6px 6px; overflow:hidden; padding-top:0.4222rem;}
+.register{ width:6.05rem; margin:0 auto; position:relative;}
+.border_line{ width:6.05rem; height:0.7388rem; margin:0 auto; margin-bottom:0.15rem;}
+.border_line .input01{ width:5.8389rem;  padding:0.2178rem 0; color:#000; border-radius:7px; font-size:0.2333rem; padding-left:0.2111rem; margin:0 auto; display:block; background:#fff; border:0px solid #fff;}
+.border_line .input02{ width:3.1778rem;padding:0.2178rem 0; border-radius:7px; color:#000; font-size:0.2333rem; display:block;  padding-left:0.2111rem; float:left; border:0px solid #fff;}
+.border_line .yzm{ width:2.3444rem; height:0.69rem; line-height:0.69rem; text-align:center; background:#6aaffb; border:0px solid #6aaffb; color:#fff; font-size:0.2333rem; display:block;  float:right; border-radius:7px; cursor:pointer;}
+.border_line .yzm_gray{ width:2.3444rem; height:0.69rem; line-height:0.69rem; text-align:center; background:#aeaeae; border:0px solid #aeaeae; color:#fff; font-size:0.2333rem; display:block;  float:right; border-radius:7px; cursor:pointer;}
+.tishi{ width:6.2623rem; margin:0 auto; font-size:0.2333rem; color:red; margin-bottom:0.15rem; display:none; }
+.register .xieyi{ width:100%; margin:0 auto; height:0.1944rem; line-height:0.1944rem; font-size:0.2333rem; color:#3a3a3a; margin-top:0.2333rem; margin-bottom:0.3rem; text-align:center;}
+.register .xieyi img{ width:0.1944rem; height:0.1944rem; display:inline-block; vertical-align:middle; margin:-0.03rem 0.0667rem 0 0.0667rem;}
+.register .xieyi a{ color:#4c9efa; text-decoration:underline;}
+.lingqu{ width:2.9167rem; height:0.7111rem; margin:0 auto; margin-bottom:0.2833rem;}
+.lingqu img{ width:2.9167rem; height:0.7111rem; display:block;}
+.tk{ width:5rem; height:0.6rem; line-height:0.6rem; text-align:center; background:rgba(0,0,0,0.62); color:#fff; border-radius:5px; position:absolute; top:38%; left:50%; margin-left:-2.5rem; margin-top:-0.3rem;  z-index:6; font-size:0.2333rem; display:none;}
+
+.sucess{ width:6.4555rem; height:2.8556rem; background:url(http://image.kuaikuaidai.com/activity/0/45af21b01fcd44a8b46f0b284b064ebd.jpg) no-repeat; background-size:100% 100%; margin:0 auto; padding-top:2.2222rem; margin-bottom:0.55rem;}
+.hongbao_money{ width:100%; margin:0 auto; font-size:0.3167rem; color:#fe8917; text-align:center; font-weight:bold; margin-bottom:0.35rem;}
+.hongbao_money span{ font-size:0.5833rem;}
+.jiangli{ width:4.4444rem; height:0.7778rem; margin:0 auto; text-align:center; margin-bottom:0.15rem;}
+.jiangli img{ width:4.4444rem; height:0.7778rem; display:block;}
+.tiyanjin{ width:100%; margin:0 auto; text-align:center; font-size:0.2333rem; color:#373655;}
+.tiyanjin span{ font-size:0.3222rem; color:#fe8917; font-weight:bold;}
+.tiyanjin i{ font-size:0.2333rem; color:#fe8917; font-weight:bold; font-style:normal;}
+
+.product02{ margin-bottom:0.55rem;}
+.safe02{ margin-bottom:0.1667rem;}
+
+.footer{ width:100%; margin:0 auto; font-size:0.2333rem; color:#373655; line-height:0.4rem; text-align:center;}
+.blank{ width:100%; height:1.3444rem;}
+.xuanting{ width:100%; height:1.3444rem; background:#000; position:fixed; left:0 ; bottom:0; z-index:8;}
+.xuanting_in{ width:6.4778rem; height:1.3444rem; margin:0 auto;}
+.xuanting .left{ width:4.2rem; margin:0 auto; font-size:0.3333rem; color:#fff; float:left; margin-top:0.2778rem; position:relative;}
+.xuanting .right{ width:2.2rem; height:0.6278rem;  float:right; margin-top:0.3583rem;}
+.xuanting .right .download{ width:2.2rem; height:0.6278rem; line-height:0.6278rem; text-align:center;background:#f81243; border-radius:7px; font-size:0.25rem; font-weight:bold; color:#fff; }
+.xuanting .right .download a{ width:2.2rem; height:0.6278rem; display:block; color:#fff;}
+.xuanting .close{ width:0.45rem; height:0.45rem; position:absolute; left:0.2111rem; top:-0.225rem;}
+.xuanting .close img{ width:0.45rem; height:0.45rem; display:block;}
+
+.shade{ width:100%; height:100%; background:rgba(0,0,0,0.7); position: absolute; left:0; top:0; z-index:9;}
+.success01{ width:6.0111rem; height:3.8666rem; background:url(http://image.kuaikuaidai.com/activity/0/ab48fa46615440468e697fd77ad3cce8.jpg) no-repeat; background-size:100% 100%; margin:0 auto; padding-top:2.8667rem; position:relative; margin-top:0.2rem;}
+.hongbao_money01,.zhanghu{ width:100%; margin:0 auto; font-size:0.4167rem; color:#373655; text-align:center;}
+.hongbao_money01 span{ font-size:0.5555rem; font-weight:bold; color:#fe8917;}
+.hongbao_money01 i{ color:#fe8917;}
+.zhanghu{ margin-bottom:0.8rem;}
+.close01{  width:0.45rem; height:0.45rem; position:absolute; right:0; top:0;}
+.close01 img{ width:0.45rem; height:0.45rem; display:block;}

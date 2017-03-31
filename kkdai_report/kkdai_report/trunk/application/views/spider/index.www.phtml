@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <style type="text/css">
+    table.gridtable {
+    font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table.gridtable th {
+    border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        table.gridtable td {
+    border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div  style="float: left; width:550px;">
+<form action="/index/spider/index" method="post">
+
+
+    <table >
+        <tbody>
+        <tr>
+            <td>口令：<input type="password" name="pwd" value="<?php echo $this->pwd ?>"/></td>
+
+        </tr>
+        <tr></tr>
+        <tr style="heigh:30px">
+            <td>电话：<input type="text" name="phone" value="<?php echo $this->phone ?>" /></td>
+            <td>票号：<input type="text" name="ticket" value="<?php echo $this->ticket ?>"/></td>
+            <td><input type="submit" value="查询" name="btn_search_one" /></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td><input type="submit" value="查询未发电影票" name="btn_not_grant" /></td>
+            <td><input type="submit" value="查询已发电影票" name="btn_granted" /></td>
+
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td><textarea name="append_ticket" cols="30" rows="10"><?php echo $this->append_ticket ?></textarea></td>
+</tr>
+<tr>
+    <td><input type="submit" value="添加电影票" name="btn_append_ticket"/></td>
+</tr>
+</tbody>
+</table>
+
+</form>
+
+</div>
+<!--
+<form action="/index/spider/index" method="get" style="margin-left: 50px;">
+
+    <table >
+        <tbody>
+        <tr>
+            <td><input type="submit" value="查询未发电影票" name="btn_not_grant" /></td>
+            <td><input type="submit" value="查询已发电影票" name="btn_granted" /></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    </form>
+    -->
+<!--
+<form action="/index/spider/index" method="post" style="">
+
+    <table>
+        <tr>
+            <td><textarea name="append_ticket" cols="30" rows="10"><?php echo $this->append_ticket ?></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="添加电影票" name="btn_append_ticket"/></td>
+        </tr>
+    </table>
+
+</form>
+-->
+<div style="float:left; margin-left：30px;">
+<?php
+echo $this->html;
+echo $this->searchResult;
+
+?>
+</div>
+</body>
+</html>

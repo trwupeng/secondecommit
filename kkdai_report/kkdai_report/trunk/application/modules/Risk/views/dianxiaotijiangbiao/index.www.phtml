@@ -1,0 +1,50 @@
+<!-- 查询表单 -->
+<form action="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1),'index'); ?>" method="post" id="contracts-exportChecked" style="display: none;">
+</form>
+<div class="bjui-pageHeader">
+<?php
+        if($this->_type !='ajax') {
+            ?>
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+<!--        <input type="hidden" name="__formguid__" value="default" />-->
+        <input type="hidden" name="pageSize" value="<?php echo $this->pagesize; ?>">
+        <input type="hidden" name="pageCurrent" value="<?php echo $this->pageid; ?>">
+        <input type="hidden" name="orderField" value="${param.orderField}">
+        <input type="hidden" name="orderDirection" value="${param.orderDirection}">
+        <input type="hidden" name="isSubmit" value="1">
+        <label>业务编号：</label>
+        <input type="text"  name="yewubianhao" value="<?php echo isset($where['yewubianhao']) ? $where['yewubianhao'] : ''; ?>" size="18"  />
+        <button type="submit" class="btn btn-default">查询</button>
+        <a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
+        <div class="pull-right">
+            <div class="btn-group">
+            <?php
+		      echo \Prj\Misc\View::btnImportInDatagrid(\Sooh\Base\Tools::uri(null,'import'));
+		      ?>
+		      
+		      &nbsp; &nbsp; &nbsp; &nbsp;
+            </div class="btn-group">
+             <button type="button" class="btn-red">
+		      <a href="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1,'where'=> urlencode(json_encode($where))),'export'); ?>"><span style="color: orange;">导出全部</span></a>
+		      </button>
+		      
+            <div>
+                <!--<button type="button" class="btn-default dropdown-toggle" data-toggle="dropdown" data-icon="copy">复选框-批量操作<span class="caret"></span></button>
+                <ul class="dropdown-menu right" role="menu">
+                    <li><a href="<?php //echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1,'where'=>urlencode(json_encode($where))),'index'); ?>">导出<span style="color: green;">全部</span></a></li>
+                    <!--                    <li><a class="contracts-export" style="cursor: pointer">导出<span style="color: red">选中</span></a></li>-->
+                   <!-- <li class="divider"></li>
+                </ul>-->
+            </div>
+        </div>
+    </form>
+     <?php
+        }
+    ?>
+</div>
+
+<?php
+$view = $this->view;
+//var_log($view, 'view#########');
+$view->show();
+?>

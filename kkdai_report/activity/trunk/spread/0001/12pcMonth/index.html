@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>快快贷12月活动</title>		
+		<link rel="stylesheet" href="css/base.css" type="text/css" />
+		<link rel="stylesheet" href="css/kkdai.css" type="text/css" />
+		
+	</head>
+	<body style="background:url(http://image.kuaikuaidai.com/activity/12Pcmonth/d46413ea55e1470d9c95f66a63bd5581.jpg) no-repeat; background-position: 0 114px;">
+		 <div id="warp">
+        <!--替换内容-->
+        <div style="min-height:800px;width: 100%; margin: 0 auto;" class="main">
+            	
+        <div id="banner"></div>					
+		<div id="con">
+			<div class="text">
+				<ul>
+					<li>活动规则：</li>
+					<li>
+						<span class="yuan">1</span>
+						<p>活动时间：2016年12月20日-2017年1月6日。</p>
+					</li>
+					<li>
+						<span class="yuan">2</span>
+						<p>活动期间，用户将自动获得一棵圣诞树。<font class="color">蓄满100营养值，即可领取礼物。</font>选择领取礼物，圣诞树营养值重新累计。
+						不同的营养值区间，对应不同价值的礼物。营养值越大，礼物价值越高。营养值最高为10000，蓄满则需领取礼物，开始新一轮圣诞树养殖。营养值蓄满10000之后，若未领取礼物，
+						继续获得的营养值将直接加至下一棵圣诞树。具体礼物，以系统发放为准，不可更换。</p>
+					</li>
+					<li>
+						<span class="yuan">3</span>
+						<p>使用养殖功能，即可增加圣诞树的营养值，促其生长。每使用一次养殖功能，<font class="color">获得5营养值</font>。养殖功能，每个用户15分钟之内只能使用一次。</p>
+					</li>
+					<li>
+						<span class="yuan">4</span>
+						<p>活动期间，用户投资定期宝每累计满1000元及其倍数，即可<font class="color">获得100及其相应倍数的营养值</font>，以此类推。抵现券金额，不计算在投资金额之内。</p>
+					</li>
+					<li>
+						<span class="yuan">5</span>
+						<p>活动2017年1月6日24:00结束，届时系统会自动帮用户领取礼物，并发送至用户账户。</p>
+					</li>
+					<li>
+						<span class="yuan">6</span>
+						<p>电影票将在活动结束后十个工作日内由快快贷统一发放。</p>
+					</li>
+					<li>
+						<span class="yuan">7</span>
+						<p>本活动最终解释权归快快贷所有。</p>
+					</li>
+				</ul>
+			</div>
+			<div class="ma">
+				<img src="http://image.kuaikuaidai.com/activity/12Pcmonth/f107be489ee647d89129df0d26c4dc62.jpg">
+			</div>
+		</div>
+            	
+            	
+        </div>
+        <!--end替换内容-->
+    </div>
+    <!--end:wrap-->
+	</body>
+	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/head.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('#warp').prepend(data);
+				$('.clearfix').find('.nav_curr').removeClass('nav_curr').end().children('li').eq(3).addClass('nav_curr')
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/end.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('#warp').append(data);
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/returnTop.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('body').append(data);
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/js.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('#warp').append(data);
+			}
+		});
+	});
+</script>
+	<script>
+	//document.cookie="JSESSIONID="+'CF7673867BBC202B5C0A1307984B33A4';
+		var getState = (function(){
+			var cookies ;
+			function getCookies(name){
+				var allcookies = document.cookie;
+				console.log(allcookies)
+				var cookie_pos = allcookies.indexOf(name);
+				
+				if(cookie_pos !=-1){
+					cookie_pos += name.length + 1;
+					var cookie_end = allcookies.indexOf(";", cookie_pos);
+					
+					if (cookie_end == -1){
+	        
+		            	cookie_end = allcookies.length;
+		        	}
+					cookies = unescape(allcookies.substring(cookie_pos, cookie_end)); 
+				}else{
+					return false
+				}
+				
+				return cookies;
+				
+			}
+			console.log(getCookies('JSESSIONID'))
+			return {
+				ajax:function(){
+					$.ajax({
+				        type: 'GET',
+				        //http://10.1.1.212/public/checkKkdLogin?__VIEW__=jsonp
+				        url: 'http://rpt.kuaikuaidai.com/public/checkKkdLogin?__VIEW__=jsonp',
+				        //url: 'http://10.1.1.212/public/checkKkdLogin?__VIEW__=jsonp',
+				        dataType: "jsonp",
+						jsonp: "jsonp",
+				        data: {
+				        	jskey : getCookies('JSESSIONID')?getCookies('JSESSIONID'):''
+				        } ,
+				        success: function(res) {
+				        	console.log(res)
+				           getState.domState(res)
+				        }
+				    });
+				},
+				domState : function(dataObj){
+					if(dataObj.code==400){
+						$('.head_rigth a').eq(0).text('登录').css('color','#fff').attr('href','http://www.kuaikuaidai.com/login.html')
+						$('.head_rigth a').eq(1).text('注册').css('color','#fff').attr('href','http://www.kuaikuaidai.com/register.html')
+					}else if(dataObj.code==200){
+						$('.head_rigth a').eq(0).text('我的账户').css('color','#ff7f41').attr('href','http://www.kuaikuaidai.com/mycenterMyaccount.html')
+						$('.head_rigth a').eq(1).text('退出').css('color','#acaeb2').attr('href','http://www.kuaikuaidai.com/logout.html')
+					}
+				}
+			}
+		})()
+		setTimeout(getState.ajax,500)
+		
+	</script>
+</html>

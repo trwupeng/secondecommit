@@ -1,0 +1,112 @@
+body,html{
+	width: 100%;
+	font-size: 14px;
+	font-family: "黑体";
+	color: #fff;
+	height: auto;
+}
+body,div,p,span,ul,li,a,button,input,dl,dt,dd,img{
+	padding:0;
+	margin:0;
+	border:0;
+	text-decoration: none;
+	list-style: none;
+}
+body{
+	background:url(../img/back.png) no-repeat;
+	background-position: 0 124px;
+}
+a{
+	color: #fde89a;
+}
+a:hover{
+	color: #fde89a;
+}
+#banner{
+	width: 100%;
+	height: 682px;
+	background: url(http://image.kuaikuaidai.com/activity/1pcMonth/92c5c187beef417faa17ced288a32408.jpg) no-repeat left center;
+}
+#content_top{
+	width: 100%;
+	height: 288px;
+	background: url(http://image.kuaikuaidai.com/activity/1pcMonth/73c104fc2e4643eabf0ceb1953b93989.jpg) no-repeat left center;
+}
+#banner1{
+	width: 100%;
+	height: 110px;
+	background: url(http://image.kuaikuaidai.com/activity/1pcMonth/e3dc3b857996492c88d88bb781cc1847.jpg) no-repeat left center;
+}
+#banner2{
+	width: 100%;
+	height: 1220px;
+	background: url(http://image.kuaikuaidai.com/activity/1pcMonth/689b568c7e7e4190ae627f8b64f5a74a.jpg) no-repeat left center;
+}
+
+#banner3{
+	width: 100%;
+	height: 110px;
+	background: url(http://image.kuaikuaidai.com/activity/1pcMonth/568614b62b1a449992b1806546d3268b.jpg) no-repeat left center;
+}
+
+#content_bottom{
+	width: 100%;
+	height: 1734px;
+	background: url(http://image.kuaikuaidai.com/activity/1pcMonth/11508aae473c433cae7e89e68a29a56b.jpg) no-repeat left center;
+}
+
+.gYout{
+	height: auto;
+	padding-top: 75px;
+}
+.first_block_pc{
+	width: 900px;
+	margin-left: 510px;
+}
+.first_block_pc p,.first_block_pc li{
+	font-size: 20px;
+	color: #fff;
+	line-height: 40px;
+}
+
+.span_ye{
+	color: #fde89a;
+}
+
+.first_block_pc2{
+	width: 900px;
+	margin-left: 570px;
+	margin-top: 750px;
+}
+.first_block_pc2 p,.first_block_pc2 li{
+	font-size: 20px;
+	color: #fff;
+	list-style: decimal;
+	line-height: 40px;
+}
+
+.span_ye_big{
+	font-size: 30px;
+	color: #fde89a;
+}
+
+
+.span_ye_mid{
+	font-size: 25px;
+	color: #fde89a;
+}
+
+
+.ma{
+	position: fixed;
+	right: 50px;
+	top:35%;
+	
+}
+
+
+
+
+
+
+

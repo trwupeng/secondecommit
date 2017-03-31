@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    $('#test-datagrid').datagrid({
+        gridTitle : '上海快快金融财务收支明细表（公司费用部分）',
+        showToolbar: true,
+        toolbarItem: 'all',
+        local: 'local',
+        data:'[]',
+        dataUrl: '',
+        dataType: 'json',
+        sortAll: true,
+        filterAll: true,
+        columns: [
+            {
+                label: '业务内容摘要',
+                columns: [{
+                    name: 'explain',
+                    label: '说明（<?php echo date('m月d日'); ?>）',
+                    align: 'center',
+                    render: function(value) {
+                        return value ? value.substr(0, 16) : value
+                    }
+                },]
+            },
+            {
+                name: 'income',
+                label: '收入',
+                align: 'center',
+                rule:'number'
+            },
+            {
+                name: 'payment',
+                label: '支出',
+                align: 'center',
+                rule:'number'
+            }
+        ],
+        hiddenFields: [{name:'deptcode'}],
+        editUrl: '<?php echo \Sooh\Base\Tools::uri([],'ipform') ?>',
+        paging: {pageSize:50, pageCurrent:10},
+        showCheckboxCol: true,
+        showEditBtnsCol: true,
+        linenumberAll: true,
+        fullGrid:true
+    })
+</script>
+<div class="bjui-pageContent">
+    <div style="margin:15px;height: 90%">
+        <table id="test-datagrid" data-width="100%" data-height="100%" class="table table-bordered">
+        </table>
+    </div>
+</div>

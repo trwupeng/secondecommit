@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+html{ font-size:80px;}
+body{ background-color:#112952;}
+
+.banner{ width:100%; height:2.6875rem; margin-bottom:0.2208rem;}
+.banner img{ width:100%; height:2.6875rem;}
+
+.new_user{ width:5.175rem; margin:0 auto; font-size:0.2rem; color:#b9f3ff; text-align:center;  position:relative; margin-bottom:0.2rem;}
+.new_user .pic{ position:absolute; width:100%; height:0.075rem; left:0; top:0.55rem;}
+
+.quan{ width:4.175rem; height:0.72917rem; margin:0 auto;  overflow:hidden;}
+.dianyingquan{ width:1.67917rem; height:0.725rem; float:left;}
+.dianyingquan img{ width:1.67917rem; height:0.725rem; display:block;}
+.dixianquan{ width:1.67917rem; height:0.72917rem; float:right;}
+.dixianquan img{ width:1.67917rem; height:0.72917rem; display:block;}
+.activity_register{ width:5.175rem; margin:0 auto; margin-top:0.3rem; overflow:hidden;}
+.register{position: relative;}
+.activity_register h3{ width:5.175rem; height:0.17917rem; text-align:center; font-size:0.2rem; color:#b9f3ff; font-weight:normal; position:relative; margin-bottom:0.25rem;}
+.activity_register h3 .pic01{ position:absolute; width:100%; height:0.075rem; left:0; top:0.25rem;}
+.border_line{ width:4.75rem; height:0.555rem; margin:0 auto; margin-bottom:0.2rem;}
+.border_line .input01{ width:4.525rem; padding:0.1695rem 0 0.1625rem 0; height:0.195rem; line-height:0.195rem;  color:#000; border-radius:3px; font-size:0.175rem; margin:0 auto; padding-left:0.175rem; display:block; }
+.border_line .input02{ width:3.09167rem;padding:0.1695rem 0 0.1625rem 0; height:0.195rem; line-height:0.195rem;border-radius:3px; color:#000; font-size:0.175rem; display:block;  padding-left:0.175rem; float:left;}
+.border_line .yzm{ width:1.2rem; height:0.555rem; line-height:0.555rem; text-align:center; background:#5b9be3; border:1px solid #5b9be3; color:#fff; font-size:0.175rem; display:block;  float:right; border-radius:3px; cursor:pointer;}
+.border_line .yzm_gray{ width:1.2rem; height:0.555rem; line-height:0.555rem; text-align:center; background:#aeaeae; border:1px solid #aeaeae; color:#fff; font-size:0.175rem; display:block;  float:right; border-radius:3px; cursor:pointer;}
+.hh{border:1px solid #fff;}
+.tishi{ width:4.7rem; margin:0 auto; font-size:0.175rem; color:red; margin-bottom:0.2rem;display:none;}
+.xieyi{ width:5.175rem; margin:0 auto; margin-bottom:0.18rem; font-size:0.175rem; color:#547cc1; text-align:center; overflow:hidden;}
+.xieyi a{ color:#8f47cb;}
+.xieyi .pic04{ width:0.1875rem; height:0.1875rem;}
+.xieyi img{ width:0.1875rem; height:0.1875rem; display:inline-block; vertical-align:middle;}
+.reg{ width:4.7833rem; height:0.525rem;margin:0 auto; margin-bottom:0.3625rem;}
+.reg .btn{ width:4.7833rem; height:0.525rem; line-height:0.525rem; background:#732ab0; text-align:center; font-size:0.175rem; color:#fff; border:1px solid #732ab0; border-radius:3px; cursor:pointer; display:block;}
+.tk{ width:3rem; height:0.5167rem; line-height:0.5167rem; text-align:center; background:rgba(0,0,0,0.62); color:#fff; border-radius:5px; position:absolute; top:50%; left:50%; margin-left:-1.5rem; margin-top:-0.25835rem;  z-index:6; font-size:0.1375rem;}
+
+.rules{ width:5.175rem; margin:0 auto; margin-bottom:0.3333rem; }
+.rules_title{ width:5.175rem; height:0.17917rem; text-align:center; font-size:0.2rem; color:#b9f3ff; font-weight:normal; position:relative; margin-bottom:0.2083rem; }
+.rules_title .pic03{  position:absolute; width:100%; height:0.075rem; left:0; top:0.25rem;}
+.rules p{ width:4.725rem; margin:0 auto; font-size:0.175rem; color:#b9f3ff; line-height:0.29167rem;}
+
+.lianjie{ width:0.8rem; height:0.2rem; margin:0 auto; text-align:center;}
+.lianjie a{ width:0.8rem; height:0.2rem; display:block; font-size:0.175rem; text-decoration:none;color:#547cc3; text-align:center; }
+.rexian{ text-align:center; font-size:0.1625rem; color:#547cc3;  margin:0.2917rem 0;}
+.rexian img{ width:0.17917rem; height:0.19167rem; display:inline-block; vertical-align:middle;}

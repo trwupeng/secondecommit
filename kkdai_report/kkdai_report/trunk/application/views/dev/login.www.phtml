@@ -1,0 +1,93 @@
+<?php
+$this->htmlHeadPart('<!-- head part --><link rel="stylesheet" href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css">');
+echo $this->renderInc('head');
+$uriBase = \Sooh\Base\Ini::getInstance()->get('uriBase')['oauth'];
+echo "<script>var uriBase = \"$uriBase\";</script>";
+?>
+<div class="container">
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<label for="phone" class="col-sm-2 control-label">手机号：</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="请输入手机号" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password" class="col-sm-2 control-label">密码：</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-1-">
+				<button type="button" class="btn btn-default" id="login">登录</button>
+			</div>
+		</div>
+	</form>
+	<div class="msg"></div>
+</div>
+<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var clientId = '1104878344',
+		clientSecret = 's20vH9emKJ6BmT1Q',
+		redirectUri = 'https://www.baidu.com/',
+		url = uriBase + '/index.php?__=oauth/applogin&__VIEW__=json',
+		loginUrl = uriBase +  '/index.php?__=dev/login';
+	var msg = $('.msg');
+	$(function() {
+		//登录
+		$('#login').click(function() {
+			var phone = $('#phone').val(),
+				password = $('#password').val();
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: {clientId:clientId,clientSecret:clientSecret,redirectUri:redirectUri,phone:phone,password:password},
+				beforeSend: function() {
+					msg.html('登录中...');
+				},
+				success: function(data) {
+					if(data.code == 200) {
+						passportLogin(
+										data.info.code,
+										function(loginData) {
+											alert('success');
+											msg.html(JSON.stringify(loginData));
+										},
+										function (){
+											alert('error');
+										}
+						);
+					} else {
+						msg.html(data.msg);
+					}
+				}
+			});
+		});
+	});
+
+	/**
+	 * passport login
+	 * @param code 临时码
+	 */
+	function passportLogin(code,onSuccess,onError) {
+		url = uriBase + '/index.php?__=passport/login&__VIEW__=json';
+		$.ajax({
+			type: 'GET',
+			url: url,
+			data: {code:code,redirectUri:redirectUri},
+			beforeSend: function() {
+				console.log('before passport login...');
+			},
+			success: function(loginData) {
+				if(loginData.code == 200) {
+					onSuccess(loginData);
+				} else {
+					onError();
+				}
+			}
+		});
+	}
+</script>
+</body>
+</html>

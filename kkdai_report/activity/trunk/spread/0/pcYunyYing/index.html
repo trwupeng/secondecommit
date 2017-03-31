@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>第三季度运营报告</title>    
+    <link rel="stylesheet" href="../../../kkdhead/css/kkdai.css" type="text/css">
+    <link rel="stylesheet" href="./css/base.css" type="text/css"/>
+</head>
+
+<body>
+    <div id="warp">
+        <!--替换内容-->
+        <div style="min-height:800px;width: 100%; margin: 0 auto;" class="main">
+            	
+        <div id="banner">
+			<img src="http://image.kuaikuaidai.com/activity/pcYunYing/48b81d185ba247879de1bc0c87ff6192.jpg">
+		</div>
+		<section id="con">
+			<div class="diyi">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/d2a865d2abe24285a2e1f8b6e5258350.jpg">
+			</div>
+			<div class="diEr">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/992bcfa566c946db8189cfb6aefd1404.jpg">
+			</div>
+			<div class="diSan">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/4d819b9b6fa04881a2385c36a512d2a5.jpg">
+			</div>
+			<div class="diSi">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/a54c4ed111a74e7c94b787eeaf31fa97.jpg">
+			</div>
+			<div class="diWu">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/c443566bf895425f8d85470bfac54596.jpg">
+			</div>
+			<div class="diLiu">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/cebc4d3543574a69bce54e5f0d94139d.jpg">
+			</div>
+			<div class="diQi">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/39eec664efd3498da90f8bf39826af15.jpg">
+			</div>
+			<div class="diBa">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/b50a0ddc792543759386679141afd0d3.jpg">
+			</div>
+			<div class="diJiu">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/e72bba54756b4da099eb27775d67cfb5.jpg">
+			</div>
+			<div class="diShi">
+				<img src="http://image.kuaikuaidai.com/activity/pcYunYing/d66e67a301574d94bc0a46cd15f85402.jpg">
+			</div>
+			<div class="pingTai">
+				<div class="pingCon">
+					<p class="p">平台寄语</p>
+					<p class="p1">第三季度对于快快贷来说是茁壮成长的一季。为给投资者提供更好的投资体验，快快贷APP升级至6.0版本。随着快快贷的品牌和社会知名度不断提高，开始承担更多的社会责任，力求为社会公益事业做贡献。</p>
+					<p class="p1">快快贷深知能够取得今天的成绩，与投资者一直以来的支持和信任是密不可分的。为投资者打造更好的投资体验，提供更加安全保障的投资环境，让每一位投资者都能“安心理财、悦心收益”是快快贷的服务宗旨。</p>
+					<p class="p1">感谢您的一路陪伴，希望在快快贷未来的成长道路上能够一直与您同行！</p>
+				</div>
+			</div>
+		</section>
+            	
+            	
+        </div>
+        <!--end替换内容-->
+    </div>
+    <!--end:wrap-->
+</body>
+<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/head.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('#warp').prepend(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/end.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('#warp').append(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/returnTop.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('body').append(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/js.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('#warp').append(data);
+        }
+    });
+});
+</script>
+<script>
+
+	var getState = (function(){
+		var cookies ;
+		function getCookies(name){
+			var allcookies = document.cookie;
+			console.log(allcookies)
+			var cookie_pos = allcookies.indexOf(name);
+			
+			if(cookie_pos !=-1){
+				cookie_pos += name.length + 1;
+				var cookie_end = allcookies.indexOf(";", cookie_pos);
+				
+				if (cookie_end == -1){
+        
+	            	cookie_end = allcookies.length;
+	        	}
+				cookies = unescape(allcookies.substring(cookie_pos, cookie_end)); 
+			}else{
+				return false
+			}
+			
+			return cookies;
+			
+		}
+		console.log(getCookies('JSESSIONID'))
+		return {
+			ajax:function(){
+				$.ajax({
+			        type: 'GET',
+			        url: 'http://rpt.kuaikuaidai.com/public/checkKkdLogin?__VIEW__=jsonp',
+			        dataType: "jsonp",
+					jsonp: "jsonp",
+			        data: {
+			        	jskey : getCookies('JSESSIONID')?getCookies('JSESSIONID'):''
+			        } ,
+			        success: function(res) {
+			        	console.log(res)
+			           getState.domState(res)
+			        }
+			    });
+			},
+			domState : function(dataObj){
+				if(dataObj.code==400){
+					$('.head_rigth a').eq(0).text('登录').css('color','#fff').attr('href','http://www.kuaikuaidai.com/login.html')
+					$('.head_rigth a').eq(1).text('注册').css('color','#fff').attr('href','http://www.kuaikuaidai.com/register.html')
+				}else if(dataObj.code==200){
+					$('.head_rigth a').eq(0).text('我的账户').css('color','#ff7f41').attr('href','http://www.kuaikuaidai.com/mycenterMyaccount.html')
+					$('.head_rigth a').eq(1).text('退出').css('color','#acaeb2').attr('href','http://www.kuaikuaidai.com/logout.html')
+				}
+			}
+		}
+	})()
+	
+	getState.ajax()
+</script>
+</html>

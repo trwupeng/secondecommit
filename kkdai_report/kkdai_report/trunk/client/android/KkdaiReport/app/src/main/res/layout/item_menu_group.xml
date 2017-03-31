@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/tv_menu_group"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="40dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16dp" >
+    </TextView>
+
+</RelativeLayout>

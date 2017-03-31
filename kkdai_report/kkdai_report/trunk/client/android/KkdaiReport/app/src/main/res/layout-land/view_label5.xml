@@ -1,0 +1,85 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:background="@drawable/view1"/>
+
+        <TextView
+            android:id="@+id/tv_data_label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="10dp">
+        </TextView>
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/view2"/>
+
+        <TextView
+            android:id="@+id/tv_data_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="10dp">
+        </TextView>
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/view3"/>
+
+        <TextView
+            android:id="@+id/tv_data_label3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="10dp">
+        </TextView>
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/view4"/>
+
+        <TextView
+            android:id="@+id/tv_data_label4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="10dp">
+        </TextView>
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/view5"/>
+
+        <TextView
+            android:id="@+id/tv_data_label5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textSize="10dp">
+        </TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>

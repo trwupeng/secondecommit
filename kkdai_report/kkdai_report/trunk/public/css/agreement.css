@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+section{ width:96%; margin:0 auto;}
+section h3{ font-size:0.6rem; margin:0.5rem 0;}
+.p0{ font-size:0.35rem; margin-bottom:0.25rem;}
+.p1{ font-size:0.4rem; font-weight:bold; margin-bottom:0.125rem;}
+.p2{ font-size:0.35rem; text-indent:1.5em; margin-bottom:0.125rem;}
+.p3{ font-size:0.35rem; text-indent:3em; margin-bottom:0.125rem;}

@@ -1,0 +1,145 @@
+<?php if (isset($errorMsg)) {
+    //echo <<<ERROR
+//<script>
+//$(document).alertmsg('error', '错误的提示内容！')
+//</script>
+//ERROR;
+}
+?>
+
+<div class="bjui-pageHeader">
+    <form id="weekForm">
+        <?php if ($hasManager == 1) {
+            $mtRandId = '_' . mt_rand(10000, 99999);
+          
+            echo \Prj\Misc\View::mb_zzjgck('', '', $mtRandId, 2);
+            echo '<br />';
+            echo '<label for="" style="margin-top: 7px;" id="zzjgLabel' . $mtRandId . '">' . $zzjgStr . '</label>';
+            echo '<br />';
+            echo '<div id="gitLabDivtaweek"></div>';
+            echo '<input type="hidden" id="zzjgName' . $mtRandId . '" name="zzjgName" value="' . $zzjgName . '">';
+            echo '<input type="hidden" id="zzjgNameCh' . $mtRandId . '" name="zzjgNameCh" value="' . $zzjgNameCh . '">';
+            echo '<br />';
+            }
+             ?>
+          
+        <label for="">开始日期</label>
+        <input type="text" data-toggle="datepicker" name="startDate" size="14" value="<?php echo $startDate ?>"/>
+        <label for="">结束日期</label>
+        <input type="text" data-toggle="datepicker" name="endDate" size="14" value="<?php echo $endDate ?>"/>
+        <button type="button" onclick="doLoadWeek();" class="btn btn-default">查询</button>
+    </form>
+</div>
+<div class="bjui-pageContent">
+    <div class="col-md-8" style="min-height: 200px;">
+        <?php echo $view; ?>
+    </div>
+
+    <div class="col-md-offset-1 text-center" style="width: 198px; float: left;">
+        <div id="mb_cal" style="position:relative"></div>
+    </div>
+</div>
+<?php
+if($Managerlogin==1){
+
+}else{
+  include "comments.www.phtml";
+}
+?>
+<script>
+	function open_method( url )
+	{
+		console.log( "url:" + url );
+	}
+    var zzjgInputs = new Array();
+    mb_dept.callbackById["<?php echo $mtRandId;?>"] = function (obj) {
+        var names = '', zzjgInputs = new Array();
+      	var obj_oaUser='';
+      	var obj_zzjgName='';
+        for (var oaUser in obj) {   
+            obj_oaUser+=obj[oaUser]+',';
+            obj_zzjgName+=oaUser+',';
+        }
+
+        setSelectedUsers( 2, obj_zzjgName );
+        
+
+        obj_oaUser=(obj_oaUser.substring(obj_oaUser.length-1)==',')?obj_oaUser.substring(0,obj_oaUser.length-1):obj_oaUser;
+        obj_zzjgName=(obj_zzjgName.substring(obj_zzjgName.length-1)==',')?obj_zzjgName.substring(0,obj_zzjgName.length-1):obj_zzjgName;
+        
+        $("#zzjgLabel<?php echo $mtRandId; ?>").text(obj_oaUser);
+        $("#zzjgNameCh<?php echo $mtRandId; ?>").attr('value', obj_oaUser);
+        $("#zzjgName<?php echo $mtRandId; ?>").attr('value', obj_zzjgName);
+        
+        //console.log(obj_oaUser);
+
+        var checkname=[
+                       "卢秋鹤","向兰英","吴鹏",
+                       "戴杰","李梦竹","李连奇",
+                       "梁言庆","汤高航","沈海燮",
+                       "王伟","王阳","童益丰","钟继业",
+                       "陶满","马龙龙","张有传","赵闯",
+                       "马天一","孔子龙","徐利营","赵宇光",
+                       "周豪","孙瑞明","宋威",
+                       "岳化梦","李向南","李增芳","李晓苑",
+                       "杨丽雲","汪杰","熊彩阳","金超","牛鹏凯",
+                   ];
+          
+           var username = obj[oaUser]; 
+           var temp = username.split("--");
+          // alert(temp);
+           var location=checkname.indexOf(temp[0]);
+           //alert(location);
+           if(false&&location>=0) {
+               //alert("121");
+         	  //显示
+
+        	 $("#gitLabDivtaweek").empty("");
+        	 
+             var gold="<a id=\"gitLabDivtaweek\"  class=\"btn btn-blue\" href=\"http://rpt.kuaikuaidai.com/index/gitlab/index?userId="+temp[0]+"\" target=\"_blank\">点击查看工作目标</a>";
+            
+          	 $("#gitLabDivtaweek").append(gold);
+          	
+             
+           } else {
+          	    //隐藏
+               $("#gitLabDivtaweek").empty();
+              
+           }
+    };
+
+    function doLoadWeek() {
+        $(document).bjuiajax('doLoad', {
+            target: '#week-tab',
+            url: "<?php echo \Sooh\Base\Tools::uri(); ?>",
+            data: $("#weekForm").serialize(),
+        });
+        //console.log($("#weekForm").serialize());
+    }
+    mb_week_back = function (date, func) {
+        var url = "<?php echo \Sooh\Base\Tools::uri([], 'getweekset') ?>";
+        var args = date;
+        $.post(url, args, func);
+    }
+    mb_week_back_format = function (data) {
+        var obj = data.data;
+        var ret = new Array();
+        for (var i in obj) {
+            if (obj[i] == 1) {
+                ret.push(i);
+            }
+        }
+        return ret;
+    }
+
+    
+
+    $('#mb_cal').datepicker({
+        mb_week_back: "mb_week_back", //周目标-点击回调函数
+        mb_week_back_format: "mb_week_back_format", //周目标-请求返回值的格式化函数
+//        mb_day_back : "mb_week_back", //日目标-点击回调函数
+//        mb_day_back_format : "mb_week_back_format", //日目标-请求返回值的格式化函数
+        mb_fix: true //日期框不会消失
+    });
+
+</script>

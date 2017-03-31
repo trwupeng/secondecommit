@@ -1,0 +1,208 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+<!--        <input type="hidden" name="__formguid__" value="default" />-->
+<!--        <input type="hidden" name="pageSize" value="--><?php //echo $this->pagesize; ?><!--">-->
+<!--        <input type="hidden" name="pageCurrent" value="--><?php //echo $this->pageid; ?><!--">-->
+<!--        <input type="hidden" name="orderField" value="${param.orderField}">-->
+<!--        <input type="hidden" name="orderDirection" value="${param.orderDirection}">-->
+        <label>时间从：</label>
+        <input type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo ($this->ymdFrom?$this->ymdFrom:date('Y-m-d',time()-7*84600)); ?>" size="18" />
+        <label>时间到：</label>
+        <input type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo ($this->ymdTo?$this->ymdTo:date('Y-m-d',time()-84600)); ?>" size="18" />
+        
+          <label>渠道选择：</label>
+        <select name='select' value="channel" id="ids" >
+  
+         <?php 
+          $channel= $this->rem;
+          $channels=$this->channels;
+//var_log($channel,'66666>>>>>>>');
+//var_log($channels,'chanel##########>>>>>>>');
+
+           foreach ($channel as $k=>$v){
+               
+          ?>
+             <option value="<?php echo $v;?>" <?php if($v==$channels) {echo "selected=\"selected\"";}?>><?php echo $v;?></option>
+        <?php }?>
+        </select>
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+       <button type="submit" class="btn btn-default">查询</button>
+         &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form> 
+  </div>
+     
+<div class="bjui-pageContent">
+   
+     
+   
+  
+    <div id="fundsdata" style="height: 430px " width="100%">
+     </div>
+    
+    <script type="text/javascript">
+
+        require.config({
+            paths:{
+                echarts: '/echarts/dist'
+        }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line', // 使用折线图就加载line模块，按需加载
+                //'echarts/chart/stack', // 使用柱状图就加载bar模块，按需加载
+                //'echarts/chart/tiled', // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+
+             
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('fundsdata'));
+
+                var records = <?=$this->records?>;
+
+                var records1 = <?=$this->records1?>;
+
+                //console.log(records);
+                //console.log(records1);
+
+
+                for(var dt in records){
+                  tt=dt;
+
+                  recharge=(records[dt].rechargeAmount)/100;
+                  withdraw=(records[dt].withdrawAmount)/100;
+                 }
+//console.log(recharge);
+//console.log(withdraw);
+
+                for(var dt1 in records1){
+
+                	tt1=dt1;
+
+                    recharge1=(records1[dt1].rechargeAmount)/100;
+                    withdraw1=(records1[dt1].withdrawAmount)/100;
+                    
+                  }
+                
+                //console.log(recharge1);
+                //console.log(withdraw1);  
+                            
+                option = {
+						title: {
+							text: '资金情况',
+						},
+                	    tooltip : {
+                	        trigger: 'axis',
+                	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                	        }
+                	    },
+                	    legend: {
+               	    	 x: 'center',
+                         y: 'bottom',
+                	        data:['提现', '充值']
+                	    },
+                	    xAxis : [
+							{
+								type : 'value',
+								axisLabel:{
+									formatter: function(value, inddx) {
+										return Math.abs(value / 10000) + '万';
+									}
+								}
+							}
+						],
+                	    yAxis : [
+							{
+								type : 'category',
+								axisTick : {show: false},
+								axisLabel : {rotate: 75},
+								data : [tt1,tt]
+							}
+						],
+						grid: {
+							x: '10%',
+							x2: '15',
+							y2: '60',
+							containLabel: true
+						},
+                	    series : [
+                	        {
+                	            name:'充值',
+                	            type:'bar',
+                	            stack: '总量',
+								itemStyle : { normal: {label : {show: true,
+									formatter:function(params, ticket, callback) {
+										var res = params.data;
+										if (typeof res != "string") {
+											res += "";
+										}
+										var resLength = res.replace(/[^\x00-\xff]/g,"01").length;
+										if(res.indexOf(".") >= 0) {
+											resLength = resLength - 3;
+										}
+										if(resLength==4) {
+											res = res[0] + "." + res[1] + "千";
+										} else if(resLength==5) {
+											res = res[0] + "." + res[1] + "万";
+										} else if(resLength==6) {
+											res = res[0] + res[1] + "." + res[2] + "万";
+										} else if(resLength==7) {
+											res = res[0] + "." + res[1] + "百万";
+										} else if(resLength==8) {
+											res = res[0] + "." + res[1] + "千万";
+										}
+										return res;
+									},
+									position: 'right'}}},
+                	            data:[recharge1, recharge]//
+                	        },
+                	        {
+                	            name:'提现',
+                	            type:'bar',
+                	            barWidth : 125,
+                	            stack: '总量',
+								itemStyle : { normal: {label : {show: true,
+									formatter:function(params, ticket, callback) {
+										var res = Math.abs(params.data);
+										if (typeof res != "string") {
+											res += "";
+										}
+										var resLength = res.replace(/[^\x00-\xff]/g,"01").length;
+										if(res.indexOf(".") >= 0) {
+											resLength = resLength - 3;
+										}
+										if(resLength==4) {
+											res = res[0] + "." + res[1] + "千";
+										} else if(resLength==5) {
+											res = res[0] + "." + res[1] + "万";
+										} else if(resLength==6) {
+											res = res[0] + res[1] + "." + res[2] + "万";
+										} else if(resLength==7) {
+											res = res[0] + "." + res[1] + "百万";
+										} else if(resLength==8) {
+											res = res[0] + "." + res[1] + "千万";
+										}
+										return res;
+									},
+									position: 'left'}}},
+                	            data:[withdraw1, withdraw]
+                	        }
+                	    ]
+                	};
+
+                // 为echarts对象加载数据
+               myChart.setOption(option);
+
+            }
+        );
+
+    </script>
+   
+</div>
+
+

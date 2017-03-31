@@ -1,0 +1,31 @@
+<div class="bjui-pageHeader">
+    <form id="tabmanagerLogForm">
+        <?php 
+             $mtRandId = '_' . mt_rand(10000, 99999);
+
+            echo '<label for="" style="margin-top: 17px;margin-bottom:10px;" id="zzjgLabel' . $mtRandId . '">' . $zzjgStr . '</label>';
+            echo '<br />';
+         ?>
+    
+    </form>
+</div>
+<div class="bjui-pageContent">
+
+    <?php echo $view; ?>
+    </br>
+    <?php
+    include dirname(__DIR__) . '/perfdst/comments.www.phtml';
+    ?>
+
+</div>
+
+
+<script>
+    function doLoad() {
+        $(document).bjuiajax('doLoad', {
+            target: '#tabmanager-tab',
+            url: "<?php echo \Sooh\Base\Tools::uri(); ?>",
+            data: $("#tabmanagerLogForm").serialize()
+        });
+    }
+</script>

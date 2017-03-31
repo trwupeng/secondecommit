@@ -1,0 +1,38 @@
+<?php
+$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+$chart = new \Rpt\Misc\Chart1;
+$chart->ymd=$args['ymd'];
+$m_d = date('m月d日',  strtotime($args['ymd']));
+error_log($m_d);
+//没有二级统计情况的一周走势图
+$chart->titleMain='天天赚转出人数走势图';
+//$chart->grpBy();
+$chart->where=['act'=>['YebOutUserNumEmployee','YebOutUserNumExternal','YebOutUserNumInviter']];
+$chart->showStd('linesSimple','week')->reset();
+
+//有二级统计情况的一周走势图
+//$chart->titleMain='标的资金流向走势图';
+//$chart->where=['act'=>['BidFundFlowsWithdraw','BidFundFlowsDyb','BidFundFlowsYebBuy','BidFundFlowsAccount']];
+//$chart->showStd('linesSimple','week')->reset();
+
+//没有二级统计情况的当日占比饼图
+ 	$chart->titleMain='天天赚转出人数占比图';
+ 	$chart->titleSub=$m_d;
+ 	$chart->where=['act'=>['YebOutUserNumEmployee','YebOutUserNumExternal', 'YebOutUserNumInviter']];
+	$chart->showStd('pieSimple','oneday')->reset();
+
+//有二级统计情况的当日占比饼图
+//$chart->titleMain='绑卡成功客户端类型占比';
+//$chart->titleSub=$m_d;
+//$chart->grpBy('clientType');
+//$chart->where=['act'=>['BindOkByClient']];
+//$chart->showStd('pieSimple','oneday')->reset();
+
+//$chart->titleMain='绑卡失败客户端类型占比';
+//$chart->titleSub=$m_d;
+//$chart->grpBy('clientType');
+//$chart->where=['act'=>['BindFailedByClient']];
+//$chart->showStd('pieSimple','oneday')->reset();
+
+	
+

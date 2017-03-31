@@ -1,0 +1,30 @@
+<div class="bjui-pageHeader">
+    <form id="monthmanagerForm">
+        <?php 
+            $mtRandId = '_' . mt_rand(10000, 99999);
+            echo '<label for="" style="margin-top: 17px;margin-bottom:10px;" id="zzjgLabel' . $mtRandId . '">' . $zzjgStr . '</label>';
+            echo '<br />';
+             ?>
+        
+    </form>
+</div>
+<div class="bjui-pageContent">
+    <div class="col-md-8" style="min-height: 200px;">
+        <?php echo $view; ?>
+         </br>
+         <?php
+          include "comments.www.phtml";
+        ?>
+    </div>
+</div>
+
+<script>
+
+    function doLoad() {
+        $(document).bjuiajax('doLoad', {
+            target: '#month-tab-manager',
+            url: "<?php echo \Sooh\Base\Tools::uri(); ?>",
+            data: $("#monthmanagerForm").serialize()
+        });
+    }
+</script>

@@ -1,0 +1,39 @@
+<?php
+switch($this->useTpl){
+	case 'logout':
+		$this->flgIsSinglePage=true;
+		$this->htmlHeadPart('<title>后台管理系统</title>');
+		echo $this->renderInc('head');
+		echo '<body scroll="no">';
+		include "auto/logout.www.phtml";
+		break;
+	
+	
+	case 'homepage':
+
+		$this->flgIsSinglePage=false;
+		$this->htmlHeadPart('<title>后台管理系统(m)</title>');
+        header('location:'.\Sooh\Base\Tools::uri(['__VIEW__'=>'wap'],'recent','rptdailybasic','report'));
+		echo $this->renderInc('head');
+//		echo '<body scroll="no">';
+		include "auto/homepage.wap.phtml";
+		break;
+	
+	
+	case 'login':
+		$this->flgIsSinglePage=true;
+		$this->htmlHeadPart('<title>后台管理系统(m)</title>');
+		echo $this->renderInc('head');
+		echo '<body scroll="no">';
+		//echo '<br/><br/><br/><br/>';
+		include "auto/login.wap.phtml";
+		break;
+	
+	default:
+		$this->htmlHeadPart('<title>后台管理系统</title>');
+		echo $this->renderInc('head');
+		echo '<body>';
+		echo "unknown auto-index";
+		break;
+}
+echo "<div style=\"clear:both;\"></div></body></html>";

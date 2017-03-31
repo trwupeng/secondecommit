@@ -1,0 +1,61 @@
+<?php $randNum = rand(1000,9999); ?>
+<div class="bjui-pageHeader">
+    <?php
+    $renderer = new \Prj\Misc\FormRenderer;
+    echo $renderer->formForExport(Sooh\Base\Tools::uri([],'index'),$randNum);
+    echo  $renderer->getSearchStandard(
+        \Sooh\Base\Form\Broker::getCopy('default'),
+        $renderer->getBatchArea(\Prj\Misc\View::btnDefaultInDatagrid('新增',Sooh\Base\Tools::uri([],'edit')), \Sooh\Base\Tools::uri(array('__EXCEL__'=>1,'where'=>$this->where),'index'), null)
+    );
+    ?>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table class="table table-bordered table-hover table-striped table-top" data-selected-multi="true"
+           data-toggle="tablefixed">
+        <thead>
+        <tr><?php
+            $header = $this->header;
+            if(!empty($header))
+            {
+                array_shift($header);
+                foreach ($header as $k => $v) {
+                    echo "<th width = '" . $v . "'>";
+                    echo $k;
+                    echo "</th>";
+                }
+            }
+
+            ?>
+            <th width="30"><?php echo \Prj\Misc\View::thCheckBox(); ?></th>
+            <th width="100">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $rs = $this->rs;
+        if (!empty($rs)) {
+            foreach ($rs as $r) {
+                $status = $r['status'];
+                $r['status'] = $r['status']==4?'已确认':'未确认';
+                echo "<tr>";
+                foreach ($r as $k => $v) {
+                    if($k=='businessId')continue;
+                    echo "<td>";
+                    echo $v;
+                    echo "</td>";
+                }
+                $_pkey_val_ = \Prj\Misc\View::encodePkey(['id'=>$r['businessId']]);
+                echo '<td>'.\Prj\Misc\View::trCheckBox($_pkey_val_).'</td>';
+                echo "<td>";
+                $num_pkey_val_ = \Prj\Misc\View::encodePkey(['month'=>date('Ym',strtotime($r['date'])),'id'=>$r['businessId']]);
+                echo \Prj\Misc\View::btnEditInDatagrid('编辑',Sooh\Base\Tools::uri(['_pkey_val_'=>$_pkey_val_],'edit'));
+                if($status!=4)echo \Prj\Misc\View::btnEditInDatagrid('确认',Sooh\Base\Tools::uri(['_pkey_val_'=>$num_pkey_val_,'_type'=>'check'],'numsEdit'));
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter"><?php //echo \Prj\Misc\View::pagerStandard($this->pager);?></div>

@@ -1,0 +1,92 @@
+<div class="bjui-pageContent">
+    <div></div>
+    <h3>参数配置<?php echo \Prj\Misc\View::btnEditInDatagrid('编辑',\Sooh\Base\Tools::uri([],'confedit'),['height'=>550]); ?></h3>
+    <hr>
+    <div style="width: 180px;display: inline-block">
+        <?php
+        foreach($this->remains as $k=>$v){
+            echo "<div><label>当前存量：</label>".$v."元</div>";
+            if($k=='amountX')echo "<br>";
+        }
+        ?>
+
+    </div>
+    <div style="width: 340px;display: inline-block">
+       <div><label>快快金融期初余额：</label><?php echo $this->finConf['amountK']; ?>元</div>
+       <div><label>美豫期初余额：</label><?php echo $this->finConf['amountM']; ?>元</div>
+       <div><label>线上充值期初余额：</label><?php echo $this->finConf['amountX']; ?>元</div>
+
+       <div>&nbsp;</div>
+       <div><label>投资人本金余额：</label><?php echo $this->finConf['userAmount']; ?>元</div>
+       <div><label>借款人还借款本金余额：</label><?php echo $this->finConf['borrowerAmount']; ?>元</div>
+       <div><label>借款人服务费余额：</label><?php echo $this->finConf['borrowerService']; ?>元</div>
+       <div><label>借款人保证金余额：</label><?php echo $this->finConf['borrowerMargin']; ?>元</div>
+       <div><label>借款人贷款利息余额：</label><?php echo $this->finConf['borrowerInterest']; ?>元</div>
+       <div><label>中介费：</label><?php echo $this->finConf['borrowerAgency']; ?>元</div>
+       <div><label>其它收入余额：</label><?php echo $this->finConf['incomeOT']; ?>元</div>
+
+       <div><label>借款人贷款金额余额：</label><?php echo $this->finConf['payLoan']; ?>元</div>
+       <div><label>支付投资人理财利息余额：</label><?php echo $this->finConf['payInterest']; ?>元</div>
+       <div><label>退还投资人本金余额：</label><?php echo $this->finConf['payAmount']; ?>元</div>
+       <div><label>退还借款人保证金余额：</label><?php echo $this->finConf['payMargin']; ?>元</div>
+       <div><label>中介返佣余额：</label><?php echo $this->finConf['payAgency']; ?>元</div>
+       <div><label>其它支出余额：</label><?php echo $this->finConf['payOT']; ?>元</div>
+
+    </div>
+    <h3>员工权限设置</h3>
+    <hr>
+    <div>
+        <?php
+        if(!empty($this->employee)){
+            foreach($this->employee as $v){
+                echo '<div>';
+                echo \Prj\Misc\View::btnEditInDatagrid('编辑',\Sooh\Base\Tools::uri(['_pkey_val_'=>\Prj\Misc\View::encodePkey(['loginName'=>$v['loginName']])],'rightsedit'));
+                echo '&nbsp;';
+                echo '<label>'.$v['nickname'].'</label>';
+                echo '&nbsp;';
+                /*
+                echo '<label>权限组：</label>';
+                if(!empty($v['groupId'])){
+                    $group = \Prj\Data\Group::getCopy($v['groupId']);
+                    $group->load();
+                    echo $group->getField('groupName').'&nbsp;';
+                }
+                */
+                echo '<label>后台权限：</label>';
+                if($rights = \Prj\Data\ManagerRight::getRightsByType($v['loginName'],'fin')){
+                    foreach($rights as $vv){
+                        if($vv){
+                            $right = \Prj\Data\Rights::getCopy($vv);
+                            $right->load();
+                            if($right->exists())echo $right->getField('rightsName').'&nbsp;';
+                            if($vv=='*')echo '全部权限'.'&nbsp;';
+                        }
+                    }
+                }
+                echo '<label>报表权限：</label>';
+                if($rptRights = \Prj\Data\ManagerRight::getRptRightsByType($v['loginName'],'rpt')){
+                    if(in_array('*',$rptRights)){
+                        echo '财务全部权限';
+                        echo '&nbsp;';
+                    }else{
+                        foreach($rptRights as $vv){
+                            $right = \Prj\Data\Rights::getCopy($vv);
+                            $right->load();
+                            echo $right->exists()?$right->getField('rightsName'):$vv;
+                            echo '&nbsp;';
+                        }
+                    }
+                }
+                if(!empty($v['underLoginName'])){
+                    $unders = explode(',',$v['underLoginName']);
+                    $unders = array_map(function($a){return \Prj\Data\Manager::getName($a);},$unders);
+                    $v['underLoginName'] = implode(',',$unders);
+                }
+                echo '<label>可查看的人员：</label>';
+                echo $v['underLoginName'];
+                echo '</div>';
+            }
+        }
+        ?>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_product_type"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:textSize="12dp">
+    </TextView>
+
+</RelativeLayout>

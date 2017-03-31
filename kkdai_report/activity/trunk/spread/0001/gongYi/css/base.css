@@ -1,0 +1,149 @@
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd,section, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '微软雅黑';
+	color: #3B3B3B;
+	width: 100%;
+	height: auto;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '微软雅黑';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'微软雅黑';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+
+body{
+	background:#7ac439;
+}
+.main div{
+	box-sizing: border-box;
+}
+#gYbanner{
+	width: 100%;
+	height: auto;
+	background: url(http://image.kuaikuaidai.com/activity/gongYi/8a096ef92f764061874bda9558391fc1.jpg) no-repeat top;
+	background-size:100%;
+	padding-top:4.0rem
+}
+.first_block{
+	border-radius: 0.3rem;
+	width: 90%;
+	height: auto;
+	margin: auto;
+	background: #ecf8e1;
+	padding: 0.3rem;
+	box-shadow: 0px 5px 1px #95d061;
+	margin-bottom: 0.4rem;
+}
+.first_block p,.first_block li{
+	font-size: 0.27rem;
+	color: #145906;
+	line-height: 0.5rem;
+	
+}
+
+.teColor{
+	color: #a13219;
+}
+.gYtitle{
+	background: url(http://image.kuaikuaidai.com/activity/gongYi/0c43cd99ec26426c9a6873eedb215c28.jpg) left center no-repeat;
+	background-size: 5% 40% ;
+	padding-left: 0.4rem;
+	font-size: 0.4rem;
+	color: #145906;
+	width: 100%;
+	margin: auto;
+	line-height: 0.8rem;
+}
+
+.two_block li{
+	list-style: decimal;
+	
+}
+.two_block ul{
+	width: 100%;
+	height: auto;
+	padding-left: 0.3rem;
+	border-bottom: 1px dashed #7ac439;
+	padding-bottom: 0.4rem;
+}
+
+.teP{
+	margin-left: -0.3rem;
+}
+
+
+
+
+
+

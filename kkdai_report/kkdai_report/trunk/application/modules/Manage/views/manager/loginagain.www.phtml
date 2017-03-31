@@ -1,0 +1,25 @@
+<?php
+use Sooh\Base\Form\Item as form_def;
+$formEdit = \Sooh\Base\Form\Broker::getCopy('default')
+				->init(\Sooh\Base\Tools::uri(), 'post', \Sooh\Base\Form\Broker::type_s);
+$formEdit->addItem('u', form_def::factory('用户名', '', form_def::text))
+	->addItem('p', form_def::factory('密&nbsp;&nbsp;码', '', form_def::passwd))
+	;
+		
+$formEdit->setRenderer(new \Lib\Misc\DWZ());
+?>
+<div class="bjui-pageContent" layoutH="58">
+	
+	<?php 
+	$renderer = new \Prj\Misc\FormRenderer;
+	$str = $renderer->getEditStandard(\Sooh\Base\Form\Broker::getCopy('default'),1);
+	echo str_replace('<label>', '<label style="width:80px;">', $str)
+	?>
+	<div style="color:red" id="warn"></div>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+        <li><button type="submit" class="btn-default">登 入</button></li>
+    </ul>
+</div>
+</form>

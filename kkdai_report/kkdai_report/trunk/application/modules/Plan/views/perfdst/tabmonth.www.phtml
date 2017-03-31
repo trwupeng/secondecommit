@@ -1,0 +1,262 @@
+<div class="bjui-pageHeader">
+    <form id="monthForm">
+        <?php if ($hasManager == 1) {
+            $mtRandId = '_' . mt_rand(10000, 99999);
+            echo \Prj\Misc\View::mb_zzjgck('', '', $mtRandId, 3);
+            echo '<br />';
+            echo '<label for="" style="margin-top: 7px;" id="zzjgLabel' . $mtRandId . '">' . $zzjgStr . '</label>';
+            echo '<br />';
+            echo '<div id="gitLabDivtamonth"></div>';
+            echo '<input type="hidden" id="zzjgName' . $mtRandId . '" name="zzjgName" value="' . $zzjgName . '">';
+            echo '<input type="hidden" id="zzjgNameCh' . $mtRandId . '" name="zzjgNameCh" value="' . $zzjgNameCh . '">';
+            echo '<br />';
+        }
+             ?>
+        
+          
+        <input type="text" data-toggle="datepicker" name="create_date" data-pattern="yyyy" size="10"
+               value="<?php echo $createDate ?>"/>
+        <select name="type_id" data-toggle="selectpicker">
+            <option value="1" <?php if ($typeId == 1) {
+                echo 'selected="selected"';
+            } ?>>1月
+            </option>
+            <option value="2" <?php if ($typeId == 2) {
+                echo 'selected="selected"';
+            } ?>>2月
+            </option>
+            <option value="3" <?php if ($typeId == 3) {
+                echo 'selected="selected"';
+            } ?>>3月
+            </option>
+            <option value="4" <?php if ($typeId == 4) {
+                echo 'selected="selected"';
+            } ?>>4月
+            </option>
+            <option value="5" <?php if ($typeId == 5) {
+                echo 'selected="selected"';
+            } ?>>5月
+            </option>
+            <option value="6" <?php if ($typeId == 6) {
+                echo 'selected="selected"';
+            } ?>>6月
+            </option>
+            <option value="7" <?php if ($typeId == 7) {
+                echo 'selected="selected"';
+            } ?>>7月
+            </option>
+            <option value="8" <?php if ($typeId == 8) {
+                echo 'selected="selected"';
+            } ?>>8月
+            </option>
+            <option value="9" <?php if ($typeId == 9) {
+                echo 'selected="selected"';
+            } ?>>9月
+            </option>
+            <option value="10" <?php if ($typeId == 10) {
+                echo 'selected="selected"';
+            } ?>>10月
+            </option>
+            <option value="11" <?php if ($typeId == 11) {
+                echo 'selected="selected"';
+            } ?>>11月
+            </option>
+            <option value="12" <?php if ($typeId == 12) {
+                echo 'selected="selected"';
+            } ?>>12月
+            </option>
+        </select>
+        <button type="button" onclick="doLoadMonth();" class="btn btn-default">查询</button>
+    </form>
+</div>
+<div class="bjui-pageContent">
+    <div class="col-md-8" style="min-height: 200px;">
+        <?php echo $view; ?>
+    </div>
+    <div class="col-md-offset-1 text-center" style="width: 198px; float: left;">
+        <div id="mb_yue_index">
+            <p>
+                <button onclick="tmp_pull(-1 , this , 'yue')" data-icon="caret-left" class="pull-left"></button>
+                <label for="" style="padding-top: 6px;" class="pull-year"><?php echo $createDate; ?></label>
+                <button onclick="tmp_pull(1 , this , 'yue')" data-icon="caret-right" class="pull-right"></button>
+            </p>
+            <div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">1月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_1" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">2月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_2" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">3月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_3" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; clear: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">4月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_4" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">5月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_5" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">6月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_6" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; clear: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">7月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_7" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">8月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_8" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">9月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_9" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; clear: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">10月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_10" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">11月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_11" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+                <div style="width: 66px; height: 48px; float: left; border: 1px solid ;">
+                    <p style="margin-top: 7px; margin-bottom: auto;"><label for="" style="font-size: 14px;">12月</label>
+                    </p>
+                    <p style="margin-top: 1px; margin-bottom: auto;"><label class="jiduyue_12" for=""
+                                                                            style="font-size: 12px;">未设置</label></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+if($Managerlogin==1){
+
+}else{
+  include "comments.www.phtml";
+}
+?>
+<script>
+    var zzjgInputs = new Array();
+    mb_dept.callbackById["<?php echo $mtRandId;?>"] = function (obj) {
+        var names = '', zzjgInputs = new Array();
+    	var obj_oaUser='';
+      	var obj_zzjgName='';
+        for (var oaUser in obj) {   
+            obj_oaUser+=obj[oaUser]+',';
+            obj_zzjgName+=oaUser+',';
+        }
+
+        setSelectedUsers( 3, obj_zzjgName );
+
+        obj_oaUser=(obj_oaUser.substring(obj_oaUser.length-1)==',')?obj_oaUser.substring(0,obj_oaUser.length-1):obj_oaUser;
+        obj_zzjgName=(obj_zzjgName.substring(obj_zzjgName.length-1)==',')?obj_zzjgName.substring(0,obj_zzjgName.length-1):obj_zzjgName;
+        
+        $("#zzjgLabel<?php echo $mtRandId; ?>").text(obj_oaUser);
+        $("#zzjgNameCh<?php echo $mtRandId; ?>").attr('value', obj_oaUser);
+        $("#zzjgName<?php echo $mtRandId; ?>").attr('value', obj_zzjgName);
+
+        var checkname=[
+                       "卢秋鹤","向兰英","吴鹏",
+                       "戴杰","李梦竹","李连奇",
+                       "梁言庆","汤高航","沈海燮",
+                       "王伟","王阳","童益丰","钟继业",
+                       "陶满","马龙龙","张有传","赵闯",
+                       "马天一","孔子龙","徐利营","赵宇光",
+                       "周豪","孙瑞明","宋威",
+                       "岳化梦","李向南","李增芳","李晓苑",
+                       "杨丽雲","汪杰","熊彩阳","金超","牛鹏凯",
+                   ];
+          
+           var username = obj[oaUser]; 
+           var temp = username.split("--");
+          // alert(temp);
+           var location=checkname.indexOf(temp[0]);
+           //alert(location);
+           if(false&&location>=0) {
+               //alert("121");
+         	  //显示
+        	 $("#gitLabDivtamonth").empty("");
+        	   
+          	 $("#gitLabDivtamonth").append("<a id=\"gitLabDivtamonth\"  class=\"btn btn-blue\" href=\"http://rpt.kuaikuaidai.com/index/gitlab/index?userId="+temp[0]+"\" target=\"_blank\">点击查看工作目标</a>");
+             
+           } else {
+          	    //隐藏
+               $("#gitLabDivtamonth").empty();
+              
+           }
+    };
+
+    function doLoadMonth() {
+        $(document).bjuiajax('doLoad', {
+            target: '#month-tab',
+            url: "<?php echo \Sooh\Base\Tools::uri(); ?>",
+            data: $("#monthForm").serialize()
+        });
+    }
+
+    var api = {
+        jidu: "",
+        yue: "<?php echo \Sooh\Base\Tools::uri([], 'getmonthset') ?>"
+    }
+
+    tmp_pull = function (num, ele, type) {
+        var $main = $(ele).closest('div')
+        var $year = $main.find('.pull-year')
+        var year = parseInt($year.text()) + num
+        $year.text(year)
+        set_data(year, $main, type)
+    }
+    set_data = function (year, $main, type) {
+        var url = api[type]
+        $.post(url, {year: year}, function (e) {
+            var obj = e.data;
+            var arr = new Array();
+            for (var i in obj) {
+                if (obj[i] == 1) {
+                    arr.push(parseInt(i));
+                }
+            }
+
+            var max = type == 'jidu' ? 4 : 12;
+            console.log(arr)
+            for (var i = 1; i <= max; i++) {
+                if (arr.indexOf(i) != -1) {
+                    $main.find('.jiduyue_' + i).text('已设置').css('color', '#3383dd')
+                } else {
+                    $main.find('.jiduyue_' + i).text('未设置').css('color', '#DDD')
+                }
+            }
+        })
+    }
+    //    set_data(2016 , $('#mb_jidu_index') , 'jidu')
+    set_data('<?php echo $createDate; ?>', $('#mb_yue_index'), 'yue')
+</script>

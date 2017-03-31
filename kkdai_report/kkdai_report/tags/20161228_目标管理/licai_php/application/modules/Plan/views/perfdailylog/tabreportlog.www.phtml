@@ -1,0 +1,34 @@
+<div class="bjui-pageHeader">
+    <form id="dailylogReportForm">
+        <label for="">开始日期</label>
+        <input type="text" data-toggle="datepicker" name="startDate" size="14" value="<?php echo $startDate; ?>"/>
+        <label for="">结束日期</label>
+        <input type="text" data-toggle="datepicker" name="endDate" size="14" value="<?php echo $endDate; ?>"/>
+        <button type="button" onclick="doLoad();" id="tabReportLogFormBtn" class="btn btn-default">查询</button>
+        <div class="pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn-default dropdown-toggle" data-toggle="dropdown" data-icon="copy">
+                    复选框-批量操作<span class="caret"></span></button>
+                <ul class="dropdown-menu right" role="menu">
+                    <li id="downloadReport"><a href="<?php echo \Sooh\Base\Tools::uri([
+                            '__EXCEL__' => 1,
+                            'where'     => urlencode(json_encode($where)),
+                        ], 'tabreportlog'); ?>">导出<span style="color: green;">全部</span></a></li>
+                    <li class="divider"></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageContent">
+    <?php echo $view->normalPerfTable(); ?>
+</div>
+<script>
+    function doLoad() {
+        $(document).bjuiajax('doLoad', {
+            target: '#report-tab',
+            url: "<?php echo \Sooh\Base\Tools::uri(); ?>",
+            data: $("#dailylogReportForm").serialize()
+        });
+    }
+</script>

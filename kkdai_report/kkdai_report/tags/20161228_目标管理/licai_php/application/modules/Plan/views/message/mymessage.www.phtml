@@ -1,0 +1,47 @@
+<?php
+$length = sizeof($this->records);
+$i=0;
+foreach($this->records as $record) {
+    $i++;
+    $list='';
+    if(!empty($record['atlist'])){
+        $list = implode(',&nbsp;', $record['atlist']);
+    }
+
+    ?>
+    <div style="overflow:hidden; <?php if($i!=$length) echo "border-bottom: dashed 1px grey;"?> padding-top:15px; padding-bottom: 15px;">
+        <div style="float:left ;width: 80%;">
+            <div style="width: 80%">
+                <p><span style="font-size:16px; padding-right:20px;"><?php echo $record['create_time'];?></span><span style="font-size:16px; padding-right:20px;"><?php echo $record['sender'];?></span><span style="font-size:16px; padding-right:20px;"><?php echo $record['type'];?></span><span style="font-size:16px; padding-right:20px;"><?php echo $list;?></span></p>
+                <p><span style="font-size:14px;"><?php echo $record['content'];?></span></p>
+            </div>
+        </div>
+        <div style="float:left; height: 100%;">
+
+
+            <button type="button" class="btn-green" data-url="<?php echo \Sooh\Base\Tools::uri(['jumpParams'=>$record['queryParamers'], 'targetTab'=>$record['targetTab']], $record['queryAction'], $record['queryController']) ;?>" data-fresh="true" data-toggle="navtab"  data-id="perf" style="margin-right:20px;"><?php echo $record['queryBtnName']?></button>
+            <?php
+            if($record['flag'] == 0){
+                ?>
+                <!--                <input style="margin:auto;" type="button" value="标记已读">-->
+                <button id="flagRead<?php echo'_'.$record['id'];?>" type="button" class="btn-green" data-url="<?php echo \Sooh\Base\Tools::uri(['id'=>$record['id'], '__VIEW__'=>'json'], 'markReaded'); ?>" data-toggle="doajax" data-callback="markReaded">标记已读</button>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+
+<script>
+    function markReaded(json){
+        console.log(json.statusCode);
+        if (json.statusCode==200){
+            var obj = document.getElementById('flagRead'+'_'+json.id);
+            obj.style.display='none';
+        }else {
+        }
+    }
+</script>

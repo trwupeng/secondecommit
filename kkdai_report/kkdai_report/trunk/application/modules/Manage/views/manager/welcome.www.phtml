@@ -1,0 +1,36 @@
+    <style>
+        .we{
+            margin-top: 50px;
+        }
+        img.foot{
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 0;
+            width: 100%;
+        }
+    </style>
+
+	<table class="table" width="100%" layoutH="138">
+		<tr><th width="20%">最后登入时间</th><td><?php echo $this->data['ymd']; ?></td></tr>
+		<tr><th width="20%">最后登入IP</th><td><?php echo $this->data['ip']; ?></td></tr>
+	</table>
+	<br><br><br>
+	<center>
+	<fieldset style="width:400px;margin-left:-500px;"><legend>猜您想去</legend>
+		<ul>
+
+			<li><a href="/plan/perfdst/index?targetTab=week" data-toggle="navtab" data-options="{id:'plan_perfdst_index', faicon:'refresh'}"  
+				   data-title="工作目标"><b style='font-size:30px;'>工作目标</b></a></li>
+			<p><p>
+			<li><a href="/plan/perfdailylog/index?targetTab=list" data-toggle="navtab" data-options="{id:'perf', faicon:'refresh'}"  
+				   data-title="工作日志"><b style='font-size:30px;'>工作日志</b></a></li>
+			<!--<li><a href="/manage/copartners/index?">加渠道</a></li>-->
+			<!--<li><a href="">改密码</a></li>-->
+			<br><br>
+		</ul>
+	</fieldset>
+	</center>
+<!-- nothing -->
+    <div>
+<!--        <img class="foot" src="/images/welcome-foot.png" />-->
+    </div> 

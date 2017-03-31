@@ -1,0 +1,22 @@
+<div class="bjui-pageContent">
+    <?php
+    $renderer = new \Prj\Misc\FormRenderer;
+    echo $renderer->getEditStandard(\Sooh\Base\Form\Broker::getCopy('default'),1);
+    ?>
+    <div data-toggle="upload" data-on-upload-success="uploadCallback" data-uploader="<?php echo  Sooh\Base\Tools::uri([],'upload');?>"></div>
+    <img id="img" src="<?php echo $this->imgUrl; ?>" />
+    <script>
+        var uploadCallback = function(file, data, $element){
+            var obj = eval('(' + data + ')');
+            $('[name="_fileId"]').val(obj.fileId);
+            $('#img').attr('src','<?php echo \Sooh\Base\Tools::uri([],'img','public','index'); ?>id='+obj.fileId);
+            return;
+        }
+    </script>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-green" data-icon="save">确定</button></li>
+    </ul>
+</div>

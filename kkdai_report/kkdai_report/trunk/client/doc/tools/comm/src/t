@@ -1,0 +1,29 @@
+	if ( argc < 3 )
+	{
+		cout<<"usage:dic2comm input_file output_dir"<<endl;
+		return -1;
+	}
+
+	XMLDocument doc;
+	int err = doc.LoadFile( argv[1] );
+	if ( XML_NO_ERROR != err )
+	{
+		cout<<"load file:"<<argv[1]<<" failed, error code:"<<err<<endl;
+		return -2;
+	}
+
+	for ( XMLElement* root = doc.RootElement(); NULL != root; root = root->NextSiblingElement() )
+	{
+		string name = root->Name();
+		if ( "enums" == name )
+		{
+			parseEnums( root );
+		}
+		else if ( "sends" == name )
+		{
+			parseSend( root );
+		}
+	}
+
+	genEnums( argv[2] );
+	genSend( argv[2] );

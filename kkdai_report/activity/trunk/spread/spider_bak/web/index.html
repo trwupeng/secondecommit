@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>2016快快贷请您看电影</title>
+    <meta name="keywords" content=快快贷,网贷,网络贷款,网络理财,债权转让,小额贷款,互联网金融,短期存款,高息存款,汽车贷款,旅游贷款,装修贷款,房产贷款,个人贷款,企业贷款 />
+    <meta name="description" content=快快贷(www.kuaikuaidai.com)是中国领先的互联网金融网络投资理财、网络贷款平台.1分钟注册,用户即可享受方便、快捷的个性化理财和贷款优质服务,轻松实现财富自由.提供小额贷款,短期贷款,个人贷款,企业贷款等服务.快快贷网络投资理财,超低门槛,超高收益. />
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/base11.css">
+    <link rel="stylesheet" type="text/css" href="css/dai22.css">
+    <link rel="stylesheet" type="text/css" href="css/kkdai33.css">
+    <link rel="stylesheet" type="text/css" href="css/activity_register.css"/>
+    <script type="text/javascript" src="js/conf.js"></script>
+    <script type="text/javascript" src="js/device.min.js"></script>
+    <script type="text/javascript">
+        if (device.mobile() || device.tablet()) {
+            window.location.href = __CONF__.h5Url;
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="inner clearfix">
+      <div class="head_left">
+        <p class="head_call"><em></em>客服热线：4000-137-000</p>
+        <p class="head_web"><a href="javascript:void(0);"></a>客户端</p>
+        <div class="head_app">
+          <img src="http://image.kuaikuaidai.com/static/images/webapp.png">
+          <p>扫一扫下载APP</p>
+        </div>
+      </div>
+      
+      <!--begin:登录后的状态-->
+        <div class="head_rigth"> <a class="head_btn head_curr" href="http://www.kuaikuaidai.com/login.html">登录</a> <a class="head_btn" href="http://www.kuaikuaidai.com/register.html">注册</a> </div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="inner clearfix"> <a class="nav_logo" href="http://www.kuaikuaidai.com/index.html"><img src="http://image.kuaikuaidai.com/static/images/logo.png"></a>
+      <ul class="clearfix">
+        <li class="nav_curr"><a href="http://www.kuaikuaidai.com/index.html">首页</a></li>
+        <li class="nav_arrow "> <a href="#">我要理财<em></em></a>
+          <div class="nav_box"> <span id="nav_box_top"><img src="http://image.kuaikuaidai.com/static/images/arrow_2.png"></span> <a href="http://www.kuaikuaidai.com/gaindetails.html">天天赚</a><a href="http://www.kuaikuaidai.com/bidSearch2.html?productType=2">房宝宝</a> <a href="http://www.kuaikuaidai.com/bidSearch2.html">定期宝</a><a href="http://www.kuaikuaidai.com/xybSearch.html">精英宝</a> </div>
+        </li>
+        <li class=""><a href="http://www.kuaikuaidai.com/security.html">安全保障</a></li>
+        <li class=""><a href="http://www.kuaikuaidai.com/activity.html">活动</a></li>
+        <li class=""><a href="http://www.kuaikuaidai.com/aboutUsfirm.html">关于我们</a></li>
+      </ul>
+    </div>
+  </div>
+
+<div class="banner_wrap">
+    <div class="banner_form_box">
+        <div class="banner_form" id="jumpReg">
+            <form id="reg" class="activity_register">
+                <h3>0元看电影 从此进入</h3>
+                <div class="border_line">
+                    <input type="text" name="phone" placeholder="请输入您要注册的手机号码" class="input01 hh validate validateEmpty validatePhone" maxlength="11">
+                </div>
+                <p class="tishi">必填</p>
+                <div class="border_line">
+                    <input type="password" name="password" placeholder="请输入6-16位由数字,字母组成的密码" class="input01 hh validate validateEmpty validatePassword" maxlength="16">
+                </div>
+                <p class="tishi">必填</p>
+                <div class="border_line" style="height:34px">
+                    <input type="text" name="code" placeholder="手机验证码" class="input02 hh validate validateEmpty validateCode" maxlength="4">
+                    <input type="button" id="secondSpan" onclick="javascript:getIdentCode();" value="获取验证码" class="yzm">
+                </div>
+                <p class="tishi">必填</p>
+                <div class="xieyi"><img src="http://image.kuaikuaidai.com/activity/spider/6357fe89b4254490abcaf003adde8e2b.jpg"><span class="xieyi_l">我已阅读并同意</span>
+                    <span class="xieyi_r"><a href="http://www.kuaikuaidai.com/baseservice.html">《快快贷网站服务协议》</a></span></div>
+                    <div class="reg">
+                        <input type="button" id="register" value="注册就送188元红包" class="btn" onclick="javascript:submitReg();">
+                    </div>
+                    <div class="tk" style="display:none;"></div>
+                </form>
+                <div class="register_complete">
+                    <h3>恭喜你 注册完成</h3>
+                    <h4>还差一步就能领到电影票啦</h4>
+                    <div class="go">
+                        <input type="button" id="regJump" value="去快快贷官方网站投资" class="touzi">
+                    </div>
+                    <p>下载快快贷APP马上投资</p>
+                    <div class="erweima"><img src="http://image.kuaikuaidai.com/activity/spider/0d0b7f7a2cad4bd1b682a2f3dc6ad966.jpg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="banner"></div>
+    </div>
+  <div class="activity_content03_wrap"> 
+    <div class="activity_content03">
+        <div class="new_user"><img src="http://image.kuaikuaidai.com/activity/spider/f8a853c3ffea40499c92f5727578b310.jpg"></div>
+        <div class="quan">
+            <div class="dianyingquan"><img src="http://image.kuaikuaidai.com/activity/spider/724ad861c8e046cba822cf9b716e6027.jpg"></div>
+            <div class="dixianquan"><img src="http://image.kuaikuaidai.com/activity/spider/3f6cc4e9e81c4002b10921659d8a1ca4.jpg"></div>
+        </div>
+        <div class="liucheng">
+            <ul>
+                <li>
+                    <div class="shun">
+                        <img src="http://image.kuaikuaidai.com/activity/spider/1fef64f762cb45f58851df7b75918655.jpg">
+                        <p>注册</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="shun">
+                        <img src="http://image.kuaikuaidai.com/activity/spider/5c24467ef620430daebc1d807ee35172.jpg">
+                        <p>领取抵现券</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="shun">
+                        <img src="http://image.kuaikuaidai.com/activity/spider/0e4fa88252fe4eaf9a9360d6e2293b0a.jpg">
+                        <p>首次投资</p>
+                    </div>
+                </li>
+                <li class="last">
+                    <div class="shun">
+                        <img src="http://image.kuaikuaidai.com/activity/spider/af4ed0d59c294121b0f582ab57dfb051.jpg">
+                        <p>领取通兑券</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="tiaozhuan"><a href="#jumpReg">马上去注册</a></div>
+        <div class="rules">
+            <div class="rules_title"><img src="http://image.kuaikuaidai.com/activity/spider/4baf17e34aad48e29cd2cc40bbc7dde0.jpg"></div>
+            <p>1、本活动仅面向通过本页面注册的新用户；</p>
+            <p>2、活动时间:2016年1月15日0:00-2016年2月14日23:59:59；</p>
+            <p>3、所有新注册用户都将获得188元的抵现券；</p>
+            <p>4、首次投资≥1000元（不包含天天赚）即可获得电影通兑券；</p>
+            <p>5、电影票通兑券会在投资成功后的3小时内，以短信形式发送到您注册的手机号码上；</p>
+            <p>6、电影票通兑券使用规则以蜘蛛网现有规则为准。</p>
+        </div>
+        <p class="suoyouquan">本活动最终解释权归快快贷所有</p>
+    </div>
+</div> 
+
+<div class="footer">
+    <div class="inner">
+      <div class="foot_box clearfix">
+        <div class="foot_call">
+          <div class="foot_img"><a href="javascript:void(0);"><img src="http://image.kuaikuaidai.com/static/images/phone.png"></a></div>
+          <div class="foot_txt">
+            <h1>4000-137-000</h1>
+            <p>服务时间：9:00 - 21:00</p>
+          </div>
+        </div>
+        <div class="foot_left clearfix">
+          <ul class="clearfix">
+            <li><a href="http://www.kuaikuaidai.com/aboutUsfirm.html">关于我们</a></li>
+            <li><a href="http://www.kuaikuaidai.com/security.html">安全保障</a></li>
+            <li><a href="http://www.kuaikuaidai.com/aboutUsRelation.html">联系我们</a></li>
+            <li><a href="http://www.kuaikuaidai.com/aboutUsJob.html">招贤纳士</a></li>
+          </ul>
+          <div class="foot_phone foot_wid"> <span>手机上快快贷</span> <a class="foot_hover3" target="_blank" rel="external nofollow" href="https://itunes.apple.com/cn/app/kuai-kuai-dai-li-cai/id938522778?mt=8"></a> <a class="foot_hover4" rel="external nofollow" href="http://www.kuaikuaidai.com/upload/app/android/kuaikuaidai.apk"></a> </div>
+          <div class="foot_phone"> <span>关注我们</span> <a class="foot_hover1" target="_blank" rel="external nofollow" href="http://weibo.com/kkdai1688"></a> <a class="foot_hover2" href="javascript:void(0);"></a> </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot_bom">
+      <div class="foot_icon"> 
+        <a target="_blank" rel="external nofollow" href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.kuaikuaidai.com&amp;lang=zh_cn"><img title="快快贷已引入VeriSign SSL加密技术，您的隐私及个人资料安全已受最高级别的保护。" src="http://image.kuaikuaidai.com/static/images/nort_1.jpg"></a> 
+        <a target="_blank" rel="external nofollow" href="https://search.szfw.org/cert/l/CX20140708008362008856" id="___szfw_logo___"><img src="http://image.kuaikuaidai.com/static/images/nort_2.jpg" title="快快贷荣获中国电子商务协会“诚信网站”认证殊荣"></a> 
+        <a target="_blank" rel="external nofollow" href="http://www.zx110.org/"><img src="http://image.kuaikuaidai.com/static/images/nort_3.jpg" title="网络社会征信网"></a> 
+        <a target="_blank" rel="external nofollow" href="http://net.china.com.cn/index.htm"><img src="http://image.kuaikuaidai.com/static/images/nort_4.jpg" title="不良信息举报中心"></a>
+        <a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn/"><img src="http://image.kuaikuaidai.com/static/images/nort_5.jpg" title="上海网络警察报警平台110"></a> 
+        <a target="_blank" rel="external nofollow" href="http://si.trustutn.org/info?sn=262150827000258634793"><img src="http://image.kuaikuaidai.com/static/images/nort_6.jpg" title="互联网金融行业认证"></a> 
+        <a target="_blank" rel="external nofollow" href="http://www.anquan.org/authenticate/cert/?site=www.kuaikuaidai.com&amp;at=business"><img src="http://image.kuaikuaidai.com/static/images/nort_7.jpg" title="安全联盟认证"></a> 
+      </div>
+      <div class="linebocs">
+      <ul class="clearfix">
+        <li><a href="">友情链接：</a></li>
+        <li><a target="_blank" rel="external nofollow" href="http://www.wangdaizhijia.com/">网贷之家</a></li>
+        <li><a target="_blank" rel="external" href="http://www.kuaikuaidai.com">快快贷理财</a></li>
+        <li><a target="_blank" rel="external" href="http://www.kuaikuaidai.com">快快贷官网</a></li>
+        <li><a target="_blank" rel="external" href="http://www.kuaikuaidai.com">互联网金融平台</a></li>
+        <li><a target="_blank" rel="external" href="http://www.kuaikuaidai.com">互联网理财平台</a></li>
+        <li><a target="_blank" rel="external" href="http://www.kuaikuaidai.com">快快贷</a></li>
+        <li><a target="_blank" rel="external" href="http://www.daichuqu.com/">贷出去多赚</a></li>
+      </ul>
+      </div>
+      <p>快快金融信息服务(上海)有限公司 版权所有 沪ICP备07003768号 | Copyright © 2015, www.kuaikuaidai.com All Rights Reserved</p>
+    </div>
+  </div>
+
+<!--begin:微信弹框-->
+<div class="win_warp">
+  <div class="win_fn"></div>
+  <div class="win_box">
+    <div class="code_head">
+      <h2>关注快快金融官方微信</h2>
+      <a class="close" href="javascript:void(0);"><img src="http://image.kuaikuaidai.com/static/images/close.png" /></a> </div>
+    <div class="code"><a href="javascript:void(0);"><img src="http://image.kuaikuaidai.com/static/images/wx.png" /></a></div>
+  </div>
+</div>
+<!--end:微信弹框--> 
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2cd07a5ebaa7043e8db6a9cc1a68afce";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+<script type="text/javascript" src="js/conf.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript">
+    var _md_lastRegSuc_='0', _md_lastSendCode_='0', _md_lastFormData='0', _md_lastForm='0';
+    var maxcount = 60;
+    var countdown = maxcount;
+    var intervalid;
+    function disableTime() {
+        $('#secondSpan').attr('disabled', 'disabled');
+        $('#secondSpan').addClass('yzm_gray');
+        countdown--;
+        if (countdown == 0) {
+            countdown = maxcount;
+            $('#secondSpan').val('重发验证码');
+            $('#secondSpan').removeClass('yzm_gray');
+            $('#secondSpan').removeAttr('disabled');
+            window.clearInterval(intervalid);
+        } else {
+            $('#secondSpan').val(countdown + '秒后重发')
+        }
+    }
+
+    $(function() {
+		$('input').placeholder();
+        addCookie('source', 'spider', 3, '.kuaikuaidai.com');
+
+        $(reg.phone).focus(function(){_md_lastForm = 'a'});
+        $(reg.password).focus(function(){_md_lastForm = 'b'});
+        $(reg.code).focus(function(){_md_lastForm = 'c'});
+
+        /*客户端移入移出*/
+        $(".head_web").hover(hoverIn,hoverOut);
+        $(".head_app").hover(hoverIn,hoverOut);
+
+        function hoverIn(){
+            $(".head_web").css({"color":"#333","background":"#f3f3f3"});
+            $(".head_web a").css("background","url(http://image.kuaikuaidai.com/static/images/icon_3.png) no-repeat");
+            $(".head_app").show();
+        }
+
+        function hoverOut(){
+            $(".head_web").css({"color":"#b5b5b5","background":"none"});
+            $(".head_web a").css("background","url(http://image.kuaikuaidai.com/static/images/icon_2.png) no-repeat");
+            $(".head_app").hide();
+        }
+        /*导航移入移出*/
+        $('.nav_arrow').hover(function(){
+            $('.nav_box').css('display','block');
+        },function(){
+            $('.nav_box').css('display','none');
+        });
+
+        /*微信弹框*/
+        $('.foot_hover2').click(function(){
+            $('.win_warp').fadeIn('1000');
+        });
+        $('.close').click(function(){
+            $('.win_warp').fadeOut('1000');
+        });
+    });
+
+    $(window).unload(function() {
+        _md_lastFormData = {'a':$(reg.phone).val().length,'b':$(reg.code).val().length,'c':$(reg.code).val().length,'reged':_md_lastRegSuc_,'sendcode':_md_lastSendCode_,'fm':_md_lastFormData,'lt':_md_lastForm,'source':'spider','channel':'web'};
+        jQuery.ajax({
+            type : "GET",
+            url : '/evt_reg.php',
+            data : _md_lastFormData,
+            dataType : 'jsonp',
+            jsonp : 'callback',
+            success : function(result) {}
+        });
+    });
+
+    function checkIdentCode() {
+        if($(reg.code).closest('div').next('.tishi').text() == "") {
+            var str = reg.code.value;
+            if (!isEmpty(str)) {
+                if (str.length != 4) {
+                    $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                    $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                } else {
+                    if (!isDigit(str)) {
+                        $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                        $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                        return false;
+                    }
+                }
+            } else {
+                $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkPhone() {
+        if($(reg.phone).closest('div').next('.tishi').text() == "") {
+            var str = reg.phone.value;
+            if (!isEmpty(str)) {
+                if (isDigit(str)) {
+                    if (!isMobile(str)) {
+                        $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                        $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                        return false;
+                    } else {
+                        $(reg.phone).closest('div').next('.tishi').text('').hide();
+                        $(reg.phone).removeClass("ipt_wrong").addClass("hh");
+                        return true;
+                    }
+                } else {
+                    $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                    $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+            } else {
+                $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkPassWord() {
+        if ($(reg.password).closest('div').next('.tishi').text() == "") {
+            var password = reg.password.value;
+            if (!isEmpty(password)) {
+                if(password.length < 6 || password.length > 16) {
+                    $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                    $(this).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+                var pattern = /^[a-zA-Z0-9]+$/;
+                if(!password.match(pattern)) {
+                    $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                    $(this).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+            } else {
+                $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                $(this).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getIdentCode() {
+        $(reg.phone).trigger("blur");
+        _md_lastSendCode_ = '1';
+        $('#secondSpan').attr('disabled', 'disabled');
+        if($(reg.phone).closest('div').find('.tishi').text() == "" && $(reg.code).closest('div').find('.tishi').text() == ""){
+            var str = reg.phone.value;
+            if (!isEmpty(str)) {
+                if (isDigit(str)) {
+                    if (!isMobile(str)) {
+                        $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                        $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                        $('#secondSpan').removeAttr('disabled');
+                        return;
+                    }
+                } else {
+                    $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                    $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                    $('#secondSpan').removeAttr('disabled');
+                    return;
+                }
+            } else {
+                $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                $('#secondSpan').removeAttr('disabled');
+                return;
+            }
+
+            var req = {"phone":reg.phone.value};
+            myAjax(__CONF__.sendIdentCodeUrl, req, function (result) {
+                if (result.code == 0) {
+                    showTk('验证码已发送');
+                    intervalid = setInterval(function(){ disableTime()},1000);
+                } else if (result.code == 209 || result.code == 230 || result.code == 231 || result.code == 247 || result.code == 249){
+                    if (result.code != 209) {
+                        intervalid = setInterval(function(){ disableTime()},1000);
+                    }
+                    showTk(result.desc);
+                } else {
+                    showTk('验证码发送失败，请稍后再试');
+                    intervalid = setInterval(function(){ disableTime()},1000);
+                }
+            });
+        }
+        $('#secondSpan').removeAttr('disabled');
+    }
+
+    function submitReg() {
+        var retVal = validateForm(reg.phone);
+        if (retVal['error'] ==0 && checkPhone() && checkPassWord() && checkIdentCode()) {
+            var req = {"phone": reg.phone.value, "code": reg.code.value, "password": reg.password.value, "channel":"WEB", "source":"spider"}
+            myAjax(__CONF__.regUrl, req, function (result) {
+                if (result.code == 0) {
+                    _md_lastRegSuc_ = '1';
+                    var logVal = {"username":reg.phone.value,"password":reg.password.value};
+                    myAjax(__CONF__.loginUrl, logVal, function(logRet) {
+                        if(logRet.code == 0) {
+                            $('#regJump').click(function() {
+                                window.location.href=__CONF__.regSucJumpUrl
+                            });
+                            $('#reg').hide();
+                            $('.register_complete').show();
+                        }
+                    }, true);
+                } else if(result.code == 209 || result.code == 227 || result.code == 228) {
+                    showTk(result.desc);
+                } else {
+                    showTk('注册失败，请重新注册');
+                }
+            });
+        }
+    }
+
+    function showTk(msg) {
+        $('.tk').html(msg);
+        $('.tk').show();
+        setTimeout("$('.tk').fadeOut(1000)",1000);
+    }
+
+    function addCookie(objName, objValue, objHours, domain) {
+        var str = objName + "=" + encodeURI(objValue);
+        if (objHours > 0) {
+            var date = new Date();
+            var ms = objHours * 3600 * 1000;
+            date.setTime(date.getTime() + ms);
+            str += "; expires=" + date.toGMTString() + "; domain=" + domain + "; path=/";
+        }
+        document.cookie = str;
+    }
+</script>
+</html>

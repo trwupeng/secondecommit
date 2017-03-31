@@ -1,0 +1,13 @@
+<form action="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1),'addnew'); ?>" method="post" id="contracts-exportChecked" style="display: none;">
+</form>
+<div class="bjui-pageContent"><?php 
+    $renderer = new \Prj\Misc\FormRenderer();
+    echo $renderer->getEditStandard(\Sooh\Base\Form\Broker::getCopy('default'),2);
+?>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>

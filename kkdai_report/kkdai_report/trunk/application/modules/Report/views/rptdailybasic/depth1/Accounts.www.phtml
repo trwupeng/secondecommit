@@ -1,0 +1,26 @@
+<?php
+	$args=$this->args;
+	//$rs = $this->records;
+	$display =$this->grpName;
+	$chartid=1;
+	foreach($display as $displayid=>$intro){
+		echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+		$args['forGrp']=$displayid;
+		echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+		$chartid++;
+	}
+	
+//	$chartid=1;
+//
+//
+//	foreach($display as $displayid=>$intro){
+//		$tb = array();
+//		echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//		foreach($rs[$displayid] as $k=>$n){
+//			$tb[]=array($names[$k],$n,\Sooh\HTML\Form::linkBtn('&gt;&gt;&gt;', \Sooh\Base\Tools::uri(array('forwhat'=>$k,'ymd'=>$ymd), 'detail1')));
+//		}
+//		$tb[]=array('日期',$ymd,'&nbsp;');
+//		echo \Sooh\HTML\Table::std($tb,false).'<br/>';
+//	}	
+	
+

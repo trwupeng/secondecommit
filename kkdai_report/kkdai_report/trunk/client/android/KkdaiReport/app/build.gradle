@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def appReleaseDir = '../package'
+
+def getDate() {
+    def formattedDate = (new Date()).format('yyyy-MM-dd_HH-mm-ss')
+    return formattedDate
+}
+
+android {
+
+    compileSdkVersion 23
+
+    buildToolsVersion '23.0.1'
+
+    defaultConfig {
+        applicationId "com.kuaikuaidai.kkdaireport"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        buildConfigField("String", "API_IP", "\"10.1.1.212\"")
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'kuaikuaidai'
+            keyPassword 'report'
+            storeFile file('../keystore/KkdReport.jks')
+            storePassword 'kuaikuaidai'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.releaseConfig
+            minifyEnabled true //是否开启混淆
+            zipAlignEnabled true //zip优化
+            buildConfigField("String", "API_IP", "\"rpt.kuaikuaidai.com\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        preview {
+            signingConfig signingConfigs.releaseConfig
+            minifyEnabled true //是否开启混淆
+            zipAlignEnabled true //zip优化
+            buildConfigField("String", "API_IP", "\"kkdtest.kuaikuaidai.com\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    afterEvaluate {
+        delete appReleaseDir
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                if (variant.buildType.name.equals('release')) {
+                    copy {
+                        from('build/outputs/apk')
+                        into(appReleaseDir)
+                        include('app-release.apk')
+                        rename('app-release.apk', 'Release_KkdReport.V' + defaultConfig.versionName + '(' + getDate() + ').apk')
+                    }
+                }
+                if (variant.buildType.name.equals('preview')) {
+                    copy {
+                        from('build/outputs/apk')
+                        into(appReleaseDir)
+                        include('app-preview.apk')
+                        rename('app-preview.apk', 'Test_KkdReport.V' + defaultConfig.versionName + '(' + getDate() + ').apk')
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':PullToRefresh')
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    compile 'com.joanzapata.android:base-adapter-helper:1.1.11'
+    compile 'com.alibaba:fastjson:1.2.17'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.shizhefei:ViewPagerIndicator:1.1.4'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+}

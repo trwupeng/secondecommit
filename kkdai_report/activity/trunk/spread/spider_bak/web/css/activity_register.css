@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+body{ font-family:"微软雅黑"; }
+.banner_wrap{ width:100%; height:520px; position:relative;}
+.banner{ height:520px; background:url(http://image.kuaikuaidai.com/activity/spider/ca72bdc8f2eb43c381573ef511c32969.jpg) top center no-repeat;}
+.banner_form_box{ width:1000px; margin:0 auto; position:relative; z-index:9;}
+.banner_form_box .banner_form{ width:304px; background:rgba(255,255,255,0.85); background:#fff\0; position:absolute; z-index:8; right:0; top:20px; border-radius:5px; overflow:hidden;}
+/*注册*/
+.activity_register h3{ font-size:18px; text-align:center; margin:24px 0; color:#393939; font-weight:bold;  }
+.activity_register .border_line{ width:262px; height:35px; margin:0 auto; margin-bottom:10px; border:1px solid #fff\0;}
+/*.ipt_wrong{ border:2px solid #f44444}*//*红框框*/
+.border_line .input01{ width:250px; height:33px; line-height:31px; border-radius:3px;  color:#000; font-size:14px; display:block; margin:0 auto; font-family:"微软雅黑"; padding-left:10px;}
+.hh{border:1px solid #8b8c8b;}
+.hh:focus{border:2px solid #5c8ff6; outline:0;}
+.tishi{ width:262px; margin:0 auto; font-size:14px; color:red; margin-bottom:10px; line-height:15px; display:none; text-align:left; padding-left:8px;}
+.border_line .input02{ width:124px; height:32px; line-height:30px;border-radius:3px; color:#000; font-size:14px; display:block; font-family:"微软雅黑"; padding-left:10px; float:left;}
+.border_line .yzm{ width:115px; height:34px; line-height:32px; text-align:center; background:#5b9be3; border:1px solid #5b9be3; color:#fff; font-size:14px; display:block; font-family:"微软雅黑"; float:right; border-radius:3px; cursor:pointer;}
+.border_line .yzm_gray{ width:115px; height:34px; line-height:32px; text-align:center; background:#aeaeae; border:1px solid #aeaeae; color:#fff; font-size:14px; display:block; font-family:"微软雅黑"; float:right; border-radius:3px; cursor:pointer;}
+.xieyi{ width:260px; margin:0 auto; margin-bottom:10px; font-size:14px; color:#3a3a3a;font-family:"微软雅黑"; padding-left: 32px; overflow:hidden; position:relative; }
+.xieyi img{ width:13px; height:13px; display:inline-block; vertical-align:middle; position:absolute; left:16px; top:3px;}
+.xieyi a{ color:#732ab0;}
+.xieyi_l{ float:left;}
+.xieyi_r{ float:left;}
+
+.reg{ width:264px; height:50px; margin:0 auto; margin-bottom:70px;}
+.reg .btn{ width:262px; height:48px; line-height:46px; background:#732ab0; text-align:center; font-size:18px; font-family:"微软雅黑"; color:#fff; border:1px solid #732ab0; border-radius:3px; cursor:pointer; display:block;}
+.reg .btn:hover{ background:#9051c4; border:1px solid #9051c4;}
+.tk{  width:250px; height:40px; line-height:40px; text-align:center; background:#666\0;background:rgba(0,0,0,0.85); color:#fff; border-radius:5px; position:absolute; top:50%; margin-top:-60px; left:50%; margin-left:-125px; z-index:6; font-size:14px;}
+/*注册*/
+/*注册成功*/
+.register_complete{ display:none;}
+.register_complete h3{ margin:24px 0 16px 0; text-align:center; font-size:18px; color:#e32011; font-family:"微软雅黑"; font-weight:600;}
+.register_complete h4{ font-size:18px; text-align:center; color:#e32011; margin-bottom:22px; font-weight:600;}
+.register_complete .go{ width:198px; height:36px; margin:0 auto;}
+.register_complete .go .touzi{ width:198px; height:40px; line-height:32px; text-align:center; font-size:16px; color:#fff; border-radius:3px; background:#732ab0; border:1px solid #732ab0; cursor:pointer; font-family:"微软雅黑";}
+.register_complete .go .touzi:hover{ background:#9051c4;}
+.register_complete p{ font-size:16px; color:#3a3a3a; text-align:center; margin-top:25px; margin-bottom:15px; font-family:"微软雅黑"}
+.register_complete .erweima{ width:117px; height:117px; margin:0 auto; margin-bottom:29px;}
+/*注册成功*/
+
+.activity_content03_wrap{ width: 100%; background:#061a3e; overflow: hidden;}
+.activity_content03{ width:1000px; overflow:hidden; margin:0 auto; background:#0e2144; margin-bottom:50px;}
+.activity_content03 .new_user{ width:1000px; height:95px; margin:0 auto; margin-top:10px; font-size:22px; text-align:center; color:#b9f3ff;}
+.activity_content03 .new_user img{ width:100%; height:95px;}
+
+.activity_content03 .quan{ width:790px; height:124px; margin:0 auto; margin-top:15px;}
+.activity_content03 .dianyingquan{ width:285px; height:123px; float:left}
+.activity_content03 .dixianquan{ width:286px; height:124px; float:right;}
+.activity_content03 .liucheng{ width:800px; height:170px; margin:0 auto; margin-top:75px; margin-bottom:40px;}
+.activity_content03 .liucheng ul li{ width:189px; float:left; margin-right:34px; background:url(http://image.kuaikuaidai.com/activity/spider/ca2aab0859ff49edab970637b3b853b1.jpg) right 35px no-repeat;}
+.activity_content03 .liucheng ul li.last{ width:129px; margin-right:0; background:none;}
+.activity_content03 .liucheng ul li .shun{ width:129px;}
+.activity_content03 .liucheng ul li .shun p{ text-align:center; font-size:18px; color:#7d95ff; margin-top:10px;}
+.activity_content03 .tiaozhuan{ width:90px; height:30px; margin:0 auto;margin-bottom:40px; text-align:center; font-family:"微软雅黑";}
+.activity_content03 .tiaozhuan a{ font-size:18px; width:90px height:30px; display:block; color:#5059b2; text-decoration:none; border-bottom:1px solid #5059b2; text-align:center; }
+.activity_content03 .rules{ width:1000px; margin:0 auto; margin-bottom:35px;}
+.activity_content03 .rules_title{ width:1000px; height:67px; margin:0 auto;}
+.activity_content03 .rules_title img{ width:100%; height:67px;}
+.activity_content03 .rules p{ margin-left:151px; font-size:18px; color:#b9f3ff; line-height:40px;}
+.activity_content03 .suoyouquan{ text-align:center; font-size:18px; color:#274a88; margin-bottom:50px;}

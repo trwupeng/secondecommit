@@ -1,0 +1,286 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+
+        <include layout="@layout/view_line_v_m"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/date"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/vip_recharge"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/normal_recharge"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/vip_withdraw"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/normal_withdraw"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/recharge_amount"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/withdraw_amount"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/current_withdraw_num"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/current_success_recharge_num"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/current_success_recharge_with_voucher_num"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/company_poundage"
+                android:textColor="@color/txt_color2"
+                android:textSize="12dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+        </LinearLayout>
+
+        <include layout="@layout/view_line_v_m"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_vip_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_normal_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_vip_withdraw"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_normal_withdraw"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_recharge_amount"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_withdraw_amount"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_withdraw_num"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_withdraw_success_num"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_withdraw_success_voucher_num"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_company_poundage"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="@color/txt_color1"
+                android:textSize="14dp">
+            </TextView>
+
+            <include layout="@layout/view_line_h"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/view_line_v_m"/>
+    </LinearLayout>
+
+</LinearLayout>
+

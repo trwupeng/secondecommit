@@ -1,0 +1,67 @@
+<?php 
+use \Rpt\EvtDaily\Base as prjlib_evtdaily;
+ $this->htmlHeadPart('<title>最近日统计（当天是每小时更新）2</title>');
+ echo $this->renderInc('head');
+ echo $this->renderInc('wapmenu');
+$actName = $this->actName;
+$weekdayName=$this->weekdayName;
+$copartners = $this->copartners;
+//$names =$this->actName;
+//$names['LoginPc'] = 'PC端活跃用户';
+$names['LoginMobile'] = '移动端活跃用户';
+$rs = $this->records;
+echo '<div class="container" >';
+//echo '说明：增长0~10%<font style="color:red;font-weight:bold">↑</font>，增长10~30%<font style="color:red;font-weight:bold">↑↑</font>，
+//增长30%以上<font style="color:red;font-weight:bold">↑↑↑</font><br/>';
+
+$lst=$this->rptGroupDefine;
+
+$ymds = array_keys($rs);
+$nYmd = sizeof($ymds);
+for($i=0;$i<$nYmd;$i++){
+	$ymd = $ymds[$i];
+	$r = $rs[$ymd];
+	$s = "<div style=\"max-width:500px;\"><table  style=\"width: 100%; \" border=1><thead><tr><th>日期<th>".date("Y年m月d日",  strtotime($ymd))."<th>周".$weekdayName[date('w',strtotime($ymd))]."</th></tr></thead>";
+	
+	foreach($lst as $listId=>$row){
+		if ($ymd == date('Ymd') && ($listId == 'p_yebfundflows' || $listId == 'p_dybfundflows')) {
+			continue;
+		}
+		$tr = "<tr><td>{$row['fmt'][0]}<td>";
+		foreach($row['extraRate'] as $rateName=>$define){
+			if($r[$define[1]]>0){
+				$r[$rateName] = sprintf("%.1f",($r[$define[0]]/$r[$define[1]]*100));
+			}else{
+				$r[$rateName] = 0;
+			}
+		}
+		$url = \Sooh\Base\Tools::uri(['forAct'=>$listId,'ymd'=>$ymd,"__VIEW__"=>\Sooh\Base\Ini::getInstance()->viewRenderType()],'depth1');
+		if ($r['{ApplyWithdrawAmount}'] > $r['{ChargeAmount}']) {
+			$r['{ApplyWithdrawAmount}'] = '<span style="color:red">'.$r['{ApplyWithdrawAmount}'].'</span>';
+		}
+		$tr.=str_replace(array_keys($r), $r, $row['fmt'][1]);
+		if(strpos($tr,'todo')){
+			$s .=$tr."</td><td></td></tr>";
+		}else{
+			$s .=$tr."</td><td><a href=\"$url\"><nobr>详细</nobr></a></td></tr>";
+		}
+	}
+	$s.="</table></div>";
+	echo $s;
+	$s = "<div style=\"max-width:500px;\"><table  style=\"width: 100%; \" border=1><thead><tr><th>&nbsp;<th>新标<th>旧标</th></tr></thead>";
+	$s .= "<tbody>";
+	$s .= "<tr><td>之前买</td><td></td><td>"
+			."超级用户买：".$prdtbuy[$ymd]['oldPrdtSuperBuyAmountBefore']."<br />非超级用户买：".$prdtbuy[$ymd]['oldPrdtCommonBuyAmountBefore']."<br/>使用券金额:".$prdtbuy[$ymd]['oldPrdtVoucherUseAmountBefore']."</td></tr>";
+	$s .= "<tr><td>当日买</td><td>"."超级用户买：".$prdtbuy[$ymd]['newPrdtSuperBuyAmountThisDay']."<br />非超级用户买：".$prdtbuy[$ymd]['newPrdtCommonBuyAmountThisDay']."<br/>使用券金额:".$prdtbuy[$ymd]['newPrdtVoucherUseAmountThisDay']."</td><td>"
+			."超级用户买：".$prdtbuy[$ymd]['oldPrdtSuperBuyAmountThisDay']."<br />非超级用户买：".$prdtbuy[$ymd]['oldPrdtCommonBuyAmountThisDay']."<br/>使用券金额:".$prdtbuy[$ymd]['oldPrdtVoucherUseAmountThisDay']."</td></tr>";
+	$s .= "<tr><td>"."剩余"."</td><td>".$prdtbuy[$ymd]['newPrdtAmountLeft']."</td><td>".$prdtbuy[$ymd]['oldPrdtAmountLeft']."</td></tr>";
+	$s .= "<tr><td>"."总额"."</td><td>".$prdtbuy[$ymd]['prdtAmountNew']."</td><td>".$prdtbuy[$ymd]['prdtAmountOlder']."</td></tr>";
+	echo $s."</tbody></table></div><br />\n";
+	echo '<div style="clear:both"></div>';
+	echo "<br /><br /><br />";
+}
+// echo $this->renderInc('foot');
+echo '</div>';
+echo $this->renderInc('foot');
+
+

@@ -1,0 +1,68 @@
+<div class="bjui-pageContent">
+    <div></div>
+    <h3>参数配置<?php echo \Prj\Misc\View::btnEditInDatagrid('编辑',\Sooh\Base\Tools::uri([],'confedit')); ?></h3>
+    <hr>
+    <div>
+        <div>当前存量:<?php echo $this->remains['remainAmount']/1000000; ?>万元 <label>期初业务金额:</label><?php echo $this->busConfs['businessAmount']; ?>万元</div>
+        <!--<div><label>期初业务量:</label><?php echo $this->busConfs['businessNum']; ?></div> -->
+    </div>
+    <h3>员工权限设置</h3>
+    <hr>
+    <div>
+        <?php
+        if(!empty($this->employee)){
+            foreach($this->employee as $v){
+                echo '<div>';
+                echo \Prj\Misc\View::btnEditInDatagrid('编辑',\Sooh\Base\Tools::uri(['_pkey_val_'=>\Prj\Misc\View::encodePkey(['loginName'=>$v['loginName']])],'rightsedit'));
+                echo '&nbsp;';
+                echo '<label>'.$v['nickname'].'</label>';
+                echo '&nbsp;';
+                /*
+                echo '<label>权限组：</label>';
+                if(!empty($v['groupId'])){
+                    $group = \Prj\Data\Group::getCopy($v['groupId']);
+                    $group->load();
+                    echo $group->getField('groupName').'&nbsp;';
+                }
+                */
+                echo '<label>后台权限：</label>';
+                if($rights = \Prj\Data\ManagerRight::getRightsByType($v['loginName'],'bus')){
+                    foreach($rights as $vv){
+                        if($vv){
+                            $right = \Prj\Data\Rights::getCopy($vv);
+                            $right->load();
+                            if($vv!='*'){
+                                echo $right->getField('rightsName').'&nbsp;';
+                            }else{
+                                echo '全部权限&nbsp;';
+                            }
+                        }
+                    }
+                }
+                echo '<label>报表权限：</label>';
+                if($rptRights = \Prj\Data\ManagerRight::getRptRightsByType($v['loginName'],'rpt')){
+                    if(in_array('*',$rptRights)){
+                        echo '业务全部权限';
+                        echo '&nbsp;';
+                    }else{
+                        foreach($rptRights as $vv){
+                            $right = \Prj\Data\Rights::getCopy($vv);
+                            $right->load();
+                            echo $right->exists()?$right->getField('rightsName'):$vv;
+                            echo '&nbsp;';
+                        }
+                    }
+                }
+                if(!empty($v['underLoginName'])){
+                    $unders = explode(',',$v['underLoginName']);
+                    $unders = array_map(function($a){return \Prj\Data\Manager::getName($a);},$unders);
+                    $v['underLoginName'] = implode(',',$unders);
+                }
+                echo '<label>可查看的人员：</label>';
+                echo $v['underLoginName'];
+                echo '</div>';
+            }
+        }
+        ?>
+    </div>
+</div>

@@ -1,0 +1,366 @@
+<?php
+if ($showReply != 1) {
+    return 0;
+}
+?>
+
+<div id="<?php echo $prefix;?>commentDiv" style="position:relative;">
+    <div style="">
+        <span><button class="btn btn-blue" data-options="{'userid':'<?php echo $userid;?>','batchid':'<?php echo $batchid;?>','batch_type':'<?php echo $batch_type;?>','commentStyle':'comment','idParentDiv':'<?php echo $prefix;?>commentDiv'}" onclick="javascript:clickReplyBtn(this)">点评</button>&nbsp;&nbsp;</span>
+        <span><button class="btn btn-blue" data-options="{'userid':'<?php echo $userid;?>','batchid':'<?php echo $batchid;?>','batch_type':'<?php echo $batch_type;?>','commentStyle':'comment','idParentDiv':'<?php echo $prefix;?>commentDiv'}" onclick="javascript:clickTraceBtn(this)">跟踪</button>&nbsp;&nbsp;</span>
+        <span>
+            <?php
+//            echo \Prj\Misc\View::mb_zzjgck('single', '@');
+            $url = \Sooh\Base\Tools::uri(['ext'=>'comment','id'=>$prefix.'organisation'],'index','user','plan');
+            ?>
+
+            <a href="<?php echo $url;?>" class="btn btn-blue" data-options="{'width':700, 'height':700}" data-toggle="dialog" data-id="form">@</a>
+        </span>
+    </div>
+    <div style="height:30px;"></div>
+    <?php
+    $length = sizeof($records);
+    $i=0;
+    foreach($records as $record) {
+    $i++;
+    $list='';
+    if(!empty($record[0]['atlist'])){
+    $list = implode(',&nbsp;', $record[0]['atlist']);
+    //var_log($record[0],'record[0]#########################################');
+    }
+    ?>
+    <!-- 评论列表 -->
+    <div id="<?php echo $prefix.$record[0]['id'].'_'?>commentItem" style="overflow:hidden; <?php if($i!=$length) echo "border-bottom: dashed 1px grey;"?> padding-top:15px; padding-bottom: 15px;">
+        <div style="float:left ;width: 80%;">
+            <div style="width: 80%">
+                <p><span style="font-size:16px; padding-right:20px;"><?php echo $record[0]['create_time'];?></span><span style="font-size:16px; padding-right:20px;"><?php echo $record[0]['sender'];?></span><span style="font-size:16px; padding-right:20px;"><?php echo $record[0]['type'];?></span><span style="font-size:16px; padding-right:20px;"><?php echo $list;?></span></p>
+                <p><span style="font-size:14px;"><?php echo $record[0]['content'];?></span></p>
+            </div>
+            <!-- 评论的回复列表 -->
+            <div id="<?php echo $prefix.$record[0]['id'].'_'?>replyItem" style="float:right; width:60%">
+            <?php
+
+                foreach($record[1] as $row) {
+                    if(!empty($row['atlist'])){
+                        $list = implode(',&nbsp;', $row['atlist']);
+                    }
+            ?>
+                    <div  style="float:left">
+                        <div style="float:left;">
+                            <p><span style="font-size:14px; padding-right:20px;"><?php echo $row['create_time'];?></span><span style="font-size:14px; padding-right:20px;"><?php echo $row['sender'];?></span><span style="font-size:14px; padding-right:20px;"><?php echo '回复';?></span><span style="font-size:14px; padding-right:20px;"><?php echo $list;?></span></p>
+                            <p><span style="font-size:12px;"><?php echo $row['content'];?></span></p>
+                        </div>
+                        <div style="float:left; height: 100%;">
+                            <?php if($row['canbeReply']) {?>
+                            <button type="button" class="btn-green" data-options="{'commentStyle':'reply','idParentDiv':'<?php echo $prefix.$record[0]['id'].'_'?>replyItem','id':'<?php echo $record[0]['id'];?>','batchid':'<?php echo $record[0]['batchid']?>' ,'parentid':'<?php echo $record[0]['id'];?>','sendid':'<?php echo $record[0]['sendid']; ?>','dstid':'<?php echo $row['dstid'];?>','batch_type':'<?php echo $record[0]['batch_type'];?>','receiverid':'<?php echo $record[0]['receiverid']?>'}" onclick="javascript:clickReplyBtn(this)" style="margin-right:20px;">回复</button>
+                            <?php }?>
+                        </div>
+                    </div>
+            <?php
+                }
+            ?>
+
+            </div>
+        </div>
+
+        <!-- 回复按钮 -->
+        <div style="float:left; height: 100%;">
+            <?php if($record[0]['canbeReply']) {?>
+            <button type="button" class="btn-green" data-options="{'commentStyle':'reply','idParentDiv':'<?php echo $prefix.$record[0]['id'].'_'?>replyItem','id':'<?php echo $record[0]['id'];?>','batchid':'<?php echo $record[0]['batchid']?>' ,'parentid':'<?php echo $record[0]['id'];?>','sendid':'<?php echo ''; ?>','dstid':'<?php echo $record[0]['dstid'];?>','batch_type':'<?php echo $record[0]['batch_type'];?>','receiverid':'<?php echo $record[0]['receiverid']?>'}" onclick="javascript:clickReplyBtn(this)" style="margin-right:20px;">回复</button>
+            <?php }?>
+        </div>
+    </div>
+    <?php
+    }
+    ?>
+
+    <!-- 回复弹出层 -->
+    <div id="<?php echo $prefix?>replydiv" style="position:absolute; top:10%; left:35%;width:400px; height: 50px; background: lightgrey; display:none;">
+        <div style="top:10px; left:25px; width=250px; height:30px; position:absolute;">
+            <form id="<?php echo $prefix?>replyFormDst" action="ajaxDone1.html" data-toggle="ajaxform" data-callback="replyCallBack" style="float:left; padding-right:10px;">
+                <input id='<?php echo $prefix?>replyInput' name="content" type="text"  size="25" />
+                <button id="<?php echo $prefix; ?>replydiv_btn" type="submit" class="btn btn-blue">回复</button>
+            </form>
+            <button type="button"  onclick="javascript:clickCloseBtn()" class="btn-red">关闭</button>
+        </div>
+    </div>
+</div>
+<script>
+    // 点击回复/评论按钮
+    function clickReplyBtn(obj) {
+        var idOfDiv = '<?php echo $prefix;?>' +'replydiv';
+        var left = obj.offsetLeft;
+        var top = obj.offsetTop;
+        var objDiv = document.getElementById(idOfDiv);
+        objDiv.style.offsetTop = top+'px';
+//        objDiv.style.marginTop = top+'px';
+        document.getElementById('<?php echo $prefix;?>replyInput').value='';
+        if(objDiv.style.display !='none'){
+            objDiv.style.display='none';
+        }
+
+
+        var options = eval('('+obj.getAttribute('data-options')+')');
+        if(options.commentStyle == 'comment'){
+            document.getElementById("<?php echo $prefix; ?>replydiv_btn").innerText='点评';
+            var uri= '/plan/perfreply/comment?';
+        }else {
+            document.getElementById("<?php echo $prefix; ?>replydiv_btn").innerText='回复';
+            var uri = '/plan/perfreply/reply?';
+        }
+        var paramers='';
+        for(var x in options) {
+            paramers += x+'='+options[x]+'&';
+        }
+        uri += paramers+'__VIEW__=json';
+//console.log('uri:'+uri);
+        document.getElementById('<?php echo $prefix;?>replyFormDst').setAttribute('action', uri);
+        objDiv.style.display='block';
+console.log(objDiv.offsetTop + ' '+objDiv.offsetLeft);
+    }
+    // 跟踪
+    function clickTraceBtn(obj){
+        var name = '<?php echo $prefix; ?>'+'checkbox';
+        var objCheckbox = document.getElementsByName(name);
+        var uri = '/plan/perfreply/trace?';
+        var paramers = '';
+        var check_val = [];
+        for (var i in objCheckbox) {
+            if(objCheckbox[i].checked){
+//                paramers += 'ids['+i+']='+objCheckbox[i].value+'&';
+                check_val.push(objCheckbox[i].value);
+            }
+        }
+
+        if(check_val.length== 0) {
+            $(document).alertmsg('error', '无选中选项');
+            return false;
+        }
+
+        var options = eval('('+obj.getAttribute('data-options')+')');
+        options.ids = check_val;
+        for(var x in options) {
+            paramers += x+'='+options[x]+'&';
+        }
+        myAjax(uri, 'POST', options, 50000, 'json');
+    }
+
+    // 回复弹出层关闭按钮
+    function clickCloseBtn() {
+        document.getElementById('<?php echo $prefix;?>replydiv').style.display='none';
+    }
+
+    // 回复弹出层 回复按钮的回调函数
+    function replyCallBack(json) {
+        if(json.statusCode == 200) {
+            var record = json.record;
+            dispatchResult(record);
+            clickCloseBtn();
+
+        }else {
+            $(document).alertmsg('error', json.message);
+        }
+    }
+
+    // 回复回调函数后, 评论追加
+    function dispatchResult(json) {
+//console.log('回复评论返回:');
+//console.log(json);
+        if(json.commentStyle=='reply'){
+            appendReply(json);
+        }else if(json.commentStyle=='comment'){
+            appendComment(json);
+        }
+    }
+    function appendReply(json){
+        var frag = document.createDocumentFragment();
+        var divObj = document.createElement('div');
+        divObj.style.float='left';
+        var div1 = document.createElement('div');
+        div1.style.float='left';
+
+        var p1 = document.createElement('p');
+        var spanCreateTime = document.createElement('span');
+        spanCreateTime.style.fontSize='14px';
+        spanCreateTime.style.paddingRight = '20px';
+        spanCreateTime.innerText = json.create_time;
+        p1.appendChild(spanCreateTime);
+        var spanSender = document.createElement('span');
+        spanSender.style.fontSize='14px';
+        spanSender.style.paddingRight = '20px';
+        spanSender.innerText = json.sender;
+        p1.appendChild(spanSender);
+        var spanType = document.createElement('span');
+        spanType.style.fontSize='14px';
+        spanType.style.paddingRight = '20px';
+        spanType.innerText = '回复';
+        p1.appendChild(spanType);
+
+        var spanList = document.createElement('span');
+        spanList.style.fontSize='14px';
+        spanList.style.paddingRight = '20px';
+        spanList.innerText = json.atlist.toString();
+        p1.appendChild(spanList);
+        div1.appendChild(p1);
+
+        var p2 = document.createElement('p');
+        var spanConent = document.createElement('span');
+        spanConent.style.fontSize='12px';
+        spanConent.innerText = json.content;
+        p2.appendChild(spanConent);
+        div1.appendChild(p2);
+
+
+        var div2 = document.createElement('div');
+        div2.style.float='left';
+        div2.style.height='100%';
+
+        if(json.canbeReply==1) {
+            var objBtn = document.createElement('button');
+            objBtn.setAttribute('type', 'button');
+            objBtn.setAttribute('class', 'btn btn-green');
+            var dataOptions = '{'
+                +'\'commentStyle\':\'reply\','
+                +'\'idParentDiv\':\''+json.idParentDiv+'\','
+                +'\'id\':\''+json.parentid+'\','
+                +'\'batchid\':\''+json.batchid+'\','
+                +'\'parentid\':\''+json.parentid+'\','
+                +'\'sendid\':\''+json.sendid+'\','
+                + '\'dstid\':\''+json.dstid+'\','
+                +'\'batch_type\':\''+json.batch_type+'\','
+                +'\'receiverid\':\''+json.receiverid+'\','
+                +'}';
+            objBtn.setAttribute('data-options', dataOptions);
+            objBtn.setAttribute('onclick', 'javascript:clickReplyBtn(this)');
+            objBtn.innerText = '回复';
+            div2.appendChild(objBtn);
+        }
+
+        divObj.appendChild(div1);
+        divObj.appendChild(div2);
+        frag.appendChild(divObj);
+        var parentDiv = document.getElementById(json.idParentDiv);
+        parentDiv.appendChild(frag);
+
+    }
+
+    function appendComment(json){
+//console.log('评论结果:');
+//console.log(json);
+        var frag = document.createDocumentFragment();
+
+        var objDivCommentItem = document.createElement('div');
+        objDivCommentItem.setAttribute('id', '<?php echo $prefix?>'+json.id+'_commentItem');
+        objDivCommentItem.style.overflow='hidden';
+        objDivCommentItem.style.paddingTop='15px';
+        objDivCommentItem.style.paddingBottom='15px';
+        objDivCommentItem.style.borderTop='dashed 1px grey';
+
+
+        var objDiv1 = document.createElement('div');
+        objDiv1.style.width = '80%';
+        objDiv1.style.float = 'left';
+        objDivCommentItem.appendChild(objDiv1);
+
+        var objDiv2 = document.createElement('div');
+        objDiv2.style.width='80%';
+        objDiv1.appendChild(objDiv2);
+
+        var p1 = document.createElement('p');
+        var spanCreateTime = document.createElement('span');
+        spanCreateTime.style.fontSize='16px';
+        spanCreateTime.style.paddingRight = '20px';
+        spanCreateTime.innerText = json.create_time;
+        p1.appendChild(spanCreateTime);
+        var spanSender = document.createElement('span');
+        spanSender.style.fontSize='16px';
+        spanSender.style.paddingRight = '20px';
+        spanSender.innerText = json.sender;
+        p1.appendChild(spanSender);
+        var spanType = document.createElement('span');
+        spanType.style.fontSize='16px';
+        spanType.style.paddingRight = '20px';
+        spanType.innerText = json.type;
+        p1.appendChild(spanType);
+
+        if(json.type!='跟踪'){
+            var spanList = document.createElement('span');
+            spanList.style.fontSize='16px';
+            spanList.style.paddingRight = '20px';
+            spanList.innerText = json.atlist.toString();
+            p1.appendChild(spanList);
+        }
+        objDiv2.appendChild(p1);
+
+        var p2 = document.createElement('p');
+        var spanConent = document.createElement('span');
+        spanConent.style.fontSize='16px';
+        spanConent.innerText = json.content;
+        p2.appendChild(spanConent);
+        objDiv2.appendChild(p2);
+
+        frag.appendChild(objDivCommentItem);
+        var parentDiv = document.getElementById(json.idParentDiv);
+        parentDiv.appendChild(frag);
+    }
+
+
+    mb_dept.callbackById['<?php echo $prefix;?>'+'organisation'] = function (arr, content) {
+        if(arr.length==0){
+            $(document).alertmsg('error', '没有选择@的人员');
+            return false;
+        }
+        if(content.length==0) {
+            $(document).alertmsg('error', '@的评论内容不能为空');
+            return false;
+        }
+        var dstids = [];
+        for (var i in arr) {
+            dstids.push(i+'@local');
+        }
+        var uri = '/plan/perfreply/at?';
+        var data = {
+            'batchid':'<?php echo $batchid ?>',
+            'batch_type':'<?php echo $batch_type ?>',
+            'batch_type':'<?php echo $batch_type ?>',
+            'userid':'<?php echo $userid ?>',
+            'idParentDiv':'<?php echo $prefix;?>commentDiv',
+            'content':content,
+            '__VIEW__':'json'
+        };
+        data.dstid = dstids;
+//console.log('@ post data###');
+//console.log(data);
+        myAjax(uri, 'POST', data, 5000, 'json');
+    }
+
+
+    function myAjax (uri, type, options, timeout, dataTpe){
+        $.ajax({
+                url: uri,
+                type: 'POSt',
+                data: options,
+                timeout: 5000,
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    if(data.statusCode == 200) {
+                        appendComment(data.record);
+                        $(document).alertmsg('ok', data.message);
+                    }else {
+                        $(document).alertmsg('error', data.message);
+                        return false;
+                    }
+                    return true;
+                },
+                error: function (xhr, textStatus) {;
+                    $(document).alertmsg('error', '操作失败');
+                    return false;
+                },
+                complete: function () {
+                    return false;
+                }
+            }
+        );
+    }
+
+</script>

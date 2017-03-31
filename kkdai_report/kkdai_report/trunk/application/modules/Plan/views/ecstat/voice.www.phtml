@@ -1,0 +1,14 @@
+<script>
+if ( <?php echo $this->voice ?> )
+{
+	console.log( 'has voice' );
+	window.location.href = "<?php echo $this->url?>";
+}
+else
+{
+	console.log( 'no voice' );
+	alert( "无通话录音" );
+}
+</script>
+
+

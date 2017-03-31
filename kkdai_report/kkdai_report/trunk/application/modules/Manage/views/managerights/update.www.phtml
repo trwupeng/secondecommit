@@ -1,0 +1,270 @@
+<style>
+    .rightsTable td,.rightsTable th{
+        padding: 8px;
+    }
+    #tableHeadCopy{
+        margin-left: 6px;
+        border: 1px solid #DDDDDD;
+        border-right: none;
+        border-left: none;
+        background-color: white;
+    }
+    #tableHeadCopy th{
+        border-right: 1px solid #DDDDDD;
+    }
+    .mt{
+        margin-top: 10px;
+    }
+    .fl{
+        float: left;
+    }
+    .chooseBox .box{
+        margin-top: 10px;
+        width: 220px;
+        height: 240px;
+        border: 1px solid #DDDDDD;
+        text-align: left;
+        padding: 10px;
+        overflow: auto;
+        list-style: none;
+    }
+    .chooseBox .box li{
+        padding: 3px;
+        cursor: pointer;
+    }
+    .boxSub{
+        width: 500px;
+    }
+    .inputText{
+        width: 50px;display: inline-block;
+    }
+    .box .active{
+        background-color: #DDDDDD;
+    }
+    #departUserBox #usersBox>div{
+        margin: 5px;
+        font-size: 15px !important;
+    }
+</style>
+<div class="bjui-pageHeader">
+</div>
+<div class="bjui-pageContent rightsTable">
+    <form data-callback="thiscallback" method="post" id="editForm" onsubmit="return false"
+          data-toggle="validate" data-alertmsg="false" data-reload-navtab="true"
+          action="<?php echo \Sooh\Base\Tools::uri([],'update'); ?>" class="nice-validator n-red" novalidate="novalidate">
+    <center>
+        <div style="position: relative">
+            <div>
+                <h3>用户管理</h3>
+            </div>
+            <div style="position: absolute;top: 0;right: 0">
+                <button type="submit" class="btn-default btn-green" data-icon="save">保存</button>
+                &nbsp;
+                <button class="btn-default btn-close" data-icon="close">取消</button>
+            </div>
+        </div>
+        <?php
+        $user = $this->userInfo;
+        $selects = $this->selects;
+        $curRoles = $this->curRoles;
+        $allRoles = $this->allRoles;
+        ?>
+        <div>
+            <input type="hidden" name="_id" value="<?php echo $user['loginName']; ?>">
+            <?php $readonly = $user['loginName'] ? 'readonly' : ''; ?>
+            <div class="inputText">用户名</div>：<input <?php echo $readonly; ?> type="text" name="loginName" value="<?php echo $user['loginName']; ?>">
+        </div>
+        <div class="mt">
+            <div class="inputText">密码</div>：<input type="text" name="passwd" value="<?php echo $user['passwd']; ?>">
+        </div>
+        <div class="mt">
+            <div class="inputText">昵称</div>：<input type="text" name="nickname" value="<?php echo $user['nickname']; ?>">
+        </div>
+        <div class="mt">
+            <div class="inputText">部门</div>：<div id="dept-value" style="width: 200px;display: inline-block;text-align: left;padding-left: 13px;"><?php if(\Prj\Data\MBDepartment::getOne($user['dept']))echo \Prj\Data\MBDepartment::getOne($user['dept'])->getField('name'); ?></div>
+            <input id="dept-key" type="hidden" name="dept" value="<?php echo $user['dept']; ?>">
+        </div>
+        <div class="mt">
+            <div class="inputText">OA账户</div>：
+            <select data-width="190" data-toggle="selectpicker" name="oa" value="<?php echo $user['oa']; ?>">
+                <?php
+                foreach ($selects['oa'] as $k => $v){
+                    echo '<optgroup label="'.ucfirst($k).'">';
+                    foreach ($v as $kk => $vv){
+                        $selected = $kk == $user['oa'] ? "selected='selected'" : '';
+                        echo '<option value="'.$kk.'" '.$selected.'>'.$vv.'</option>';
+                    }
+                    echo '</optgroup>';
+                }
+                ?>
+            </select>
+        </div>
+        <div class="mt">
+            <div class="inputText">EC账户</div>：
+            <select data-width="190" data-toggle="selectpicker" name="ec" value="<?php echo $user['ec']; ?>">
+                <?php
+                foreach ((array)$selects['ec'] as $k => $v){
+                    $selected = $k == $user['ec'] ? "selected='selected'" : '';
+                    echo "<option value=\"{$k}\" $selected >$v</option>";
+                }
+                ?>
+            </select>
+        </div>
+        <div style="margin-top: 10px;">
+            <div class="boxSub">
+                <div class="chooseBox fl chooseBox-ok">
+                    <div>已选用户组</div>
+                    <div class="box">
+                        <?php
+                        foreach ((array)$curRoles as $k => $v){
+                            echo "<li><span data-val='$k'>$v</span><input type='hidden' name='roles[]' value='$k'></li>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="fl" style="padding: 10px">
+                    <div style="margin-top: 90px;">
+                        <a class="btn btn-default addRole"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    </div>
+                    <div class="mt">
+                        <a class="btn btn-default removeRole"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                </div>
+                <div class="chooseBox fl chooseBox-all">
+                    <div>备选用户组</div>
+                    <div class="box">
+                        <?php
+                        foreach ((array)$allRoles as $k => $v){
+                            echo "<li><span data-val='$k'>$v</span></li>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+        <div style="margin-top: 10px;" id="departUserBox">
+            <div>可以查看的人员名单</div>
+            <div style="height: 400px;margin-top: 10px;">
+                <div style="height: 100%;">
+                    <div style="float: left;height: 100%;width:45%;margin-right: 10px;border: 1px solid #DDDDDD;">
+                        <center><h5 style="color: blue">组织架构</h5></center>
+                        <div style="width: 300px;overflow: auto;height: 93%">
+                            <ul id="userTree" data-on-check="user_tree_check" data-expand-all="false" data-check-enable="true" class="ztree" data-toggle="ztree" data-nodes='<?php echo $this->tree; ?>'></ul>
+                        </div>
+                    </div>
+
+                    <div style="width:45%;height: 100%;overflow: auto;border: 1px solid #DDDDDD;float: left">
+                        <center><h5 style="color: blue">已选用户</h5></center>
+                        <div id="usersBox"></div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 10px;">
+            当前管理员密码：<input name="pwd" type="password">
+        </div>
+    </center>
+    </form>
+    <script>
+        //tgh js
+        $(function () {
+            var actToggle = function (obj) {
+                if(obj.hasClass('active')){
+                    obj.removeClass('active')
+                }else{
+                    obj.addClass('active')
+                }
+            }
+            var deleteBox = function (arr) {
+                arr.each(function () {
+                    $(this).remove()
+                })
+            }
+            var addBox = function (arr , target) {
+                //console.log(arr)
+                if(target.hasClass('chooseBox-ok')){
+                    arr.each(function () {
+                        var val = $(this).find('span').attr('data-val')
+                        console.log(val)
+                        $(this).append("<input type='hidden' name='roles[]' value='"+val+"'>")
+                    })
+                }else{
+                    arr.each(function () {
+                        $(this).find('input').remove()
+                    })
+                }
+                target.find('.box').append(arr)
+            }
+            $('.rightsTable').on('click','.chooseBox .box li',function () {
+                //console.log(this)
+                actToggle($(this))
+            })
+            $('.rightsTable').on('dblclick','.chooseBox .box li',function () {
+                console.log($(this).find('input'))
+                if($(this).find('input').length){
+                    addBox($(this) , $('.chooseBox-all'))
+                }else{
+                    addBox($(this) , $('.chooseBox-ok'))
+                }
+            })
+            $('.addRole').click(function () {
+                var arr = $('.chooseBox-all .active')
+                deleteBox(arr)
+                addBox(arr , $('.chooseBox-ok'))
+            })
+            $('.removeRole').click(function () {
+                var arr = $('.chooseBox-ok .active')
+                deleteBox(arr)
+                addBox(arr , $('.chooseBox-all'))
+            })
+            $('[name="oa"]').change(function () {
+                var oaId = $(this).val();
+                var api = '/manage/managerights/getDepartMentFromOAId?__VIEW__=json&oaId=';
+                $.post(api+oaId,function (e) {
+                    if(e.statusCode == 200 && e.data){
+                        var data = e.data;
+                        $('#dept-value').html(data.name);
+                        $('#dept-key').val(data.id);
+                    }else{
+                        console.log(api+'#接口错误');
+                    }
+                })
+            })
+            //组织树初始化
+            <?php
+                echo "var checkUsers = {";
+                $total = count($user['checkUsers']);
+                foreach ($user['checkUsers'] as $v){
+                    $num++;
+                    $str = $v." : "."'$v'";
+                    if($num<$total)$str .= ",";
+                    echo $str;
+                }
+                echo "};";
+            ?>
+            console.log(checkUsers);
+            var set = setInterval(function () {
+                tree = $.fn.zTree.getZTreeObj('userTree');
+                if(tree){
+                    nodes = tree.getNodes()
+                    //tree.expandAll(true)
+                    clearInterval(set)
+                    console.log('tree load ok...')
+                    //加载已选人员
+                    for(var i in checkUsers){
+                        var tmp = checkUsers[i]
+                        var node = tree.getNodesByParam('id',tmp)[0]
+                        //console.log(node , 'node>>>')
+                        tree.checkNode(node , true )
+                        showUser([node] , true)
+                    }
+                }
+            } , 500)
+        })
+    </script>
+</div>
+<div class="bjui-pageFooter"></div>
+
+

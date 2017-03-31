@@ -1,0 +1,35 @@
+<?php
+$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+$chart = new \Rpt\Misc\Chart1;
+$chart->ymd=$args['ymd'];
+$m_d = date('m月d日',  strtotime($args['ymd']));
+
+//没有二级统计情况的一周走势图
+$chart->titleMain='新注册绑卡走势图';
+//$chart->grpBy();
+$chart->where=['act'=>['RegAndBindOk']];
+$chart->showStd('linesSimple','week')->reset();
+
+//有二级统计情况的一周走势图
+//$chart->titleMain='新注册绑卡走势图';
+//$chart->grpBy('clientType');
+//$chart->where=['act'=>['RegAndBindOkByClientt']];
+//$chart->showStd('linesSimple','week')->reset();
+
+//没有二级统计情况的当日占比饼图
+// 	$chart->titleMain='成功绑卡情况汇总';
+// 	$chart->titleSub=$m_d;
+// 	$chart->where=['act'=>['BindOk']];
+// 	$chart->showStd('pieSimple','oneday')->reset();
+
+//有二级统计情况的当日占比饼图
+$chart->titleMain='新注册绑卡客户端占比';
+$chart->titleSub=$m_d;
+$chart->grpBy('clienttype');
+$chart->where=['act'=>['RegAndBindOkByClient']];
+$chart->showStd('pieSimple','oneday')->reset();
+
+
+
+	
+

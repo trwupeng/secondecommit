@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+html{ font-size:60px;}
+body{ background:#e35555;}
+.banner{ width:100%;}
+.banner img{ width:100%; display:block;}
+.content{ width:6.9rem; height:21.3732rem; margin:0 auto; background: #e35555 url(http://image.kuaikuaidai.com/activity/spider/d7e0501d35b448f8b7cf2c8517bb780b.jpg) no-repeat; background-size:cover;  padding-top:0.2333rem; overflow:hidden;}
+.activity_reward_title,.product_title{ width:100%; margin:0 auto; text-align:center; font-size:0.25rem; color:#ed4b4b; font-weight:bold;  margin-bottom:0.25rem;}
+.product_title{ margin-top:0.4rem;}
+/*.activity_reward_title img{ width:1.0111rem; height:0.2611rem; display:block;}*/
+.activity_content{ width:6.5667rem; height:11.3056rem; margin:0 auto; background:#fff7d9; overflow:auto;}
+.quan{ width:5.5555rem; height:0.9722rem; margin:0 auto; margin-top:0.2944rem; margin-bottom:0.2944rem;}
+.dianyingquan{ width:2.2389rem; height:0.9667rem; float:left;}
+.hongbao{ width:2.2389rem; height:0.9722rem; float:right;}
+.dianyingquan img,.hongbao img{ display:block;}
+.activity_register{ width:6.2778rem; margin:0 auto;}
+.activity_register h3{ width:2.1611rem; height:0.25rem; margin:0 auto; margin-bottom:0.2944rem;}
+.activity_register h3 img{ width:2.1611rem; height:0.25rem; display:block;}
+.register{ position:relative;}
+.border_line{ width:6.2667rem; height:0.7rem; margin:0 auto; margin-bottom:0.25rem;}
+.border_line .input01{ width:6rem;  padding:0.2178rem 0; color:#000; border-radius:2px; font-size:0.2333rem; padding-left:0.2111rem; margin:0 auto; display:block;}
+.border_line .input02{ width:3.8999rem;padding:0.2178rem 0; border-radius:2px; color:#000; font-size:0.2333rem; display:block;  padding-left:0.2111rem; float:left;}
+.border_line .yzm{ width:1.9111rem; height:0.75rem; line-height:0.75rem; text-align:center; background:#5b9be3; border:1px solid #5b9be3; color:#fff; font-size:0.2333rem; display:block;  float:right; border-radius:2px; cursor:pointer;}
+.border_line .yzm_gray{ width:1.9111rem; height:0.75rem; line-height:0.75rem; text-align:center; background:#aeaeae; border:1px solid #aeaeae; color:#fff; font-size:0.2333rem; display:block;  float:right; border-radius:2px; cursor:pointer;}
+.tishi{ width:6.2623rem; margin:0 auto; font-size:0.2333rem; color:red; margin-bottom:0.25rem; display:none; }
+.hh{ border:1px solid #eaa663;}
+.xieyi{ width:6.1578rem; margin:0 auto; font-size:0.2333rem; color:#5c3f2e; text-align:center; margin-bottom:0.25rem; position:relative; padding-left:0.12rem;}
+.xieyi a{ color:#8f47cb;}
+/*.xieyi img{ width:0.2rem; height:0.2rem; display:inline-block; vertical-align:middle; position:absolute; top:0.06rem; left:0;}*/
+.xieyi .box{ width:0.2rem; height:0.2rem;}
+.xieyi img{ width:0.2rem; height:0.2rem; display:inline-block;}
+.reg{ width:6.3rem; height:0.7rem;margin:0 auto; margin-bottom:0.25rem;}
+.reg .btn{ width:6.2623rem; height:0.6889rem; line-height:0.6889rem; background:#eb4040; border:1px solid #eb4040; color:#fff; font-size:0.2333rem; font-weight:bold; text-align:center; margin:0 auto; border-radius:2px; cursor:pointer; display:block;}
+.tk{ width:3.3333rem; padding:0.2rem 0; text-align:center; background:rgba(0,0,0,0.62); color:#fff; border-radius:5px; position:absolute; top:50%; left:50%; margin-left:-1.66665rem; margin-top:-0.34445rem;  z-index:6; font-size:0.2333rem; display:none;}
+
+.rules{ width:6.2778rem; margin:0 auto; }
+.rules_title{ font-size:0.2333rem; color:#ed4b4b; font-weight:bold;text-align:center; margin-bottom:0.25rem;}
+.rules p{  line-height:0.3rem; font-size:0.2167rem; color:#5c3f2e; font-weight:bold; margin-bottom:0.16rem; padding-left:0.3611rem; position:relative; font-family:"宋体"; }
+/*.rules p img{ width:0.2944rem;height:0.3rem; vertical-align:top; display:inline-block;}*/
+.rules p i{ width:0.2944rem; height:0.3rem; border-radius:50%; background:#ff8787; position:absolute; left:0; top:0; text-align:center; line-height:0.3rem; color:#fff;}
+
+/*.product_title{ width:2.0111rem; height:0.2611rem; margin:0 auto; margin-top:0.4rem; margin-bottom:0.25rem;}
+.product_title img{ width:2.0111rem; height:0.2611rem; display:block; }*/
+.product_content{ width:6.5667rem; height:8.4833rem; margin:0 auto; background:#fff7d9; overflow:hidden;}
+.product_hd{ width:4.1611rem; height:0.6167rem; line-height:0.6167rem; border:2px solid #f07a4b; margin:0 auto; margin-top:0.25rem;}
+.product_hd li{ width:50%; height:0.6167rem; line-height:0.6167rem; color:#f07a4b; font-size:0.25rem; text-align:center; float:left; font-weight:bold;}
+.product_hd li.current{ background:#f07a4b; color:#fff;}
+.product_bd{ overflow:hidden;}
+.product_bd .ul01{  margin-top:0.3rem;}
+.product_bd .ul01 li{ width:6.2444rem; height:0.7833rem; margin:0 auto; border:1px solid #969696; border-left:3px solid #7679d8; padding:0.5rem 0; background:#fff; margin-bottom:0.3rem; position:relative;}
+.product_bd .ul01 li .left{ width:2.0778rem; height:0.7833rem; line-height:0.7833rem; float:left; font-size:0.5rem; color:#585858; text-align:center; background:url(http://image.kuaikuaidai.com/activity/spider/3195b05bf2b74e82816d02bc677626f9.jpg) no-repeat right top; font-weight:bold;}
+.product_bd .ul01 li .right{ width:4.0833rem;float:left; text-align:center;margin-top:-0.16rem;}
+.product_bd .ul01 li .right .up{ font-size:0.2333rem; color:#f34f43;}
+.product_bd .ul01 li .right .up span{ font-size:0.5555rem; font-weight:bold;}
+.product_bd .ul01 li .right .up i{ font-size:0.2667rem; font-weight:bold;}
+.product_bd .ul01 li .right .down{ font-size:0.2333rem; color:#797878; margin-top:-0.09rem;}
+.product_bd .ul01 li .huodong{ width:0.6667rem; height:0.6667rem; position:absolute; top:0.0389rem; right:0.0389rem;}
+.product_bd .ul01 li .huodong img{ width:0.6667rem; height:0.6667rem; display:block;}
+.product_bd .ul02{ width:4.8444rem; margin:0 auto; margin-top:0.5rem; overflow:hidden; display:none;}
+.product_bd .ul02 li{ width:2.0222rem; margin:0 auto; float:left; margin-right:0.8rem; text-align:center; margin-bottom:0.35rem;}
+.product_bd .ul02 li:nth-of-type(2),.product_bd .ul02 li:nth-of-type(4){ margin-right:0;}
+.product_bd .ul02 li:nth-of-type(3),.product_bd .ul02 li:nth-of-type(4){ margin-bottom:0.657rem;}
+.product_bd .ul02 li img{ width:1.7722rem; height:1.7722rem; /*display:block; margin-bottom:0.1444rem;*/ text-align:center;}
+.product_bd .ul02 li p{ font-size:0.2167rem; color:#5c3f2e; margin-top:-0.1rem}
+.lianjie{ text-align:center; font-size:0.2333rem; color:#e35555; font-weight:bold;}
+.lianjie a{ color:#e35555;}
+.rexian{ text-align:center; font-size:0.2333rem; color:#e35555; font-weight:bold; margin-top:0.01rem;}
+.rexian img{ width:0.2444rem; height:0.2555rem; display:inline-block; vertical-align:middle;}

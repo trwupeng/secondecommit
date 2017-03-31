@@ -1,0 +1,83 @@
+<?php $randNum = rand(1000,9999); ?>
+<form action="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__' => 1), 'index'); ?>" method="post"
+      id="wares-exportChecked-<?php echo $randNum; ?>" style="display: none;">
+</form>
+<div class="bjui-pageHeader">
+    <?php
+    $renderer = new \Prj\Misc\FormRenderer;
+
+    echo  $renderer->getSearchStandard(
+        \Sooh\Base\Form\Broker::getCopy('default'),
+        $renderer->getBatchArea(\Prj\Misc\View::btnAjax('推到DZ',Sooh\Base\Tools::uri([],'pushImg')).\Prj\Misc\View::btnDefaultInDatagrid('新增',Sooh\Base\Tools::uri([],'edit')), \Sooh\Base\Tools::uri(array('__EXCEL__'=>1,'where'=>$this->where),'index'), null)
+    );
+    ?>
+    <div class="pull-right">
+        <script>
+            /*
+             构造表单 post 方法 提交
+             */
+            var ids = new Array();
+            $('.wares-export').click(function () {
+                if (ids.length == 0) {
+                    $(document).alertmsg('error', '无选中选项');
+                    return false;
+                }
+                $('#wares-exportChecked-<?php echo $randNum; ?>').html('');
+                for (var i in ids) {
+                    var reg = /function[.]*/;
+                    if (reg.exec(ids[i]) != null) {
+                        continue;
+                    }
+                    $('#wares-exportChecked-<?php echo $randNum; ?>').append("<input type='hidden' name='ids[]' value='" + ids[i] + "'>");
+                }
+                $('#wares-exportChecked-<?php echo $randNum; ?>').submit();
+
+                return false;
+            });
+        </script>
+    </div>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table class="table table-bordered table-hover table-striped table-top" data-selected-multi="true"
+           data-toggle="tablefixed">
+        <thead>
+        <tr><?php
+            $header = $this->header;
+            if(!empty($header))
+            {
+                foreach ($header as $k => $v) {
+                    echo "<th width = '" . $v . "'>";
+                    echo $k;
+                    echo "</th>";
+                }
+            }
+
+            ?>
+            <th width="30"><?php echo \Prj\Misc\View::thCheckBox(); ?></th>
+            <th width="100">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $rs = $this->rs;
+        if (!empty($rs)) {
+            foreach ($rs as $pkey=>$r) {
+                echo "<tr>";
+                foreach ($r as $k => $v) {
+                    echo "<td>";
+                    echo $v;
+                    echo "</td>";
+                }
+                echo '<td>'.\Prj\Misc\View::trCheckBox().'</td>';
+                echo "<td>";
+                echo \Prj\Misc\View::btnEditInDatagrid('编辑',Sooh\Base\Tools::uri(['_pkey_val_'=>$pkey],'edit'),['height'=>530,'width'=>830]);
+                echo \Prj\Misc\View::btnAjax('删除',Sooh\Base\Tools::uri(['_pkey_val_'=>$pkey],'delete'));
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter"><?php echo \Prj\Misc\View::pagerStandard($this->pager);?></div>

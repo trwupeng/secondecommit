@@ -1,0 +1,20 @@
+<?php
+	
+	$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+	$display =$this->grpName;
+	$chartid=1;
+	
+	$md = $this->args['ymd']%10000;
+	$md = floor($md/100).'-'.($md%100);
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='';
+	$args['forWhere']='flgext01=30';
+	$args['useActAsGrp']='BoughtFeeTotal,WithdrawPrincipal,WithdrawInterest';
+	$args['grpNameFix']='金包银购买,金包银提现（本金）,金包银提现（利息）';
+	$args['title']='7日金包银购买提现走势';
+	$args['subtitle']='';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'barsSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	unset($args['useActAsGrp'],$args['grpNameFix']);
+

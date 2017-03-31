@@ -1,0 +1,47 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+    >
+
+    <TextView
+        android:id="@+id/bt_query"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/login_button"
+        android:gravity="center"
+        android:text="@string/query"
+        android:textColor="@android:color/white"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/start"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/date_select_normal"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            />
+    </LinearLayout>
+</RelativeLayout>

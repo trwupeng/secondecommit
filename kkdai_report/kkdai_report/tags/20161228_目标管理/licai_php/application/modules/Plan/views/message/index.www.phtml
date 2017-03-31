@@ -1,0 +1,25 @@
+<div class="bjui-pageContent">
+
+    <div style="margin:15px auto 0; width:100%;">
+        <ul class="nav nav-tabs" role="tablist">
+            <?php $uri = \Sooh\Base\Tools::uri(['__VIEW__'=>''], 'mymessage');?>
+            <li class="active">
+                <a href="<?php echo $uri; ?>" id="firstAjaxHerf" role="tab" data-toggle="ajaxtab" data-target="#message" data-reload="true">消息</a>
+            </li>
+            <?php $uri = \Sooh\Base\Tools::uri(['__VIEW__'=>''], 'mytrace');?>
+            <li><a href="<?php echo $uri;?>" role="tab" data-toggle="ajaxtab" data-target="#trace" data-reload="true">我的跟踪</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="message" class="tab-pane fade active in">
+                <!--My message!-->
+            </div>
+            <div id="trace" class="tab-pane fade"><!-- My Trace! --></div>
+        </div>
+    </div>
+
+    <script>
+        var obj = document.getElementById('firstAjaxHerf');
+        obj.click();
+    </script>
+
+</div>

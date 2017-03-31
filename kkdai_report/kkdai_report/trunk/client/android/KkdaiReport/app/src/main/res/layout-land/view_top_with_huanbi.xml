@@ -1,0 +1,120 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    >
+
+    <TextView
+        android:id="@+id/bt_back"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/login_button"
+        android:gravity="center"
+        android:paddingBottom="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="0dp"
+        android:text="@string/back"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/bt_query"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/login_button"
+        android:gravity="center"
+        android:paddingBottom="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="0dp"
+        android:text="@string/query"
+        android:textColor="@android:color/white"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/end"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/date_select_normal"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:text="@string/mom"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_mom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/date_select_normal"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="@string/channel"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_channel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/date_select_normal"
+            android:gravity="center"
+            android:minWidth="150dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

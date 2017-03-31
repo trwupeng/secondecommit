@@ -1,0 +1,877 @@
+@charset "UTF-8";
+body,html{ width: 100%; font-family:'Microsoft Yahei', Arial, Helvetica, sans-serif; font-size:12px; background: #efefef;}
+input,button,textarea,select{ font-family:"Microsoft yahei";}
+
+input::-webkit-cancel-button {display: none;}
+input::-ms-clear {display: none;}
+input[type=text]:focus{ box-shadow: none;}
+
+*{ outline:none; -webkit-tap-highlight-color:rgba(255,0,0,0);}
+
+
+
+/*安全保障*/
+
+.security{
+	width: 100%;
+	color:#7f7f7f;
+}
+.security .title{
+	width: 100%;
+	height: 256px;
+	background: url(http://image.kuaikuaidai.com/static/images/safe_title.png) no-repeat;
+	background-position: 50% 0;
+}
+.security ul{
+	background-color: #FFF;
+}
+.security ul li{
+	padding:115px 0;
+	width: 100%;
+	border-bottom: 1px solid #e4e4e4;
+	overflow: hidden;
+}
+.security ul .icon_eigth{
+	border:0;
+}
+.security ul li.icon_right{
+	background-color: #fff;
+}
+.security ul li .text{
+	font-size:16px;
+	background-repeat: no-repeat;
+}
+.security ul li .text h3{
+	height: 93px;
+	margin-bottom: 30px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.security ul li.icon_left .text {
+	width: 560px;
+	padding-left: 440px;
+	background-position: 70px center;	
+}
+.security ul li.icon_right .text {
+	width: 978px;
+	padding-left: 22px;
+	background-position: 745px center;
+}
+.security ul li.icon_first h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t1.png);
+}
+.security ul li.icon_second h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t2.png);
+}
+.security ul li.icon_third h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t3.png);
+}
+.security ul li.icon_forth .text{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_c4.png);
+}
+.security ul li.icon_forth .text p{
+	padding-top:30px;
+}
+.security ul li.icon_forth h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t4.png);
+}
+.security ul li.icon_fifth .text{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_c5.png);
+}
+
+.security ul li.icon_fifth h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t5.png);
+}
+.security ul li.icon_sixth .text{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_c6.png);
+	background-position: 70px 55px;
+}
+.security ul li.icon_sixth h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t6.png);
+}
+.security ul li.icon_seventh h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t7.png);
+}
+.security ul li.icon_eigth .text{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_c8.png);
+}
+.security ul li.icon_eigth h3{
+	background-image: url(http://image.kuaikuaidai.com/static/images/safe_t8.png);
+}
+
+.security ul li .special div .two{
+	padding-top:20px;
+	margin-bottom: 20px;
+	font-size:16px;
+}
+.security ul li .special div .one{
+	font-size:16px;
+}
+
+.icon_second{ background: #dc3a57;}
+.icon_first .secur_warp{ padding-bottom: 22px; padding-left: 20px;}
+.icon_first .secur_warp .secur_txt1{ font-size: 16px; color: #333; vertical-align: top;}
+.icon_first .secur_warp .secur_txt2{ display: inline-block; width: 446px; font-size: 16px; color: #666;}
+
+.icon_second .secur_warp{ padding-bottom: 22px; padding-left: 20px;}
+.icon_second .secur_warp .secur_txt1{ font-size: 16px; color: #f8d8dd; vertical-align: top;}
+.icon_second .secur_warp .secur_txt2{ display: inline-block; width: 446px; font-size: 16px; color: #f8d8dd;}
+
+.icon_third .secur_warp{ padding-bottom: 22px; padding-left: 20px;}
+.icon_third .secur_warp .secur_txt1{ font-size: 16px; color: #333; vertical-align: top;}
+.icon_third .secur_warp .secur_txt2{ display: inline-block; width: 446px; font-size: 16px; color: #666;}
+
+.icon_forth{ background: #c0c146;}
+.icon_forth .secur_warp{ padding-bottom: 22px; padding-left: 20px;}
+.icon_forth .secur_warp .secur_txt1{ display: block; font-size: 16px; color: #f2f3da;}
+.security ul li.icon_forth .text p{ padding-top: 0px;}
+
+.icon_fifth .secur_warp{ width: 548px; padding-bottom: 22px; padding-left: 20px;}
+.icon_fifth .secur_warp .secur_txt1{ display: block; padding-bottom: 20px; font-size: 16px; color: #333;}
+.icon_fifth .secur_warp .secur_txt2{ display: block; font-size: 16px; color: #333;}
+
+.icon_sixth{ background: #56aeb4;}
+.icon_sixth .text{ color: #ddeff0;}
+
+.icon_seventh .secur_warp{ width: 548px; padding-bottom: 22px; padding-left: 20px;}
+.icon_seventh .secur_warp .secur_txt1{ display: block; padding-bottom: 20px; font-size: 16px; color: #333;}
+.icon_seventh .secur_warp .secur_txt2{ display: block; font-size: 16px; color: #333;}
+
+.icon_eigth{ background: #d85346;}
+.icon_eigth .secur_warp{ width: 548px; padding-bottom: 22px; padding-left: 20px;}
+.icon_eigth .secur_warp .secur_txt1{ display: block; padding-bottom: 20px; font-size: 16px; color: #f7ddda;}
+.icon_eigth .secur_warp .secur_txt2{ display: block; font-size: 16px; color: #f7ddda;}
+
+
+/*安全保障动画*/
+.anima_box1{
+	position: absolute;
+	top: 82px;
+	right: 62px;
+}
+.anima_box2{
+	position: absolute;
+	top: 100px;
+	left: 60px;
+	display: none;
+}
+.anima_box3{
+	position: absolute;
+	top: 118px;
+	right: 8px;
+}
+.anima_bg{
+	position: absolute;
+	top: 92px;
+	right: 2px;
+}
+.anima_box4{
+	position: absolute;
+	top: 65px;
+	left: 132px;
+}
+.anima_box5{
+	position: absolute;
+	top: 0px;
+	right: 88px;
+	z-index: 5;
+}
+.anima_box5 img{
+	width: 66px;
+	height: 66px;
+}
+.anima_line{
+	position: absolute;
+	top: 130px;
+	right: 72px;
+	width: 100px;
+	height: 126px;
+	background: #fff;
+	text-align: center;
+	z-index: 7;
+}
+.anima_line img{
+	vertical-align: top;
+}
+.anima_box6{
+	position: absolute;
+	top: 55px;
+	left: 70px;
+}
+.anima_box7{
+	position: absolute;
+	top: 89px;
+	right: 85px;
+}
+.anima_box8{
+	position: absolute;
+	top: 123px;
+	left: 140px;
+}
+.anima_box9{
+	position: absolute;
+	top: 158px;
+	left: 140px;
+}
+.anima_box10{
+	position: absolute;
+	top: 88px;
+	right: -15px;
+	z-index: 3;
+}
+.anima_txt{
+	position: absolute;
+	top: 122px;
+	right: 138px;
+}
+
+.anima_potion1{
+	-moz-animation:rotateBox1 2s linear 1;
+	-webkit-animation:rotateBox1 2s linear 1;
+	-o-animation:rotateBox1 2s linear 1;
+	animation:rotateBox1 2s linear 1;
+}
+.anima_potion2{
+	display: block;
+	-moz-animation:rotateBox2 1.5s linear 1;
+	-webkit-animation:rotateBox2 1.5s linear 1;
+	-o-animation:rotateBox2 1.5s linear 1;
+	animation:rotateBox2 1.5s linear 1;
+}
+.anima_potion3{
+	-moz-animation:rotateBox3 1.5s linear 1;
+	-webkit-animation:rotateBox3 1.5s linear 1;
+	-o-animation:rotateBox3 1.5s linear 1;
+	animation:rotateBox3 1.5s linear 1;
+}
+.anima_potion4{
+	-moz-animation:spin 1.5s linear 1;
+	-webkit-animation:spin 1.5s linear 1;
+	-o-animation:spin 1.5s linear 1;
+	animation:spin 1.5s linear 1;
+}
+.anima_potion5{
+	-moz-animation:rotateBox5 1.5s linear 1;
+	-webkit-animation:rotateBox5 1.5s linear 1;
+	-o-animation:rotateBox5 1.5s linear 1;
+	animation:rotateBox5 1.5s linear 1;
+}
+.anima_potion7{
+	-moz-animation:rotateBox7 1.5s linear 1;
+	-webkit-animation:rotateBox7 1.5s linear 1;
+	-o-animation:rotateBox7 1.5s linear 1;
+	animation:rotateBox7 1.5s linear 1;
+}
+.anima_potion8{
+	-moz-animation:rotateBox8 1s linear 1;
+	-webkit-animation:rotateBox8 1s linear 1;
+	-o-animation:rotateBox8 1s linear 1;
+	animation:rotateBox8 1s linear 1;
+}
+.anima_potion9{
+	-moz-animation:rotateBox9 1s linear 1;
+	-webkit-animation:rotateBox9 1s linear 1;
+	-o-animation:rotateBox9 1s linear 1;
+	animation:rotateBox9 1s linear 1;
+}
+
+
+@-webkit-keyframes rotateBox1
+{
+	0%{
+        top: 82px;
+        right: 62px;
+    }
+    25%{
+        top: 70px;
+        right: 95px;
+    }
+	50%{
+        top: 44px;
+        right: 56px;
+    }
+    75%{
+        top: 64px;
+        right: 26px;
+    }
+    100%{
+        top: 82px;
+        right: 62px;
+    }
+}
+@-webkit-keyframes rotateBox2
+{
+	from { left: -385px;}
+	to { left: 60px;}
+}
+
+@-webkit-keyframes rotateBox3
+{
+	from { right: 195px;}
+	to { right: 8px;}
+}
+
+/*执行Y轴旋转360度动画*/
+@-webkit-keyframes spin {
+from {-webkit-transform: rotateY(0);}
+to {-webkit-transform: rotateY(360deg);}
+}
+
+@-webkit-keyframes rotateBox5
+{
+	from { top: 0px;}
+	to { top: 140px;}
+}
+
+@-webkit-keyframes rotateBox7
+{
+	from { top: -336px;}
+	to { top: 89px;}
+}
+
+@-webkit-keyframes rotateBox8
+{
+	0%{
+		left: 140px;
+	}
+	50%{
+		left: 82px;
+	}
+	100%{
+		left: 140px;
+	}
+}
+
+@-webkit-keyframes rotateBox9
+{
+	0%{
+		left: 140px;
+	}
+	50%{
+		left: 200px;
+	}
+	100%{
+		left: 140px;
+	}
+}
+/*安全保障结束*/
+/*天天赚详情*/
+.gaindetails{
+	width: 100%;
+	background-color: #efefef;
+	padding:0 0 50px 0;
+	color:#7f7f7f;
+}
+.house_add{
+	color:#a3a3a3;
+}
+.gaindetails .clearfix.inner{
+	margin-bottom: 16px;
+}
+.gaindetails .white{
+	background-color: #FFF;
+}
+.gaindetails .daygain{
+	font-size: 14px;
+	width: 668px;
+	height: 370px;
+	float: left;
+}
+.gaindetails .daygain h2{
+	height: 56px;
+	line-height: 56px;
+	color:#FFF;
+	font-size: 18px;
+	background-color: #ffb033;
+	margin-bottom: 40px;
+}
+.gaindetails .daygain h3 em{
+	font-size:20px;
+	margin:0 370px 0 45px;
+}
+.gaindetails .daygain .number{
+	margin-bottom: 27px;
+}
+.house_add .daygain .numbe{
+	margin-bottom: 35px;
+}
+.gaindetails .daygain .num_left{
+	width:420px;
+	height: 75px;
+	border-right: 1px solid #dfdfdf;
+	text-indent: 60px;
+	float: left;
+}
+.house_add .daygain .num_left{
+	text-indent: 40px;
+}
+
+.gaindetails .daygain .num_left span{
+	font-size: 40px;
+	color:#333;
+	display: block;
+}
+.house_add .daygain .num_left span{
+	color:#333;
+}
+.house_add .num_left p{margin-bottom:6px;}
+.detailss.gaindetails .daygain{  padding-left: 0;}
+.house_con .house_row{padding: 8px 30px;}
+
+.house_ro{padding-left:40px; height:45px;}
+.house_ro li,.house_ro li img,.house_ro li em,.house_ro li span{float:left;}
+.house_ro li{margin-right:42px; height:45px; line-height:45px;}
+.house_ro .ro_no{margin:0;}
+.house_ro li img{margin:13px 3px 0 0;}
+.house_ro li em{color:#a3a3a3; font-size:14px;}
+.house_ro li span{color:#333; font-size:14px; padding-left:10px;}
+.house_jdt{padding-left:40px; padding-right:40px; color:#999; margin-top:10px;}
+.house_jdt .house_j{float:right; width:485px; height:8px; background:#d7d7d7; border-radius:5px; margin-top:7px;}
+.house_j.violet p{background:#fe6161;}
+.house_jdt span{float:right; margin-left:11px; color:#333;}
+.house_j p{width:80%; height:8px; background:#59afff; border-radius:5px;}
+
+.gaindetails .daygain .num_left span.red,.fami .red{
+	color:#ef4c40;
+}
+.gaindetails .daygain .num_right{
+	float: left;
+	height: 75px;
+	margin-left: 25px;
+}
+.gaindetails .daygain .num_right .pad{
+	padding:10px 0;
+}
+.gaindetails .daygain .num_right span{
+	color:#333;
+}
+.gaindetails .daygain .demand{
+	color:#333;
+	font-size: 30px;
+	padding-top: 20px;
+}
+.gaindetails .daygain .progressBar{
+	margin-left: 60px;
+	padding-top: 10px;
+}
+.gaindetails .daygain .progressBar div{
+	float: left;
+}
+.gaindetails .daygain .progressBar .gray{
+	width: 430px;
+	height: 8px;
+	/*background: url(http://image.kuaikuaidai.com/static/images/gain_gray.png) no-repeat left center;*/
+	background-color: #d7d7d7;
+	border-radius: 4px;
+	position: relative;
+	margin:0 10px;
+}
+.gaindetails .daygain .progressBar .text{
+	margin-top: -7px;
+}
+.detailss .house_con .house_row{ padding-right:0px; padding-left:56px;}
+.gaindetails .daygain .progressBar .yellow{
+	height: 8px;
+	width: 70%;
+	position: absolute;
+	left: 0;
+	top:0;
+	/*background:url(http://image.kuaikuaidai.com/static/images/gain_yellow.png) no-repeat left center;*/
+	background-color: #ffb033;
+	border-radius: 4px;
+}
+.detailss.gaindetails .daygain .num_left{  width: 390px;}
+.gaindetails .content{ width: 1000px; padding:10px 0px 30px; margin:0 auto;}
+.gaindetails .content_pa1{padding-top:0;}
+
+.gaindetails .content .title{ font-size: 16px; margin-bottom: 24px; border-bottom: solid 1px #e5e5e5;}
+
+.gaindetails .content .title a{
+	display: inline-block;
+	padding-bottom: 12px;
+	margin-left:60px;
+	color:#333;
+
+	width:98px;
+	  text-align: center;
+}
+.gaindetails .content .title a.active{
+	background:url(../images/linebottom.png) no-repeat center bottom;
+	color:#904ecb;
+	width:98px;
+	text-align: center;
+}
+.gaindetails .content .introduce{ margin: 0px 40px 22px; border:1px solid #dfdfdf; border-bottom: none; font-size: 14px; color:#666;}
+
+.gaindetails .content .introduce tr{
+	border-bottom:1px solid #dfdfdf;
+}
+
+.gaindetails .content .introduce .prev{
+	text-align: right;
+	width: 130px;
+	padding-right: 20px;
+	border-right: 1px solid #dfdfdf;
+	background-color:#f2efff;
+}
+.gaindetails .content .introduce .next{
+	line-height: 24px;
+	padding:20px 0 20px 20px;
+}
+.gaindetails .content .record{ display: none; width: 920px; margin: 0px 40px; border: 0; font-size: 12px; color: #333;}
+.gaindetails .content .record ol{ border: 1px solid #dfdfdf; border-bottom: none;}
+
+.gaindetails .content .record ol li{
+	border-bottom: 1px solid #dfdfdf;
+}
+.gaindetails .content .record .record_title{
+	font-size: 14px;
+	background-color: #f2efff;
+}
+.gaindetails .content .record .record_title em{
+	color:#e30000;
+}
+.gaindetails .content .record  b{
+	display: inline-block;
+	text-indent: 38px;
+	height: 50px;
+	line-height: 50px;
+	font-weight:normal;
+}
+.gaindetails .content .record .record_title b{
+	height: 55px;
+	line-height: 55px;
+}
+ 
+.gaindetails .content .record .title_lf{
+	width: 289px;
+	border-right: 1px solid #dfdfdf;
+}
+.gaindetails .content .record  .title_cen{
+	width: 417px;
+	border-right: 1px solid #dfdfdf;
+}
+/* .gaindetails .content .record .page{ padding-top: 22px; text-align: right;}
+
+.gaindetails .content .record .page a{
+	display: inline-block;
+	height: 28px;
+	padding:0 9px;
+	line-height: 28px;
+	text-align: center;
+	margin-right: 10px;
+	color:#FFF;
+	background-color: #d3d3d3;
+	font-size: 18px;
+	vertical-align: middle;
+	border-radius: 3px;
+}
+.gaindetails .content .record .page input{
+	width: 58px;
+	height: 26px;
+	border:1px solid #dfdfdf;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.gaindetails .content .record .page a.active{
+	background-color: #ffa81e;
+} */
+/* 分页样式   start */
+ul.simple-pagination {
+	list-style: none;
+}
+
+.simple-pagination {
+	display: block;
+	overflow: hidden;
+	padding: 0 5px 5px 0;
+	margin: 20px auto 0 auto;
+}
+
+.simple-pagination ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.simple-pagination li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+.light-theme a, .light-theme span {
+	float: left;
+	color: #666;
+	font-size:14px;
+	line-height:24px;
+	font-weight: normal;
+	text-align: center;
+	min-width: 14px;
+	padding: 0 7px;
+	margin: 0 5px 0 0;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	background: #efefef; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #efefef 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#efefef)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#efefef 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#efefef 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#efefef 100%); /* IE10+ */
+	background: linear-gradient(top, #ffffff 0%,#efefef 100%); /* W3C */
+}
+
+.light-theme a:hover {
+	text-decoration: none;
+	background: #FCFCFC;
+}
+
+.light-theme .current {
+	background: #af73e5;
+	color: #FFF;
+	/*border-color: #444;
+	box-shadow: 0 1px 0 rgba(255,255,255,1), 0 0 2px rgba(0, 0, 0, 0.3) inset;*/
+	cursor: default;
+}
+
+.light-theme .ellipse {
+	background: none;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	font-weight: bold;
+	cursor: default;
+}
+
+/* 分页样式   end */
+
+
+
+/*天天赚详情结束*/
+
+/*邀请好友*/
+.invite{
+	color:#a3a3a3;
+	font-size: 16px;
+}
+.invite .person_right .person_top .person_line{
+	width: 670px;
+}
+.invite .ways{
+	width: 605px;
+	border:1px solid #e5e5e5;
+	padding:56px 80px 50px;
+	margin-bottom: 1px;
+	color:#333;
+}
+.invite .ways .ways_wrap{
+	float:left;
+}
+.invite .ways .firstway{
+}
+.invite .ways .secondway{
+	text-align: center;
+	margin-top:60px;
+}
+.invite .ways .threeway{
+	float:right
+}
+.invite .ways .threeway div{
+	width:171px;
+	height:171px;
+	border:1px solid #d9d9d9;
+	margin-left:5px
+}
+.invite .ways p{
+	margin-bottom: 35px;
+	text-align: center;
+
+}
+.invite .ways a{
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.invite .ways .firstway a{
+	height: 45px;
+	width: 45px;
+	margin-right: 20px;
+}
+.invite .ways .firstway .invite_wx{
+	background-image: url(http://image.kuaikuaidai.com/static/images/invite_wx.png);
+}
+.invite .ways .firstway .invite_wb{
+	background-image: url(http://image.kuaikuaidai.com/static/images/invite_wb.png);
+}
+.invite .ways .firstway .invite_qq{
+	background-image: url(http://image.kuaikuaidai.com/static/images/invite_qq.png);
+}
+.invite .ways .firstway .invite_rr{
+	background-image: url(http://image.kuaikuaidai.com/static/images/invite_rr.png);
+}
+.invite .ways .firstway .invite_tx{
+	background-image: url(http://image.kuaikuaidai.com/static/images/invite_tx.png);
+}
+.invite .ways .secondway a,.invite .ways .secondway button{
+	height: 40px;
+	width: 144px;
+	background-image: url(http://image.kuaikuaidai.com/static/images/invite_copy.png);
+	border:none;
+}
+.invite .rules{
+	width: 723px;
+	border:1px solid #e5e5e5;
+	padding:20px;
+	margin-bottom: 50px;
+	line-height: 26px;
+	  color: #475058;
+  font-size: 14px;
+    line-height: 31px;
+}
+
+.invite .record{ width: 762px; border:1px solid #e5e5e5;}
+.invite .record .table_p{ padding: 40px 0px; text-align: center;}
+.table,.tabley,.myt{ width: 100%;}
+.pdl10{ padding-left:20px;}
+.table tr,.tabley tr,.myt tr{ width: 100%;}
+.table tr th,.tabley tr th,.myt tr th{ height:72px; line-height: 72px; font-size: 14px; color: #333333;}
+.daym .daym_tab tr th{height:47px; line-height:47px;}
+.table tr td,.tabley tr td,.myt tr td{ height: 44px; font-size: 14px; color: #333333;}
+.table tr .table_box1,.myt tr .table_box1{ width: 145px; padding-left: 30px;}
+.table tr .table_box2,.myt tr .table_box2{ width: 115px;}
+.table tr .table_box3,.myt tr .table_box3{ width: 190px;}
+.table tr .table_box4,.myt tr .table_box4{ width: 130px;}
+.table tr .table_color,.tabley tr .table_color,.myt tr .table_color{ color: #f50000;}
+.tawid .tabley tr th{width:33.33%;}
+
+/*邀请好友 结束*/
+
+/*重置密码*/
+.resetpwd{
+	background-color: #efefef;
+	padding:40px 0 40px 0;
+	font-size: 16px;
+}
+.resetpwd .resetpwd_title{
+	position: relative;
+	width: 100%;
+	height: 58px;
+	text-align: center;
+	line-height: 58px;
+	background: #4cbaee;
+}
+
+.resetpwd .resetpwd_title h2{
+	font-size: 18px;
+	color: #fff;
+}
+#login .register_list{  width: inherit;}
+/*重置密码 结束*/
+
+/*登陆*/
+.login{
+	background-color: #efefef;
+	padding:40px 0 40px 0;
+	font-size: 16px;
+}
+.login .login_title{
+	position: relative;
+	width: 100%;
+	height: 58px;
+	text-align: center;
+	line-height: 58px;
+	background: #4cbaee;
+}
+.login .login_title h2{
+	font-size: 18px;
+	color: #fff;
+}
+.login .login_title .login_lf{
+	margin-right: 800px;
+}
+.login .content{
+	width: 918px;
+	background-color: #FFF;
+	padding:38px 40px 56px 40px;
+	border:1px solid #e0e0e0;
+	border-top:none;
+}
+.login .content .loginBox{ width: 380px; padding-top:25px; float: left;}
+.loginBox .register_list{ padding-bottom: 15px; margin: 0; }
+.loginBox .register_list .reister_input{ color: #b2b2b2; border: solid 1px #d6d6d6;}
+.loginBox .user .reister_input{color: #555;}
+.loginBox .register_list .login_code{ position: absolute; top: 14px; left: 15px; font-size: 16px; color: #b2b2b2; z-index: 2;}
+.loginBox .register_list input{ position:relative; background:transparent; /* z-index:5; */}
+.login .content .ad{
+	height: 292px;
+	width: 529px;
+	background-color: #e5e5e5;
+	float: right;
+	margin-top:25px;
+}
+.login .content .ad img{
+	height: 292px;
+	width: 529px;
+	display: block;
+	border: none;
+}
+.user{ position: relative; padding-bottom: 20px;}
+.user input{ position: relative; width: 275px; height: 20px; padding:14px 0 14px 14px; line-height:20px; border: solid 1px #d6d6d6; font-size: 16px; color: #555; background: transparent;/*  z-index: 5; */}
+.user input.active{ border: solid 1px #904ecb;}
+.user .user_right{ position: absolute; top: 14px; left: 83px; font-size: 16px; color: #b2b2b2; z-index: 2;}
+.user .pass_right,.register_list .user_right{ position: absolute; top: 14px; left: 83px; font-size: 16px; color: #b2b2b2; z-index: 2;}
+.user .form_tips{  position: absolute; padding-left: 70px; font-size: 14px; color: #fe0000;  display: block;}
+.reister_yz{float:left; line-height:51px; padding-right:20px; color:#b2b2b2}
+.user_mm{letter-spacing:16px; color:#b2b2b2} 
+.user_yh{padding-right:16px; color:#b2b2b2}
+
+.remember_box{ float: left; display: inline-block;}
+.remember_box .remem_mr{ display: inline-block; width: 20px; height: 20px; background: url(http://image.kuaikuaidai.com/static/images/login_gray.png) no-repeat;}
+.remember_box .remem_check{ background-image: url(http://image.kuaikuaidai.com/static/images/check_ok3.png);}
+.remember_box span{ display: inline-block; padding-left: 10px; font-size: 16px; color: #333; vertical-align: top; margin-top:-3px;}
+
+.login .content .remember{ width: 320px; height: 35px; color:#333; margin-top:15px}
+
+.login .content .remember label  span{
+	margin-left: 20px;
+	vertical-align: middle;
+}
+.login .content .remember .foget{
+	color:#333;
+	float: right;
+	margin-top:-3px;
+}
+.login .content .login_button{
+	display: block;
+	height: 48px;
+	width: 355px;
+	background:#904ecb;
+	margin-bottom: 20px;
+	border: 0px;
+	color:#fff;
+	border-radius:3px;
+	cursor:pointer;
+}
+.login .content .other span{
+	color:#7f7f7f;
+	vertical-align: middle;
+}
+.login .content .other a{
+	vertical-align: middle;
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin-left: 20px;
+}
+.login .content .other .other_weibo{
+	background-image: url(http://image.kuaikuaidai.com/static/images/login_weibo.png);
+}
+.login .content .other .other_qq{
+	background-image: url(http://image.kuaikuaidai.com/static/images/login_qq.png);
+}
+/*登陆 结束*/
+ .invite .recordmar{margin-bottom:40px;}

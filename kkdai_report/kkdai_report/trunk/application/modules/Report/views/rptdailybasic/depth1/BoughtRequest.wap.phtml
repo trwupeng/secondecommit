@@ -1,0 +1,53 @@
+<?php
+	//测试
+	$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+	$display =$this->grpName;
+	$display['flgext01']='����Ʒ����ͳ��';
+	$chartid=1;
+	
+	$md = $this->args['ymd']%10000;
+	$md = floor($md/100).'-'.($md%100);
+	$prdtTypes = json_encode(\PrjLib\Config::fetch('enum_prdtType'));
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='';
+	$args['useActAsGrp']='NewerBought,LaterBought,RegAndBought';
+	$args['grpNameFix']='���û�,��ע���û�';
+	$args['title']='7�չ�����������';
+	$args['subtitle']='���ܶ';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'linesSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	unset($args['useActAsGrp'],$args['grpNameFix']);
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='';
+	$args['useActAsGrp']='Register,RegAndBindOk,RegAndBought';
+	$args['grpNameFix']='��ע���û�,�°��û�,�¹����û�';
+	$args['title']='7���ܹ�������';
+	$args['subtitle']='���ܶ';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'barsSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	unset($args['useActAsGrp'],$args['grpNameFix']);
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+	$args['forAct']='BoughtEachTotal';
+	$args['title']='��������Ʒ�����ֲ�';
+	$args['subtitle']=$md.' ';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+	$chartid++;
+	unset($args['useActAsGrp'],$args['grpNameFix'],$args['extFlgNames']);
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+	$args['forAct']='LaterBoughtEach,RegAndBoughtEach';
+	$args['grpNameFix']='���û�����{}����,���û�����{}����';
+	$args['title']='��������Ʒ�����ֲ�';
+	$args['subtitle']=$md.'��������ע������û���';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+	$chartid++;
+	unset($args['useActAsGrp'],$args['grpNameFix'],$args['extFlgNames']);	
+	
+	
+	
+	

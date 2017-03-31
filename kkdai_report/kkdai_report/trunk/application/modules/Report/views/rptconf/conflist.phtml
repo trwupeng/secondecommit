@@ -1,0 +1,21 @@
+<?php
+$rs = $this->RptAclList;
+echo '<table border=1 cellspacing=0 cellpadding=5 style="width:400px"><tr><th>姓名</th>';
+foreach(\Prj\Acl\RptLimit::$map as $capt){
+	echo '<th>'.$capt.'</th>';
+}
+echo '<tr>';
+
+foreach($rs as $r){//<td>'.$r['loginName'].'</td>
+	$loginName=$r['loginName'];
+	echo '<tr><td>'.$r['nickname'].'</td>';
+	foreach(\Prj\Acl\RptLimit::$map as $id=>$capt){
+		if($r[$id]){
+			echo '<td><font color=green>允许</font> '.tmpfun_btn_disable($r['nickname'],$capt,$loginName,$id).'</td>';
+		}else{
+			echo '<td><font color=red>禁止</font> '.tmpfun_btn_enable($r['nickname'],$capt,$loginName,$id).'</td>';
+		}
+	}
+	echo '</tr>';
+}
+echo '</table>';

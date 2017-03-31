@@ -1,0 +1,40 @@
+<div class="bjui-pageHeader">
+    <form id="tabHistoryLogForm">
+        <?php if ($hasManager == 1) {
+            $mtRandId = '_' . mt_rand(10000, 99999);
+            echo \Prj\Misc\View::mb_zzjgck('single', '', $mtRandId);
+            echo '<br />';
+            echo '<label for="" style="margin-top: 7px;" id="zzjgLabel' . $mtRandId . '">' . $zzjgStr . '</label>';
+            echo '<input type="hidden" id="zzjgName' . $mtRandId . '" name="zzjgName" value="' . $zzjgName . '">';
+            echo '<input type="hidden" id="zzjgNameCh' . $mtRandId . '" name="zzjgNameCh" value="' . $zzjgNameCh . '">';
+            echo '<br />';
+        } ?>
+        <label for="">日期</label>
+        <input type="text" data-toggle="datepicker" name="date" size="14" value="<?php echo $date; ?>"/>
+        <button type="button" onclick="doLoad();" id="tabHistoryLogFormBtn" class="btn btn-default">查询</button>
+    </form>
+</div>
+<div class="bjui-pageContent">
+    <?php echo $view; ?>
+</div>
+<?php
+include dirname(__DIR__) . '/perfdst/comments.www.phtml';
+?>
+
+<script>
+    function doLoad() {
+        $(document).bjuiajax('doLoad', {
+            target: '#list-tab',
+            url: "<?php echo \Sooh\Base\Tools::uri(); ?>",
+            data: $("#tabHistoryLogForm").serialize()
+        });
+    }
+
+    mb_dept.callbackById["<?php echo $mtRandId;?>"] = function (obj) {
+        for (var oaUser in obj) {
+            $("#zzjgLabel<?php echo $mtRandId; ?>").text(obj[oaUser]);
+            $("#zzjgNameCh<?php echo $mtRandId; ?>").attr('value', obj[oaUser]);
+            $("#zzjgName<?php echo $mtRandId; ?>").attr('value', oaUser);
+        }
+    };
+</script>

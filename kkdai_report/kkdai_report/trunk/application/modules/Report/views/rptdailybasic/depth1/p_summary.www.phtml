@@ -1,0 +1,69 @@
+<?php
+	
+	$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+	$chart = new \Rpt\Misc\Chart1;
+	$chart->ymd=$args['ymd'];
+	$m_d = date('m月d日',  strtotime($args['ymd']));
+	
+	//没有二级统计情况的一周走势图
+	$chart->titleMain='用户数走势图';
+	//$chart->grpBy();
+	$chart->where=['act'=>['Accounts','BuyNUsrAll']];
+	$chart->showStd('linesSimple','week')->reset();
+	
+	//有二级统计情况的一周走势图
+//	$chart->titleMain='4个板块存量走势';
+//	$chart->where=['act'=>['FinanceK','FinanceM','FinanceXS','FinanceXX']];
+//	$chart->showStd('linesSimple','week')->reset();
+
+	//没有二级统计情况的当日占比饼图
+// 	$chart->titleMain='成功绑卡情况汇总';
+// 	$chart->titleSub=$m_d;
+// 	$chart->where=['act'=>['BindOk']];
+// 	$chart->showStd('pieSimple','oneday')->reset();
+	
+	//有二级统计情况的当日占比饼图
+//	$chart->titleMain='注册用户占比';
+////	$chart->titleSub=$m_d;
+//	$chart->grpBy('flgext01');
+//	$chart->where=['act'=>['Accounts']];
+//	$chart->showStd('pieSimple','oneday')->reset();	
+//	
+//	
+//	$chart->titleMain='投资用户占比';
+////	$chart->titleSub=$m_d;
+//	$chart->grpBy('flgext01');
+//	$chart->where=['act'=>['BuyNUsrAll']];
+//	$chart->showStd('pieSimple','oneday')->reset();	
+//	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//	$args['forGrp']='';
+//	$args['useActAsGrp']='Register,RegAndBindOk,RegAndBought';
+//	$args['grpNameFix']='新注册用户,新绑卡用户,新购买用户';
+//	$args['title']='7日总购买走势';
+//	$args['subtitle']='（总额）';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'barsSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp'],$args['grpNameFix']);
+//	
+//	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+//	$args['forAct']='BoughtEachTotal';
+//	$args['title']='购买各类产品人数分布';
+//	$args['subtitle']=$md.' ';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp'],$args['grpNameFix'],$args['extFlgNames']);
+//	
+//	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+//	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+//	$args['forAct']='LaterBoughtEach,RegAndBoughtEach';
+//	$args['grpNameFix']='老用户购买{}人数,新用户购买{}人数';
+//	$args['title']='购买各类产品人数分布';
+//	$args['subtitle']=$md.'（区分新注册和老用户）';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp'],$args['grpNameFix'],$args['extFlgNames']);	
+	
+	
+	
+	

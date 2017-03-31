@@ -1,0 +1,209 @@
+<?php
+$this->htmlHeadPart('<!-- head part --><link rel="stylesheet" href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css">');
+echo $this->renderInc('head');
+$uriBase = \Sooh\Base\Ini::getInstance()->get('uriBase')['oauth'];
+echo "<script>var uriBase = \"$uriBase\";</script>";
+?>
+
+
+<div class="container">
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Oauth_authrize">Oauth/authrize</button>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Oauth/getToken</button>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Oauth/refresh</button>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Oauth_appreg">Oauth/appreg</button>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Oauth/applogin</button>
+</div>
+
+<div class="modal fade" id="Oauth_authrize" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel">Oauth/authrize Oauth认证</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<label for="authrizeresponseType" class="col-sm-4 control-label">authrizeresponseType：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="authrizeresponseType" placeholder="responseType" value="code" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="authrizeclientId" class="col-sm-4 control-label">clientId：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="authrizeclientId" placeholder="clientId" value="1104878344" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="authrizeclientSecret" class="col-sm-4 control-label">clientSecret：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="authrizeclientSecret" placeholder="clientSecret" value="s20vH9emKJ6BmT1Q" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="authrizeredirectUri" class="col-sm-4 control-label">redirectUri：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="authrizeredirectUri" placeholder="redirectUri" value="https://www.baidu.com/" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="authrizescope" class="col-sm-4 control-label">scope：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="authrizescope" placeholder="scope" value="admin" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="authrizestate" class="col-sm-4 control-label">state：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="authrizestate" placeholder="state,可留空" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="btnAuthrize">Submit</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="Oauth_appreg" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel">Oauth/appreg 客户端注册</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<label for="appregphone" class="col-sm-4 control-label">appregphone：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregphone" placeholder="phone"/>
+						</div>
+					</div>
+					<div class="row">
+						<label for="appreginvalidCode" class="col-sm-4 control-label">appreginvalidCode：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appreginvalidCode" placeholder="invalidCode"/>
+						</div>
+					</div>
+					<div class="row">
+						<label for="appregpassword" class="col-sm-4 control-label">appregpassword：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregpassword" placeholder="password" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="appreginvitationCode" class="col-sm-4 control-label">appreginvitationCode：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appreginvitationCode" placeholder="invitationCode" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="appregcontractId" class="col-sm-4 control-label">appregcontractId：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregcontractId" placeholder="contractId" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="appregclientType" class="col-sm-4 control-label">appregclientType：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregclientType" placeholder="clientType" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="appregclientId" class="col-sm-4 control-label">appregclientId：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregclientId" placeholder="clientId" value="1104878344" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="appregclientSecret" class="col-sm-4 control-label">appregclientSecret：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregclientSecret" placeholder="clientSecret" value="s20vH9emKJ6BmT1Q" />
+						</div>
+					</div>
+					<div class="row">
+						<label for="appregredirectUri" class="col-sm-4 control-label">appregredirectUri：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="appregredirectUri" placeholder="redirectUri" value="https://www.baidu.com/" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<label class="col-sm-2 control-label">结果：</label>
+				</div>
+				<div class="row">
+					<label class="col-sm-2 control-label">状态：</label><label class="col-sm-4 control-label" id="appregRetStatus"></label>
+				</div>
+				<div class="row">
+					<label class="col-sm-2 control-label">详细：</label><label class="col-sm-4 control-label" id="appregRetDetail"></label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="btnOauthappreg">Submit</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://libs.useso.com/js/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	uriBase = uriBase + '/index.php?__VIEW__=json';
+	$(function() {
+		$('#btnAuthrize').click(function() {
+			var responseType = $('#authrizeresponseType').val(),
+				clientId = $('#authrizeclientId').val(),
+				clientSecret = $('#authrizeclientSecret').val(),
+				redirectUri = $('#authrizeredirectUri').val(),
+				scope = $('#authrizescope').val(),
+				state = $('#authrizestate').val();
+			$.ajax({
+				type:'GET',
+				url:uriBase + '&__=oauth/authrize',
+				data:{responseType:responseType,clientId:clientId,clientSecret:clientSecret,redirectUri:redirectUri,scope:scope,state:state},
+				success: function(data) {
+					if(data.code == 200) {
+
+					} else {
+
+					}
+				}
+			});
+		});
+
+		$('#btnOauthappreg').click(function() {
+			var phone = $('#appregphone').val(),
+				password = $('#appregpassword').val(),
+				invalidCode = $('#appreginvalidCode').val(),
+				invitationCode = $('#appreginvitationCode').val(),
+				contractId = $('#appregcontractId').val(),
+				clientType = $('#appregclientType').val(),
+				clientId = $('#appregclientId').val(),
+				clientSecret = $('#appregclientSecret').val()
+				redirectUri = $('#appregredirectUri').val();
+			$.ajax({
+				type:'GET',
+				url: uriBase + '&__=oauth/appreg',
+				data:{phone:phone,password:password,invalidCode:invalidCode,invitationCode:invitationCode,contractId:contractId,clientType:clientType,clientId:clientId,clientSecret:clientSecret,redirectUri:redirectUri},
+				success: function(data) {
+					if (data.code == 200) {
+						$('#appregRetStatus').text('成功');
+					} else {
+						$('#appregRetStatus').text('失败');
+					}
+					$('#appregRetDetail').text(JSON.stringify(data));
+				}
+			});
+		});
+	});
+</script>
+</body>
+</html>

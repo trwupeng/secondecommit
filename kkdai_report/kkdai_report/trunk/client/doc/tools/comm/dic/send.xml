@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sends>	
+	<send func="login" api="manage/manager/login"  ui="true"  desc="登录" >
+		<arg name="u" type="string" desc="手机号" />
+		<arg name="p" type="string" desc="密码" />
+	</send>
+	<send func="getMenu" api="manage/manager/index"  ui="true"  desc="获取菜单" ></send>
+	<send func="webTraffic" api="report/pcsitetraffic/index"  ui="true"  desc="网页流量" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+	</send>
+	<send func="appTraffic" api="report/umengdata/index"  ui="true"  desc="App流量" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="registToInvestNumbers" api="report/regtoinvestmenttrans/index"  ui="true"  desc="注册至理财人数" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="selectedContractId" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="registToInvestConversionRatio" api="report/regtoinvestmenttransrate/index"  ui="true"  desc="注册至理财转化率" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="selectedContractId" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="newInvestNumbers" api="report/newfinancial/index"  ui="true"  desc="新增理财人数" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="newInvestMoney" api="report/newlicaiamount/index"  ui="true"  desc="新增理财金额" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="selectedContractId" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="newInvestMoneyPerCapita" api="report/newfinancialavg/index"  ui="true"  desc="新增理财人均" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="newOldInvestNumbers" api="report/oldandnewfinancial/index"  ui="true"  desc="新老用户理财人数" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="newOldInvestMoney" api="report/oldandnewfinancialamount/index"  ui="true"  desc="新老用户理财金额" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="selectedContractId" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="newOldInvestMoneyPerCapita" api="report/oldandnewfinancialavg/index"  ui="true"  desc="新老用户理财人均" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="capitalDataCompare" api="report/fundsdata/index"  ui="true"  desc="资金数据对比" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="remainData" api="report/retaineddata/index"  ui="true"  desc="留存数据" >
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="huanbi" type="string" desc="环比"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="investAgainNumbers" api="report/compounddata/index"  ui="true"  desc="复投人数" >
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="huanbi" type="string" desc="环比"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="investAgainRatio" api="report/compoundrate/index"  ui="true"  desc="复投率" >
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="huanbi" type="string" desc="环比"  />
+		<arg name="select" type="string" null="true" desc="渠道名"/>
+	</send>
+	<send func="bidStatistics" api="report/bidstatistics/monthbid"  ui="true"  desc="投标统计" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="bidDetails" api="report/bidstatistics/dailybid"  ui="true"  desc="投标详情" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+		<arg name="hide" type="string" value="1" />
+		<arg name="liubiao_tiyanbiao" type="string" value="1" />
+	</send>
+	<send func="failBidStatistics" api="report/liubiaostatistics/summary"  ui="true"  desc="流标统计" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	
+	<send func="failBidDetails" api="report/bidstatistics/dailybid"  ui="true"  desc="流标详情" >
+	    <arg name="waresId" type="string" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="rechargeWithdrawStatistics" api="report/rechdraw/index"  ui="true"  desc="充值-提现统计" >
+	    <arg name="__formguid__" type="string" value="default" desc="" />
+	    <arg name="_ymdForm_g2" type="string" desc="起始日期" />
+		<arg name="_ymdTo_l2" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="rechargeWithdrawDetails" api="report/rechdraw/chardrawdetails"  ui="true"  desc="充值-提现详情" >
+	    <arg name="_pkey_val_" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="repaymentInvestorStatistics" api="report/paymentofinvestor/summary"  ui="true"  desc="还款统计-投资人" >
+	    <arg name="waresId" type="string" null="true" desc="标的ID" />
+		<arg name="waresName" type="string" null="true" desc="标的名称" />
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="refundDetail" api="report/paymentofinvestor/detail"  ui="true"  desc="还款详情" >
+	    <arg name="billId" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="repaymentBorrwoerStatistics" api="report/paymentofborrower/summary"  ui="true"  desc="还款统计-借款人" >
+	    <arg name="shelfId" type="string" null="true" desc="产品类型" />
+		<arg name="realname" type="string" null="true" desc="借款人姓名" />
+		<arg name="waresName" type="string" null="true" desc="标的名称" />
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="managementFeeStatistics" api="report/servicecharge/index"  ui="true"  desc="管理费" >
+	    <arg name="__formguid__" type="string" value="default" desc="" />
+	    <arg name="_ymdForm_g2" type="string" desc="起始日期" />
+		<arg name="_ymdTo_l2" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="managementFeeDetails" api="report/servicecharge/details"  ui="true"  desc="管理费详情" >
+	    <arg name="_pkey_val_" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="voucherGrantStatistics" api="report/vouchergrant/summary"  ui="true"  desc="优惠券发放" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="voucherGrantDetails" api="report/vouchergrant/detail"  ui="true"  desc="优惠券发放详情" >
+	    <arg name="ymdCreate" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="voucherUseStatistics" api="report/voucheruse/summary"  ui="true"  desc="优惠券使用" >
+	    <arg name="ymdFrom" type="string" desc="起始日期" />
+		<arg name="ymdTo" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="voucherUseDetails" api="report/voucheruse/detail"  ui="true"  desc="优惠券使用详情" >
+	    <arg name="ymdUsed" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="cashBackStatistics" api="report/cashback/index"  ui="true"  desc="好友返现" >
+	    <arg name="__formguid__" type="string" value="default" desc="" />
+	    <arg name="_ymdForm_g2" type="string" desc="起始日期" />
+		<arg name="_ymdTo_l2" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="cashBackDetail" api="report/cashback/details"  ui="true"  desc="好友返现详情" >
+	    <arg name="_pkey_val_" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="loanDetail" api="report/fangkuan/index"  ui="true"  desc="标的放款明细" >
+	    <arg name="__formguid__" type="string" value="default" desc="" />
+	    <arg name="_ymdForm_g2" type="string" desc="起始日期" />
+		<arg name="_ymdTo_l2" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="serviceFeeStatistics" api="report/servicefee/index"  ui="true"  desc="服务费" >
+	    <arg name="__formguid__" type="string" value="default" desc="" />
+	    <arg name="_ymdForm_g2" type="string" desc="起始日期" />
+		<arg name="_ymdTo_l2" type="string" desc="截止日期"  />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="serviceFeeDetailStatistics" api="report/servicefee/details"  ui="true"  desc="服务费详情" >
+	    <arg name="_pkey_val_" type="string" desc="key" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+	<send func="userFinancialDetails" api="report/userfinancialdetails/index"  ui="true"  desc="用户理财明细(新浪)" >
+	    <arg name="__formguid__" type="string" value="default" desc="" />
+	    <arg name="_ymdForm_g2" type="string" desc="起始日期" />
+		<arg name="_ymdTo_l2" type="string" desc="截止日期" />
+		<arg name="_UsrCustId_l2" type="string" desc="用户名/已验证手机" />
+		<arg name="pageId" type="string" desc="页码"  />
+		<arg name="pageSize" type="string" value="20" desc="每页数量"  />
+	</send>
+</sends>

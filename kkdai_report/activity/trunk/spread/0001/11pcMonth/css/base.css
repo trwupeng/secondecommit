@@ -1,0 +1,157 @@
+body,html{
+	width: 100%;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #fff;
+	height: auto;
+}
+body,div,p,span,ul,li,a,button,input,dl,dt,dd,img{
+	padding:0;
+	margin:0;
+	border:0;
+	list-style: none;
+	text-decoration: none;
+	
+}
+a{
+	color:#fff;
+}
+a:hover{
+	color:#fff;
+}
+#touBan{
+	width: 100%;
+	height:422px;
+	background:url(http://image.kuaikuaidai.com/activity/pc11Month/5df65df306a448678dd5469bef8de0c0.jpg) no-repeat center center;
+	padding-top:570px;
+	background-size: cover;
+}
+.timer{
+	width: 1005px;
+	height: 380px;
+	margin:0 auto;
+}
+.biaoqian{
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+}
+.biaoqian img{
+	width: 100%;
+	height: auto;
+}
+.timer_con{
+	width: 90%;
+	height: 330px;
+	margin: 30px auto;
+	margin-bottom: 0;
+}
+.tuwen{
+	width: 280px;
+	height: 271px;
+	background:#9a22d2;
+	float: left;
+	padding:25px 20px;
+	font-size: 24px;
+	box-sizing: border-box;
+}
+.tuwen p{
+	text-align: center;
+	line-height: 40px;
+	letter-spacing: 2px;
+}
+.tuwen .time{
+	display: block;
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+	color: #fefa1c;
+	font-weight: bold;
+	margin-top:20px;
+}
+.tuwen dd{
+	width: 180px;
+	height: 43px;
+	border-radius: 20px;
+	margin: 15px auto;
+	margin-bottom: 0;
+	text-align: center;
+	line-height: 43px;
+	background:#fefa1c;
+	color:#f3282e;
+	font-size: 22px;
+}
+#touBan dl:nth-of-type(2n){
+	margin-left:32px;
+	margin-right: 32px;
+	background:#5382ec;
+}
+#touBan dl:nth-of-type(1) dd.waite{
+	color:#500773;
+}
+#touBan dl:nth-of-type(2) dd.waite{
+	color:#1b4ab6;
+	background:#3a6ee4;
+
+}
+
+.tuwen .waite{
+	background:rgba(0,0,0,0.1);
+}
+#touBan dl:nth-last-of-type dd.waite{
+	color:#940e18;
+}
+.tuwen .end{
+	background:#d2d1d3;
+	color:#818181;
+}
+.zise,.lanse{
+	width: 1005px;
+	height: auto;
+	margin: 0 auto;
+}
+.zise{
+	padding-top: 78px;
+}
+
+#diSanBan>div{
+	width: 1005px;
+	height: auto;
+	margin: auto;
+	padding-top: 78px;
+}
+#dierBan{
+	height:713px;
+	width: 100%;
+	background:url(http://image.kuaikuaidai.com/activity/pc11Month/fa3af411bbe4457ea81c549306494497.jpg) center center no-repeat;
+	background-size: cover;
+}
+#diSanBan{
+	height:713px;
+	width: 100%;
+	background:url(http://image.kuaikuaidai.com/activity/pc11Month/e1ea763a7e694a68b848085ca76d0a64.jpg) center center no-repeat;
+	background-size: cover;
+}
+#diSi{
+	height:1436px;
+	width: 100%;
+	background:url(http://image.kuaikuaidai.com/activity/pc11Month/93b9b3a851d041109f7ff80c180c0eec.jpg) center center no-repeat;
+	background-size: cover;
+}
+#diSi div{
+	padding-top:78px;
+	width: 1005px;
+	height: auto;
+	margin: 0 auto;
+}
+.saoMa{
+	position: fixed;
+	right: 37px;
+	top: 55%;
+	width: 12%;
+	height: auto;
+}
+.saoMa img{
+	width: 100%;
+	height: auto;
+}

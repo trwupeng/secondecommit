@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/view_top_with_channel_short"/>
+
+            <include layout="@layout/view_label2"/>
+
+            <lecho.lib.hellocharts.view.ColumnChartView
+                android:id="@+id/ccv_app_traffic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:paddingTop="5dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@color/divider_color"
+                />
+
+            <com.kuaikuaidai.kkdaireport.cusview.MyListView
+                android:id="@+id/lv_max_channel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/divider_color"
+                android:dividerHeight="1dp"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="false"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"
+                android:smoothScrollbar="true"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@color/divider_color"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

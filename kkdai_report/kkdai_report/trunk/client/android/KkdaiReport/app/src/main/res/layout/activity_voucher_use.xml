@@ -1,0 +1,52 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_top"/>
+
+        <TextView
+            android:id="@+id/tv_sum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/lv_list"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:smoothScrollbar="true"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/menu_list"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:choiceMode="singleChoice"
+        android:divider="#DCDCDC"
+        android:dividerHeight="1dp"/>
+</android.support.v4.widget.DrawerLayout>
+
+
+

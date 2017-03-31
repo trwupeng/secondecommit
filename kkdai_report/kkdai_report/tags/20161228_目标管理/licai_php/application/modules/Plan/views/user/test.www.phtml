@@ -1,0 +1,70 @@
+<style>
+
+</style>
+<div class="bjui-pageHeader"></div>
+<div class="bjui-pageContent">
+    <div>
+    <?php
+        echo \Prj\Misc\View::mb_zzjgck('single' , 'comment');
+    ?>
+    </div>
+    <div class="getUsers">
+        <h4>选择带回</h4>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <input type="text" data-toggle="datepicker">
+    </div>
+
+    <div style="width: 300px;height: 300px;border: 1px solid #DDDDDD">
+        <div id="mb_cal" style="position: relative"></div>
+    </div>
+</div>
+<div class="bjui-pageFooter"></div>
+<script>
+    $(function () {
+        mb_dept.callback = function (arr) {
+            for(var i in arr){
+                $('.getUsers').append(arr[i]+'<br>')
+            }
+        }
+        /**
+         * 点击回调函数
+         * @param date {year: 2016,month: 12, day: 23,days: 31,second: 0}
+         * @param func ajax请求后的回调函数
+         */
+        mb_week_back = function (date , func) {
+            var url = ''
+            var args = {}
+            $.post(url,args,func)
+        }
+        /**
+         * 请求返回值的格式化函数
+         * @param data ajax请求的返回值
+         * @returns {[number,number]}
+         */
+        mb_week_back_format = function (data) {
+            return [1,2]
+        }
+        mb_day_back = function (date , func) {
+            var url = ''
+            var args = {}
+            $.post(url,args,func)
+        }
+        mb_day_back_format = function (data) {
+            return [1,2]
+        }
+        $('#mb_cal').datepicker({
+            mb_week_back : "mb_week_back", //周目标-点击回调函数
+            mb_week_back_format : "mb_week_back_format", //周目标-请求返回值的格式化函数
+            mb_day_back : "mb_week_back", //日目标-点击回调函数
+            mb_day_back_format : "mb_week_back_format", //日目标-请求返回值的格式化函数
+            mb_fix : true //日期框不会消失
+        })
+        //var picker = $('#mb_cal').data('bjui.datepicker')
+        //console.log(picker.TOOLS)
+        //picker.TOOLS().selectWeek([1,2])
+    })
+</script>
+
+

@@ -1,0 +1,14 @@
+<div class="bjui-pageHeader">
+    <?php echo \Prj\Misc\View::btnDefaultInDatagrid('新增',\Sooh\Base\Tools::uri(['form'=>1],'update')); ?>
+</div>
+<div class="bjui-pageContent">
+<?php
+/**
+ * @var \Prj\Misc\ViewFK $view
+ */
+$view = $this->view;
+echo $view->normalTable();
+?>
+</div>
+
+

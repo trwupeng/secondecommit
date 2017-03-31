@@ -1,0 +1,31 @@
+<style>
+
+</style>
+<div class="bjui-pageHeader">
+    <?php
+    echo \Prj\Misc\ViewFK::getInstance()->searchHtml();
+    ?>
+</div>
+<div class="bjui-pageContent">
+    <?php
+    echo \Prj\Misc\ViewFK::getInstance()->normalTable();
+    ?>
+</div>
+<div class="bjui-pageFooter"></div>
+<script>
+    $(function () {
+        mb_dept.callback = function (arr) {
+            var ret = [];
+            if(arr){
+                for(var i in arr){
+                    ret.push(i)
+                }
+            }
+            var str = ret.join(',');
+            console.log(str)
+            $('[name="userIds"]').val(str)
+        }
+    })
+</script>
+
+

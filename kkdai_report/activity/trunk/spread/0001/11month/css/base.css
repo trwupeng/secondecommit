@@ -1,0 +1,300 @@
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd,section, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '微软雅黑';
+	color: #3B3B3B;
+	background-color: #fff;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '微软雅黑';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'微软雅黑';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+#logo{
+	height: 1.1rem;
+	width: 100%;
+	padding-left:0.13rem;
+	padding-right:0.13rem;
+}
+#logo h2{
+	float: left;
+	width: 50%;
+	height: 93%;
+	margin-top:0.1rem;
+}
+#logo img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.dz input{
+	float:left;
+	width: 50%;
+	height:0.72rem;
+	background:transparent;
+	color:#fff;
+	font-size: 0.32rem;
+	border:none;
+	border-radius: 0;
+	color: #7674c1;
+}
+.dz .slect{
+	background:#7674c1;
+	color:#fff;
+}
+.dz{
+	width:35%;
+	float: right;
+	height:0.75rem;
+	border:1px solid #9879cd;
+	border-radius: 5px;
+	margin-top:0.2rem;
+	background:transparent;
+}
+#backg{
+	width: 100%;
+	height: auto;
+	position: relative;
+}
+#backg img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.timer{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: auto;
+	width: 100%;
+	overflow: hidden;
+	padding-left:0.3rem;
+}
+.diyi{
+	float: left;
+	width: 30%;
+	height: 1.7rem;
+	margin-right:0.15rem;
+}
+.diyi dt{
+	font-size: 0.25rem;
+	color:#fefa1c;
+	text-align: center;
+	line-height: 0.5rem;
+}
+.diyi .dd{
+	width: 100%;
+	height: 0.75rem;
+	background:#ffca29;
+	border-radius: 5px;
+	box-shadow: 0 0.1rem 0 #f46925;
+	font-size: 0.23rem;
+	color:#c33c00;
+	padding:2%;
+	line-height: 0.35rem;
+}
+.dd span{
+	display: block;
+	text-align: center;
+}
+.ing{
+	font-size: 0.2rem;
+	color:#fefa1c;
+	text-align: center;
+	line-height: 0.6rem;
+}
+#backg .choose{
+	border:3px solid #ccc;
+}
+#con{
+	width: 100%;
+	height: auto;
+	background:#8215c0;
+}
+.img{
+	width: 100%;
+	height: auto;
+}
+.rule{
+	width: 75%;
+	height: auto;
+	margin:auto;
+}
+.rule li{
+	font-size: 0.28rem;
+	line-height: 0.5rem;
+	color:#f0c9ff;
+	list-style:decimal;
+	width: 108%;
+    margin-left: 0.15rem;
+}
+
+.heng{
+	width: 88%;
+	height: 0.3rem;
+	border-radius: 0.3rem;
+	background:rgba(0,0,0,0.3);
+	margin:0 auto;
+	margin-top:0.25rem;
+}
+
+.bang{
+	width: 85%;
+	height: auto;
+	margin: -0.1rem auto;
+	background:#f3e4fc;
+	padding:0.2rem;
+	padding-top:0.5rem;
+	margin-bottom: 0;
+	overflow: hidden;
+}
+
+.bang img{
+	display:block;
+	width: 90%;
+	height: auto;
+	margin:0 auto;
+	margin-bottom: 0.2rem;
+}
+.user{
+	width: 100%;
+	height: auto;
+	margin:0.2rem auto;
+}
+
+.p1{
+	width: 95%;
+	margin:0 auto;
+	text-align: center;
+	font-size: 0.25rem;
+	color:#bc90dd;
+	font-weight: bold;
+}
+.user li{
+	width: 100%;
+	height:0.7rem;
+}
+.user span{
+	font-size: 0.25rem;
+	text-align: center;
+	width: 49%;
+	float:left;
+	line-height: 0.7rem;
+	font-weight: bold;
+	height: 0.7rem;
+}
+.user li:nth-of-type(2n-1){
+	background:#e5bdfd
+}
+
+.user li:nth-of-type(2n){
+	background:#eac9fd;
+}
+.user span:nth-of-type(2n-1){
+	border-right:1px solid #d7a3f6;
+}
+.pin_top{
+	width: 90%;
+	height:auto;
+	margin:0.1rem auto;
+	margin-top:0;
+}
+.pin_top li{
+    font-size: 0.25rem;
+    width: 87%;
+   
+    line-height: 0.5rem;
+    color: #f0c9ff;
+    list-style: decimal;
+    margin-left: 0.55rem;
+}
+
+.foot{
+	width: 80%;
+	height: 1.2rem;
+	/*line-height: 1.2rem;
+	text-align: center;*/
+	margin:0 auto;
+	font-size: 0.25rem;
+	background: #8215c0;
+	color:#f0c9ff;
+	/*margin-top:0.2rem;*/
+	padding-bottom: 0.2rem;
+}
+
+
+
+
+
+
+

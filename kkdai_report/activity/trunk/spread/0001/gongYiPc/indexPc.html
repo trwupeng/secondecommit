@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" type="text/css" />
+		<link rel="stylesheet" href="css/kkdai.css" type="text/css" />
+	</head>
+	<body style="background:#7ac439;">
+		<div id="warp">
+        <!--替换内容-->
+        <div style="min-height:800px;width: 100%; margin: 0 auto;" class="main">
+            	
+        		<div id="gYbannerPc">
+        			<div class="gYout">
+        				<div class="first_block_pc">
+							<p>由快快贷、静安区天目西路街道办事处联合主办的“爱在后备箱”公益活动在<span class="teColor">1.13日</span>就要来到我们身边啦。</p>
+							<p>“爱在后备箱”属于一个自由买卖的集市，在本场集市中，我们将一些爱心贩卖品全部集中至车子的后备箱来让大家进行挑选买卖。本次活动捐赠托管方为<span class="teColor">上海市慈善基金会静安分会，</span>
+							所筹集的善款将全部捐给<span class="teColor">“蓝天下的至爱”专项基金，</span>在春节期间为特困家庭送去温暖。</p>
+							<p>本次活动也将进行志愿者招募！希望您是那个爱心“泛滥”的人！</p>
+						</div>
+        			</div>
+					
+					
+					
+				</div>					
+				<div class="gYout gy_outline" style="margin-bottom: 60px;">
+	            	<div class="first_block_pc two_block_pc">
+						<h3 class="gYtitle_pc">招募说明：</h3>
+						<ul>
+							
+							<li> 志愿者 &nbsp; &nbsp;&nbsp;（在上海，提供姓名及联系方式）；</li>
+							<li> 车辆提供 &nbsp; &nbsp;&nbsp;（小型私家车）；</li>	
+							<li> 义卖品提供 &nbsp; &nbsp;&nbsp;（首饰、挂件摆件、小型家电等， 如暖手宝、USB加湿器、手工艺品、书本、儿童玩具）。</li>
+							<p class="teP">注：请不要提供衣物、棉被等大件物品。</p>
+						</ul>
+						
+						<h3 class="gYtitle_pc" style="margin-top: 20px;">报名方式：</h3>
+						<ul>
+							
+							<li> 您可以通过在<span class="teColor"> 快快金融 </span>微信后台留言来咨询报名；</li>
+							<li> 拨打客服热线：<span class="teColor" style="font-size: 22px;"> 400-013-7000；</span></li>	
+							<li> 将您的姓名、联系方式及您要报名的内容发送至邮箱<span class="teColor"> kuaikuaigongyi@kuaikuaidai.com。</span></li>
+						</ul>
+						<h3 class="gYtitle_pc" style="margin-top: 20px;">报名日期：</h3>
+						<ul>
+							<p class="teP"><span class="teColor">2016年12月29日——2017年1月11日</span></p>
+							<p class="teP">注：如遇下雨天或其他天气情况导致活动没法正常进行，活动时间可能会变更，到时会再发通知。</p>
+						</ul>
+						<h3 class="gYtitle_pc" style="margin-top: 20px;">地址：</h3>
+						<ul style="border-bottom: 0;">
+							
+							<li> 义卖品邮寄地址：上海市浦东新区福山路388号8楼快快公益；</li>
+							<li> 活动地址：宝矿洲际商务中心：裕通路100号。</li>	
+							<p class="zi_pc" style="">
+								<img src="http://image.kuaikuaidai.com/activity/gongYiPc/1b1d266d13c440088e8abcd9a9e0a1aa.jpg">
+							</p>
+						</ul>
+					</div>
+            	</div>
+        </div>
+        <!--end替换内容-->
+
+    </div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+	    $.ajax({
+	        type: 'GET',
+	        url: '../../../kkdhead/lib/head.html',
+	        //url : 'lib/head.html',
+	        data: '_=' + Date.parse(new Date()),
+	        success: function(data) {
+	            $('#warp').prepend(data);
+	            $('.clearfix').find('.nav_curr').removeClass('nav_curr').end().children('li').eq(3).addClass('nav_curr')
+
+	        }
+	    });
+	    $.ajax({
+	        type: 'GET',
+	        url: '../../../kkdhead/lib/end.html',
+	        //url :'lib/end.html',
+	        data: '_=' + Date.parse(new Date()),
+	        success: function(data) {
+	            $('#warp').append(data);
+	        }
+	    });
+	    $.ajax({
+	        type: 'GET',
+	        url: '../../../kkdhead/lib/returnTop.html',
+	        //url :'lib/returnTop.html',
+	        data: '_=' + Date.parse(new Date()),
+	        success: function(data) {
+	            $('body').append(data);
+	        }
+	    });
+	    $.ajax({
+	        type: 'GET',
+	        url: '../../../kkdhead/lib/js.html',
+	        //url:'lib/js.html',
+	        data: '_=' + Date.parse(new Date()),
+	        success: function(data) {
+	            $('#warp').append(data);
+	        }
+	    });
+	});
+	</script>
+	<script>
+	//document.cookie="JSESSIONID="+'5AF0F04863B5CFECDB91FFC793D79445';
+		var getState = (function(){
+			var cookies ;
+			function getCookies(name){
+				var allcookies = document.cookie;
+				console.log(allcookies)
+				var cookie_pos = allcookies.indexOf(name);
+				
+				if(cookie_pos !=-1){
+					cookie_pos += name.length + 1;
+					var cookie_end = allcookies.indexOf(";", cookie_pos);
+					
+					if (cookie_end == -1){
+	        
+		            	cookie_end = allcookies.length;
+		        	}
+					cookies = unescape(allcookies.substring(cookie_pos, cookie_end)); 
+				}else{
+					return false
+				}
+				
+				return cookies;
+				
+			}
+			console.log(getCookies('JSESSIONID'))
+			return {
+				ajax:function(){
+					$.ajax({
+				        type: 'GET',
+				        //http://10.1.1.212/public/checkKkdLogin?__VIEW__=jsonp
+				        url: 'http://rpt.kuaikuaidai.com/public/checkKkdLogin?__VIEW__=jsonp',
+				        //url: 'http://10.1.1.212/public/checkKkdLogin?__VIEW__=jsonp',
+				        dataType: "jsonp",
+						jsonp: "jsonp",
+				        data: {
+				        	jskey : getCookies('JSESSIONID')?getCookies('JSESSIONID'):''
+				        } ,
+				        success: function(res) {
+				        	console.log(res)
+				           getState.domState(res)
+				        }
+				    });
+				},
+				domState : function(dataObj){
+					if(dataObj.code==400){
+						$('.head_rigth a').eq(0).text('登录').css('color','#fff').attr('href','http://www.kuaikuaidai.com/login.html')
+						$('.head_rigth a').eq(1).text('注册').css('color','#fff').attr('href','http://www.kuaikuaidai.com/register.html')
+					}else if(dataObj.code==200){
+						$('.head_rigth a').eq(0).text('我的账户').css('color','#ff7f41').attr('href','http://www.kuaikuaidai.com/mycenterMyaccount.html')
+						$('.head_rigth a').eq(1).text('退出').css('color','#acaeb2').attr('href','http://www.kuaikuaidai.com/logout.html')
+					}
+				}
+			}
+		})()
+		setTimeout(getState.ajax,500)
+		
+	</script>
+</html>

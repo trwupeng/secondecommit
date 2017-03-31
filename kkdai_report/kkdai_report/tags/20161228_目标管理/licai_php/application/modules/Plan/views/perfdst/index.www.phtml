@@ -1,0 +1,161 @@
+<div id="lajibuju" style="height: 100%;overflow: auto">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#quarter-tab" role="tab" data-toggle="tab"> 季度目标 </a></li>
+        <?php
+        $mon = $day = $week = [];
+        switch ($this->targetTab) {
+            case 'month':
+                $mon = $this->jumpParams;
+                break;
+            case 'week':
+                $week = $this->jumpParams;
+                break;
+            case 'day':
+                $day = $this->jumpParams;
+                break;
+            default:
+                break;
+        }
+        ?>
+        <li><a href="<?php echo \Sooh\Base\Tools::uri($mon, 'tabmonth'); ?>" role="tab" data-toggle="ajaxtab"
+               data-target="#month-tab" data-reload="false"> 月目标 </a></li>
+        <li><a href="<?php echo \Sooh\Base\Tools::uri($week, 'tabweek'); ?>" role="tab" data-toggle="ajaxtab"
+               data-target="#week-tab" data-reload="false"> 周目标 </a></li>
+        <li><a href="<?php echo \Sooh\Base\Tools::uri($day, 'tabday'); ?>" role="tab" data-toggle="ajaxtab"
+               data-target="#day-tab" data-reload="false"> 日目标 </a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="quarter-tab">
+            <div class="bjui-pageHeader">
+                <form id="pagerForm" method="post" action="<?php echo \Sooh\Base\Tools::uri(); ?>"
+                      data-toggle="ajaxsearch">
+                    <?php if ($hasManager == 1) {
+                        $mtRandId = '_' . mt_rand(10000, 99999);
+                        echo \Prj\Misc\View::mb_zzjgck('single', '', $mtRandId);
+                        echo '<br />';
+                        echo '<label for="" style="margin-top: 7px;" id="zzjgLabel' . $mtRandId . '">' . $zzjgStr . '</label>';
+                        echo '<input type="hidden" id="zzjgName' . $mtRandId . '" name="zzjgName" value="' . $zzjgName . '">';
+                        echo '<input type="hidden" id="zzjgNameCh' . $mtRandId . '" name="zzjgNameCh" value="' . $zzjgNameCh . '">';
+                        echo '<br />';
+                    } ?>
+                    <input type="text" data-toggle="datepicker" name="create_date" data-pattern="yyyy" size="10"
+                           value="<?php echo $createDate; ?>"/>
+                    <select name="type_id" data-toggle="selectpicker">
+                        <option value="1" <?php if ($typeId == 1) {
+                            echo 'selected="selected"';
+                        } ?>>第一季度
+                        </option>
+                        <option value="2" <?php if ($typeId == 2) {
+                            echo 'selected="selected"';
+                        } ?>>第二季度
+                        </option>
+                        <option value="3" <?php if ($typeId == 3) {
+                            echo 'selected="selected"';
+                        } ?>>第三季度
+                        </option>
+                        <option value="4" <?php if ($typeId == 4) {
+                            echo 'selected="selected"';
+                        } ?>>第四季度
+                        </option>
+                    </select>
+                    <button type="submit" class="btn btn-default">查询</button>
+                </form>
+            </div>
+            <div class="bjui-pageContent">
+                <div class="col-md-8" style="min-height: 200px;">
+                    <?php echo $view->showPerf(); ?>
+                </div>
+                <div class="col-md-offset-1 text-center" style="width: 198px; float: left;">
+                    <div id="mb_jidu_index">
+                        <p>
+                            <button data-icon="caret-left" class="pull-left"
+                                    onclick="tmp_pull(-1, this, 'jidu')"></button>
+                            <label for="" style="padding-top: 6px;" class="pull-year"><?php echo $createDate; ?></label>
+                            <button data-icon="caret-right" class="pull-right"
+                                    onclick="tmp_pull(1, this, 'jidu')"></button>
+                        </p>
+                        <div>
+                            <div style="width: 98px; height: 98px; float: left; border: 1px solid ;">
+                                <p style="padding-top: 25px;"><label for="" style="font-size: 18px;">第一季度</label></p>
+                                <p class="text-success"><label for="" style="font-size: 14px;"
+                                                               class="jiduyue_1">已设置</label>
+                                </p>
+                            </div>
+                            <div style="width: 98px; height: 98px; float: left; border: 1px solid ;">
+                                <p style="padding-top: 25px;"><label for="" style="font-size: 18px;">第二季度</label></p>
+                                <p class="text-muted"><label for="" style="font-size: 14px;"
+                                                             class="jiduyue_2">未设置</label>
+                                </p>
+                            </div>
+                            <div style="width: 98px; height: 98px; float: left; clear: left; border: 1px solid ;">
+                                <p style="padding-top: 25px;"><label for="" style="font-size: 18px;">第三季度</label></p>
+                                <p><label for="" style="font-size: 14px;" class="jiduyue_3">已设置</label></p>
+                            </div>
+                            <div style="width: 98px; height: 98px; float: left; border: 1px solid ;">
+                                <p style="padding-top: 25px;"><label for="" style="font-size: 18px;">第四季度</label></p>
+                                <p><label for="" style="font-size: 14px;" class="jiduyue_4">已设置</label></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+            include 'comments.www.phtml';
+            ?>
+        </div>
+        <div class="tab-pane fade" id="month-tab">
+        </div>
+        <div class="tab-pane fade" id="week-tab">
+        </div>
+        <div class="tab-pane fade" id="day-tab">
+        </div>
+    </div>
+    <script>
+        $('[data-target="#<?php echo $this->targetTab; ?>-tab"]').click();
+
+        mb_dept.callbackById["<?php echo $mtRandId;?>"] = function (obj) {
+            var names = '', zzjgInputs = new Array();
+            for (var oaUser in obj) {
+                $("#zzjgLabel<?php echo $mtRandId; ?>").text(obj[oaUser]);
+                $("#zzjgNameCh<?php echo $mtRandId; ?>").attr('value', obj[oaUser]);
+                $("#zzjgName<?php echo $mtRandId; ?>").attr('value', oaUser);
+            }
+        };
+
+        var api = {
+            jidu: "<?php echo \Sooh\Base\Tools::uri([], 'getquarterset') ?>",
+            yue: ''
+        }
+
+        tmp_pull = function (num, ele, type) {
+            var $main = $(ele).closest('div')
+            var $year = $main.find('.pull-year')
+            var year = parseInt($year.text()) + num
+            $year.text(year)
+            set_data(year, $main, type)
+        }
+        set_data = function (year, $main, type) {
+            var url = api[type]
+            $.post(url, {year: year}, function (e) {
+                var obj = e.data;
+                var arr = new Array();
+                for (var i in obj) {
+                    if (obj[i] == 1) {
+                        arr.push(parseInt(i));
+                    }
+                }
+
+                var max = type == 'jidu' ? 4 : 12;
+                for (var i = 1; i <= max; i++) {
+                    if (arr.indexOf(i) != -1) {
+                        $main.find('.jiduyue_' + i).text('已设置').css('color', '#3383dd')
+                    } else {
+                        $main.find('.jiduyue_' + i).text('未设置').css('color', '#DDD')
+                    }
+                }
+            })
+        }
+        set_data('<?php echo $createDate; ?>', $('#mb_jidu_index'), 'jidu')
+        //        set_data(2016 , $('#mb_yue_index') , 'yue')
+    </script>
+</div>

@@ -1,0 +1,162 @@
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd,section, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '微软雅黑';
+	color: #3B3B3B;
+	width: 100%;
+	height: auto;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '微软雅黑';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'微软雅黑';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+
+body{
+	background:#7ac439;
+}
+.main div{
+	box-sizing: border-box;
+}
+
+
+/*pc*/
+
+
+#gYbannerPc{
+	width: 100%;
+	height: 1395px;
+	background: url(http://image.kuaikuaidai.com/activity/gongYiPc/f80e59091a3943b68891a9c03abc059d.jpg) no-repeat center;
+	padding-top:640px;
+}
+.gYout{
+	width: 1200px;
+	height: auto;
+	background: #95d061;
+	border-radius: 8px;
+	margin: auto;
+	padding: 10px;
+}
+.first_block_pc{
+	width: 1180px;
+	height: auto;
+	background: #ecf8e1;
+	padding: 40px;
+	margin-bottom: 10px;
+	margin: auto;
+	border-radius: 8px;
+}
+.first_block_pc p,.first_block_pc li{
+	font-size: 20px;
+	color: #145906;
+	line-height: 40px;
+	
+}
+.gy_outline{
+	margin-top:-420px;
+}
+
+.gYtitle_pc{
+	background: url(http://image.kuaikuaidai.com/activity/gongYi/0c43cd99ec26426c9a6873eedb215c28.jpg) left center no-repeat;
+	padding-left: 20px;
+	font-size: 30px;
+	color: #145906;
+	width: 100%;
+	margin: auto;
+	line-height: 60px;
+}
+
+.two_block_pc ul{
+	width: 100%;
+	height: auto;
+	padding-left: 20px;
+	border-bottom: 1px dashed #7ac439;
+	padding-bottom: 30px;
+}
+
+.two_block_pc li{
+	list-style: decimal;
+	
+}
+.zi_pc{
+	padding-top: 15px; 
+	text-align: center;
+	width: 100%;
+}
+.zi_pc img{
+	width: 78%;
+}
+
+.teColor{
+	color: #a13219;
+}
+

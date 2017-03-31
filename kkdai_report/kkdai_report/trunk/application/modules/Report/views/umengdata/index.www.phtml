@@ -1,0 +1,252 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+<!--        <input type="hidden" name="__formguid__" value="default" />-->
+<!--        <input type="hidden" name="pageSize" value="--><?php //echo $this->pagesize; ?><!--">-->
+<!--        <input type="hidden" name="pageCurrent" value="--><?php //echo $this->pageid; ?><!--">-->
+<!--        <input type="hidden" name="orderField" value="${param.orderField}">-->
+<!--        <input type="hidden" name="orderDirection" value="${param.orderDirection}">-->
+        <label>时间从：</label>
+        <input type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo $this->ymdFrom;?>" size="18" />
+        <label>时间到：</label>
+        <input type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo $this->ymdTo; ?>" size="18" />
+        <label>协议号：</label>
+        <select name='select' value="channel" id="ids" >
+  
+         <?php 
+          $channel= $this->channel;
+          $channels=$this->channels;
+var_log($channels,'66666>>>>>>>');
+if(empty($channel)){
+    echo "<option></option>";
+}else{
+           foreach ($channel as $k=>$v){
+               
+          ?>
+             <option value="<?php echo $v;?>" <?php if($v==$channels) {echo "selected=\"selected\"";}?>><?php echo $v;?></option>
+        <?php }}?>
+        </select>
+        
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+        <button type="submit" class="btn btn-default">查询</button>
+         &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form>
+</div>
+    
+<div class="bjui-pageContent">
+   
+     
+    <div id="echartsMainumeng" style="height:530px"></div>
+     <div id="kkkk" style="height:200px">
+     
+     
+     
+     <table class="table table-bordered table-hover table-striped table-top" data-selected-multi="true" border='1'cellspacing="0" cellpadding="0" font-size="500px" style="margin:0px auto" height="100%" >
+     
+     <thead>
+      <tr><?php
+			$header = $this->header;
+			foreach ($header as $k => $v) {
+				echo "<th width = '" . $v . "' height='30px' >";
+				echo $k;
+				echo "</th>";
+			}
+			?>
+			</tr>
+      </thead>
+      
+       <tbody>
+      <?php 
+     $max=$this->max;
+     
+     if(empty($max)){
+         
+           echo "<tr>";
+           echo '<td width="500" font-size="100px" height="26px"></td>';     
+           echo  '<td width="500" font-size="100px" height="26px"></td>';
+           echo '</tr>';
+     }else {
+         
+     foreach ($max as $k=>$v){?>
+         
+     <tr>
+         
+        <td width="500" font-size="100px" height="26px"><?php echo $k;?></td>
+        
+        <td width="500" font-size="100px" height="26px"><?php echo $v;?></td>
+     </tr>
+     <?php }}?>
+       </tbody>
+     
+     </table>
+    
+     </div>
+    <script type="text/javascript">
+        require.config({
+            paths:{
+                echarts: '/echarts/dist'
+        }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                //'echarts/chart/line', // 使用折线图就加载line模块，按需加载
+            ],
+            function (ec) {
+
+             
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('echartsMainumeng'));
+                
+
+                var rem=<?=$this->rem?>;
+                var rem1=<?=$this->rem1?>;
+                var dtime=<?=$this->dtime?>;
+                var dtime1=<?=$this->dtime1?>;
+//console.log(dtime);
+//console.log(dtime1);
+
+                var di=null;
+                var new_user=null;
+                var active_user=null;
+                var launches_user=null;
+                
+                var di1=null;
+                var new_user1=null;
+                var active_user1=null;
+                var launches_user1=null;
+
+                if(rem==null){
+                	di=dtime;
+                	new_user=0;
+                	active_user=0;
+                	launches_user=0;
+                    }else{
+                for(var dr in rem){
+                   di=dr;
+
+                   new_user=(parseInt(rem[dr][901].new_user)+parseInt(rem[dr][902].new_user));
+                   active_user=(parseInt(rem[dr][901].active_user)+parseInt(rem[dr][902].active_user));
+                   launches_user=(parseInt(rem[dr][901].launches_user)+parseInt(rem[dr][902].launches_user));
+//                    console.log(new_user);
+                    }
+                }
+                if(rem1==null){
+                	di1=dtime1;
+                	new_user=0;
+                	active_user=0;
+                	launches_user=0;
+                    }else{ 
+                 for(var dr1 in rem1){
+                    di1=dr1;
+                    new_user1=(parseInt(rem1[dr1][901].new_user)+parseInt(rem1[dr1][902].new_user));
+                    active_user1=(parseInt(rem1[dr1][901].active_user)+parseInt(rem1[dr1][902].active_user));
+                    launches_user1=(parseInt(rem1[dr1][901].launches_user)+parseInt(rem1[dr1][902].launches_user));
+//                     console.log(new_user1);
+                      }
+                    }
+                option = {
+                    title : {
+                        text: 'APP流量',
+                        subtext: ''
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                   	    x: 'center',
+                        y: 'bottom',
+                        data:[di,di1]
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',                                   
+                            data :['激活用户','活跃用户','启动次数'],// ['2016-8-24','2016-8-25','2016-8-26','2016-8-27','2016-8-28','2016-8-29','2016-8-30']
+                            axisLabel : {
+                                interval : 0,
+                                rotate : 45
+                            }
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel:{
+                                formatter: function(value, inddx) {
+                                    return value / 10000 + '万';
+                                }
+                            }
+                        }
+                    ],
+                    grid: {
+                        x: '12%',
+                        x2: '15',
+                        y2: '85',
+                        containLabel: true
+                    },
+                    series : [
+                              {
+                              	name:di,
+                                  type:'bar',
+                                  itemStyle : { normal: {label : {show: true,
+                                      formatter:function(params, ticket, callback) {
+                                          var res = params.data;
+                                          if (typeof res != "string") {
+                                              res += "";
+                                          }
+                                          var resLength = res.replace(/[^\x00-\xff]/g,"01").length;
+                                          if(resLength==4) {
+                                              res = res[0] + "." + res[1] + "千";
+                                          } else if(resLength==5) {
+                                              res = res[0] + "." + res[1] + "万";
+                                          } else if(resLength==6) {
+                                              res = res[0] + res[1] + "." + res[2] + "万";
+                                          } else if(resLength==7) {
+                                              res = res[0] + "." + res[1] + "百万";
+                                          } else if(resLength==8) {
+                                              res = res[0] + "." + res[1] + "千万";
+                                          }
+                                          return res;
+                                      },
+                                      position: 'top'}}},
+                                  data: [new_user,active_user,launches_user], //[17971, 23947, 25424, 28708, 38644, 49441, 49855, 49979, 45010, 48819],
+                              },                             
+                              {
+                                  name:di1,
+                                  type:'bar',
+                                  itemStyle : { normal: {label : {show: true,
+                                      formatter:function(params, ticket, callback) {
+                                          var res = params.data;
+                                          if (typeof res != "string") {
+                                              res += "";
+                                          }
+                                          var resLength = res.replace(/[^\x00-\xff]/g,"01").length;
+                                          if(resLength==4) {
+                                              res = res[0] + "." + res[1] + "千";
+                                          } else if(resLength==5) {
+                                              res = res[0] + "." + res[1] + "万";
+                                          } else if(resLength==6) {
+                                              res = res[0] + res[1] + "." + res[2] + "万";
+                                          } else if(resLength==7) {
+                                              res = res[0] + "." + res[1] + "百万";
+                                          } else if(resLength==8) {
+                                              res = res[0] + "." + res[1] + "千万";
+                                          }
+                                          return res;
+                                      },
+                                      position: 'top'}}},
+                                  data:[new_user1,active_user1,launches_user1], //[17971, 23947, 25424, 28708, 38644, 49441, 49855, 49979, 45010, 48819],
+                                  
+                              },
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+        );
+    </script>
+</div>
+
+

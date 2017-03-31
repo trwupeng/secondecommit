@@ -1,0 +1,254 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+<!--        <input type="hidden" name="__formguid__" value="default" />-->
+<!--        <input type="hidden" name="pageSize" value="--><?php //echo $this->pagesize; ?><!--">-->
+<!--        <input type="hidden" name="pageCurrent" value="--><?php //echo $this->pageid; ?><!--">-->
+<!--        <input type="hidden" name="orderField" value="${param.orderField}">-->
+<!--        <input type="hidden" name="orderDirection" value="${param.orderDirection}">-->
+        <label>时间从：</label>
+        <input type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo $this->ymdFrom; ?>" size="18" />
+        <label>时间到：</label>
+        <input type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo $this->ymdTo; ?>" size="18" />
+        
+         <label>渠道选择：</label>
+        <select name='select' value="channel" id="ids" >
+  
+         <?php 
+          $channel= $this->rem;
+          $channels=$this->channels;
+//var_log($channel,'66666>>>>>>>');
+//var_log($channels,'chanel##########>>>>>>>');
+
+           foreach ($channel as $k=>$v){
+               
+          ?>
+             <option value="<?php echo $v;?>" <?php if($v==$channels) {echo "selected=\"selected\"";}?>><?php echo $v;?></option>
+        <?php }?>
+        </select>
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+       <button type="submit" class="btn btn-default">查询</button>
+       <label style="color:red; font-size: 16px;">查询日期只能 1. 一周内的周一至周日 2.一月内的首日至尾日</label>
+        &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form> 
+  </div>
+     
+<div class="bjui-pageContent">
+    <div id="oldandnewfinancialavg" style="height: 430px " width="100%">
+     </div>
+    
+     <div id="oldandnewfinancialavg1" style="height: 430px " width="100%">
+     </div>
+    <script type="text/javascript">
+
+        require.config({
+            paths:{
+                echarts: '/echarts/dist'
+        }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line', // 使用折线图就加载line模块，按需加载
+                //'echarts/chart/stack', // 使用柱状图就加载bar模块，按需加载
+                //'echarts/chart/tiled', // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+
+             
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('oldandnewfinancialavg'));
+
+                var records = <?=$this->record?>;
+                
+                var dtime2 = {text:"<?=$this->dtime2;?>"};
+                for(var tx in dtime2){
+                   dtime22=dtime2[tx];
+                }
+//console.log(records);
+                var t1='投资1次';
+                var t2='投资2-5次';
+                var t3='投资5次以上';
+
+                for(var dt in records){
+                    tt1=dt+t1;
+                    tt2=dt+t2;
+                    tt3=dt+t3;
+
+                    fbb_avgAmount1Buy=(records[dt].fbb.avgAmount1Buy);
+                    fbb_avgAmount5Buy=(records[dt].fbb.avgAmount5Buy);
+                    fbb_avgAmount6PlusBuy=(records[dt].fbb.avgAmount6PlusBuy);
+                  
+                    dqb_avgAmount1Buy=(records[dt].dqb.avgAmount1Buy);
+                    dqb_avgAmount5Buy=(records[dt].dqb.avgAmount5Buy);
+                    dqb_avgAmount6PlusBuy=(records[dt].dqb.avgAmount6PlusBuy);
+                   
+                    jyb_avgAmount1Buy=(records[dt].jyb.avgAmount1Buy);
+                    jyb_avgAmount5Buy=(records[dt].jyb.avgAmount5Buy);
+                    jyb_avgAmount6PlusBuy=(records[dt].jyb.avgAmount6PlusBuy);
+                    }
+                // 指定图表的配置项和数据
+                     option = {
+              		  title : {
+                          text: '新老用户理财人均',//' 2016-08-22--2016-08-23 '
+                          subtext: dtime22//' 2016-08-22--2016-08-23 '
+                      },
+                       tooltip : {
+                         trigger: 'axis',
+                         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                             type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                         }
+                        },
+                         legend: {
+                        	 x: 'center',
+                             y: 'bottom',
+                             data:[t1,t2,t3]   //['08-22--08-23-当天注册首次投资','08-22--08-23-前1天至前5天首次投资',
+                                     //'08-22--08-23-前6天至前30天首次投资','08-22--08-23-前30天及更久时间首次投资']
+                     },
+                     xAxis : [
+                         {
+                             type : 'category',
+                             data : ['定期宝','房宝宝','精英宝']   // ['周一','周二','周三','周四','周五','周六','周日']
+                         }
+                     ],
+                     yAxis : [
+                         {
+                             type : 'value',
+                             axisLabel:{
+                                 formatter: function(value, inddx) {
+                                     return value / 1000 + '千';
+                                 }
+                             }
+                         }
+                     ],
+                     grid: {
+                         x: '10%',
+                         x2: '15',
+                         y2: '55',
+                         containLabel: true
+                     },
+                     series : [
+                         {
+                             name:t1,//'08-22--08-23-当天注册首次投资',
+                             type:'bar',
+                             //stack: '广告',
+                             data:[dqb_avgAmount1Buy,fbb_avgAmount1Buy,jyb_avgAmount1Buy]
+                         },
+                         {
+                             name: t2,//'08-22--08-23-前1天至前5天首次投资',
+                             type:'bar',
+                             //stack: '广告',
+                             data:[dqb_avgAmount5Buy, fbb_avgAmount5Buy,jyb_avgAmount5Buy]
+                         },
+                         {
+                             name:t3,//'08-22--08-23-前6天至前30天首次投资',
+                             type:'bar',
+                            // stack: '广告',
+                             data:[dqb_avgAmount6PlusBuy, fbb_avgAmount6PlusBuy, jyb_avgAmount6PlusBuy]
+                         },
+                     ]
+                 };
+                 // 为echarts对象加载数据
+                 myChart.setOption(option);
+
+                // 基于准备好的dom，初始化echarts图表
+                var mynewChart = ec.init(document.getElementById('oldandnewfinancialavg1'));
+
+                var records1 = <?=$this->record1?>;
+                //console.log(records1);  
+                var dtime3 = {text:"<?=$this->dtime3;?>"};
+                for(var tx1 in dtime3){
+                    dtime33=dtime3[tx1];
+                }
+
+                for(var dt1 in records1){
+                    tt11=dt1+t1;
+                    tt22=dt1+t2;
+                    tt33=dt1+t3;
+
+                   fbb1_avgAmount1Buy=(records1[dt1].fbb.avgAmount1Buy);
+                   fbb1_avgAmount5Buy=(records1[dt1].fbb.avgAmount5Buy);
+                   fbb1_avgAmount6PlusBuy=(records1[dt1].fbb.avgAmount6PlusBuy);
+                 
+                   dqb1_avgAmount1Buy=(records1[dt1].dqb.avgAmount1Buy);
+                   dqb1_avgAmount5Buy=(records1[dt1].dqb.avgAmount5Buy);
+                   dqb1_avgAmount6PlusBuy=(records1[dt1].dqb.avgAmount6PlusBuy);
+                  
+                   jyb1_avgAmount1Buy=(records1[dt1].jyb.avgAmount1Buy);
+                   jyb1_avgAmount5Buy=(records1[dt1].jyb.avgAmount5Buy);
+                   jyb1_avgAmount6PlusBuy=(records1[dt1].jyb.avgAmount6PlusBuy);
+                    }
+                // 指定图表的配置项和数据
+                  option = {
+              		  title : {
+                          text: '新老用户理财人均',//' 2016-08-23--2016-08-24 '
+                          subtext: dtime33//' 2016-08-23--2016-08-24 '
+                      },
+                       tooltip : {
+                         trigger: 'axis',
+                         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                             type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                         }
+                        },
+                     legend: {
+                    	 x: 'center',
+                         y: 'bottom',
+                         data:[t1,t2,t3]
+                              // ['08-23--08-24-当天注册首次投资','08-23--08-24-前1天至前5天首次投资',
+                              // '08-23--08-24-前6天至前30天首次投资','08-23--08-24-前30天及更久时间首次投资']
+                        
+                     },
+                     xAxis : [
+                         {
+                             type : 'category',
+                             data : ['定期宝','房宝宝','精英宝']   // ['周一','周二','周三','周四','周五','周六','周日']
+                         }
+                     ],
+                     yAxis : [
+                         {
+                             type : 'value',
+                             axisLabel:{
+                                 formatter: function(value, inddx) {
+                                     return value / 1000 + '千';
+                                 }
+                             }
+                         }
+                     ],
+                     grid: {
+                         x: '10%',
+                         x2: '15',
+                         y2: '55',
+                         containLabel: true
+                     },
+                     series : [
+                         {
+                             name:t1,//'08-23--08-24-当天注册首次投资',
+                             type:'bar',
+                             //stack: '搜索引擎',
+                             data:[dqb1_avgAmount1Buy, fbb1_avgAmount1Buy, jyb1_avgAmount1Buy]
+                         },
+                         {
+                             name:t2,//'08-23--08-24-前1天至前5天首次投资',
+                             type:'bar',
+                             //stack: '搜索引擎',
+                             data:[dqb1_avgAmount5Buy, fbb1_avgAmount5Buy, jyb1_avgAmount5Buy]
+                         },
+                         {
+                             name:t3,//'08-23--08-24-前6天至前30天首次投资',
+                             type:'bar',
+                             //stack: '搜索引擎',
+                             data:[dqb1_avgAmount6PlusBuy,fbb1_avgAmount6PlusBuy, jyb1_avgAmount6PlusBuy]
+                         },
+                        
+                     ]
+                 };
+                 // 为echarts对象加载数据
+                 mynewChart.setOption(option);
+            }
+        );
+    </script>
+</div>
+
+

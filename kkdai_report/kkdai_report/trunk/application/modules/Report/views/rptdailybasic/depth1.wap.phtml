@@ -1,0 +1,34 @@
+<?php 
+ $this->htmlHeadPart('<title>最近日统计（当天是每小时更新）2</title>');
+ echo $this->renderInc('head');
+ echo $this->renderInc('wapmenu');
+
+ echo '<div class="container">';
+		//echo '<div id="divReturnBtn"><a href="'.\Sooh\Base\Tools::uri(null, 'recent').'" style="font-size:x-large;text-decoration:none;font-weight:bold">返回</a></div>';
+		echo \Prj\Misc\View::strIncludeJs('echarts-all.js');
+		echo \Rpt\Misc\Echarts::jsFunc();	
+		//$names =$this->actName;
+
+		$forAct=$this->args['forAct'];
+		echo "<div id='divForScale'>";
+		echo $this->render('rptdailybasic/depth1/'.$forAct.'.phtml');
+		echo '</div>';
+echo '</div>';
+?>
+<script>
+	$(function(){
+		var wwww=document.body.clientWidth;
+		if(wwww<550){
+			var chg = wwww/400;
+			//$("#divForScale").eq(0).css("transform","scale(" + chg + ")"); 
+			$("#divForScale").eq(0).css("zoom",chg); 
+//			$('.divChartParent').each(function (count){
+//						//$(this).css("transform","scale("+(wwww/550)+")");
+//						$(this).css("zoom","70%");
+//					});
+		}
+	});
+	
+</script>
+<?php
+echo $this->renderInc('foot');

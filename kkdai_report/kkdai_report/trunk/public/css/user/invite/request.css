@@ -1,0 +1,255 @@
+html{
+	font-size:60px;
+
+}
+*{border:0;}
+body{
+	margin:0;
+	color: #949494;
+}
+
+/*banner开始*/
+.banner{
+	width:100%;
+	height: 2.16667rem;
+}
+.banner img{
+	width: 100%;
+	height: 100%;
+}
+
+/*已经邀请*/
+.body-in{
+	height: 1.1333rem;
+	margin:0 12px;
+}
+.request3{
+	width: 100%;
+	height:1.13333rem;
+}
+.fff{
+	height: 0.28rem;
+	width: 100%;
+	background-color: #fff;
+}
+.request3 ul{
+	width: 100%;
+	height:0.578rem;
+
+}
+.request3 ul li{
+	text-align: center;
+	float: left;
+	width:32.9999%;
+	height: 100%;
+}
+.request3 ul li:first-child{
+	border-right:1px #9B9B9B solid;
+}
+.request3 ul li:last-child{
+	float: right;
+	border-left:1px #9B9B9B solid;
+}
+.request3 li p{
+	height: 0.32rem;
+	font-size: 0.2rem;
+}
+.request3 li span{
+	color: #e53d3a;
+	display: block;
+	height: 0.24rem;
+	font-size: 0.27rem;
+
+}
+/*灰色区域*/
+.gray{
+	background-color:#e6e6e6;
+	height:0.222rem;
+	width: 100%;
+	border-top: 1px solid #9b9b9b;
+	border-bottom: 1px solid #9b9b9b;
+}
+/*我的邀请、可获返利*/
+.fff2{
+	width: 100%;
+	height: 0.2rem;
+}
+.body-in .left,.body-in .right{
+	float: left;
+	width:70%;
+	height: 0.7rem;
+}
+.body-in .left p:first-child{
+	margin-bottom:0.17rem;
+}
+.body-in .left p{
+	line-height:0.25rem;
+	font-size:0.2rem;
+}
+
+.body-in .left span{
+	color:#e53d3a;
+	font-size:0.25rem;
+}
+.body-in .left p:last-child span{
+	color: #949494;
+}
+.body-in .right{
+	width: 30%;
+	float:right
+}
+.body-in .right a{
+	margin-top:0.03rem;
+	display: block;
+	height:0.6rem;
+	width: 100%;
+	background-color:#e53d3a;
+	border-radius:5px;
+	line-height: 0.6rem;
+	font-size: 0.27rem;
+	color: #fff;
+	text-align: center;
+}
+.body-in .right-grey a{
+    background-color:#666666;
+}
+/*邀请规则开始*/
+.body-in1,.custom1{
+	position: relative;
+	margin:0 12px;
+}
+.dasheds{
+	height: 0.45rem;
+	border-bottom:1px dashed #d2d2d2;
+	
+}
+.body-in1 h2{
+	color: #3b3b3b;
+	position: absolute;
+	left:2.8rem;
+	top: 0;
+	line-height:0.85rem;
+	background-color:#fff;
+	text-align:center;
+	font-size:0.25rem;
+	font-weight: normal;
+	width:1.3rem;
+	height: 0.6rem;
+}
+.fff3{
+	width: 100%;
+	height:0.4rem;
+}
+.body-in1 ol li{
+}
+.body-in1 dl dt{
+	
+	float:left;
+}
+.body-in1 dl dd{
+	padding-left:0.42rem; 
+	text-align:left;
+	
+}
+.body-in1 dl{
+	font-size: 0.2rem;
+	line-height:0.35rem;
+}
+
+/*客户信息*/
+.custom{
+	border-bottom:1px solid #9b9b9b;
+}
+.custom1{
+	
+}
+.custom1 ul li{
+	height: 1.706rem;
+	border-bottom:1px solid #9b9b9b;
+}
+.custom1 ul li:last-child{
+	border-bottom: none;
+}
+.fff4{
+	height:0.3rem;
+	width:100%;
+}
+.custom1 ul li .custom-li{
+	height:1.139rem;
+	width:100%;
+}
+.custom-li1{
+	height: 0.379rem;
+	width: 100%;
+}
+
+.custom-left{
+	float:left;
+	width: 2.1rem;
+	height:100%;
+
+}
+.f-black p{
+	color: #3b3b3b; 
+}
+.custom-li1 p{
+	margin-right:0.15rem;
+	float: left;
+	line-height:0.379rem;
+	font-size:0.2rem;
+}
+.custom-center{
+	float: left;
+	width:2.6rem;
+	height: 100%;
+}
+.custom-li1 span{
+	display:block;
+	float: left;
+	color:#e53d3a;
+	line-height: 0.379rem;
+	font-size:0.25rem;
+}
+.custom-right{
+	width:1.6rem;
+	height: 100%;
+	float:right;
+}
+.custom-li1 .custom-right p{
+	float:right;
+	margin-right:0;
+}
+.dai{
+     margin-right:0.15rem;
+     margin-top:0.04rem;
+     display: inline-block;
+     float: left;
+     font-size: 0.2rem;
+     color:#fff;
+     width:0.27rem;
+     height:0.27rem;
+     border-radius:50%;
+     text-align: center;
+     line-height: 0.27rem;
+     background-color:#5187bf;
+ }
+.wan{
+    margin-right:0.15rem;
+    margin-top:0.04rem;
+    display: inline-block;
+    float: left;
+    font-size: 0.2rem;
+    color:#fff;
+    width:0.27rem;
+    height:0.27rem;
+    border-radius:50%;
+    text-align: center;
+    line-height: 0.27rem;
+    background-color:#5ba50d;
+}
+.custom-li .custom-li1:last-child .custom-left{
+	width:100%;
+}
+.dropload-refresh-font{
+    font-size: 0.3rem;
+}

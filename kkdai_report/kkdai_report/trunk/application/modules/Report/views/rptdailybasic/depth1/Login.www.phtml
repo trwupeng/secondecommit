@@ -1,0 +1,32 @@
+<?php
+	$args=$this->args;
+	//$rs = $this->records;
+	$display =$this->grpName;
+	$chartid=1;
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='';
+	$args['forAct']='Login';
+	$args['title']='7日登入人数走势';
+	$args['subtitle']='（总数）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'lineSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='clienttype';
+	$args['forAct']='Login';
+	$args['title']='7日登入人数走势';
+	$args['subtitle']='（按客户端区分）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'linesSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;	
+	
+	foreach($display as $displayid=>$intro){
+		echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+		$args['forGrp']=$displayid;
+		$args['title']=$display[$displayid];
+		echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+		$chartid++;
+	}
+
+	
+

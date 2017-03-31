@@ -1,0 +1,71 @@
+<?php
+	
+	$args=$this->args;//array('forAct'=>$forAct,'ymd'=>$ymd)
+	$display =$this->grpName;
+	$display['flgext01']='按产品类型统计';
+	$chartid=1;
+	
+	$prdtTypes = json_encode(\PrjLib\Config::fetch('enum_prdtType'));
+	
+	$md = $this->args['ymd']%10000;
+	$md = floor($md/100).'-'.($md%100);
+	
+	//line: LaterBoughtFee+RegAndBoughtFee;
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='';
+	$args['forAct']='BoughtFeeTotal';
+	$args['title']='7日总购买走势';
+	$args['subtitle']='（总额）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'lineSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	
+	//lines: LaterBoughtFee AND RegAndBoughtFee
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='';
+	$args['useActAsGrp']='LaterBoughtFee,RegAndBoughtFee';
+	$args['grpNameFix']='老用户购买金额,新注册用户购买金额';
+	$args['title']='7日购买走势';
+	$args['subtitle']='（区分新注册老用户）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'linesSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	unset($args['useActAsGrp'],$args['grpNameFix']);
+	
+	//Line: RegAndBoughtFee single act
+//	echo '<div id="main'.$chartid.'" class="divChartDefault"></div>';
+//	$args['forGrp']='';
+//	$args['forAct']='RegAndBoughtFee';
+//	$args['title']='注册并购买';
+//	$args['subtitle']=' ';
+//	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'lineSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+//	$chartid++;
+//	unset($args['useActAsGrp']);
+	
+	//lines: prdtType-10=(LaterBoughtFee+RegAndBoughtFee) AND prdtType-20=(LaterBoughtFee+RegAndBoughtFee) AND prdtType-30=(LaterBoughtFee+RegAndBoughtFee)
+	echo '<div id="main'.$chartid.'" class="divChartDefault"></div>';
+	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+	$args['forAct']='BoughtFeeTotal';
+	$args['title']='7日各类产品购买金额走势';
+	$args['subtitle']='（按产品类型区分）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'linesSimple', \Sooh\Base\Tools::uri($args, 'weekfor'));
+	$chartid++;
+	unset($args['extFlgNames']);
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='flgext01';	$args['extFlgNames']= $prdtTypes;
+	$args['forAct']='BoughtFeeTotal';
+	$args['title']='按产品类型统计购买总金额';
+	$args['subtitle']=$md.'（所有用户）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+	$chartid++;	
+	unset($args['extFlgNames']);
+	
+	echo '<div id="main'.$chartid.'"  class="divChartDefault"></div>';
+	$args['forGrp']='flgext01';$args['extFlgNames']= $prdtTypes;
+	$args['forAct']='LaterBoughtFee,RegAndBoughtFee';
+	$args['grpNameFix']='老用户购买{},新用户购买{}';
+	$args['title']='按产品类型统计购买金额';
+	$args['subtitle']=$md.'（区分新注册和老用户）';
+	echo \Sooh\HTML\Chart::ajax('main'.$chartid, 'pieSimple', \Sooh\Base\Tools::uri($args, 'onedayfor'));
+	$chartid++;
+	unset($args['extFlgNames'],$args['grpNameFix']);
+	

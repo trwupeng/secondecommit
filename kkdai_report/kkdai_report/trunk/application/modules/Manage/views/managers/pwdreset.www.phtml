@@ -1,0 +1,31 @@
+<?php
+//$formEdit = \Sooh\Base\Form\Broker::getCopy('default');
+//$formEdit->setRenderer(new \Lib\Misc\DWZ());
+?>
+<!--
+<div class="pageContent">
+    <?php //echo $formEdit->renderFormTag('class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)"');?>
+    <div class="pageFormContent" layoutH="58">
+        <?php //echo $formEdit->renderDefault('<div class="unit"><label>{capt}</label>{input}</div>'); ?>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="submit"><?php //echo $this->FormOp;?></button></div></div></li>
+            <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+        </ul>
+    </div>
+    </form>
+</div>
+-->
+<div class="bjui-pageContent">
+    <?php
+    $renderer = new \Prj\Misc\FormRenderer;
+    echo $renderer->getEditStandard(\Sooh\Base\Form\Broker::getCopy('default'),2);
+    ?>
+</div>
+<div class="bjui-pageFooter" >
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>

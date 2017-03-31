@@ -1,0 +1,13 @@
+<?php
+	echo '<div class="bjui-pageContent">';
+	if($this->showLogin){
+		include str_replace('recent.', 'login.', __FILE__);
+	}else{
+		//echo '<div id="divReturnBtn"><a href="'.\Sooh\Base\Tools::uri(null, 'recent').'" style="font-size:x-large;text-decoration:none;font-weight:bold">返回</a></div>';
+		echo \Rpt\Misc\Echarts::jsFunc();
+		//$names =$this->actName;
+
+		$forAct=$this->args['forAct'];
+		echo $this->render('rptdailybasic/depth1/'.$forAct.'.phtml');
+	}
+	echo '</div>';

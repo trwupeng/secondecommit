@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>快快贷理财-专业的互联网金融平台</title>
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="keywords" content=快快贷,网贷,网络贷款,网络理财,债权转让,小额贷款,互联网金融,短期存款,高息存款,汽车贷款,旅游贷款,装修贷款,房产贷款,个人贷款,企业贷款 />
+<meta name="description" content=快快贷(www.kuaikuaidai.com)是中国领先的互联网金融网络投资理财、网络贷款平台.1分钟注册,用户即可享受方便、快捷的个性化理财和贷款优质服务,轻松实现财富自由.提供小额贷款,短期贷款,个人贷款,企业贷款等服务.快快贷网络投资理财,超低门槛,超高收益. />
+<meta content="telephone=no" name="format-detection">
+<link rel="stylesheet" href="../../css/wap-1.css">
+<link rel="stylesheet" href="css/activity.css">
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="js/activity_register.js"></script>
+<script src="../../js/device-1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".close01").click(function(e) {
+        $(".shade").hide();
+		$(".hongbao").hide();
+		$(".sucess").show();
+		$('html,body').removeClass('ovfHiden'); //使网页恢复可滚动
+    });
+	$(".close").click(function(e) {
+        $(".xuanting").hide();
+		$(".blank").hide();
+    });
+	
+})
+</script>
+<link>
+</head>
+
+<body>
+<div class="banner"><img src="http://image.kuaikuaidai.com/activity/0/e7cbc17b95e84b43b19d97c91b16cd28.jpg"></div>
+<div class="part01"><img src="http://image.kuaikuaidai.com/activity/0/2217c1ca8a664b21b50edda339a1c9f1.jpg"></div>
+<div class="fuli">
+    <ul>
+        <li>
+            <div class="left"><img src="http://image.kuaikuaidai.com/activity/0/87563b7f58a84470bfe432e68999f797.jpg" class="img01"></div>
+            <div class="center"><img src="http://image.kuaikuaidai.com/activity/0/74f43b151b284b92a40352e21998b3af.jpg"></div>
+            <div class="right">
+                <p class="up">新手见面礼</p>
+                <p class="down">注册即送<span>188元红包</span></p>
+            </div>
+       </li>
+       <li>
+          <div class="left"><img src="http://image.kuaikuaidai.com/activity/0/6ef935dbaab04048aa416544c88e35b6.jpg" class="img02"></div>
+          <div class="center"><img src="http://image.kuaikuaidai.com/activity/0/74f43b151b284b92a40352e21998b3af.jpg"></div>
+          <div class="right">
+             <p class="up">能量加油站</p>
+             <p class="down">实名绑卡<span>送千元体验金</span></p>
+         </div>
+       </li>
+       <li>
+          <div class="left"><img src="http://image.kuaikuaidai.com/activity/0/30c08621a8744779b2f94844c45271a5.jpg" class="img03"></div>
+          <div class="center"><img src="http://image.kuaikuaidai.com/activity/0/74f43b151b284b92a40352e21998b3af.jpg"></div>
+          <div class="right">
+             <p class="up">奖品大派送</p>
+             <p class="down"><span>iphone6</span>等活动奖品</p>
+         </div>
+       </li>
+    </ul>
+</div>
+<div class="hongbao">
+    <div class="hongbao_title"><img src="http://image.kuaikuaidai.com/activity/0/95d2706c42684467a5e30c9783587597.jpg"></div>
+    <div class="activity_register">
+         <form id="reg" class="register">
+            <div class="border_line">
+                 <input type="tel" name="phone" placeholder="请输入您要注册的手机号码" class="input01 hh validate validateEmpty validatePhone" maxlength="11">
+             </div>
+             <p class="tishi">必填</p>
+             <div class="border_line">
+                <input type="password" name="password" placeholder="请输入6-16位由数字、字母组成的密码" class="input01 hh validate validateEmpty validatePassword" maxlength="16">
+            </div>
+            <p class="tishi">必填</p>
+            <div class="border_line">
+            <input type="tel" name="code" placeholder="手机验证码" class="input02 hh validate validateEmpty validateCode" maxlength="6">
+            <input type="button" id="secondSpan" onclick="javascript:getIdentCode();" value="获取验证码" class="yzm">
+        </div>
+        <p class="tishi">必填</p>
+           <div class="xieyi"><img src="http://image.kuaikuaidai.com/activity/0/e2ef859d81f74cff81c59c027b532933.jpg">已同意并阅读<a href="http://www.kuaikuaidai.com/h5/baseservice.html">《快快贷网站服务协议》
+</a></div>
+            <div class="lingqu" id="sumbit" onclick="javascript:submitReg();"><img src="images/lingqu.png"></div>
+            <div class="tk"></div>
+         </form>
+    </div>
+</div>
+<div class="sucess" style="display:none;">
+     <p class="hongbao_money"><span>188</span>元红包</p>
+     <p class="jiangli"><a href="http://www.kuaikuaidai.com/h5/nameval.html"><img src="http://image.kuaikuaidai.com/activity/0/be6f901d5a61487f84152929b0a5ccaa.jpg"></a></p>
+     <p class="tiyanjin">完成实名绑卡领取<span>1000</span><i>元</i>体验金</p>
+</div>
+<div class="product01"><img src="http://image.kuaikuaidai.com/activity/0/02aa871ad17e456495cb4217b264d8c1.jpg"></div>
+<div class="product02"><img src="http://image.kuaikuaidai.com/activity/0/45901f40a20d42608602ec81e0b85fdc.jpg"></div>
+<div class="safe01"><img src="http://image.kuaikuaidai.com/activity/0/0345c12609574477bf6fcdab5c196c53.jpg"></div>
+<div class="safe02"><img src="http://image.kuaikuaidai.com/activity/0/a37b7ec25e3a46458db538d82a619ec4.jpg"></div>
+<div class="footer">
+    <p>快快金融信息服务（上海）有限公司</p>
+    <p>沪ICP备14019247号</p>
+    <p style="color:#a7ddfc; font-size:0.1833rem;">理财有风险，投资需谨慎</p>
+</div>
+<div class="blank"></div>
+<div class="xuanting">
+  <div class="xuanting_in">
+    <div class="left">
+       <p>快快贷</p>
+       <p style="color:#f81243;">下载快快贷，红包等你来！</p>
+    </div>
+    <div class="right">
+        <div class="download"><a href="http://www.kuaikuaidai.com/h5/appDownload.html">立刻下载APP</a></div>
+    </div>
+    <div class="close"><img src="http://image.kuaikuaidai.com/activity/0/8508830652314398b34fc20e3776ec75.jpg"></div>
+  </div>
+</div>
+<div class="shade" style="display:none;">
+  <div class="success01">
+         <p class="hongbao_money01"><span>188</span><i>元</i>红包</p>
+    <p class="zhanghu">已放入您的账户</p>
+         <p class="jiangli"><a href="http://www.kuaikuaidai.com/h5/nameval.html"><img src="http://image.kuaikuaidai.com/activity/0/be6f901d5a61487f84152929b0a5ccaa.jpg"></a></p>
+         <p class="tiyanjin">完成实名绑卡领取<span>1000</span><i>元</i>体验金</p>
+         <div class="close01"><img src="http://image.kuaikuaidai.com/activity/0/76a6230f86514a0b88ef7db435c8e919.jpg"></div>
+    </div>
+</div>
+
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2cd07a5ebaa7043e8db6a9cc1a68afce";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="../../js/conf-1.js"></script>
+<script type="text/javascript" src="../../js/common-1.js"></script>
+<script type="text/javascript" src="../../js/validate-1.js"></script>
+<script type="text/javascript">
+    var _source = '020160628300000';
+    var _md_lastRegSuc_='0', _md_lastSendCode_='0', _md_lastFormData='0', _md_lastForm='0';
+    var maxcount = 60;
+    var countdown = maxcount;
+    var intervalid;
+    function disableTime() {
+        $('#secondSpan').attr('disabled', 'disabled');
+        $('#secondSpan').addClass('yzm_gray');
+        countdown--;
+        if (countdown == 0) {
+            countdown = maxcount;
+            $('#secondSpan').val('重发验证码');
+            $('#secondSpan').removeClass('yzm_gray');
+            $('#secondSpan').removeAttr('disabled');
+            window.clearInterval(intervalid);
+        } else {
+            $('#secondSpan').val(countdown + '秒后重发')
+        }
+    }
+
+    $(function(){
+		$("input").focus(function(){$(".xuanting").hide();});
+		$("input").blur(function(){$(".xuanting").show();});
+        addCookie('source', _source, 3, '.kuaikuaidai.com');
+        $(reg.phone).focus(function(){_md_lastForm = 'a'});
+        $(reg.password).focus(function(){_md_lastForm = 'b'});
+        $(reg.code).focus(function(){_md_lastForm = 'c'});
+    });
+
+    $(window).unload(function() {
+        _md_lastFormData = {'a':$(reg.phone).val().length,'b':$(reg.code).val().length,'c':$(reg.code).val().length,'reged':_md_lastRegSuc_,'sendcode':_md_lastSendCode_,'lt':_md_lastForm,'source':_source,'channel':'h5'};
+        jQuery.ajax({
+            type : "GET",
+            url : '/evt_reg.php',
+            data : _md_lastFormData,
+            async : false,
+            timeout : 300,
+            dataType : 'jsonp',
+            jsonp : 'callback',
+            success : function(result) {}
+        });
+    });
+
+    function checkIdentCode() {
+        if($(reg.code).closest('div').next('.tishi').text() == "") {
+            var str = reg.code.value;
+            if (!isEmpty(str)) {
+                if (str.length != 6) {
+                    $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                    $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                } else {
+                    if (!isDigit(str)) {
+                        $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                        $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                        return false;
+                    }
+                }
+            } else {
+                $(reg.code).closest('div').next('.tishi').text('验证码输入不正确').show();
+                $(reg.code).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+    function checkPhone() {
+        if($(reg.phone).closest('div').next('.tishi').text() == "") {
+            var str = reg.phone.value;
+            if (!isEmpty(str)) {
+                if (isDigit(str)) {
+                    if (!isMobile(str)) {
+                        $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                        $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                        return false;
+                    } else {
+                        $(reg.phone).closest('div').next('.tishi').text('').hide();
+                        $(reg.phone).removeClass("ipt_wrong").addClass("hh");
+                        return true;
+                    }
+                } else {
+                    $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                    $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+            } else {
+                $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+    function checkPassWord() {
+        if ($(reg.password).closest('div').next('.tishi').text() == "") {
+            var password = reg.password.value;
+            if (!isEmpty(password)) {
+                if(password.length < 6 || password.length > 16) {
+                    $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                    $(this).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+                var pattern = /^[a-zA-Z0-9]+$/;
+                if(!password.match(pattern)) {
+                    $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                    $(this).removeClass("hh").addClass("ipt_wrong");
+                    return false;
+                }
+            } else {
+                $(this).closest('div').next('.tishi').text("请输入6到16位由数字，字母组成的密码").show();
+                $(this).removeClass("hh").addClass("ipt_wrong");
+                return false;
+            }
+        }
+        return true;
+    }
+    function getIdentCode() {
+        $(reg.phone).trigger("blur");
+        _md_lastSendCode_ = '1';
+        $('#secondSpan').attr('disabled', 'disabled');
+        if($(reg.phone).closest('div').find('.tishi').text() == "" && $(reg.code).closest('div').find('.tishi').text() == ""){
+            var str = reg.phone.value;
+            if (!isEmpty(str)) {
+                if (isDigit(str)) {
+                    if (!isMobile(str)) {
+                        $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                        $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                        $('#secondSpan').removeAttr('disabled');
+                        return;
+                    }
+                } else {
+                    $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                    $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                    $('#secondSpan').removeAttr('disabled');
+                    return;
+                }
+            } else {
+                $(reg.phone).closest('div').next('.tishi').text('请输入13、14、15、17、18开头的11位手机号码').show();
+                $(reg.phone).removeClass("hh").addClass("ipt_wrong");
+                $('#secondSpan').removeAttr('disabled');
+                return;
+            }
+            var req = {"phone":reg.phone.value};
+            myAjax(__CONF__.sendIdentCodeUrl, req, function (result) {
+                if (result.code == 0) {
+                    showTk('验证码已发送');
+                    intervalid = setInterval(function(){ disableTime()},1000);
+                } else if (result.code == 209 || result.code == 230 || result.code == 231 || result.code == 247 || result.code == 249){
+                    if (result.code != 209) {
+                        intervalid = setInterval(function(){ disableTime()},1000);
+                    }else{
+					   $('#secondSpan').removeAttr('disabled');
+					}
+                    showTk(result.desc);
+                } else {
+                    showTk('验证码发送失败，请稍后再试');
+                    intervalid = setInterval(function(){ disableTime()},1000);
+                }
+            });
+        }
+        
+    }
+    function submitReg() {
+        var retVal = validateForm(reg.phone);
+        if (retVal['error'] ==0 && checkPhone() && checkPassWord() && checkIdentCode()) {
+            var req = {"phone": reg.phone.value, "code": reg.code.value, "password": reg.password.value, "channel":"H5", "source":_source}
+            myAjax(__CONF__.regUrl, req, function (result) {
+                if (result.code == 0) {
+                    _md_lastRegSuc_ = '1';
+                    var logVal = {"username":reg.phone.value,"password":reg.password.value};
+                    myAjax(__CONF__.loginUrl, logVal, function(logRet) {
+                        if(logRet.code == 0) {
+                            //window.location.href=__CONF__.regSucJumpUrl;
+							$(".shade").show();
+							$('html,body').addClass('ovfHiden'); //使网页不可滚动
+                        }
+                    }, true);
+                } else if(result.code == 209 || result.code == 227 || result.code == 228) {
+                    showTk(result.desc);
+                } else {
+                    showTk('注册失败，请重新注册');
+                }
+            });
+        }
+    }
+
+    function showTk(msg) {
+        $('.tk').html(msg);
+        $('.tk').show();
+        setTimeout("$('.tk').fadeOut(1000)",1000);
+    }
+
+    function addCookie(objName, objValue, objHours, domain) {
+        var str = objName + "=" + encodeURI(objValue);
+        if (objHours > 0) {
+            var date = new Date();
+            var ms = objHours * 3600 * 1000;
+            date.setTime(date.getTime() + ms);
+            str += "; expires=" + date.toGMTString() + "; domain=" + domain + "; path=/";
+        }
+        document.cookie = str;
+    }
+</script>
+</body>
+</html>

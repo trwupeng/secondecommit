@@ -1,0 +1,131 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri($this->uri_args); ?>" data-toggle="ajaxsearch">
+        <label>时间从：</label>
+        <input type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo ($this->ymdFrom?$this->ymdFrom:date('Y-m-d', time()-7*86400)); ?>" size="18" />
+        <label>时间到：</label>
+        <input type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo ($this->ymdTo?$this->ymdTo:date('Y-m-d', time()-86400)); ?>" size="18" />
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+        <button type="submit" class="btn btn-default">查询</button>
+        &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form>
+</div>
+
+<div class="bjui-pageContent">
+    <div id="echartsMain" style="height:400px"></div>
+    <script type="text/javascript">
+        require.config({
+            paths:{
+                echarts: '/echarts/dist'
+        }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('echartsMain'));
+                var category = <?=$this->category;?>;
+                var rs=<?=$this->rs;?>;
+                var legendData = <?=$this->legendData;?>;
+                var xAxisData = [];
+                var legend = [];
+                var serias = [];
+                for (var k in category) {
+                    if(typeof(category[k]) == 'function'){
+                        continue;
+                    }
+                    xAxisData.push(category[k]);
+                }
+
+                for (var k in legendData) {
+                    if(typeof(legendData[k]) == 'function'){
+                        continue;
+                    }
+                    legend.push(legendData[k]);
+                }
+
+                for(var dt in rs) {
+                    var data = {
+                        name:dt,
+                        type:'bar',
+//                        itemStyle : { normal: {label : {show: true, formatter: '{c}', position: 'top'}}},
+                        itemStyle : { normal: {label : {show: true,
+                            formatter:function(params, ticket, callback) {
+                                var res = params.data;
+                                if (typeof res != "string") {
+                                    res += "";
+                                }
+                                var resLength = res.replace(/[^\x00-\xff]/g,"01").length;
+                                if(resLength==4) {
+                                    res = res[0] + "." + res[1] + "千";
+                                } else if(resLength==5) {
+                                    res = res[0] + "." + res[1] + "万";
+                                } else if(resLength==6) {
+                                    res = res[0] + res[1] + "." + res[2] + "万";
+                                } else if(resLength==7) {
+                                    res = res[0] + "." + res[1] + "百万";
+                                } else if(resLength==8) {
+                                    res = res[0] + "." + res[1] + "千万";
+                                }
+                                return res;
+                            },
+                            position: 'top'}}},
+                        data:[ rs[dt].pv_count, rs[dt].visitor_count, rs[dt].ip_count ]
+                    };
+                    serias.push(data);
+                }
+                option = {
+                    title : {
+                        text: "网页流量",
+                        subtext: ''
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        x: 'center',
+                        y: 'bottom',
+                        data:legend //['8.23-8.24','8.25-8.26']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : xAxisData,
+                            axisLabel : {
+                                interval : 0,
+                                rotate : 45
+                            }
+                        }
+                    ],
+                    grid: {
+                        x: '12%',
+                        x2: '15',
+                        y2: '85',
+                        containLabel: true
+                    },
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel:{
+                                formatter: function(value, inddx) {
+                                    return value / 10000 + '万';
+                                }
+                            }
+                        }
+                    ],
+                    series:serias
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+        );
+
+    </script>
+
+
+</div>

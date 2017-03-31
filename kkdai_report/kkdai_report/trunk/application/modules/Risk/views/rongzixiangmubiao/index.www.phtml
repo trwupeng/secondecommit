@@ -1,0 +1,92 @@
+<!-- 查询表单 -->
+<form action="<?php echo \Sooh\Base\Tools::uri(['__EXCEL__' => 1], 'index'); ?>" method="post"
+      id="contracts-exportChecked" style="display: none;">
+</form>
+<div class="bjui-pageHeader">
+    <?php if (!isset($_type) || $_type != 'ajax') { ?>
+        <form id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+            <input type="hidden" name="pageSize" value="<?php echo $this->pagesize; ?>">
+            <input type="hidden" name="pageCurrent" value="<?php echo $this->pageid; ?>">
+            <input type="hidden" name="orderField" value="${param.orderField}">
+            <input type="hidden" name="orderDirection" value="${param.orderDirection}">
+            <input type="hidden" name="isSubmit" value="1">
+            <label>融资合同编号：</label>
+            <input type="text" name="rongzihetongbianhao"
+                   value="<?php echo isset($where['rongzihetongbianhao']) ? $where['rongzihetongbianhao'] : ''; ?>"/>
+            <label>编号：</label>
+            <input type="text" name="bianhao" value="<?php echo isset($where['bianhao']) ? $where['bianhao'] : ''; ?>"/>
+            <label>Id：</label>
+            <input type="text" name="id" value="<?php echo isset($where['id']) ? $where['id'] : ''; ?>"/>
+            <label>借款人：</label>
+            <input type="text" name="jiekuanren"
+                   value="<?php echo isset($where['jiekuanren']) ? $where['jiekuanren'] : ''; ?>"/>
+
+            <button type="button" class="showMoreSearch" data-toggle="moresearch" data-name="custom"><i class="fa fa-angle-double-down"></i></button>
+            <div class="bjui-moreSearch">
+                <label>起始日期从：</label>
+                <input type="text" name="qishirishiStart" data-toggle="datepicker"
+                       value="<?php echo isset($where['qishiriqi]']) ? date('Y-m-d', $where['qishiriqi]']) : ''; ?>"/>
+                <label>到：</label>
+                <input type="text" name="qishiriqiEnd" data-toggle="datepicker"
+                       value="<?php echo isset($where['qishiriqi[']) ? date('Y-m-d', $where['qishiriqi[']) : ''; ?>"/>
+                <label>到期日期从：</label>
+                <input type="text" name="daoqiriqiStart" data-toggle="datepicker"
+                       value="<?php echo isset($where['daoqiriqi]']) ? date('Y-m-d', $where['daoqiriqi]']) : ''; ?>"/>
+                <label>到：</label>
+                <input type="text" name="daoqiriqiEnd" data-toggle="datepicker"
+                       value="<?php echo isset($where['daoqiriqi[']) ? date('Y-m-d', $where['daoqiriqi[']) : ''; ?>"/>
+                <label>费用支付方式：</label>
+                <select name="fuxifeifangshi" data-toggle="selectpicker">
+                    <option value="">不选择</option>
+                    <option value="1" <?php if (isset($where['fuxifeifangshi'])) {if ($where['fuxifeifangshi'] == '1') {echo 'selected="selected"';}} ?>>按月付息</option>
+                    <option value="2" <?php if (isset($where['fuxifeifangshi'])) {if ($where['fuxifeifangshi'] == '2') {echo 'selected="selected"';}} ?>>按月付息费</option>
+                    <option value="3" <?php if (isset($where['fuxifeifangshi'])) {if ($where['fuxifeifangshi'] == '3') {echo 'selected="selected"';}} ?>>一次性支付</option>
+                </select>&nbsp;
+                <label>结清情况：</label>
+                <select name="jieqingqingkuang" data-toggle="selectpicker">
+                    <option value="">不选择</option>
+                    <option value="1" <?php if (isset($where['jieqingqingkuang'])) {if ($where['jieqingqingkuang'] == '1') {echo 'selected="selected"';}} ?>>已结清</option>
+                    <option value="2" <?php if (isset($where['jieqingqingkuang'])) {if ($where['jieqingqingkuang'] == '2') {echo 'selected="selected"';}} ?>>未结清</option>
+                </select>&nbsp;
+            </div>
+
+
+            <button type="submit" class="btn btn-default">查询</button>
+            <a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true"
+               data-icon="undo">清空查询</a>
+
+            <div class="pull-right">
+                <div class="btn-group">
+                 <?php
+		      echo \Prj\Misc\View::btnImportInDatagrid(\Sooh\Base\Tools::uri(null,'import'));
+		      ?>
+                    <!--<button type="button" class="btn-default dropdown-toggle" data-toggle="dropdown" data-icon="copy">
+                        复选框-批量操作<span class="caret"></span></button>
+                    <ul class="dropdown-menu right" role="menu">
+                        <li><a href="<?php //echo \Sooh\Base\Tools::uri([
+                              //  '__EXCEL__' => 1,
+                               // 'where'     => urlencode(json_encode($where)),
+                          //  ], 'index'); ?>">导出<span style="color: green;">全部</span></a></li>
+                        <li class="divider"></li>
+                    </ul>-->
+                    
+             &nbsp; &nbsp; &nbsp; &nbsp;
+            </div class="btn-group">
+             <button type="button" class="btn-red">
+		      <a href="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1,'where'=> urlencode(json_encode($where))),'export'); ?>"><span style="color: orange;">导出全部</span></a>
+		      </button>
+		      
+            <div>
+                </div>
+            </div>
+        </form>
+    <?php } ?>
+
+</div>
+<?php
+/**
+ * @var \Prj\Misc\ViewFK $view
+ */
+$view = $this->view;
+$view->show();
+?>

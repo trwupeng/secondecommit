@@ -1,0 +1,24 @@
+<?php
+ function tmpfun_btn_disable($nickname,$capt,$loginName,$id)
+ {
+	 return "<a href=\"#\" onclick=\"if(confirm('确定禁止{$nickname}访问{$capt}数据吗？'))tmp_send_req('".\Sooh\Base\Tools::uri(['loginName'=>$loginName,'id'=>$id,'enable'=>0])."');\">更改</a>";
+ }
+ function tmpfun_btn_enable($nickname,$capt,$loginName,$id)
+ {
+	 return "<a href=\"#\" onclick=\"if(confirm('确定允许{$nickname}访问{$capt}数据吗？'))tmp_send_req('".\Sooh\Base\Tools::uri(['loginName'=>$loginName,'id'=>$id,'enable'=>1])."');\">更改</a>";
+ }
+echo '<div class="bjui-pageContent">';
+?>
+<script>
+function tmp_send_req($url)
+	{
+		$.getJSON($url+'&__VIEW__=jsonp&jsonp=?',
+                function (json) {
+					refresh();
+                }
+        );
+	}
+</script>
+<?php 
+include __DIR__.'/conflist.phtml';
+echo '</div>';

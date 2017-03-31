@@ -1,0 +1,44 @@
+<script type="text/javascript">
+	function zTreeOnCheck(event, treeId, treeNode) {
+		var rights = [];
+		var treeObj = $.fn.zTree.getZTreeObj("ztree1");
+		var nodes = treeObj.getCheckedNodes(true);
+
+		nodes.forEach(function(val) {
+			rights.push(val.id);
+		});
+//		console.log(rights);
+		$('#rights').val(rights.toString());
+
+//		var rights = $('#rights').val();
+//		var tId = treeNode.tId.substring(7);
+//		if (rights == '') {
+//			rights = [];
+//		} else {
+//			rights = rights.split(',');
+//		}
+//		if (jQuery.inArray(tId, rights) > -1) {
+//			rights.splice(jQuery.inArray(tId, rights), 1);
+//		} else {
+//			rights.push(tId);
+//		}
+//		$('#rights').val(rights.toString());
+//		console.log($('#rights').val());
+	};
+</script>
+<div class="bjui-pageContent">
+    <?php
+	$renderer = new \Prj\Misc\FormRenderer;
+	echo $renderer->getEditStandard(\Sooh\Base\Form\Broker::getCopy('default'),2);
+	?>
+</div>
+<div class="bjui-pageFooter" >
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+
+
+
+

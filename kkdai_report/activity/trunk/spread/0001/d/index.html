@@ -1,0 +1,639 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="telephone=no" name="format-detection">
+<meta name="keywords" content="小虾理财,理财平台,P2P理财,金融,投资,支付宝,京东" />
+<meta name="description" content="国内专业的抵押类互联网金融平台。一直秉持着“普惠金融”的理念,通过精湛的互联网大数据挖掘和金融创新风控,为投资者提供真实透明、安全稳健、灵活便捷的优质理财服务。" />
+<title>小虾理财,国内专业的抵押类互联网金融平台</title>
+<link type="text/css" rel="stylesheet" href="css/wap-1.css">
+<link type="text/css" rel="stylesheet" href="css/zengxin07.css">
+<style>
+        
+        .box{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            display:none;
+			 /*padding-top: 4.42rem;*/
+        }
+        .box1{
+		
+            width: 80%;
+			margin: 0 auto;
+           padding-top: 0.4rem;
+          position: absolute;
+            height: 3.6rem;
+           left: 10%; top: 27%;
+           // margin-left: -250px;
+           // border: 1px solid #000000;
+		   border-radius: 5px;
+        }
+		
+		
+		
+		.box_zhuce{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: none;
+			padding-top: 2.42rem;
+        }
+        .box1_zhuce{
+            width: 80%;
+			margin: 0 auto;
+          padding-top: 0.4rem;
+          // position: relative;
+           height: 3.6rem;
+           // position: fixed;left: 50%; top: 25%;
+           // margin-left: -250px;
+           // border: 1px solid #000000;
+		   border-radius: 5px;
+        }
+		
+		.yzm_right{
+		    width: 3.6083rem;
+            height: 0.64167rem;
+            float: left;
+		
+		}
+		.yzm_btn_left{
+		padding-right: 0.12rem;
+        height: 0.6667rem;
+        float: left;
+		
+		
+		}
+		
+	.num06 {
+    width: 2.1rem;
+    height: 0.6333rem;
+    line-height: 0.6333rem;
+    border: 0px solid #e4192d;
+    background: #38a0f9;
+    font-size: 0.2833rem;
+    border-radius: 5px;
+    display: block;
+    color: #fff;
+    text-align: center;
+   // box-shadow: 0px 4px 0px -1px rgba(140,7,19,1);
+}
+		
+		.num05 {
+    width: 94%;
+    height: 0.625rem;
+    line-height: 0.625rem;
+    border: 1px solid #bdb286;
+    background: #fff;
+    font-size: 0.2833rem;
+    border-radius: 5px;
+    display: block;
+    color: #b5b5b6;
+    padding-left: 0.2rem;
+}
+		
+		.num04 {
+    width: 0.9rem;
+    height: 0.6333rem;
+    line-height: 0.6333rem;
+    border: 0px solid #e4192d;
+    background: #fff;
+    font-size: 0.2833rem;
+    border-radius: 5px;
+    display: block;
+    color: #646464;
+    text-align: center;
+   
+}
+
+.reg-init p {
+    font-size: 0.25rem;
+    color: #542f15;
+	font-family:"黑体";
+    /* text-align: center; */
+    line-height: 0.4rem;
+}
+.red-span{
+color: #bf0a1c;
+}
+.money_suc{
+font-size: 1.5rem;
+color: #f23b3d;
+font-weight: bold;
+}
+.tel{
+	margin-top:0.03rem;
+	width: 100%;
+	height: auto;
+}
+.tel span{
+	float: left;
+	width: 36%;
+	font-size:0.2833rem;
+}
+.reg-success p {
+    font-size: 0.33rem;
+    color: #f23b3d;
+    text-align: center;
+    line-height: initial;
+}
+.hongbao01{
+  margin-bottom: 0.4rem;
+
+}
+
+.hongbao02 {
+    width: 100%;
+    margin: 0.8rem auto;
+    font-size: 0.41667rem;
+    color: #646464;
+    text-align: center;
+}
+.close{
+	display: block;
+	width: 0.5rem;
+	height: 0.5rem;
+	background: url(images/close.png) center no-repeat;
+	position: absolute;
+	top: 13%;
+	right: 0.85rem;
+	background-size: 80%;
+}
+
+    </style>
+<script type="text/javascript" src="js/sources-1.js"></script><!--小虾理财测试及开发服地址-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/activity_register-1.js"></script>
+<script type="text/javascript" src="js/clientLang.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<!--验证小虾账户弹出框-->
+	<div class="box_zhuce" style="z-index:500"><!--提示快快贷账户为注册弹出框-->
+        <div class="box1_zhuce" style="background:#fff">
+            <a href="javascript:;" onclick="jQuery('.box_zhuce').hide()" class="close"></a><!--关闭按钮-->
+			 <p class="hongbao02">该手机号码未注册</p>
+      <form class="reg">
+        
+       <!--<div class="xieyi"><img src="images/checkbox.png">已阅读并同意<a href="http://apidev.xiaoxialicai.com/index.php?__=licence/register">《小虾理财平台注册及服务协议》</a></div> -->
+       <div class="lingqu">
+          <input type="button" value="注册快快贷" class="submit" id="submit_kuaikuai">
+        </div>
+        <div class="tk">错误信息！</div>
+     </form>
+        </div>
+    </div>
+<div class="box" style="z-index:500"><!--验证小虾账户弹出框-->
+	<div style="position: relative; width: auto; height: 100%;">
+		 <div class="box1" style="background:#fff">
+            <a href="javascript:;" onclick="jQuery('.box').hide()" class=""></a>
+			 <p class="hongbao01">请先验证小虾用户</p> 
+		      <form class="reg">
+		         <div class="border_line">
+				 <div class="yzm_btn_left"> <input type="button" value="手机号" class="num04"  id="btn_shouji"></div>
+				 <div class="yzm_right"><input type="tel" value="请输入手机号" class="num05" maxlength="11" ></div>
+		          
+		         </div>
+		        <div class="border_line">
+		          <div class="yzm" style="float:right"><input type="tel" value="请输入验证码" class="num02" maxlength="6" ></div>
+		          <div class="yzm_btn" style="float:left"> <input type="button" value="获取验证码" class="num06"  id="btn"></div>
+		       </div>
+		       <!--<div class="xieyi"><img src="images/checkbox.png">已阅读并同意<a href="http://apidev.xiaoxialicai.com/index.php?__=licence/register">《小虾理财平台注册及服务协议》</a></div> -->
+		       <div class="lingqu">
+		          <input type="button" value="完成" class="submit" id="submit_login">
+		        </div>
+		       
+		     </form>
+        </div>
+	</div>
+       
+    </div>
+<div class="banner"><img src="images/banner.png"></div>
+<div class="content01">
+   <div class="register"><!--输入快快贷手机号码页面-->
+      <form class="reg"> 
+	  <div class="reg-init">
+      <p>小虾理财迎来特大喜讯，理财端将和母公司 快快金融信息服务（上海）有限公司（快快贷） 的理财端合并。为感恩您一直以来的支持和信任</p>
+      <p><span class="red-span">现赠送您108元现金红包！</span>愿我们在新的起点，依然携手共进</p>
+      </div>
+         <div class="border_line">
+            <div class="tel">
+            	<span>快快贷账号:</span>
+            	<input type="tel" value="请输入手机号" class="num01" maxlength="11" id="input01">
+            </div>
+         </div>
+       <div class="lingqu">
+          <input type="button" value="立即领取" class="submit" id="submit_lingqu">
+        </div>
+        <div class="tk">错误信息！</div>
+     </form>
+   </div>
+</div>
+<div class="content02">
+   <div class="register">
+     <div class="reg-success">
+      <p>恭喜您已获得快快贷红包</p>
+	   <p class="hongbao01"><span class="money_suc"></span><font style="font-size: 0.55rem; font-weight: bold;">元</font></p>
+      <p id="downApp"><img src="images/downApp.png"></p>
+      </div>
+   </div>
+</div>
+<div class="zengxin0711"><img src="images/zengxin071.png"></div>
+<script type="text/javascript">
+ 
+var isP=false;
+
+function showTK (msgs) {
+         var msg=seacher(msgs,clientLang);
+       if (msg){
+	   $('.tk').html(msg);
+        $('.tk').show();
+        setTimeout("$('.tk').fadeOut(1000)", 1000);
+		}else{
+		
+		$('.tk').html(msgs);
+        $('.tk').show();
+        setTimeout("$('.tk').fadeOut(1000)", 1000);
+		
+		}
+        
+    }
+
+var countdown=60;//设置倒计时间初始值
+ 
+ 
+  function setcountdowntime(s) {//重置
+		countdown = s;
+	}
+	
+
+ $('#input01').focus(function(){
+
+   if($(this).val()== '请输入手机号'){
+    $(this).val('');
+   }
+
+ });
+ 
+  $('#input01').blur(function(e) {
+	if($(this).val()==''){
+	  $(this).val('请输入手机号')
+	}
+	//$(".xuanting").show();
+});
+ 
+ $('input.num05').focus(function(){
+
+   if($(this).val()== '请输入手机号'){
+    $(this).val('');
+   }
+	          
+	             
+	               $(this).removeClass('btn');
+	              $(this).addClass("btn_highlight");
+	              $(".xuanting").hide();
+ 
+ });
+ 
+$('input.num02').focus(function(){
+ 
+ if($(this).val()=='请输入验证码'){
+     $(this).val('');
+ }
+	          
+	             
+	              $(this).removeClass('btn');
+	              $(this).addClass("btn_highlight");
+				  $(".xuanting").hide();
+	          
+ 
+ });
+ 
+ $('input.num05').blur(function(e) {
+	if($(this).val()==''){
+	  $(this).val('请输入手机号')
+	}
+	$(".xuanting").show();
+});
+$('input.num02').blur(function(e) {
+	if($(this).val()==''){
+	  $(this).val('请输入验证码')
+	}
+    $(".xuanting").show();
+});
+
+     
+
+
+
+	$('#btn').click(function(e) {//点击获取验证码按钮
+	  
+  getyzm();//发送验证码
+	 
+    });
+	
+	$('#downApp').click(function(e) {//跳转app下载页面
+	
+   window.location.href='http://www.kuaikuaidai.com/h5/appDownload.html'; 
+	 
+	 
+    });
+	
+	
+
+	$('#submit_kuaikuai').click(function(e) {//跳转注册页面
+	
+   window.location.href=__CONF__.rootUrl + 'onloginok.html?jump=' + encodeURIComponent(__CONF__.regSucJumpUrl);  //快快贷注册
+	 
+	 
+    });
+	
+	$('#submit_lingqu').click(function(e) {//领取红包
+	 if (isP){
+	   linghongbao();//领红包
+	  }else{
+	   $('.box').show();
+	  }
+    });
+	
+
+	$('#submit_login').click(function(e) {//小虾验证
+	   submit();//注册
+    });
+	
+function linghongbao(){
+	var obj = {
+		'1000' :'快快贷手机号不能为空',
+		'1002' :'已经领取过红包',
+		'601' :'红包已发放，请不要重复请求，',
+		'-1' :'服务器繁忙',
+		'215' :'手机号未注册'
+	}
+	var phone = $('#input01').val();//获取电话号码
+	if (checkPhone(phone)){
+	     $.ajax({
+                        url: __sources__.api+'/index/Usernew/kkdTrans?__VIEW__=jsonp',
+			            type: 'GET',
+			            dataType:"jsonp",
+			            jsonp: 'jsonp',
+						data: {'kkdPhone':phone},
+                        success: function(data) {
+                        	isP=false;
+                        	console.log(data)
+                            if (data.code == 200) {
+							 $('.content01').hide();
+                              $('.content02').show();
+							  $('.money_suc').html('108');
+							  
+							  console.log(isP+'12345')
+                            }else if(data.code == 400){
+                            	showTK('参数错误，请重新发送')
+                            	
+                            }else if(data.code == 215){
+                            	$('.box_zhuce').show()
+                            	
+                            	//showTK(obj[data.code])
+                            } else{
+                            	for(var key in obj){
+                            		if(data.code == key){
+                            			showTK(obj[key])
+                            			
+                            		}
+                            	}	
+																				
+                            }
+                        },
+                        error: function() {
+						showTK('网络连接失败，请稍后再试')                           
+                        }
+                    });
+	}                 
+}
+	
+function submit(){	//登录小虾
+            var phone = $('.yzm_right input').val();//获取电话号码
+            var smscode = $('.num02').val();//获取验证码
+           var inviteCode = getParameter('inviteCode');//获取邀请码
+		   var clientId= '1104878344',
+               clientSecret= 's20vH9emKJ6BmT1Q';
+            //var contractId = '';//渠道号
+           // var protocol = 1;//协议号
+           var clientType = '903'; //客户类型
+            if (checkPhone(phone)) {				
+                if (checkSmscode(smscode)) {					
+                    $.ajax({
+                        type: 'GET',
+						url: __sources__.api+'/index.php?__=passport/quickLogin&__VIEW__=jsonp',
+						dataType:"jsonp",
+						jsonp: 'jsonp',
+                        data: {'phone':phone,'smscode':smscode,'clientId':clientId,'clientSecret':clientSecret,'clientType':clientType},//'inviteCode':inviteCode,
+                        success: function(data) {
+                            if (data.code == 200) {						
+					              //小虾登录成功
+							  $('.box').hide();
+							  isP=true;                            
+                            } else {
+                              showTK(data.msg);
+                            }
+                        },
+                        error: function() {
+		                    showTK('网络连接失败，请稍后再试');
+                        }
+                    });
+                } else {
+				
+                   showTK('验证码填写不正确');
+                }
+            } else {				
+                  showTK('手机号填写不正确');
+            }  
+}
+	
+$('#input01').on("input propertychange",function(){//监听input 焦点
+		if((/^([0-9]3[0-9]|[0-9]4[0-9]|[0-9]5[0-9]|[0-9]7[0-9]|[0-9]8[0-9])\d{8}$|^([0-9])\d{10}$/i.test($(this).val()))){//  /^([0-9]3[0-9]|[0-9]4[0-9]|[0-9]5[0-9]|[0-9]7[0-9]|[0-9]8[0-9])\d{8}$|^([0-9])\d{10}$/i
+		     console.log('满足十一位手机号码，验证码按钮可以按');///^1[3|4|5|7|8][0-9]\d{8}$/
+		
+			$("#btn").attr("disabled",false);
+			$("#btn").removeClass();
+			$("#btn").addClass("num03");				
+	    }else{
+		 console.log('不满足11位手机号码,验证码按钮，不可以按，变灰');
+			$("#btn").removeClass();
+			$("#btn").addClass("num03_gray");
+		    $("#btn").attr("disabled",true);
+	   }     					
+});
+
+
+function getyzm(){
+      var number = $(".yzm_right input").val();
+		if (checkPhone(number)) {  
+			  $.ajax({
+		        type: 'GET',
+				url: __sources__.api+'/index.php?__=passport/sendSmscodeForQuickLogin&__VIEW__=jsonp',
+				dataType:"jsonp",
+				jsonp: 'jsonp',
+				data:{'phone':number},
+				success: function(data){
+					console.log(data)
+					if(data.code == 200){	  
+					     showTK(data.msg);
+					     countdowntime(60);
+					}else{
+					     showTK(data.msg);
+					}					
+				}			
+			   });
+			}else{
+			   showTK('手机号填写不正确');
+			   console.log('手机号填写不正确');			
+			}			
+}
+
+     
+function countdowntime(s) {//倒计时
+		if (countdown == 0) {
+			$("#btn").attr("disabled", false);
+			$("#btn").removeClass();
+			$("#btn").addClass("num03");
+			$("#btn").val("重获验证码");
+			setcountdowntime(s); //重置时间
+		} else {
+			setTimeout(function() {
+				countdowntime(s)
+			}, 1000)
+			$("#btn").removeClass();
+			$("#btn").addClass("num03_gray");
+			$("#btn").val("剩余" + countdown + "秒");
+			$("#btn").attr("disabled", true);
+			countdown--;
+		}
+}			
+
+
+function getParameter(paramName) {//根据参数获取字符串
+	  var searchString = window.location.search.substring(1),
+	      i, val, params = searchString.split("&");
+	  for (i=0;i<params.length;i++) {
+	    val = params[i].split("=");
+	    if (val[0] == paramName) {
+	      return unescape(val[1]);
+	    }
+	  }
+	  return "";
+}
+
+	
+	/**
+		 * 作用：判断字符是否为空字符或null值
+		 *
+		 * @param  {sting}
+		 * @return 无
+		 * @updata 无
+		 */
+
+	function isEmpty(str) {
+			if ((str == null) || (str.length == 0)) return true;
+			else return (false);
+		}
+
+		/**
+		 * 作用：判断字符不为空，返回真值
+		 *
+		 * @param  {sting}
+		 * @return 无
+		 * @updata 无
+		 */
+
+
+	 function isNotEmpty(str) {
+			if ((str == null) || (str.length == 0)) return false;
+			return true;
+		}
+
+
+		/**
+		 * 作用:判断校验数字：正数
+		 *
+		 * @param  {sting}
+		 * @return 无
+		 * @updata 无
+		 */
+
+		function isDigit(s) {
+			var patrn = /^\d+(\.\d+)?$/;
+			if (!patrn.exec(s)) return false
+			return true
+		}
+
+
+		/**
+		 * 作用:校验手机号码
+		 * 参数：字符串
+		 * @param  {sting}
+		 * @return 无
+		 * @updata 无
+		 */
+
+
+
+		 function isMobile(s) {
+			var patrn = /^([0-9]3[0-9]|[0-9]4[0-9]|[0-9]5[0-9]|[0-9]7[0-9]|[0-9]8[0-9])\d{8}$|^([0-9])\d{10}$/i;
+			if (!patrn.exec(s)) return false
+			return true
+		}
+
+
+		/**
+		 * 作用:校验手机号码位数
+		 * 参数：字符串
+		 * @param  {sting}
+		 * @return 无
+		 * @updata 无
+		 */
+
+
+
+   function checkPhone(val) {	  
+			if (!isEmpty(val)) {	
+				if (isDigit(val)) {					
+					if (val.length != 11 || !isMobile(val)) {
+						return false
+					} else {
+						return true;				
+					}
+				}
+			}
+			return false
+		}
+
+		
+		
+	function  checkSmscode(val) {
+		if (!isEmpty(val)) {
+			if (isDigit(val)) {
+				if (val.length != 6) {
+					return false
+				} else {
+					return true;
+				}
+			}
+		}
+		return false
+	}
+	
+	function seacher(str,object){	
+               for (var x in object)
+           {
+		    if (x==str){
+			   return object[x];
+			}  
+       }	  
+		}	
+
+</script>
+</body>
+</html>

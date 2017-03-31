@@ -1,0 +1,374 @@
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size:45px; 
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+	-webkit-appearance: none;
+	resize: none;
+	outline:none;
+	font-family:"微软雅黑";
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+
+body {
+	font-family: '黑体';
+	color: #3B3B3B;
+	background-color: #fff;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+input[type="text"],input[type="tel"]{font-family: '黑体';}
+
+a {
+	text-decoration: none;
+	color: #3b3b3b;
+	font-family:'黑体';
+}
+a:hover {
+	text-decoration:none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: '兰亭黑','兰亭黑简','兰亭粗黑','兰亭特黑';
+	
+	
+}
+img {
+	border: none;
+}
+
+#backg{
+	width: 100%;
+	height: auto;
+	
+}
+#backg img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+#con{
+	width: 100%;
+	height: auto;
+	background:#ffcc00;
+	overflow: hidden;
+}
+.tishi{ 
+	width:100%; 
+	margin:0 auto; 
+	font-size:0.26rem; 
+	color:red; 
+	margin-bottom:10px; 
+	line-height:15px; 
+	display:none; 
+	text-align:left; 
+	padding-left:8px;
+}
+.tk{  
+	width:250px; 
+	height:40px; 
+	line-height:40px; 
+	text-align:center; 
+	background:rgba(0,0,0,0.85); 
+	color:#fff; 
+	border-radius:5px; 
+	position:absolute; 
+	top:56%; 
+	margin-top:-60px; 
+	left:50%; 
+	margin-left:-125px; 
+	z-index:6; 
+	font-size:14px;
+}
+
+
+/*注册成功*/
+.succe{
+	width: 80%;
+	height: auto;
+	padding:0.2rem 0.6rem;
+	margin: auto;
+	background:#fff8e0;
+	border-radius: 5px;
+	margin-bottom: 0.5rem;
+}
+.title{
+	width: 100%;
+	height: 0.4rem;
+	margin: 0 auto;
+	background:url(http://image.kuaikuaidai.com/activity/2016102002/69adf3952cf1496995980585c624cf08.jpg) left center no-repeat;
+	background-size: cover;
+}
+.dazi{
+	width: 90%;
+	height: 1.7rem;	
+	margin: 0 auto;
+	text-align: center;
+	color:#e03f00;
+}
+.dazi span{
+	font-size: 1.5rem;
+	line-height: 1.7rem;
+}
+.dazi font{
+	font-size: 0.7rem;
+	line-height: 1.2rem;
+}
+.liji{
+	display: block;
+	width: 90%;
+	height: 0.65rem;
+	background: #FE4E4E;
+	border:1px solid #FE4E4E;
+	margin:0.2rem auto;
+	color:#fff;
+	border-radius: 6px;
+	font-size: 0.3rem;
+	margin-bottom: 0.1rem;
+}
+.te{
+	width: 80%;
+	height: 0.4rem;
+	line-height: 0.65rem;
+	margin: 0 auto;
+	font-size: 0.265rem;
+	text-align: center;
+	color: #e07e00;
+	font-weight: bold;
+}
+/*注册成功结束*/
+
+
+.design{
+	width: 100%;
+	height: auto;
+	padding:0.2rem 0.6rem;	
+}
+.design>div{
+	width: 100%;
+	height: 0.78rem;
+	margin-bottom: 0.3rem;
+}
+.design input{
+	width:100%;
+	height:100%;
+	border: transparent;
+	display: block;
+	padding:0 0.2rem;
+	font-size: 0.29rem;
+}
+.codeDiv{
+	position: relative;
+}
+.code{
+	width:1.7rem;
+	height: 0.6rem;
+	background:#fe4e4e;
+	border-radius: 6%;
+	position: absolute;
+	right: 0.1rem;
+	top: 0.1rem;
+	border:1px solid #fe4e4e;
+	display: block;
+	color:#fff;
+	font-size: 0.25rem;
+}
+.agree{
+	width: 90%;
+	height: 0.4rem;
+	font-size: 0.25rem;
+	text-align: center;
+	line-height: 0.42rem;
+	margin: 0 auto;
+	padding-left:0.32rem;
+	background:url(http://image.kuaikuaidai.com/activity/2016102002/68cecb3a63164d689a3ece5bdd9c80af.jpg) left center no-repeat;
+	background-size:6%;
+	margin-top:0.3rem;
+}
+.agree a{
+	color:#fe4e4e;	
+}
+.sub{
+	display: block;
+	width: 70%;
+	height: 0.78rem;
+	line-height: 0.8rem;
+	background:#fe4e4e;
+	color:#fff;
+	border:1px solid #FE4E4E;
+	margin: 0.3rem auto;
+	font-size: 0.3rem;
+	border-radius: 7px;
+}
+.design .sub{
+	display: block;
+	width: 70%;
+	height: 0.78rem;
+	line-height: 0.8rem;
+	background:#fe4e4e;
+	color:#fff;
+	border:1px solid #FE4E4E;
+	margin: 0.3rem auto;
+	font-size: 0.3rem;
+	border-radius: 7px;
+}
+.tupian1,.new{
+	width: 85%;
+	height: auto;
+	margin: 0 auto;
+	background:#ffe746;
+	padding-bottom: 0.2rem;
+}
+
+.tupian1 img,.new img{
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 0.3rem;
+}
+.tip{
+	color:#efa300;
+	font-size: 0.25rem;
+	width: 60%;
+	text-align: center;
+	margin: 0.1rem auto;
+	background: #ffcc00;
+	height: 0.5rem;
+	line-height: 0.5rem;
+}
+
+.xuanT{
+	width: 100%;
+	height: 1.3rem;
+	background: url(http://image.kuaikuaidai.com/activity/2016102002/2b2231a8b885418fbc111fc845236cd9.jpg) left center no-repeat;
+	background-size: cover;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+}
+.xuanT>div{
+	float: right;
+	width: 40%;
+	height: 1.0rem;
+	padding-top: 0.4rem;
+}
+.xuanT img{
+	float: left;
+	width: 70%;
+	height: auto;	
+}
+.xuanT span{
+	width: 20%;
+	float: right;
+	height: 0.5rem;
+	background: url(http://image.kuaikuaidai.com/activity/2016102002/32756f929bd6439b8c27beb54c93649f.jpg) left center no-repeat;
+	background-size: 50%;
+}
+
+.codeDiv .yzm_gray{ 	
+	text-align:center; 
+	background:#bfbfbf; 
+	background-size: cover;
+	color:#fff; 
+	cursor:pointer;
+	border:1px solid #BFBFBF;
+}
+
+#mk{
+	width: 100%;
+	height: 200%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background:rgba(0,0,0,0.5);
+	z-index: 200;
+	display: none;
+}
+.tanK{
+	width: 70%;
+	height: 3.0rem;
+	background:#fff;
+	border-radius: 8px;
+	margin:4.0rem auto;
+	position: relative;
+	padding-top: 0.8rem;
+}
+.tanK em{
+	display: block;
+	width: 0.3rem;
+	height: 0.3rem;
+	background:url(http://image.kuaikuaidai.com/activity/2016102002/39eda81f579c41d7b2217c97e07a8f0c.jpg) left center no-repeat;
+	position: absolute;
+	right: 0.3rem;
+	background-size:100%;
+	top: 0.2rem;
+	z-index: 300;
+}
+.tanK p{
+	font-size: 0.38rem;
+	width: 80%;
+	line-height: 0.6rem;
+	margin: auto;
+	text-align: center;
+	color:#333;
+	margin-bottom: 0.5rem;
+}
+
+.tanK input{
+	display: block;
+	width: 60%;
+	background:#fe4e4e;
+	font-size: 0.32rem;
+	margin: auto;
+	line-height: 0.7rem;
+	color:#fff;
+	border:1px solid #fe4e4e;
+	border-radius: 5px;
+}
+

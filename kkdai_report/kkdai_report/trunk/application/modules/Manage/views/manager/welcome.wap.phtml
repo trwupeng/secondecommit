@@ -1,0 +1,23 @@
+<?php
+echo $this->renderInc('head');
+echo $this->renderInc('wapmenu');
+?>
+
+
+    <div class="container">
+
+    <table class="table" width="100%" layoutH="138">
+		<tr><th width="135px">最后登入时间</th><td><?php echo $this->data['ymd']; ?></td></tr>
+		<tr><th width="135px">最后登入IP</th><td><?php echo $this->data['ip']; ?></td></tr>
+	</table>
+	<fieldset style=""><legend>猜您想去</legend>
+		<ul>
+			<li style="padding-bottom: 15px;"><a href="/report/rptdailybasic/recent?__VIEW__=wap">看日报（整合版）</a></li>
+			<li style="padding-bottom: 15px;"><a href="/report/rptdailybasic/recent2?__VIEW__=wap">看日报（数字版）</a></li>
+			<!--<li><a href="/manage/copartners/index?__VIEW__=wap">加渠道</a></li>-->
+			<!--<li><a href="">改密码</a></li>-->
+		</ul>
+	</fieldset>
+    </div> <!-- /container -->
+	
+<?php echo $this->renderInc('foot');?>

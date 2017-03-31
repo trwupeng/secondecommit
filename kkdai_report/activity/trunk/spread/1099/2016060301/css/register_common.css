@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+body{ font-family:"微软雅黑"; }
+.banner_wrap{ width:100%; height:388px; position:relative;}
+.banner{ height:388px; background: url(http://image.kuaikuaidai.com/activity/1099/276a48f3536b4d019e555d5228c7d184.jpg) top center no-repeat;}
+.banner_form_box{ width:1000px; margin:0 auto; position:relative; z-index:9;}
+.banner_form_box .banner_form{ width:304px; background:#dce5f2; position:absolute; z-index:8; right:0; top:25px; border-radius:5px; overflow:hidden;}
+
+/*注册*/
+.activity_register h3{ font-size:18px; text-align:center; margin:18px 0; color:#393939; font-weight:bold;  }
+.activity_register .border_line{ width:262px; height:35px; margin:0 auto; margin-bottom:10px; border:1px solid #dce5f2;}
+.ipt_wrong{ border:2px solid #f44444}/*红框框*/
+.border_line .input01{ width:250px; height:33px; line-height:31px; border-radius:3px;  color:#000; font-size:14px; display:block; margin:0 auto; font-family:"微软雅黑"; padding-left:10px;}
+.hh{border:1px solid #8b8c8b;}
+.hh:focus{border:2px solid #5c8ff6; outline:0;}
+.tishi{ width:262px; margin:0 auto; font-size:14px; color:red; margin-bottom:10px; line-height:15px; display:none; text-align:left; padding-left:8px;}
+.border_line .input02{ width:124px; height:32px; line-height:30px;border-radius:3px; color:#000; font-size:14px; display:block; font-family:"微软雅黑"; padding-left:10px; float:left;}
+.border_line .yzm{ width:115px; height:34px; line-height:32px; text-align:center; background:#5b9be3; border:1px solid #5b9be3; color:#fff; font-size:14px; display:block; font-family:"微软雅黑"; float:right; border-radius:3px; cursor:pointer;}
+.border_line .yzm_gray{ width:115px; height:34px; line-height:32px; text-align:center; background:#aeaeae; border:1px solid #aeaeae; color:#fff; font-size:14px; display:block; font-family:"微软雅黑"; float:right; border-radius:3px; cursor:pointer;}
+.xieyi{ width:260px; margin:0 auto; margin-bottom:10px; font-size:14px; color:#3a3a3a;font-family:"微软雅黑"; padding-left: 32px; overflow:hidden; position:relative; }
+.xieyi img{ width:13px; height:13px; display:inline-block; vertical-align:middle; position:absolute; left:16px; top:4px;}
+.xieyi a{ color:#732ab0;}
+.xieyi_l{ float:left;}
+.xieyi_r{ float:left;}
+
+.reg{ width:264px; height:50px; margin:0 auto;}
+.reg .btn{ width:262px; height:48px; line-height:46px; background:#732ab0; text-align:center; font-size:18px; font-family:"微软雅黑"; color:#fff; border:1px solid #732ab0; border-radius:3px; cursor:pointer; display:block;}
+.reg .btn:hover{ background:#9051c4; border:1px solid #9051c4;}
+.activity_register .activity_login{ width:264px; height:45px; line-height:41px; margin:0 auto; color:#3a3a3a; font-size:14px; text-align:right; padding-bottom:22px;}
+.activity_register .activity_login a{ color:#732ab0;}
+.tk{  width:250px; height:40px; line-height:40px; text-align:center; background:#666\0;background:rgba(0,0,0,0.85); color:#fff; border-radius:5px; position:absolute; top:50%; margin-top:-60px; left:50%; margin-left:-125px; z-index:6; font-size:14px;}
+/*注册*/
+
+/*累计*/
+.cumulative_wrap{ width:100%; height:80px; line-height:78px;  background:#efefef;}
+.cumulative{ width:1000px; height:80px; margin:0 auto; font-size:16px; color:#3a3a3a;}
+.cumulative span{ font-size:24px; color:#8b45c5; font-weight:bold;}
+.cumulative_money{ width:412px; height:80px;float:left; margin-left:102px;}
+.cumulative_profit{ width:387px; height:80px; float:left; margin-left:99px;}
+/*累计*/
+
+/*安全保障*/
+.safe_wrap{ width:100%; height:224px; background:#ffffff; padding-top:34px; }
+.safe{ width:1000px; height:224px; margin:0 auto;}
+.safe ul li{ width:148px; height:224px; margin:0 auto; text-align:center; float:left; margin-right:136px; color:#3a3a3a; font-size:16px;}
+.safe ul li.nomargin{ margin-right:0;}
+.safe ul li .safe_in{ width:138px; margin:0 auto;}
+.safe ul li p{ margin-top:14px;}
+.safe ul li p a{ color:#732ab0;}
+/*安全保障*/
+/*产品*/
+.product_wrap{ width:100%; height:753px; background:#efefef; overflow:hidden;}
+.product{ width:1000px; margin:0 auto; margin-top:50px;}
+.product ul{ overflow:hidden;}
+.product ul li{ width:320px; float:left; margin-right:20px;}
+.product ul li .product_up{ width:320px; height:52px; line-height:52px; background:#a961e5; font-size:26px; color:#fff; font-weight:bold; text-align:center;}
+.product ul li .product_down{ width:318px; height:176px; border:1px solid #a8a8a8; border-top:0; background:#fff;}
+.product ul li .product_down_in{ width:141px; margin:0 auto; overflow:hidden;}
+.product ul li .product_down_in .perday{ width:141px; height:27px; line-height:27px; text-align:center; border-bottom:2px dashed #9e9e9e; font-size:16px; color:#797878; margin-top:12px;}
+.product ul li .annual{ font-size:30px; font-weight:bold; color:#f34f43; text-align:center;}
+.product ul li .annual span{ font-size:54px;}
+.product ul li .expect{ font-size:16px; color:#f34f43; text-align:center; margin-top:10px;}
+.product ul li.nomargin{ margin-right:0;}
+/*产品*/
+/*合作伙伴*/
+.partner{ width:1000px; margin:0 auto; margin-top:75px;}
+.partner_title{ font-size:32px; color:#595858; font-weight:bold; text-align:center; margin-bottom:50px;}
+.partner ul{ overflow:hidden;}
+.partner ul li{ width:223px; height:159px; float:left; margin-right:36px;}
+.partner ul li.partner01{ background:url(http://image.kuaikuaidai.com/activity/1099/33cc9147d513463d9bd20fecd0a08ac9.jpg) no-repeat;}
+.partner ul li.partner01:hover{ background: url(http://image.kuaikuaidai.com/activity/1099/d14d818a2ab14eaa89418f603a07a208.jpg) no-repeat;}
+.partner ul li.partner02{ background:url(http://image.kuaikuaidai.com/activity/1099/e6358741044b4a4287f07308496f5424.jpg) no-repeat;}
+.partner ul li.partner02:hover{ background: url(http://image.kuaikuaidai.com/activity/1099/2128d9c24e974b87ae2b0191f43425ec.jpg) no-repeat;}
+.partner ul li.partner03{ background:url(http://image.kuaikuaidai.com/activity/1099/3051d11a173f43498cbfe171c61537e4.jpg) no-repeat;}
+.partner ul li.partner03:hover{ background: url(http://image.kuaikuaidai.com/activity/1099/396569b82147403a96291cccf62319c2.jpg) no-repeat;}
+.partner ul li.partner04{ background:url(http://image.kuaikuaidai.com/activity/1099/98a29fd8d646460e9fd6913ebd9a501b.jpg) no-repeat;}
+.partner ul li.partner04:hover{ background: url(http://image.kuaikuaidai.com/activity/1099/af4726245a48475a91f6323c8afc8f83.jpg) no-repeat;}
+.partner ul li.nomargin{ margin-right:0;}
+/*合作伙伴*/
+.join{ width:156px; height:27px; line-height:27px; color:#732ab0; margin:0 auto; font-size:22px; border-bottom:2px solid #732ab0; text-align:center; margin-top:55px; font-weight:bold;}
+.join a{ color:#732ab0;}

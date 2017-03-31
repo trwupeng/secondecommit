@@ -1,0 +1,2 @@
+create table if not exists `tb_ecPhoneRecord` (`id` varchar(50) not null, `contactTime` varchar(50), `phone` varchar(50), `customerId` varchar(100), `calltime` int, `type` int, `userId` varchar(50), `customerName` varchar(100), `customerCompany` varchar(600), `url` varchar(600), `iRecordVerID` int NULL DEFAULT 0, primary key(`id`), index index_id(`id`), index index_customerId(`customerId`), index index_userId(`userId`) );
+

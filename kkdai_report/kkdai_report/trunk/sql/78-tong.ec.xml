@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tables>
+	<table name="tb_ecRecord" desc="ec跟进记录" >
+		<field name="id" type="varchar" size="50" primary="true" null="false" desc="唯一id" />
+		<field name="contactTime" type="varchar" size="50" desc="跟进时间" />
+		<field name="customerId" type="varchar" size="50" desc="客户id" />
+		<field name="customerName" type="varchar" size="100" desc="客户名字" />
+		<field name="customerCompany" type="varchar" size="500" desc="客户公司名" />
+		<field name="userId" type="varchar" size="50" desc="用户id" />
+		<field name="content" type="varchar" size="20000" desc="跟进内容" />
+		<index name="id" value="id" />
+		<index name="customerId" value="customerId" />
+		<index name="userId" value="userId" />
+	</table>
+</tables>

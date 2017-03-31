@@ -1,0 +1,98 @@
+<?php
+// $this->htmlHeadPart('<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> ');
+// $this->htmlHeadPart('<title>最近日统计（当天是每小时更新）</title>');
+// $this->htmlHeadPart(\Sooh\HTML\Base::includeJS('jquery'));
+// $this->htmlHeadPart(\Sooh\HTML\Base::includeJS('jquery.form.min.js'));
+// echo $this->renderInc('head');
+?>
+<!-- <body> -->
+<div class="bjui-pageContent">
+	<?php
+	//		echo '说明：增长0~10%<font style="color:red;font-weight:bold">↑</font>，增长10~30%<font style="color:red;font-weight:bold">↑↑</font>，
+	//	增长30%以上<font style="color:red;font-weight:bold">↑↑↑</font><br/>';
+	$actName = $this->actName;
+	$weekdayName=$this->weekdayName;
+	$copartners = $this->copartners;
+	//$names =$this->actName;
+	//$names['LoginPc'] = 'PC端活跃用户';
+	//$names['LoginMobile'] = '移动端活跃用户';
+	$names['LoginMobile'] = '移动端活跃用户';
+	$rs = $this->records;
+	//var_log($rs, 'rs>>>>>>>');
+	echo '<div class="container" >';
+	//echo '说明：增长0~10%<font style="color:red;font-weight:bold">↑</font>，增长10~30%<font style="color:red;font-weight:bold">↑↑</font>，
+	//增长30%以上<font style="color:red;font-weight:bold">↑↑↑</font><br/>';
+
+	$lst=$this->rptGroupDefine2;
+	//var_log($lst, 'lst>>>>>>>');
+	$ymds = array_keys($rs);
+	$nYmd = sizeof($ymds);
+	for($i=0;$i<$nYmd;$i++){
+		$ymd = $ymds[$i];
+		$r = $rs[$ymd];
+		$s = "<div style=\"max-width:500px;\"><table  style=\"width: 100%; \" border=1><thead><tr><th>日期<th>".date("Y年m月d日",  strtotime($ymd))."<th>周".$weekdayName[date('w',strtotime($ymd))]."</th></tr></thead>";
+
+		foreach($lst as $listId=>$row){
+			if ($ymd == date('Ymd') && ($listId == 'p_realnameauth')) {
+				continue;
+			}
+//		if ($ymd == date('Ymd') && ($listId == 'p_yebfundflows' || $listId == 'p_dybfundflows')) {
+//			continue;
+//		}
+//		$tr = "<tr><td>{$row['fmt'][0]}<td>";
+//		foreach($row['extraRate'] as $rateName=>$define){
+//			if($r[$define[1]]>0){
+//				$r[$rateName] = sprintf("%.1f",($r[$define[0]]/$r[$define[1]]*100));
+//			}else{
+//				$r[$rateName] = 0;
+//			}
+//		}
+//		$url = \Sooh\Base\Tools::uri(['forAct'=>$listId,'ymd'=>$ymd,"__VIEW__"=>\Sooh\Base\Ini::getInstance()->viewRenderType()],'depth1');
+//		if ($r['{ApplyWithdrawAmount}'] > $r['{ChargeAmount}']) {
+//			$r['{ApplyWithdrawAmount}'] = '<span style="color:red">'.$r['{ApplyWithdrawAmount}'].'</span>';
+//		}
+//		$tr.=str_replace(array_keys($r), $r, $row['fmt'][1]);
+//		if(strpos($tr,'todo')){
+//			$s .=$tr."</td><td></td></tr>";
+//		}else{
+//			$s .=$tr."</td><td><a href=\"$url\"><nobr>详细</nobr></a></td></tr>";
+//		}
+
+
+			if ($ymd == date('Ymd') && ($listId == 'p_yebfundflows' || $listId == 'p_dybfundflows')) {
+				continue;
+			}
+			foreach($row as $rowTitle => $detail) {
+				$url = \Sooh\Base\Tools::uri(['forAct'=>$listId,'ymd'=>$ymd,"__VIEW__"=>\Sooh\Base\Ini::getInstance()->viewRenderType()],'depth1');
+
+				if (is_array($detail)) {
+					$rowNum = sizeof($detail);
+					$firstKey = key($detail);
+					foreach($detail as $childRowTitle => $v) {
+						if ($childRowTitle == $firstKey) {
+							$s .= "<tr><td rowspan='".$rowNum."'><a type style='cursor: pointer;' data-toggle='navtab' data-id='".$listId
+									."' data-url='".$url."' data-title='".$rowTitle."-更多' >".$rowTitle."</a></td><td>";
+						}else {
+							$s .= "<tr><td>";
+						}
+						$s .= $childRowTitle."</td>"."<td>".$v."</td>";
+
+					}
+				}else {
+					$s .= "<tr><td colspan='2'><a type style='cursor: pointer;' data-toggle='navtab' data-id='".$listId
+							."' data-url='".$url."' data-title='".$rowTitle."-更多'>".$rowTitle."</a></td>";
+					$s .= "<td>$detail</td>";
+				}
+
+
+			}
+
+		}
+		$s = str_replace(array_keys($r), $r, $s);
+
+		$s.="</table></div>";
+		echo $s."<br>\n";
+	}
+	?>
+</div>
+

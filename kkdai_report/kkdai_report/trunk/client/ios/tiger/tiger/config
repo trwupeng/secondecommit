@@ -1,0 +1,5 @@
+url:kkdtest.kuaikuaidai.com
+ssl:0
+ui_thread=1
+work_thread=1
+silence_thread=1

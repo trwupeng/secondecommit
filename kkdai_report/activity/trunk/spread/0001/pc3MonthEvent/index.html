@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3.8女人节</title>    
+    <link rel="stylesheet" href="../../../kkdhead/css/kkdai.css" type="text/css">
+    <link rel="stylesheet" href="./css/base.css" type="text/css"/>
+</head>
+
+<body>
+    <div id="warp">
+        <!--替换内容-->
+        <div style="min-height:800px;width: 100%; margin: 0 auto;" class="main">
+            	
+        <div id="banner">
+			<img src="http://image.kuaikuaidai.com/activity/pc4MonthEvent/a92076bc277c4995a649d8d67c3e3eef.jpg">
+		</div>
+		<section id="con">
+			<div class="diyi">
+				<img src="http://image.kuaikuaidai.com/activity/pc4MonthEvent/d6d45afc63dc4f2f8dd4ff6fc9fe0b58.jpg">
+			</div>
+			<div class="diEr">
+				<img src="http://image.kuaikuaidai.com/activity/pc4MonthEvent/65a8701539c84a76a82bf44e1d9a6443.jpg">
+			</div>
+			<div class="diSan">
+				<img src="http://image.kuaikuaidai.com/activity/pc4MonthEvent/fdf5bf77837545b5a179261faa4185a1.jpg">
+			</div>
+			
+		</section>
+            	
+            	
+        </div>
+        <!--end替换内容-->
+    </div>
+    <!--end:wrap-->
+</body>
+<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/head.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('#warp').prepend(data);
+			$('.clearfix').find('.nav_curr').removeClass('nav_curr').end().children('li').eq(3).addClass('nav_curr')
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/end.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('#warp').append(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/returnTop.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('body').append(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '../../../kkdhead/lib/js.html',
+        data: '_=' + Date.parse(new Date()),
+        success: function(data) {
+            $('#warp').append(data);
+        }
+    });
+});
+</script>
+<script>
+
+	var getState = (function(){
+		var cookies ;
+		function getCookies(name){
+			var allcookies = document.cookie;
+			console.log(allcookies)
+			var cookie_pos = allcookies.indexOf(name);
+			
+			if(cookie_pos !=-1){
+				cookie_pos += name.length + 1;
+				var cookie_end = allcookies.indexOf(";", cookie_pos);
+				
+				if (cookie_end == -1){
+        
+	            	cookie_end = allcookies.length;
+	        	}
+				cookies = unescape(allcookies.substring(cookie_pos, cookie_end)); 
+			}else{
+				return false
+			}
+			
+			return cookies;
+			
+		}
+		console.log(getCookies('JSESSIONID'))
+		return {
+			ajax:function(){
+				$.ajax({
+			        type: 'GET',
+			        url: 'http://rpt.kuaikuaidai.com/public/checkKkdLogin?__VIEW__=jsonp',
+			        dataType: "jsonp",
+					jsonp: "jsonp",
+			        data: {
+			        	jskey : getCookies('JSESSIONID')?getCookies('JSESSIONID'):''
+			        } ,
+			        success: function(res) {
+			        	console.log(res)
+			           getState.domState(res)
+			        }
+			    });
+			},
+			domState : function(dataObj){
+				if(dataObj.code==400){
+					$('.head_rigth a').eq(0).text('登录').css('color','#fff').attr('href','http://www.kuaikuaidai.com/login.html')
+					$('.head_rigth a').eq(1).text('注册').css('color','#fff').attr('href','http://www.kuaikuaidai.com/register.html')
+				}else if(dataObj.code==200){
+					$('.head_rigth a').eq(0).text('我的账户').css('color','#ff7f41').attr('href','http://www.kuaikuaidai.com/mycenterMyaccount.html')
+					$('.head_rigth a').eq(1).text('退出').css('color','#acaeb2').attr('href','http://www.kuaikuaidai.com/logout.html')
+				}
+			}
+		}
+	})()
+	
+	getState.ajax()
+</script>
+</html>

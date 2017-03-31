@@ -1,0 +1,111 @@
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+        <label>时间从：</label>
+        <input id="inputYmdFrom" type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo ($this->ymdFrom?$this->ymdFrom:date('Y-m-d', time()-7*86400)); ?>" size="18" />
+        <label>时间到：</label>
+        <input id="inputYmdTo" type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo ($this->ymdTo?$this->ymdTo:date('Y-m-d', time()-86400)); ?>" size="18" />
+        <label>渠道选择:</label>
+        <select name="selectedContractId">
+            <?php
+            $contractIds = $this->contractIds;
+            if($this->selectedContractId===NULL) {
+                $this->selectedContractId='ALLCONTRACTS';
+            }
+            foreach($contractIds as $cid => $remark){
+                echo "<option value=\"$cid\" ".($this->selectedContractId==$cid?'selected="selected"':'').">".$remark."</option>";
+            }
+            ?>
+            <option></option>
+        </select>
+        <input type="hidden" name="__VIEW__" value="<?php echo $this->_view;?>" size="18" />
+        <button type="submit" class="btn btn-default">查询</button>
+        &nbsp;
+        <label style="color:red;"><?php echo $this->errMsg;?></label>
+    </form>
+</div>
+
+<div class="bjui-pageContent">
+    <div id="regtoinvestmentEcharts2" style="height:400px;width: 90%"></div>
+    <div id="regtoinvestmentEcharts" style="height:400px;width:90%;"> </div>
+
+
+
+    <script type="text/javascript">
+        require.config({
+            paths:{
+                echarts: '/echarts/dist'
+            }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/funnel' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+
+                var columnMaps = <?=$this->columnNames;?>;
+                var rs1Title = {text:"<?=$this->rs1TitleText;?>", subtext:"<?=$this->rs1SubText;?>"};
+                var rs2Title = {text:"<?=$this->rs2TitleText;?>", subtext:"<?=$this->rs2SubText;?>"};
+
+                var rs1 = <?=$this->rs1;?>;
+                var rs2 = <?=$this->rs2;?>;
+                render(ec, 'regtoinvestmentEcharts', rs1Title, columnMaps, rs1);
+                render(ec, 'regtoinvestmentEcharts2', rs2Title, columnMaps, rs2);
+
+            }
+        );
+
+
+        function render(ec, divId, title, columnMaps, records) {
+            var myChart = ec.init(document.getElementById(divId));
+
+            var series = [
+            ];
+
+            var legend = {  y: 'bottom', data : [] };
+            var obj = {
+                name:'漏斗图',
+                type:'funnel',
+                funnelAlign:'center',
+                width: '50%',
+                maxSize: '50%',
+//                max: 100,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+//                            formatter: '{b}:{c}',
+                            formatter: function( params, ticket, callback ) {
+                                return params.name + ":" + params.data['realValue'];
+                            }
+
+                        }
+                    }
+                },
+                data:[]
+            };
+            for (var column in columnMaps) {
+                if (typeof(columnMaps[column])!=='function'){
+                    legend.data.push(columnMaps[column]);
+                    if(records.hasOwnProperty(column) && records[column]!==null){
+                        obj.data.push({value:records[column],name:columnMaps[column], realValue:records[column+'_real_']});
+                    }else {
+                        obj.data.push({value:0,name:columnMaps[column], realValue:records[column+'_real_']});
+                    }
+                }
+            }
+            series.push(obj);
+            option = {
+                title: title,
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c}%"
+                },
+                legend: legend,
+                series: series
+            };
+            myChart.setOption(option);
+        }
+    </script>
+</div>

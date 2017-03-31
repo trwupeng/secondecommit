@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>快快贷1月活动</title>		
+		<link rel="stylesheet" href="css/base.css" type="text/css" />
+		<link rel="stylesheet" href="css/kkdai.css" type="text/css" />
+		
+	</head>
+	<body >
+		 <div id="warp">
+        <!--替换内容-->
+        <div style="min-height:800px;width: 100%; margin: 0 auto;" class="main">
+            	
+        <div id="banner"></div>	
+		<div id="content_top">
+		
+		<div class="gYout">
+        				<div class="first_block_pc">
+							<p>小伙伴们，旧年落幕，新年已启，想必您在过去的一年定然收获丰富。</p>							
+							<p>2016年，我们一起砥砺前行，2017年，愿我们依然共征新程！</p>
+							<p>现在新的一年已然来临，为感恩您长期的支持和陪伴，</p>
+							<p>快快贷特准备了：<span class="span_ye">海外双人游、苹果Iphone7、Ipad Mini、电影票、飞牛网购物券......等你来拿！</span></p>
+						</div>
+        			</div>
+		</div>
+<div id="banner1"></div>		
+<div id="banner2"></div>	
+<div id="banner3"></div>	
+<div id="content_bottom">
+<div class="gYout">
+        <!--<div class="ma">
+				<img src="./img/ma.png">
+			</div>-->
+        				<div class="first_block_pc2">
+						<span class="span_ye_big" style="margin-left:-30px">备注:</span>
+						<ul>
+							<li>活动一中，单笔投资只可领取一份奖品，择高选取。多次投资，则可多次</li>							
+							<p> 领取对应奖品，除飞牛网优惠券外。</p>
+							<li>本次海外双人游由途牛网提供，出游细则请参考途牛网。 </li>
+							<p>用户可自行选择出游时间，但需提前2周告知快快贷工作人员，以便与途牛网</p>
+							<p>预约。一经预约成功，不可临时退换。</p>
+                            <p>另海外双人游根据途牛网的城市路线定，若没有飞济州岛和泰国的旅游路线，</p>
+							<p>可重新选择苹果电子奖品。 </p>
+							<p>详情可戳：<a href='http://www.tuniu.com/tours/210274116' target="_blank">http://www.tuniu.com/tours/210274116</a>   </p>
+							<p> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+							&nbsp; &nbsp;&nbsp;<a href='http://www.tuniu.com/tour/210140729' target="_blank">http://www.tuniu.com/tour/210140729 </a></p> 
+							<li>抵现券投资部分不计入投资金额之内。 </li>
+                			<li>本活动不可与其他活动同时参与。</li> 
+							<li>以上奖品，将在活动结束后十个工作日内由快快贷统一发放。</li>
+                         </ul>
+                            <br>
+                            <span class="span_ye_mid" style="margin-left:-30px">20元飞牛网优惠券使用规则：</span>						 
+							<ul>
+							<li>抵用券领取后15天内有效，过期作废</li>
+							<p>可在飞牛网官网 :www.feiniu.com/飞牛网APP/飞牛网H5内消费使用；</p>
+                            <li>选好商品，在结账时勾选抵用券即可使用，可抵扣实付金额的20%，最高抵扣 </li> 
+							<p>20元，仅限飞牛网自营商品（现金卡券、黄金等部分商品除外)；</p> 
+							<li>本券不记名、不挂失、不兑现金,每个会员账户仅限领取一次；</li> 
+							<li>只能在一张订单中使用，不找零，不可与其他优惠卡券叠加使用；</li> 
+							<li>其他细则参照飞牛网官网公告为准，飞牛网客服热线：400-920-6565 </li>
+							<p>（工作时间：9:00-22:00）。</p>
+                            </ul>
+							
+						</div>
+</div>
+</div>			
+   	
+        </div>
+        <!--end替换内容-->
+    </div>
+    <!--end:wrap-->
+	</body>
+	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/head.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('#warp').prepend(data);
+				$('.clearfix').find('.nav_curr').removeClass('nav_curr').end().children('li').eq(3).addClass('nav_curr')
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/end.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('#warp').append(data);
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/returnTop.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('body').append(data);
+			}
+		});
+		$.ajax({
+			type: 'GET',
+			url: '../../../kkdhead/lib/js.html',
+			data: '_=' + Date.parse(new Date()),
+			success: function(data) {
+				$('#warp').append(data);
+			}
+		});
+	});
+</script>
+	<script>
+	//document.cookie="JSESSIONID="+'CF7673867BBC202B5C0A1307984B33A4';
+		var getState = (function(){
+			var cookies ;
+			function getCookies(name){
+				var allcookies = document.cookie;
+				console.log(allcookies)
+				var cookie_pos = allcookies.indexOf(name);
+				
+				if(cookie_pos !=-1){
+					cookie_pos += name.length + 1;
+					var cookie_end = allcookies.indexOf(";", cookie_pos);
+					
+					if (cookie_end == -1){
+	        
+		            	cookie_end = allcookies.length;
+		        	}
+					cookies = unescape(allcookies.substring(cookie_pos, cookie_end)); 
+				}else{
+					return false
+				}
+				
+				return cookies;
+				
+			}
+			console.log(getCookies('JSESSIONID'))
+			return {
+				ajax:function(){
+					$.ajax({
+				        type: 'GET',
+				        //http://10.1.1.212/public/checkKkdLogin?__VIEW__=jsonp
+				        url: 'http://rpt.kuaikuaidai.com/public/checkKkdLogin?__VIEW__=jsonp',
+				        //url: 'http://10.1.1.212/public/checkKkdLogin?__VIEW__=jsonp',
+				        dataType: "jsonp",
+						jsonp: "jsonp",
+				        data: {
+				        	jskey : getCookies('JSESSIONID')?getCookies('JSESSIONID'):''
+				        } ,
+				        success: function(res) {
+				        	console.log(res)
+				           getState.domState(res)
+				        }
+				    });
+				},
+				domState : function(dataObj){
+					if(dataObj.code==400){
+						$('.head_rigth a').eq(0).text('登录').css('color','#fff').attr('href','http://www.kuaikuaidai.com/login.html')
+						$('.head_rigth a').eq(1).text('注册').css('color','#fff').attr('href','http://www.kuaikuaidai.com/register.html')
+					}else if(dataObj.code==200){
+						$('.head_rigth a').eq(0).text('我的账户').css('color','#ff7f41').attr('href','http://www.kuaikuaidai.com/mycenterMyaccount.html')
+						$('.head_rigth a').eq(1).text('退出').css('color','#acaeb2').attr('href','http://www.kuaikuaidai.com/logout.html')
+					}
+				}
+			}
+		})()
+		setTimeout(getState.ajax,500)
+		
+	</script>
+</html>

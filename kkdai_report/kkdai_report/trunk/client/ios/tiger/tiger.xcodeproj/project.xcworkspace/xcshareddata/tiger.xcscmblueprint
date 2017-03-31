@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "915ffffa-d23c-0f4c-9721-719428ddb0b2++505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "915ffffa-d23c-0f4c-9721-719428ddb0b2++505" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "915ffffa-d23c-0f4c-9721-719428ddb0b2++505" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "35EA382E-07AB-45F8-B8E9-6F5202210CCB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "915ffffa-d23c-0f4c-9721-719428ddb0b2++505" : "%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0APP\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "tiger",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "client\/ios\/tiger\/tiger.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/10.1.1.203\/svn\/kkdai_report",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "915ffffa-d23c-0f4c-9721-719428ddb0b2++505"
+    }
+  ]
+}

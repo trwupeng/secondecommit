@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0; margin:0; list-style:none;}
+.f_fiveactivity{ width:100%; height:1152px; background: url(../images/content_bg.png) center center no-repeat;}
+.f_content{ width:1000px; margin:0 auto; font-family:"SimHei"; font-size:18px; padding-top:385px;}
+.f_winninglist{ width:700px; height:380px; background:#faf0ad; border-radius:12px; position:relative; margin:0 0 0 42px;}
+.f_winningname{ width:110px; height:50px; background:url(../images/hengbiao.png) left center no-repeat; position:absolute; top:20px; left:-7px;}
+.f_winningname h3{ width:100px; height:38px; line-height:38px; padding-left:10px; font-size:18px; color:#fff; text-align:center; font-weight:normal;}
+.f_tel_list{ overflow:hidden; position:relative;}
+.f_tel_list_con{ width:360px; height:146px; background:#ffffff; padding-top:15px; border-radius:8px; margin:75px 0 0 30px; overflow:hidden;}
+.f_tel_list_con ul{ width:320px; margin:0 auto;}
+.f_tel_list_con ul li{ width:100%; margin:0 auto; height:20px; line-height:20px; color:#662603; font-size:14px; margin-bottom:8px;}
+.f_tel_list_con ul li .user{ float:left;}
+.f_tel_list_con ul li .quan{ float:right;}
+.f_opportunity{ width:360px; margin-left:30px; height:54px; line-height:54px; font-size:24px; color:#c1172c; text-align:center;}
+.f_opportunity span{ font-size:36px; color:#d72a7c;}
+.f_gift{ height:48px; line-height:48px; margin-left:30px; margin-top:8px; overflow:hidden;}
+.f_gift_btn{ width:163px; height:48px; background:#d72a7c; border-radius:30px; float:left;}
+.f_gift_btn01{ margin-right:40px;}
+.f_gift_btn a{ width:163px; height:48px; line-height:48px; text-align:center; color:#fff; font-size:22px; float:left; text-decoration:none;}
+.f_dial{ width:560px; height:567px; position:absolute; top:-120px; right:-260px; z-index:200; }
+.f_dial_con{ position:relative;}
+.f_dial_bg{ width:546px; height:547px; margin-left:10px; position:relative;}
+.f_dial_btn{ width:138px; height:221px; background:url(../images/jiantou.png) left center no-repeat; position:absolute; left:212px; top:123px; z-index:400; cursor:pointer;}
+.f_dial_pic{ width:269px; height:192px; background:url(../images/jinbi.png) left center no-repeat; position:absolute; left:360px; top:364px;}
+.f_activityrule{ width:915px; height:242px; background:#faf0ad; border-radius:10px; margin:77px 0 0 42px; position:relative;}
+.f_activityrule_con{ width:855px; padding:87px 30px 0 30px; border-radius:8px;}
+.f_activityrule_con p{ line-height:35px; font-size:18px; color:#662603;}

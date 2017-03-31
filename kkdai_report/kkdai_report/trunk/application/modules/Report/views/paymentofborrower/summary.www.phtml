@@ -1,0 +1,135 @@
+<form action="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1), 'summary'); ?>" method="post" id="contracts-exportChecked" style="display: none;">
+</form>
+<div class="bjui-pageHeader">
+    <form  id="pagerForm" method="get" action="<?php echo \Sooh\Base\Tools::uri(); ?>" data-toggle="ajaxsearch">
+        <input type="hidden" name="__formguid__" value="default" />
+        <input type="hidden" name="pageSize" value="<?php echo $this->pagesize; ?>">
+        <input type="hidden" name="pageCurrent" value="<?php echo $this->pageid; ?>">
+        <input type="hidden" name="orderField" value="${param.orderField}">
+        <input type="hidden" name="orderDirection" value="${param.orderDirection}">
+        <label>合约还款日期从：</label>
+        <input type="text" data-toggle="datepicker" name="ymdFrom" value="<?php echo $this->ymdFrom; ?>" size="18"  />
+        &nbsp;
+        <label>到：</label>
+        <input type="text" data-toggle="datepicker" name="ymdTo" value="<?php echo $this->ymdTo; ?>" size="18" />
+        &nbsp;
+        <label>产品类型：</label>
+        <select name='shelfId' value="shelfId" id="ids" >
+            <?php
+            $shelfIdselected= $this->shelfIdSelected;
+            $shelfIds=$this->shelfIds;
+//var_log($shelfIdselected, 'shelfIdselected########');
+//var_log($shelfIds, 'shelfIds###########');
+            foreach ($shelfIds as $k=>$v){
+            ?>
+
+                <option value="<?php echo $k;?>" <?php if($k==$shelfIdselected) {echo "selected=\"selected\"";}?>><?php echo $v;?></option>
+            <?php
+            }
+            ?>
+        </select>
+        &nbsp;
+        <lable>借款人姓名:</lable>
+        <input type="text" name="realname" value="<?php echo $this->realname; ?>" size="18" />
+        &nbsp;
+        <lable>标的名称:</lable>
+        <input type="text" name="waresName" value="<?php echo $this->waresName; ?>" size="18" />
+        &nbsp;
+        <button type="submit" class="btn btn-default">查询</button>
+        <a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
+        <div class="pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn-default dropdown-toggle" data-toggle="dropdown" data-icon="copy">复选框-批量操作<span class="caret"></span></button>
+                <ul class="dropdown-menu right" role="menu">
+                    <li><a href="<?php echo \Sooh\Base\Tools::uri(array('__EXCEL__'=>1,'where'=>$this->where),'summary'); ?>">导出<span style="color: green;">全部</span></a></li>
+<!--                    <li><a class="contracts-export" style="cursor: pointer">导出<span style="color: red">选中</span></a></li>-->
+                    <li class="divider"></li>
+                </ul>
+            </div>
+
+            <script>
+                /** 构造表单 post 方法 提交 */
+                var ids = new Array();
+                $('.contracts-export').click(function(){
+                    if(ids.length==0)
+                    {
+                        $(document).alertmsg('error', '无选中选项');
+                        return false;
+                    }
+                    $('#contracts-exportChecked').html(''); //add ' '
+                    for(var i in ids)
+                    {
+                        var reg = /function[.]*/;
+                        if(reg.exec(ids[i])!=null)
+                        {
+                            continue;
+                        }
+                        $('#contracts-exportChecked').append("<input type='hidden' name='ids[]' value='"+ids[i]+"'>");
+                    }
+                    $('#contracts-exportChecked').submit();
+                    return false;
+                });
+            </script>
+        </div>
+    </form>
+</div>
+
+<div class="bjui-pageContent">
+<!--    <table class="table table-bordered table-hover table-striped">-->
+    <table class="table table-bordered table-hover table-striped table-top" data-selected-multi="true" data-toggle="tablefixed">
+        <thead>
+        <tr>
+            <?php
+            if(!empty($this->fieldsMap)) {
+                foreach($this->fieldsMap as $title) {
+                    ?>
+                    <th ><?php echo $title; ?></th>
+                    <?php
+                }
+            }
+            ?>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        if(!empty($this->records)) {
+            foreach($this->records as $r) {
+                $pkey = $r['__PKEY__'];
+                unset ($r['__PKEY__']);
+                echo "<tr data-id=\"".$pkey."\"><td>";
+                echo implode('</td><td>', $r);
+                echo "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <?php
+                $pager = $this->pager;
+                $r = explode(',', $pager->enumPagesize);
+                foreach($r as $v){
+                    $str .= "<option value=\"$v\">$v</option>";
+                }
+                echo $str;
+                ?>
+            </select>
+        </div>
+        <span>&nbsp;条，共 <?php echo $pager->total; ?> 条,&nbsp;&nbsp;共<?php echo $pager->page_count;?>页</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="<?php echo $pager->total; ?>" data-page-size="<?php echo $pager->page_size; ?>" data-page-current="<?php $pager->pageid(); ?>"></div>
+
+</div>

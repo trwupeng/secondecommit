@@ -1,0 +1,44 @@
+<script type="text/javascript">
+/*客户端移入移出*/
+$(".head_web").hover(hoverIn, hoverOut);
+$(".head_app").hover(hoverIn, hoverOut);
+
+function hoverIn() {
+    $(".head_web").css({
+        "color": "#fa9260"
+    });
+    $(".head_app").show();
+}
+
+function hoverOut() {
+    $(".head_web").css({
+        "color": "#acaeb2",
+        "background": "none"
+    });
+    $(".head_app").hide();
+}
+/*导航移入移出*/
+$('.nav_arrow').hover(function() {
+    $('.nav_box').css('display', 'block');
+}, function() {
+    $('.nav_box').css('display', 'none');
+});
+
+// 返回顶部
+$('.back2Top').click('tap', function() {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 200);
+});
+</script>
+<!-- 诚信相关代码 -->
+<script type='text/javascript'>
+(function() {
+    // document.getElementById('___szfw_logo___').oncontextmenu = function() {
+    //     return false;
+    // }
+    $('#___szfw_logo___').bind('contextmenu', function(e) {
+        return false;
+    });
+})();
+</script>

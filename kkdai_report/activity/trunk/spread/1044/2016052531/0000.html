@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../js/common-1.js"></script>
+<script>
+	 function UrlSearch() 
+{
+   var name,value; 
+   var url=location.href; //取得整个地址栏
+   var num=url.indexOf("?") //返回？在字符串中首次出现的位置。
+   url=url.substr(num+1); // 在字符串中抽取从 start 下标开始的指定数目的字符。
+
+   var arr=url.split("&"); //各个参数放到数组里以&分开。
+   for(var i=0;i < arr.length;i++){ 
+    num=arr[i].indexOf("="); //用等号进行分隔，返回=首次出现的位置。
+    if(num>0){ //如果参数不止一个就进行循环
+     name=arr[i].substring(0,num);//substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+     value=arr[i].substr(num+1);
+     this[name]=value;
+     } 
+    } 
+} 
+
+$(function(){
+ var Request=new UrlSearch(); //实例化url参数值
+      //alert(Request.userid);
+     console.log(Request.userid);
+     add_site_cookie('userid', Request.userid, 3, '.kuaikuaidai.com'); //种植cookie值
+	  
+ if(Math.round(Math.random()*10+1)%2 == 0){
+	window.location.href="0001.html?userid01="+Request.userid;
+}else{
+   window.location.href="0002.html?userid01="+Request.userid;    
+}
+	
+})
+</script>
+</head>
+
+<body>
+</body>
+
+
+</html>
